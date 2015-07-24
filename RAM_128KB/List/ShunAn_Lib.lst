@@ -1,0 +1,159 @@
+###############################################################################
+#                                                                             #
+# IAR ANSI C/C++ Compiler V6.60.1.5097/W32 for ARM      27/Aug/2014  16:25:29 #
+# Copyright 1999-2013 IAR Systems AB.                                         #
+#                                                                             #
+#    Cpu mode     =  thumb                                                    #
+#    Endian       =  little                                                   #
+#    Source file  =  D:\创作室\飞思卡尔智能小车\调试板\遥控器\Library\Blessed #
+#                    Alien\ShunAn_Lib.c                                       #
+#    Command line =  D:\创作室\飞思卡尔智能小车\调试板\遥控器\Library\Blessed #
+#                    Alien\ShunAn_Lib.c -D IAR -D TWR_K60F120M -lCN           #
+#                    D:\创作室\飞思卡尔智能小车\调试板\遥控器\RAM_128KB\List\ #
+#                     -lB D:\创作室\飞思卡尔智能小车\调试板\遥控器\RAM_128KB\ #
+#                    List\ -o D:\创作室\飞思卡尔智能小车\调试板\遥控器\RAM_12 #
+#                    8KB\Obj\ --no_cse --no_unroll --no_inline                #
+#                    --no_code_motion --no_tbaa --no_clustering               #
+#                    --no_scheduling --debug --endian=little --cpu=Cortex-M4  #
+#                    -e --fpu=None --dlib_config "C:\Program Files (x86)\IAR  #
+#                    Systems\Embedded Workbench 6.5\arm\INC\c\DLib_Config_Nor #
+#                    mal.h" -I D:\创作室\飞思卡尔智能小车\调试板\遥控器\ -I   #
+#                    D:\创作室\飞思卡尔智能小车\调试板\遥控器\Library\ -I     #
+#                    D:\创作室\飞思卡尔智能小车\调试板\遥控器\Library\Blessed #
+#                    Alien\ -I D:\创作室\飞思卡尔智能小车\调试板\遥控器\ShunA #
+#                    n_Panel\ -Ol --use_c++_inline                            #
+#    List file    =  D:\创作室\飞思卡尔智能小车\调试板\遥控器\RAM_128KB\List\ #
+#                    ShunAn_Lib.lst                                           #
+#    Object file  =  D:\创作室\飞思卡尔智能小车\调试板\遥控器\RAM_128KB\Obj\S #
+#                    hunAn_Lib.o                                              #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+D:\创作室\飞思卡尔智能小车\调试板\遥控器\Library\BlessedAlien\ShunAn_Lib.c
+      1          // 单精度转换为整形
+      2          #include "arm_cm4.h"
+
+   \                                 In section .text, align 2, keep-with-next
+      3          signed long int RoundToInt32 (float dval)
+      4          {
+   \                     RoundToInt32: (+1)
+   \   00000000   0xB510             PUSH     {R4,LR}
+      5              signed long int val = 0;
+   \   00000002   0x2400             MOVS     R4,#+0
+      6              static float magic = 12582912.0;
+      7              dval += magic;
+   \   00000004   0x....             LDR.N    R1,??DataTable1
+   \   00000006   0x6809             LDR      R1,[R1, #+0]
+   \   00000008   0x.... 0x....      BL       __aeabi_fadd
+      8              val = *(signed long int*)&dval;
+   \   0000000C   0x0004             MOVS     R4,R0
+      9              return val;
+   \   0000000E   0x0020             MOVS     R0,R4
+   \   00000010   0xBD10             POP      {R4,PC}          ;; return
+     10          }
+
+   \                                 In section .data, align 4
+   \                     ??magic:
+   \   00000000   0x4B400000         DC32 4B400000H
+     11          // 双精度转换为整形
+
+   \                                 In section .text, align 2, keep-with-next
+     12          signed long int RoundToInt64 (double dval)
+     13          {
+   \                     RoundToInt64: (+1)
+   \   00000000   0xB53B             PUSH     {R0,R1,R3-R5,LR}
+     14              signed long int val = 0;
+   \   00000002   0x2400             MOVS     R4,#+0
+     15              static double magic = 6755399441055744.0;
+     16              dval += magic;
+   \   00000004   0xE9DD 0x2300      LDRD     R2,R3,[SP, #+0]
+   \   00000008   0x....             LDR.N    R5,??DataTable1_1
+   \   0000000A   0xE9D5 0x0100      LDRD     R0,R1,[R5, #+0]
+   \   0000000E   0x.... 0x....      BL       __aeabi_dadd
+   \   00000012   0xE9CD 0x0100      STRD     R0,R1,[SP, #+0]
+     17              val = *(signed long int*)&dval;
+   \   00000016   0x9800             LDR      R0,[SP, #+0]
+   \   00000018   0x0004             MOVS     R4,R0
+     18              return val;
+   \   0000001A   0x0020             MOVS     R0,R4
+   \   0000001C   0xBD3E             POP      {R1-R5,PC}       ;; return
+     19          }
+
+   \                                 In section .data, align 8
+   \                     ??magic_1:
+   \   00000000   0x00000000         DC32 0H, 43380000H
+   \              0x43380000   
+     20          // 延迟函数
+
+   \                                 In section .text, align 2, keep-with-next
+     21          void vDelayMs( unsigned int MuchMs )
+     22          {
+     23            	unsigned int pool_Much = 0;  
+   \                     vDelayMs: (+1)
+   \   00000000   0x2100             MOVS     R1,#+0
+     24          	unsigned int pool_ms = 0;
+   \   00000002   0x2200             MOVS     R2,#+0
+     25          	for(pool_Much=0;pool_Much<MuchMs;pool_Much++)
+   \   00000004   0x2300             MOVS     R3,#+0
+   \   00000006   0x0019             MOVS     R1,R3
+   \   00000008   0xE005             B.N      ??vDelayMs_0
+     26          	{
+     27                    for(pool_ms=0;pool_ms<19100;pool_ms++);//约为1ms延迟
+   \                     ??vDelayMs_1: (+1)
+   \   0000000A   0x1C52             ADDS     R2,R2,#+1
+   \                     ??vDelayMs_2: (+1)
+   \   0000000C   0xF644 0x239C      MOVW     R3,#+19100
+   \   00000010   0x429A             CMP      R2,R3
+   \   00000012   0xD3FA             BCC.N    ??vDelayMs_1
+   \   00000014   0x1C49             ADDS     R1,R1,#+1
+   \                     ??vDelayMs_0: (+1)
+   \   00000016   0x4281             CMP      R1,R0
+   \   00000018   0xD201             BCS.N    ??vDelayMs_3
+   \   0000001A   0x2200             MOVS     R2,#+0
+   \   0000001C   0xE7F6             B.N      ??vDelayMs_2
+     28          	}
+     29          }
+   \                     ??vDelayMs_3: (+1)
+   \   0000001E   0x4770             BX       LR               ;; return
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1:
+   \   00000000   0x........         DC32     ??magic
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_1:
+   \   00000000   0x........         DC32     ??magic_1
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       8   RoundToInt32
+         8   -> __aeabi_fadd
+      24   RoundToInt64
+        24   -> __aeabi_dadd
+       0   vDelayMs
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable1
+       4  ??DataTable1_1
+      18  RoundToInt32
+      30  RoundToInt64
+       4  magic
+       8  magic
+      32  vDelayMs
+
+ 
+ 12 bytes in section .data
+ 88 bytes in section .text
+ 
+ 88 bytes of CODE memory
+ 12 bytes of DATA memory
+
+Errors: none
+Warnings: none

@@ -1,0 +1,251 @@
+###############################################################################
+#                                                                             #
+# IAR ANSI C/C++ Compiler V6.60.1.5097/W32 for ARM      16/Aug/2014  22:11:17 #
+# Copyright 1999-2013 IAR Systems AB.                                         #
+#                                                                             #
+#    Cpu mode     =  thumb                                                    #
+#    Endian       =  little                                                   #
+#    Source file  =  C:\Users\pc\Desktop\继续做的事情\四旋翼飞行器 -          #
+#                    TM4123G\代码\遥控器\ShunAn2\GR_Serverx11_12.c            #
+#    Command line =  "C:\Users\pc\Desktop\继续做的事情\四旋翼飞行器 -         #
+#                    TM4123G\代码\遥控器\ShunAn2\GR_Serverx11_12.c" -D IAR    #
+#                    -D ShunAn2 -lCN "C:\Users\pc\Desktop\继续做的事情\四旋翼 #
+#                    飞行器 - TM4123G\代码\遥控器\FLASH_1M\List\" -lB         #
+#                    "C:\Users\pc\Desktop\继续做的事情\四旋翼飞行器 -         #
+#                    TM4123G\代码\遥控器\FLASH_1M\List\" -o                   #
+#                    "C:\Users\pc\Desktop\继续做的事情\四旋翼飞行器 -         #
+#                    TM4123G\代码\遥控器\FLASH_1M\Obj\" --no_cse --no_unroll  #
+#                    --no_inline --no_code_motion --no_tbaa --no_clustering   #
+#                    --no_scheduling --debug --endian=little --cpu=Cortex-M4  #
+#                    -e --fpu=None --dlib_config "C:\Program Files (x86)\IAR  #
+#                    Systems\Embedded Workbench 6.5\arm\INC\c\DLib_Config_Nor #
+#                    mal.h" -I "C:\Users\pc\Desktop\继续做的事情\四旋翼飞行器 #
+#                     - TM4123G\代码\遥控器\ShunAn2\" -I                      #
+#                    "C:\Users\pc\Desktop\继续做的事情\四旋翼飞行器 -         #
+#                    TM4123G\代码\遥控器\Library\" -I                         #
+#                    "C:\Users\pc\Desktop\继续做的事情\四旋翼飞行器 -         #
+#                    TM4123G\代码\遥控器\Library\BlessedAlien\" -Ol           #
+#                    --use_c++_inline                                         #
+#    List file    =  C:\Users\pc\Desktop\继续做的事情\四旋翼飞行器 -          #
+#                    TM4123G\代码\遥控器\FLASH_1M\List\GR_Serverx11_12.lst    #
+#    Object file  =  C:\Users\pc\Desktop\继续做的事情\四旋翼飞行器 -          #
+#                    TM4123G\代码\遥控器\FLASH_1M\Obj\GR_Serverx11_12.o       #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Users\pc\Desktop\继续做的事情\四旋翼飞行器 - TM4123G\代码\遥控器\ShunAn2\GR_Serverx11_12.c
+      1          #include "MK60F15.h"
+      2          #include "GR_Serverx11_12.h"
+      3          
+      4          //打角舵机
+      5          #define Server1Central 13120
+      6          #define Server1Offset 3000
+      7          #define Server1Left (Server1Central-Server1Offset)
+      8          #define Server1Right (Server1Central+Server1Offset)
+      9          //==============================================================
+     10          //函数名：void GR_ServerInit()
+     11          //功能描述：舵机PWM初始化，PTA11-FTM2_CH1
+     12          //参数：无
+     13          //返回：无
+     14          //==============================================================
+
+   \                                 In section .text, align 2, keep-with-next
+     15          void GR_ServerInit()
+     16          {
+     17            SIM_SCGC6 |= SIM_SCGC6_FTM0_MASK;//使能FTM0时钟
+   \                     GR_ServerInit: (+1)
+   \   00000000   0x....             LDR.N    R0,??DataTable1  ;; 0x4004803c
+   \   00000002   0x6800             LDR      R0,[R0, #+0]
+   \   00000004   0xF050 0x7080      ORRS     R0,R0,#0x1000000
+   \   00000008   0x....             LDR.N    R1,??DataTable1  ;; 0x4004803c
+   \   0000000A   0x6008             STR      R0,[R1, #+0]
+     18            SIM_SCGC5 |= 0x00001000u;//使能PORTD时钟
+   \   0000000C   0x....             LDR.N    R0,??DataTable1_1  ;; 0x40048038
+   \   0000000E   0x6800             LDR      R0,[R0, #+0]
+   \   00000010   0xF450 0x5080      ORRS     R0,R0,#0x1000
+   \   00000014   0x....             LDR.N    R1,??DataTable1_1  ;; 0x40048038
+   \   00000016   0x6008             STR      R0,[R1, #+0]
+     19            PORTD_PCR4 = 0x00000400u;//引脚复用选择ALT4(FTM)
+   \   00000018   0x....             LDR.N    R0,??DataTable1_2  ;; 0x4004c010
+   \   0000001A   0xF44F 0x6180      MOV      R1,#+1024
+   \   0000001E   0x6001             STR      R1,[R0, #+0]
+     20            
+     21            FTM0_C4SC &= ~FTM_CnSC_ELSA_MASK;                  // MSnB:MSnA = 1x       边沿对齐PWM
+   \   00000020   0x....             LDR.N    R0,??DataTable1_3  ;; 0x4003802c
+   \   00000022   0x6800             LDR      R0,[R0, #+0]
+   \   00000024   0xF030 0x0004      BICS     R0,R0,#0x4
+   \   00000028   0x....             LDR.N    R1,??DataTable1_3  ;; 0x4003802c
+   \   0000002A   0x6008             STR      R0,[R1, #+0]
+     22            FTM0_C4SC = FTM_CnSC_MSB_MASK | FTM_CnSC_ELSB_MASK;// ELSnB:ELSnA = 10     先高后低
+   \   0000002C   0x....             LDR.N    R0,??DataTable1_3  ;; 0x4003802c
+   \   0000002E   0x2128             MOVS     R1,#+40
+   \   00000030   0x6001             STR      R1,[R0, #+0]
+     23                                                               // ELSnB:ELSnA = 11     先低后高
+     24            FTM0_SC = 0 | FTM_SC_PS(3) | FTM_SC_CLKS(1);//上升沿计数模式、分频系数为2^3(300Hz)2^5(75Hz)、时钟选择为bus 时钟、禁止中断
+   \   00000032   0x....             LDR.N    R0,??DataTable1_4  ;; 0x40038000
+   \   00000034   0x210B             MOVS     R1,#+11
+   \   00000036   0x6001             STR      R1,[R0, #+0]
+     25            FTM0_MOD = 31250;//模数, EPWM的周期为 ：MOD - CNTIN + 0x0001
+   \   00000038   0x....             LDR.N    R0,??DataTable1_5  ;; 0x40038008
+   \   0000003A   0xF647 0x2112      MOVW     R1,#+31250
+   \   0000003E   0x6001             STR      R1,[R0, #+0]
+     26            FTM0_CNTIN = 0;//脉冲宽度：(CnV - CNTIN)
+   \   00000040   0x....             LDR.N    R0,??DataTable1_6  ;; 0x4003804c
+   \   00000042   0x2100             MOVS     R1,#+0
+   \   00000044   0x6001             STR      R1,[R0, #+0]
+     27            FTM0_C4V = Server1Central;//脉冲宽度：(CnV - CNTIN)
+   \   00000046   0x....             LDR.N    R0,??DataTable1_7  ;; 0x40038030
+   \   00000048   0xF44F 0x514D      MOV      R1,#+13120
+   \   0000004C   0x6001             STR      R1,[R0, #+0]
+     28            FTM0_CNT = 0;//计数器。只有低16位可用（写任何值到此寄存器，都会加载 CNTIN 的值）
+   \   0000004E   0x....             LDR.N    R0,??DataTable1_8  ;; 0x40038004
+   \   00000050   0x2100             MOVS     R1,#+0
+   \   00000052   0x6001             STR      R1,[R0, #+0]
+     29            //正中间占空比45-14062，最左占空比35-10937，最右占空比55-17187(300Hz)
+     30            //正中间占空比45-4300，最左占空比35-4950，最右占空比55-3650(75Hz)
+     31            //正中间占空比13240，最左10630，最右15850
+     32          }
+   \   00000054   0x4770             BX       LR               ;; return
+     33          //==============================================================
+     34          //函数名：void GR_ServerPWMOut(unsigned short int duty)
+     35          //功能描述：转向舵机PWM输出
+     36          //参数：占空比(0-200)，100为正中间，0为最左边，200为最右边
+     37          //返回：无
+     38          //==============================================================
+
+   \                                 In section .text, align 2, keep-with-next
+     39          void GR_ServerPWMOut(unsigned char duty)
+     40          {
+   \                     GR_ServerPWMOut: (+1)
+   \   00000000   0xB580             PUSH     {R7,LR}
+     41            unsigned short int PWMtemp;//正中间占空比15200，最左占空比12100，最右占空比18300//正中间占空比45-4250，最左占空比35-4900，最右占空比55-3600(75Hz)
+     42            float float_temp;
+     43            if(duty > 200) duty = 200;
+   \   00000002   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \   00000004   0x28C9             CMP      R0,#+201
+   \   00000006   0xDB00             BLT.N    ??GR_ServerPWMOut_0
+   \   00000008   0x20C8             MOVS     R0,#+200
+     44            float_temp = duty;
+   \                     ??GR_ServerPWMOut_0: (+1)
+   \   0000000A   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \   0000000C   0x.... 0x....      BL       __aeabi_ui2f
+     45            float_temp = float_temp/200*(Server1Offset*2) + Server1Left;//计算实际输出占空比,200为满刻度，3125为实际占空比最大值减最小值（即变化范围），12100为实际能输出的最小占空比
+   \   00000010   0x....             LDR.N    R1,??DataTable1_9  ;; 0x43480000
+   \   00000012   0x.... 0x....      BL       __aeabi_fdiv
+   \   00000016   0x....             LDR.N    R1,??DataTable1_10  ;; 0x45bb8000
+   \   00000018   0x.... 0x....      BL       __aeabi_fmul
+   \   0000001C   0x....             LDR.N    R1,??DataTable1_11  ;; 0x461e2000
+   \   0000001E   0x.... 0x....      BL       __aeabi_fadd
+     46            PWMtemp = (unsigned short int)float_temp;
+   \   00000022   0x.... 0x....      BL       __aeabi_f2iz
+     47            if(PWMtemp > Server1Right) PWMtemp = Server1Right;
+   \   00000026   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
+   \   00000028   0xF643 0x61F9      MOVW     R1,#+16121
+   \   0000002C   0x4288             CMP      R0,R1
+   \   0000002E   0xDB02             BLT.N    ??GR_ServerPWMOut_1
+   \   00000030   0xF643 0x60F8      MOVW     R0,#+16120
+   \   00000034   0xE006             B.N      ??GR_ServerPWMOut_2
+     48            else if(PWMtemp < Server1Left) PWMtemp = Server1Left;
+   \                     ??GR_ServerPWMOut_1: (+1)
+   \   00000036   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
+   \   00000038   0xF242 0x7188      MOVW     R1,#+10120
+   \   0000003C   0x4288             CMP      R0,R1
+   \   0000003E   0xDA01             BGE.N    ??GR_ServerPWMOut_2
+   \   00000040   0xF242 0x7088      MOVW     R0,#+10120
+     49            FTM0_C4V = PWMtemp;
+   \                     ??GR_ServerPWMOut_2: (+1)
+   \   00000044   0x....             LDR.N    R1,??DataTable1_7  ;; 0x40038030
+   \   00000046   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
+   \   00000048   0x6008             STR      R0,[R1, #+0]
+     50          }
+   \   0000004A   0xBD01             POP      {R0,PC}          ;; return
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1:
+   \   00000000   0x4004803C         DC32     0x4004803c
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_1:
+   \   00000000   0x40048038         DC32     0x40048038
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_2:
+   \   00000000   0x4004C010         DC32     0x4004c010
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_3:
+   \   00000000   0x4003802C         DC32     0x4003802c
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_4:
+   \   00000000   0x40038000         DC32     0x40038000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_5:
+   \   00000000   0x40038008         DC32     0x40038008
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_6:
+   \   00000000   0x4003804C         DC32     0x4003804c
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_7:
+   \   00000000   0x40038030         DC32     0x40038030
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_8:
+   \   00000000   0x40038004         DC32     0x40038004
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_9:
+   \   00000000   0x43480000         DC32     0x43480000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_10:
+   \   00000000   0x45BB8000         DC32     0x45bb8000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_11:
+   \   00000000   0x461E2000         DC32     0x461e2000
+     51          
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       0   GR_ServerInit
+       8   GR_ServerPWMOut
+         8   -> __aeabi_f2iz
+         8   -> __aeabi_fadd
+         8   -> __aeabi_fdiv
+         8   -> __aeabi_fmul
+         8   -> __aeabi_ui2f
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable1
+       4  ??DataTable1_1
+       4  ??DataTable1_10
+       4  ??DataTable1_11
+       4  ??DataTable1_2
+       4  ??DataTable1_3
+       4  ??DataTable1_4
+       4  ??DataTable1_5
+       4  ??DataTable1_6
+       4  ??DataTable1_7
+       4  ??DataTable1_8
+       4  ??DataTable1_9
+      86  GR_ServerInit
+      76  GR_ServerPWMOut
+
+ 
+ 210 bytes in section .text
+ 
+ 210 bytes of CODE memory
+
+Errors: none
+Warnings: none

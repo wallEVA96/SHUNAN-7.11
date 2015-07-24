@@ -1,0 +1,242 @@
+###############################################################################
+#                                                                             #
+# IAR ELF Linker V6.60.1.5097/W32 for ARM               05/Oct/2014  21:18:08 #
+# Copyright 2007-2013 IAR Systems AB.                                         #
+#                                                                             #
+#    Output file  =  D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\ÖÇÄÜ¹Ì¼þ\MK60FX512VLQ15\RAM_1 #
+#                    28KB\Exe\ShunAn_Poet.out                                 #
+#    Map file     =  D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\ÖÇÄÜ¹Ì¼þ\MK60FX512VLQ15\RAM_1 #
+#                    28KB\List\ShunAn_Poet.map                                #
+#    Command line =  D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\ÖÇÄÜ¹Ì¼þ\MK60FX512VLQ15\RAM_1 #
+#                    28KB\Obj\60FX_RegAll.o D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\ÖÇÄÜ¹Ì #
+#                    ¼þ\MK60FX512VLQ15\RAM_128KB\Obj\arm_cm4.o                #
+#                    D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\ÖÇÄÜ¹Ì¼þ\MK60FX512VLQ15\RAM_1 #
+#                    28KB\Obj\BIOS.o D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\ÖÇÄÜ¹Ì¼þ\MK60 #
+#                    FX512VLQ15\RAM_128KB\Obj\BlessedAlien.o                  #
+#                    D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\ÖÇÄÜ¹Ì¼þ\MK60FX512VLQ15\RAM_1 #
+#                    28KB\Obj\Bluetooth.o D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\ÖÇÄÜ¹Ì¼þ #
+#                    \MK60FX512VLQ15\RAM_128KB\Obj\ControlPads.o              #
+#                    D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\ÖÇÄÜ¹Ì¼þ\MK60FX512VLQ15\RAM_1 #
+#                    28KB\Obj\ExInterface.o D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\ÖÇÄÜ¹Ì #
+#                    ¼þ\MK60FX512VLQ15\RAM_128KB\Obj\GUI.o                    #
+#                    D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\ÖÇÄÜ¹Ì¼þ\MK60FX512VLQ15\RAM_1 #
+#                    28KB\Obj\main.o D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\ÖÇÄÜ¹Ì¼þ\MK60 #
+#                    FX512VLQ15\RAM_128KB\Obj\memory.o                        #
+#                    D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\ÖÇÄÜ¹Ì¼þ\MK60FX512VLQ15\RAM_1 #
+#                    28KB\Obj\MK60F15.o D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\ÖÇÄÜ¹Ì¼þ\M #
+#                    K60FX512VLQ15\RAM_128KB\Obj\ovt_OV7725.o                 #
+#                    D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\ÖÇÄÜ¹Ì¼þ\MK60FX512VLQ15\RAM_1 #
+#                    28KB\Obj\ShunAn_Lib.o D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\ÖÇÄÜ¹Ì¼ #
+#                    þ\MK60FX512VLQ15\RAM_128KB\Obj\start_ShunAn.o            #
+#                    D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\ÖÇÄÜ¹Ì¼þ\MK60FX512VLQ15\RAM_1 #
+#                    28KB\Obj\startup_ShunAn_K60FX512VLQ15.o                  #
+#                    D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\ÖÇÄÜ¹Ì¼þ\MK60FX512VLQ15\RAM_1 #
+#                    28KB\Obj\TFT.o --redirect _Printf=_PrintfFull            #
+#                    --redirect _Scanf=_ScanfFull -o                          #
+#                    D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\ÖÇÄÜ¹Ì¼þ\MK60FX512VLQ15\RAM_1 #
+#                    28KB\Exe\ShunAn_Poet.out --map                           #
+#                    D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\ÖÇÄÜ¹Ì¼þ\MK60FX512VLQ15\RAM_1 #
+#                    28KB\List\ShunAn_Poet.map --config                       #
+#                    D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\µ÷ÊÔ°å\Ò£¿ØÆ÷\configfiles\512 #
+#                    KB_Pflash_512KB_Dflash.icf --semihosting --entry         #
+#                    __iar_program_start --vfe                                #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A1":  place at 0x00000000 { ro section .intvec };
+"A2":  place at 0x00000410 { ro section .noinit };
+"P1":  place in [from         0x00000000
+                 to           0x00080000
+                 repeat       2
+                 displacement 0x10000000] { ro, block CodeRelocate };
+"P2":  place in [from 0x1fff0410 to 0x1fffffff] |
+                [from 0x20000000 to 0x20010000] {
+          rw, block CodeRelocateRam, block CSTACK, block HEAP };
+
+  Section              Kind        Address   Size  Object
+  -------              ----        -------   ----  ------
+"A1":                                       0x410
+  .intvec              const    0x00000000  0x410  start_ShunAn.o [1]
+                              - 0x00000410  0x410
+
+"P1", part 1 of 2:                            0x0
+  .rodata              const    0x00000410    0x0  zero_init3.o [5]
+
+"A2":                                        0x3c
+  .noinit              ro code  0x00000410   0x3c  startup_ShunAn_K60FX512VLQ15.o [1]
+                              - 0x0000044c   0x3c
+
+"P1", part 2 of 2:                          0x67c
+  Veneer               ro code  0x0000044c    0x8  - Linker created -
+  .text                ro code  0x00000454  0x510  start_ShunAn.o [1]
+  .text                ro code  0x00000964    0xc  arm_cm4.o [1]
+  .text                ro code  0x00000970    0x4  main.o [1]
+  .data_init                    0x00000974   0x5c  <Block>
+    Initializer bytes  ro data  0x00000974   0x5c  <for .data-1>
+  CodeRelocate                  0x000009d0   0x4c  <Block>
+    Initializer bytes  ro data  0x000009d0   0x4c  <for CodeRelocateRam-1>
+  .text                ro code  0x00000a1c   0x28  data_init.o [5]
+  .text                ro code  0x00000a44   0x22  zero_init3.o [5]
+  .iar.init_table      const    0x00000a68   0x10  - Linker created -
+  .text                ro code  0x00000a78   0x1a  cmain.o [5]
+  .text                ro code  0x00000a92    0x4  low_level_init.o [3]
+  .text                ro code  0x00000a96    0x4  exit.o [3]
+  .text                ro code  0x00000a9c    0xa  cexit.o [5]
+  .text                ro code  0x00000aa8   0x14  exit.o [6]
+  .text                ro code  0x00000abc    0xc  cstartup_M.o [5]
+                              - 0x00000ac8  0x67c
+
+"P2", part 1 of 2:                           0xa8
+  .data                         0x1fff0410   0x5c  <Block>
+    .data-1                     0x1fff0410   0x5c  <Init block>
+      .data            inited   0x1fff0410   0x58  start_ShunAn.o [1]
+      .data            inited   0x1fff0468    0x4  start_ShunAn.o [1]
+  CodeRelocateRam               0x1fff046c   0x4c  <Block>
+    CodeRelocateRam-1           0x1fff046c   0x4c  <Init block>
+      .textrw          inited   0x1fff046c   0x4c  start_ShunAn.o [1]
+                              - 0x1fff04b8   0xa8
+
+"P2", part 2 of 2:                            0xc
+  .bss                          0x1fff04b8    0xc  <Block>
+    .bss               zero     0x1fff04b8    0x4  start_ShunAn.o [1]
+    .bss               zero     0x1fff04bc    0x4  start_ShunAn.o [1]
+    .bss               zero     0x1fff04c0    0x4  start_ShunAn.o [1]
+                              - 0x1fff04c4    0xc
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address     Size
+          -------     ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0xc:
+          0x1fff04b8   0xc
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                          ro code  rw code  ro data  rw data
+    ------                          -------  -------  -------  -------
+D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\ÖÇÄÜ¹Ì¼þ\MK60FX512VLQ15\RAM_128KB\Obj: [1]
+    arm_cm4.o                            12
+    main.o                                4
+    start_ShunAn.o                    1 296       76    1 208      104
+    startup_ShunAn_K60FX512VLQ15.o       60
+    ------------------------------------------------------------------
+    Total:                            1 372       76    1 208      104
+
+command line: [2]
+    ------------------------------------------------------------------
+    Total:
+
+dl7M_tln.a: [3]
+    exit.o                                4
+    low_level_init.o                      4
+    ------------------------------------------------------------------
+    Total:                                8
+
+m7M_tl.a: [4]
+    ------------------------------------------------------------------
+    Total:
+
+rt7M_tl.a: [5]
+    cexit.o                              10
+    cmain.o                              26
+    cstartup_M.o                         12
+    data_init.o                          40
+    zero_init3.o                         34
+    ------------------------------------------------------------------
+    Total:                              122
+
+shb_l.a: [6]
+    exit.o                               20
+    ------------------------------------------------------------------
+    Total:                               20
+
+    Gaps                                  4                 2
+    Linker created                        8                16
+----------------------------------------------------------------------
+    Grand Total:                      1 534       76    1 226      104
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address   Size  Type      Object
+-----                      -------   ----  ----      ------
+.bss$$Base              0x1fff04b8          --   Gb  - Linker created -
+.bss$$Limit             0x1fff04c4          --   Gb  - Linker created -
+.data$$Base             0x1fff0410          --   Gb  - Linker created -
+.data$$Limit            0x1fff046c          --   Gb  - Linker created -
+.data_init$$Base        0x00000974          --   Gb  - Linker created -
+.data_init$$Limit       0x000009d0          --   Gb  - Linker created -
+?main                   0x00000a79         Code  Gb  cmain.o [5]
+CodeRelocate$$Base      0x000009d0          --   Gb  - Linker created -
+CodeRelocate$$Limit     0x00000a1c          --   Gb  - Linker created -
+CodeRelocateRam$$Base   0x1fff046c          --   Gb  - Linker created -
+CodeRelocateRam$$Limit  0x1fff04b8          --   Gb  - Linker created -
+Region$$Table$$Base     0x00000a68          --   Gb  - Linker created -
+Region$$Table$$Limit    0x00000a78          --   Gb  - Linker created -
+Reset_Handler           0x00000411         Code  Gb  startup_ShunAn_K60FX512VLQ15.o [1]
+__BOOT_STACK_ADDRESS {Abs}
+                        0x2000fff8          --   Gb  command line/config [2]
+__VECTOR_RAM {Abs}      0x1fff0000          --   Gb  command line/config [2]
+__VECTOR_TABLE {Abs}    0x00000000          --   Gb  command line/config [2]
+__cmain                 0x00000a79         Code  Gb  cmain.o [5]
+__exit                  0x00000aa9   0x14  Code  Gb  exit.o [6]
+__iar_data_init3        0x00000a1d   0x28  Code  Gb  data_init.o [5]
+__iar_program_start     0x00000abd         Code  Gb  cstartup_M.o [5]
+__iar_zero_init3        0x00000a45   0x22  Code  Gb  zero_init3.o [5]
+__low_level_init        0x00000a93    0x4  Code  Gb  low_level_init.o [3]
+__vector_table          0x00000000  0x410  Data  Gb  start_ShunAn.o [1]
+_call_main              0x00000a85         Code  Gb  cmain.o [5]
+_exit                   0x00000a9d         Code  Gb  cexit.o [5]
+_main                   0x00000a8f         Code  Gb  cmain.o [5]
+bus_clk_khz             0x1fff04c0    0x4  Data  Gb  start_ShunAn.o [1]
+core_clk_khz            0x1fff04b8    0x4  Data  Gb  start_ShunAn.o [1]
+core_clk_mhz            0x1fff04bc    0x4  Data  Gb  start_ShunAn.o [1]
+default_isr             0x0000054b    0x2  Code  Gb  start_ShunAn.o [1]
+exit                    0x00000a97    0x4  Code  Gb  exit.o [3]
+main                    0x00000971    0x4  Code  Gb  main.o [1]
+mcg_cfg                 0x1fff0410   0x58  Data  Gb  start_ShunAn.o [1]
+mcg_div                 0x1fff0468    0x4  Data  Gb  start_ShunAn.o [1]
+mcg_div_count           0x0000054d  0x308  Code  Gb  start_ShunAn.o [1]
+pll_init                0x00000855   0xb2  Code  Gb  start_ShunAn.o [1]
+set_sys_dividers        0x1fff046d   0x4c  Code  Gb  start_ShunAn.o [1]
+start                   0x00000455   0xf6  Code  Gb  start_ShunAn.o [1]
+write_vtor              0x00000965    0x6  Code  Gb  arm_cm4.o [1]
+
+
+[1] = D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\ÖÇÄÜ¹Ì¼þ\MK60FX512VLQ15\RAM_128KB\Obj
+[2] = command line
+[3] = dl7M_tln.a
+[4] = m7M_tl.a
+[5] = rt7M_tl.a
+[6] = shb_l.a
+
+  1 534 bytes of readonly  code memory
+     76 bytes of readwrite code memory
+  1 226 bytes of readonly  data memory
+    104 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

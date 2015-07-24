@@ -1,0 +1,2056 @@
+###############################################################################
+#                                                                             #
+# IAR ANSI C/C++ Compiler V6.60.1.5097/W32 for ARM      29/Jun/2015  21:49:30 #
+# Copyright 1999-2013 IAR Systems AB.                                         #
+#                                                                             #
+#    Cpu mode     =  thumb                                                    #
+#    Endian       =  little                                                   #
+#    Source file  =  D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\Ë³°µÈýºÅ\´úÂë\Ë³°µÈýºÅ-ÆðÔ´-µ #
+#                    ÚÒ»´ú°å\ShunAn_Panel\start_ShunAn.c                      #
+#    Command line =  D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\Ë³°µÈýºÅ\´úÂë\Ë³°µÈýºÅ-ÆðÔ´-µ #
+#                    ÚÒ»´ú°å\ShunAn_Panel\start_ShunAn.c -D IAR -D            #
+#                    TWR_K60F120M -lCN D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\Ë³°µÈýºÅ\´ú #
+#                    Âë\Ë³°µÈýºÅ-ÆðÔ´-µÚÒ»´ú°å\FLASH_1MB\List\ -lB            #
+#                    D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\Ë³°µÈýºÅ\´úÂë\Ë³°µÈýºÅ-ÆðÔ´-µ #
+#                    ÚÒ»´ú°å\FLASH_1MB\List\ -o D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\Ë³ #
+#                    °µÈýºÅ\´úÂë\Ë³°µÈýºÅ-ÆðÔ´-µÚÒ»´ú°å\FLASH_1MB\Obj\        #
+#                    --no_cse --no_unroll --no_inline --no_code_motion        #
+#                    --no_tbaa --no_clustering --no_scheduling --debug        #
+#                    --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp        #
+#                    --dlib_config "C:\Program Files (x86)\IAR                #
+#                    Systems\Embedded Workbench 6.5\arm\INC\c\DLib_Config_Nor #
+#                    mal.h" -I D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\Ë³°µÈýºÅ\´úÂë\Ë³°µÈ #
+#                    ýºÅ-ÆðÔ´-µÚÒ»´ú°å\ -I D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\Ë³°µÈýº #
+#                    Å\´úÂë\Ë³°µÈýºÅ-ÆðÔ´-µÚÒ»´ú°å\Library\ -I                #
+#                    D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\Ë³°µÈýºÅ\´úÂë\Ë³°µÈýºÅ-ÆðÔ´-µ #
+#                    ÚÒ»´ú°å\Library\BlessedAlien\ -I                         #
+#                    D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\Ë³°µÈýºÅ\´úÂë\Ë³°µÈýºÅ-ÆðÔ´-µ #
+#                    ÚÒ»´ú°å\ShunAn_Panel\ -Ol --use_c++_inline               #
+#    List file    =  D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\Ë³°µÈýºÅ\´úÂë\Ë³°µÈýºÅ-ÆðÔ´-µ #
+#                    ÚÒ»´ú°å\FLASH_1MB\List\start_ShunAn.lst                  #
+#    Object file  =  D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\Ë³°µÈýºÅ\´úÂë\Ë³°µÈýºÅ-ÆðÔ´-µ #
+#                    ÚÒ»´ú°å\FLASH_1MB\Obj\start_ShunAn.o                     #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\Ë³°µÈýºÅ\´úÂë\Ë³°µÈýºÅ-ÆðÔ´-µÚÒ»´ú°å\ShunAn_Panel\start_ShunAn.c
+      1          /*
+      2          *ÎÄ¼þÃû£º              start_ShunAn.c
+      3          *ËµÃ÷£º                Ë³°µ2ºÅCÓïÑÔÆô¶¯ÎÄ¼þ
+      4          *ËùÓÃÐ¾Æ¬ÐÍºÅ£º        MK60FX512VQL15
+      5          *´´½¨Ê±¼ä£º            2014/5/18
+      6          *×÷Õß£º                ÖÐÄÏ´óÑ§¹­¼ý
+      7          */
+      8          
+      9          #include "start_ShunAn.h"
+     10          //ÉùÃ÷Ïà¹ØÊý¾Ý¶Î
+     11          #pragma section = ".data"       
+     12          #pragma section = ".data_init"
+     13          #pragma section = ".bss"
+     14          #pragma section = "CodeRelocate"
+     15          #pragma section = "CodeRelocateRam"
+     16          
+     17          //¶¨ÒåÖÐ¶ÏÏòÁ¿±íÈë¿Ú
+     18          #pragma location = ".intvec"
+
+   \                                 In section .intvec, align 4
+     19          const vector_entry  __vector_table[] =          //@ ".intvec" =
+   \                     __vector_table:
+   \   00000000   0x........         DC32 __BOOT_STACK_ADDRESS, Reset_Handler, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   00000010   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   00000024   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   00000038   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   0000004C   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   00000060   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   00000074   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   00000088   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   0000009C   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   000000B0   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   000000C4   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   000000D8   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   000000EC   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   00000100   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   00000114   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   00000128   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   0000013C   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   00000150   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   00000164   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   00000178   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   0000018C   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   000001A0   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   000001B4   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   000001C8   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   000001DC   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   000001F0   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   00000204   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   00000218   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   0000022C   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   00000240   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   00000254   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   00000268   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   0000027C   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   00000290   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   000002A4   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   000002B8   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   000002CC   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   000002E0   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   000002F4   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   00000308   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   0000031C   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   00000330   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   00000344   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   00000358   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   0000036C   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   00000380   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   00000394   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   000003A8   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   000003BC   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   000003D0   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   000003E4   0x........         DC32 default_isr, default_isr, default_isr, default_isr, default_isr
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \              0x........   
+   \   000003F8   0x........         DC32 default_isr, default_isr, 0FFFFFFFFH, 0FFFFFFFFH, 0FFFFFFFFH
+   \              0x........   
+   \              0xFFFFFFFF   
+   \              0xFFFFFFFF   
+   \              0xFFFFFFFF   
+   \   0000040C   0xFFFFFFFE         DC32 0FFFFFFFEH
+     20          {
+     21              VECTOR_000,           /* ´ËÖµ¸´Î»Æô¶¯Ê±¸´ÖÆµ½ SP £¬¼´Ö¸¶¨Õ»µØÖ·          */
+     22              VECTOR_001,           /* ´ËÖµ¸´Î»Æô¶¯Ê±¸´ÖÆµ½ PC £¬¼´Æô¶¯ÂíÉÏÖ´ÐÐµÄº¯Êý  */
+     23              VECTOR_002,
+     24              VECTOR_003,
+     25              VECTOR_004,
+     26              VECTOR_005,
+     27              VECTOR_006,
+     28              VECTOR_007,
+     29              VECTOR_008,
+     30              VECTOR_009,
+     31              VECTOR_010,
+     32              VECTOR_011,
+     33              VECTOR_012,
+     34              VECTOR_013,
+     35              VECTOR_014,
+     36              VECTOR_015,
+     37              VECTOR_016,
+     38              VECTOR_017,
+     39              VECTOR_018,
+     40              VECTOR_019,
+     41              VECTOR_020,
+     42              VECTOR_021,
+     43              VECTOR_022,
+     44              VECTOR_023,
+     45              VECTOR_024,
+     46              VECTOR_025,
+     47              VECTOR_026,
+     48              VECTOR_027,
+     49              VECTOR_028,
+     50              VECTOR_029,
+     51              VECTOR_030,
+     52              VECTOR_031,
+     53              VECTOR_032,
+     54              VECTOR_033,
+     55              VECTOR_034,
+     56              VECTOR_035,
+     57              VECTOR_036,
+     58              VECTOR_037,
+     59              VECTOR_038,
+     60              VECTOR_039,
+     61              VECTOR_040,
+     62              VECTOR_041,
+     63              VECTOR_042,
+     64              VECTOR_043,
+     65              VECTOR_044,
+     66              VECTOR_045,
+     67              VECTOR_046,
+     68              VECTOR_047,
+     69              VECTOR_048,
+     70              VECTOR_049,
+     71              VECTOR_050,
+     72              VECTOR_051,
+     73              VECTOR_052,
+     74              VECTOR_053,
+     75              VECTOR_054,
+     76              VECTOR_055,
+     77              VECTOR_056,
+     78              VECTOR_057,
+     79              VECTOR_058,
+     80              VECTOR_059,
+     81              VECTOR_060,
+     82              VECTOR_061,
+     83              VECTOR_062,
+     84              VECTOR_063,
+     85              VECTOR_064,
+     86              VECTOR_065,
+     87              VECTOR_066,
+     88              VECTOR_067,
+     89              VECTOR_068,
+     90              VECTOR_069,
+     91              VECTOR_070,
+     92              VECTOR_071,
+     93              VECTOR_072,
+     94              VECTOR_073,
+     95              VECTOR_074,
+     96              VECTOR_075,
+     97              VECTOR_076,
+     98              VECTOR_077,
+     99              VECTOR_078,
+    100              VECTOR_079,
+    101              VECTOR_080,
+    102              VECTOR_081,
+    103              VECTOR_082,
+    104              VECTOR_083,
+    105              VECTOR_084,
+    106              VECTOR_085,
+    107              VECTOR_086,
+    108              VECTOR_087,
+    109              VECTOR_088,
+    110              VECTOR_089,
+    111              VECTOR_090,
+    112              VECTOR_091,
+    113              VECTOR_092,
+    114              VECTOR_093,
+    115              VECTOR_094,
+    116              VECTOR_095,
+    117              VECTOR_096,
+    118              VECTOR_097,
+    119              VECTOR_098,
+    120              VECTOR_099,
+    121              VECTOR_100,
+    122              VECTOR_101,
+    123              VECTOR_102,
+    124              VECTOR_103,
+    125              VECTOR_104,
+    126              VECTOR_105,
+    127              VECTOR_106,
+    128              VECTOR_107,
+    129              VECTOR_108,
+    130              VECTOR_109,
+    131              VECTOR_110,
+    132              VECTOR_111,
+    133              VECTOR_112,
+    134              VECTOR_113,
+    135              VECTOR_114,
+    136              VECTOR_115,
+    137              VECTOR_116,
+    138              VECTOR_117,
+    139              VECTOR_118,
+    140              VECTOR_119,
+    141              VECTOR_120,
+    142              VECTOR_121,
+    143              VECTOR_122,
+    144              VECTOR_123,
+    145              VECTOR_124,
+    146              VECTOR_125,
+    147              VECTOR_126,
+    148              VECTOR_127,
+    149              VECTOR_128,
+    150              VECTOR_129,
+    151              VECTOR_130,
+    152              VECTOR_131,
+    153              VECTOR_132,
+    154              VECTOR_133,
+    155              VECTOR_134,
+    156              VECTOR_135,
+    157              VECTOR_136,
+    158              VECTOR_137,
+    159              VECTOR_138,
+    160              VECTOR_139,
+    161              VECTOR_140,
+    162              VECTOR_141,
+    163              VECTOR_142,
+    164              VECTOR_143,
+    165              VECTOR_144,
+    166              VECTOR_145,
+    167              VECTOR_146,
+    168              VECTOR_147,
+    169              VECTOR_148,
+    170              VECTOR_149,
+    171              VECTOR_150,
+    172              VECTOR_151,
+    173              VECTOR_152,
+    174              VECTOR_153,
+    175              VECTOR_154,
+    176              VECTOR_155,
+    177              VECTOR_156,
+    178              VECTOR_157,
+    179              VECTOR_158,
+    180              VECTOR_159,
+    181              VECTOR_160,
+    182              VECTOR_161,
+    183              VECTOR_162,
+    184              VECTOR_163,
+    185              VECTOR_164,
+    186              VECTOR_165,
+    187              VECTOR_166,
+    188              VECTOR_167,
+    189              VECTOR_168,
+    190              VECTOR_169,
+    191              VECTOR_170,
+    192              VECTOR_171,
+    193              VECTOR_172,
+    194              VECTOR_173,
+    195              VECTOR_174,
+    196              VECTOR_175,
+    197              VECTOR_176,
+    198              VECTOR_177,
+    199              VECTOR_178,
+    200              VECTOR_179,
+    201              VECTOR_180,
+    202              VECTOR_181,
+    203              VECTOR_182,
+    204              VECTOR_183,
+    205              VECTOR_184,
+    206              VECTOR_185,
+    207              VECTOR_186,
+    208              VECTOR_187,
+    209              VECTOR_188,
+    210              VECTOR_189,
+    211              VECTOR_190,
+    212              VECTOR_191,
+    213              VECTOR_192,
+    214              VECTOR_193,
+    215              VECTOR_194,
+    216              VECTOR_195,
+    217              VECTOR_196,
+    218              VECTOR_197,
+    219              VECTOR_198,
+    220              VECTOR_199,
+    221              VECTOR_200,
+    222              VECTOR_201,
+    223              VECTOR_202,
+    224              VECTOR_203,
+    225              VECTOR_204,
+    226              VECTOR_205,
+    227              VECTOR_206,
+    228              VECTOR_207,
+    229              VECTOR_208,
+    230              VECTOR_209,
+    231              VECTOR_210,
+    232              VECTOR_211,
+    233              VECTOR_212,
+    234              VECTOR_213,
+    235              VECTOR_214,
+    236              VECTOR_215,
+    237              VECTOR_216,
+    238              VECTOR_217,
+    239              VECTOR_218,
+    240              VECTOR_219,
+    241              VECTOR_220,
+    242              VECTOR_221,
+    243              VECTOR_222,
+    244              VECTOR_223,
+    245              VECTOR_224,
+    246              VECTOR_225,
+    247              VECTOR_226,
+    248              VECTOR_227,
+    249              VECTOR_228,
+    250              VECTOR_229,
+    251              VECTOR_230,
+    252              VECTOR_231,
+    253              VECTOR_232,
+    254              VECTOR_233,
+    255              VECTOR_234,
+    256              VECTOR_235,
+    257              VECTOR_236,
+    258              VECTOR_237,
+    259              VECTOR_238,
+    260              VECTOR_239,
+    261              VECTOR_240,
+    262              VECTOR_241,
+    263              VECTOR_242,
+    264              VECTOR_243,
+    265              VECTOR_244,
+    266              VECTOR_245,
+    267              VECTOR_246,
+    268              VECTOR_247,
+    269              VECTOR_248,
+    270              VECTOR_249,
+    271              VECTOR_250,
+    272              VECTOR_251,
+    273              VECTOR_252,
+    274              VECTOR_253,
+    275              VECTOR_254,
+    276              VECTOR_255,
+    277              CONFIG_1,        /* Flash configuration field values */
+    278              CONFIG_2,        /* Flash configuration field values */
+    279              CONFIG_3,        /* Flash configuration field values */
+    280              CONFIG_4,        /* Flash configuration field values */
+    281          
+    282          };
+
+   \                                 In section .bss, align 4
+    283          int core_clk_khz;
+   \                     core_clk_khz:
+   \   00000000                      DS8 4
+
+   \                                 In section .bss, align 4
+    284          int core_clk_mhz;
+   \                     core_clk_mhz:
+   \   00000000                      DS8 4
+
+   \                                 In section .bss, align 4
+    285          int bus_clk_khz;
+   \                     bus_clk_khz:
+   \   00000000                      DS8 4
+
+   \                                 In section .data, align 4
+    286          mcg_cfg_t mcg_cfg[PLL_MAX] =
+   \                     mcg_cfg:
+   \   00000000   0x0066             DC16 102
+   \   00000002   0x0A 0x1D          DC8 10, 29
+   \   00000004   0x0032             DC16 50
+   \   00000006   0x07 0x01          DC8 7, 1
+   \   00000008   0x0064             DC16 100
+   \   0000000A   0x07 0x10          DC8 7, 16
+   \   0000000C   0x006E             DC16 110
+   \   0000000E   0x04 0x06          DC8 4, 6
+   \   00000010   0x0078             DC16 120
+   \   00000012   0x04 0x08          DC8 4, 8
+   \   00000014   0x0082             DC16 130
+   \   00000016   0x04 0x0A          DC8 4, 10
+   \   00000018   0x008C             DC16 140
+   \   0000001A   0x04 0x0C          DC8 4, 12
+   \   0000001C   0x0096             DC16 150
+   \   0000001E   0x04 0x0E          DC8 4, 14
+   \   00000020   0x00A0             DC16 160
+   \   00000022   0x04 0x10          DC8 4, 16
+   \   00000024   0x00AA             DC16 170
+   \   00000026   0x04 0x12          DC8 4, 18
+   \   00000028   0x00B4             DC16 180
+   \   0000002A   0x04 0x14          DC8 4, 20
+   \   0000002C   0x00BE             DC16 190
+   \   0000002E   0x04 0x16          DC8 4, 22
+   \   00000030   0x00C8             DC16 200
+   \   00000032   0x04 0x18          DC8 4, 24
+   \   00000034   0x00D2             DC16 210
+   \   00000036   0x04 0x1A          DC8 4, 26
+   \   00000038   0x00DC             DC16 220
+   \   0000003A   0x04 0x1C          DC8 4, 28
+   \   0000003C   0x00E1             DC16 225
+   \   0000003E   0x04 0x1D          DC8 4, 29
+   \   00000040   0x00E6             DC16 230
+   \   00000042   0x04 0x1E          DC8 4, 30
+   \   00000044   0x00EB             DC16 235
+   \   00000046   0x04 0x1F          DC8 4, 31
+   \   00000048   0x00F4             DC16 244
+   \   0000004A   0x03 0x17          DC8 3, 23
+   \   0000004C   0x00FA             DC16 250
+   \   0000004E   0x03 0x18          DC8 3, 24
+   \   00000050   0x0113             DC16 275
+   \   00000052   0x01 0x06          DC8 1, 6
+   \   00000054   0x012C             DC16 300
+   \   00000056   0x02 0x14          DC8 2, 20
+    287          {
+    288              {EXTAL_IN_MHz*(VDIV + 16) / (PRDIV + 1) /2, PRDIV, VDIV}, //PLLUSR
+    289              {50,    7 ,     1       },                          //PLL50
+    290              {100,   7,      16      },                          //PLL100
+    291              {110,   4 ,     6       },                          //PLL110
+    292              {120,   4 ,     8       },                          //PLL120
+    293              {130,   4 ,     10      },                          //PLL130
+    294              {140,   4 ,     12      },                          //PLL140
+    295              {150,   4 ,     14      },                          //PLL150
+    296              {160,   4 ,     16      },                          //PLL160
+    297              {170,   4 ,     18      },                          //PLL170
+    298              {180,   4 ,     20      },                          //PLL180
+    299              {190,   4 ,     22      },                          //PLL190
+    300              {200,   4 ,     24      },                          //PLL200
+    301              {210,   4 ,     26      },                          //PLL210
+    302              {220,   4 ,     28      },                          //PLL220
+    303              {225,   4 ,     29      },                          //PLL225
+    304              {230,   4 ,     30      },                          //PLL230
+    305              {235,   4 ,     31      },                          //PLL235
+    306              {244,   3 ,     23      },                          //PLL244
+    307              {250,   3 ,     24      },                          //PLL250
+    308              {275,   1 ,     6       },                          //PLL275
+    309              {300,   2 ,     20      },                          //PLL300
+    310          };
+    311          /*!
+    312           *  @brief      Ð¾Æ¬ÉÏµçºóÔËÐÐµÄµÚÒ»¸öCÓïÑÔº¯Êý£¬½ô¸úÔÚ»ã±àÆô¶¯ÎÄ¼þÖ®ºó
+    313           *  @´´½¨Ê±¼ä£º 2014/5/18
+    314           *  @×÷Õß       ÖÐÄÏ´óÑ§¹­¼ý
+    315           *  @note       ´Ëº¯ÊýÊÇÏµÍ³Æô¶¯³õÆÚÓÉ»ã±àº¯Êýµ÷ÓÃ£¬È»ºóÖ´ÐÐmainº¯Êý
+    316           */
+
+   \                                 In section .text, align 4, keep-with-next
+    317          void start(void)
+    318          { 
+   \                     start: (+1)
+   \   00000000   0xB580             PUSH     {R7,LR}
+    319              /* Ê×ÏÈÒª½âËø¿´ÃÅ¹·£¬È»ºó²ÅÄÜÏò¼Ä´æÆ÷Ð´Èë */
+    320              /* ×¢Òâ: ½âËø¿´ÃÅ¹·µÄ¼¸²½½ûÖ¹µ¥²½Ö´ÐÐ!!! */
+    321              /* ½âËøµÄ¼¸²½±ØÐëÔÚ20¸öÊ±ÖÓÖÜÆÚÄÚÖ´ÐÐÍê±Ï, Òò´Ë½ûÖ¹
+    322               * ÖÐ¶Ï¿ÉÒÔ±£³Ö´úÂëµÄÔ­Ê¼ÐÔ£¬È·±£Ê±ÐòµÄÕýÈ·.
+    323               */
+    324              DisableInterrupts;
+   \   00000002   0xB672             CPSID i
+    325              /* Ïò½âËø¼Ä´æÆ÷Ð´Èë 0xC520  */
+    326              WDOG_UNLOCK = 0xC520;
+   \   00000004   0x.... 0x....      LDR.W    R0,??DataTable4  ;; 0x4005200e
+   \   00000008   0xF24C 0x5120      MOVW     R1,#+50464
+   \   0000000C   0x8001             STRH     R1,[R0, #+0]
+    327              /* ÔÙÐ´Èë 0xD928 À´Íê³É½âËø */
+    328              WDOG_UNLOCK = 0xD928;
+   \   0000000E   0x.... 0x....      LDR.W    R0,??DataTable4  ;; 0x4005200e
+   \   00000012   0xF64D 0x1128      MOVW     R1,#+55592
+   \   00000016   0x8001             STRH     R1,[R0, #+0]
+    329              /* ½âËøÒÑ¾­Íê³É£¬ÖØÐÂÊ¹ÄÜÖÐ¶Ï */	
+    330              EnableInterrupts;
+   \   00000018   0xB662             CPSIE i
+    331              /* Çå³ý WDOGEN Î»À´½ûÖ¹¿´ÃÅ¹· */
+    332              WDOG_STCTRLH &= ~WDOG_STCTRLH_WDOGEN_MASK;
+   \   0000001A   0x.... 0x....      LDR.W    R0,??DataTable4_1  ;; 0x40052000
+   \   0000001E   0x8800             LDRH     R0,[R0, #+0]
+   \   00000020   0xF64F 0x71FE      MOVW     R1,#+65534
+   \   00000024   0x4008             ANDS     R0,R1,R0
+   \   00000026   0x.... 0x....      LDR.W    R1,??DataTable4_1  ;; 0x40052000
+   \   0000002A   0x8008             STRH     R0,[R1, #+0]
+    333              
+    334              /* ½«ÖÐ¶ÏÏòÁ¿±íºÍÈ«¾Ö±äÁ¿·ÅÖÃÔÚRAMÀï */ 
+    335              /* ¶¨ÒåÒ»¸öÓÃÓÚÑ­»·ÓÃµÄ±äÁ¿ */
+    336              uint32 n;
+    337          
+    338              /* ¶¨Òå¸ø²»Í¬Êý¾Ý¶ÎÊ¹ÓÃµÄÖ¸Õë. ÕâÐ©Ö¸Õë
+    339               * ±»linkerÎÄ¼þÖÐµÄÖµ³õÊ¼»¯
+    340               */
+    341              uint8 *data_ram, * data_rom, * data_rom_end;
+    342              uint8 *bss_start, * bss_end;
+    343          
+    344          
+    345              /*  VECTOR_TABLE ºÍ VECTOR_RAM µÄµØÖ·´Ó  linker ÎÄ¼þÀï»ñµÃ £¨*.icf£© */
+    346              extern uint32 __VECTOR_TABLE[];
+    347              extern uint32 __VECTOR_RAM[];
+    348          
+    349              /* ¸´ÖÆROMÀïµÄÖÐ¶ÏÏòÁ¿±íµ½RAMÀï */
+    350              if (__VECTOR_RAM != __VECTOR_TABLE)             //Èç¹û²»ÊÇRAMÆô¶¯£¬ÔòÐèÒª¸´ÖÆÖÐ¶ÏÏòÁ¿±í
+   \   0000002C   0x.... 0x....      LDR.W    R0,??DataTable4_2
+   \   00000030   0x.... 0x....      LDR.W    R1,??DataTable4_3
+   \   00000034   0x4288             CMP      R0,R1
+   \   00000036   0xD00D             BEQ.N    ??start_0
+    351              {
+    352                  for (n = 0; n < 0x410; n++)                 //Öð¸ö¸´ÖÆ
+   \   00000038   0x2000             MOVS     R0,#+0
+   \   0000003A   0xE008             B.N      ??start_1
+    353                      __VECTOR_RAM[n] = __VECTOR_TABLE[n];
+   \                     ??start_2: (+1)
+   \   0000003C   0x.... 0x....      LDR.W    R1,??DataTable4_2
+   \   00000040   0x.... 0x....      LDR.W    R2,??DataTable4_3
+   \   00000044   0xF852 0x2020      LDR      R2,[R2, R0, LSL #+2]
+   \   00000048   0xF841 0x2020      STR      R2,[R1, R0, LSL #+2]
+   \   0000004C   0x1C40             ADDS     R0,R0,#+1
+   \                     ??start_1: (+1)
+   \   0000004E   0xF5B0 0x6F82      CMP      R0,#+1040
+   \   00000052   0xD3F3             BCC.N    ??start_2
+    354              }
+    355              /* Ö¸¶¨ÐÂµÄÖÐ¶ÏÏòÁ¿±íµØÖ·Îª __VECTOR_RAM */
+    356              write_vtor((uint32)__VECTOR_RAM);
+   \                     ??start_0: (+1)
+   \   00000054   0x.... 0x....      LDR.W    R0,??DataTable4_2
+   \   00000058   0x.... 0x....      BL       write_vtor
+    357          
+    358              /* °ÑÒÑ¸³³õÖµµÄ±äÁ¿´ÓROMÀï¸´ÖÆÊý¾Ýµ½RAMÀï */
+    359              data_ram = __section_begin(".data");            //ÒÑ¸³³õÖµµÄ±äÁ¿µÄµØÖ·ÔÚRAMÀï
+   \   0000005C   0x.... 0x....      LDR.W    R1,??DataTable4_4
+    360              data_rom = __section_begin(".data_init");       //ÒÑ¸³³õÖµµÄ±äÁ¿µÄÊý¾Ý´æ·ÅÔÚROMÀï£¬ÐèÒª¸³Öµµ½RAMÀï
+   \   00000060   0x.... 0x....      LDR.W    R2,??DataTable4_5
+    361              data_rom_end = __section_end(".data_init");
+   \   00000064   0x.... 0x....      LDR.W    R0,??DataTable4_6
+    362              n = data_rom_end - data_rom;
+   \   00000068   0x1A80             SUBS     R0,R0,R2
+   \   0000006A   0xE003             B.N      ??start_3
+    363          
+    364              /* ¸´ÖÆ³õÊ¼»¯Êý¾Ýµ½RAMÀï */
+    365              while (n--)
+    366                  *data_ram++ = *data_rom++;
+   \                     ??start_4: (+1)
+   \   0000006C   0x7813             LDRB     R3,[R2, #+0]
+   \   0000006E   0x700B             STRB     R3,[R1, #+0]
+   \   00000070   0x1C52             ADDS     R2,R2,#+1
+   \   00000072   0x1C49             ADDS     R1,R1,#+1
+   \                     ??start_3: (+1)
+   \   00000074   0x0003             MOVS     R3,R0
+   \   00000076   0x1E58             SUBS     R0,R3,#+1
+   \   00000078   0x2B00             CMP      R3,#+0
+   \   0000007A   0xD1F7             BNE.N    ??start_4
+    367          
+    368              /* Ã»¸³³õÖµ»òÕß³õÖµÎª0µÄ±äÁ¿£¬ÐèÒªÇå³ýÆäRAMÀïµÄÊý¾Ý£¬È·±£ÖµÎª0 */
+    369              bss_start = __section_begin(".bss");
+   \   0000007C   0x.... 0x....      LDR.W    R1,??DataTable4_7
+    370              bss_end = __section_end(".bss");
+   \   00000080   0x.... 0x....      LDR.W    R0,??DataTable4_8
+    371          
+    372              /* Çå³ýÃ»¸³³õÖµ»òÕß³õÖµÎª0µÄ±äÁ¿Êý¾ÝÖµ */
+    373              n = bss_end - bss_start;
+   \   00000084   0x1A40             SUBS     R0,R0,R1
+   \   00000086   0xE002             B.N      ??start_5
+    374              while(n--)
+    375                  *bss_start++ = 0;
+   \                     ??start_6: (+1)
+   \   00000088   0x2200             MOVS     R2,#+0
+   \   0000008A   0x700A             STRB     R2,[R1, #+0]
+   \   0000008C   0x1C49             ADDS     R1,R1,#+1
+   \                     ??start_5: (+1)
+   \   0000008E   0x0002             MOVS     R2,R0
+   \   00000090   0x1E50             SUBS     R0,R2,#+1
+   \   00000092   0x2A00             CMP      R2,#+0
+   \   00000094   0xD1F8             BNE.N    ??start_6
+    376          
+    377              /* ¸³ÖµÓÃ __ramfunc ÉùÃ÷µÄº¯ÊýµÄµÄ´úÂë¶Îµ½ RAM£¬¿ÉÒÔ¼Ó¿ì´úÂëµÄÔËÐÐ        */
+    378              uint8 *code_relocate_ram = __section_begin("CodeRelocateRam");
+   \   00000096   0x.... 0x....      LDR.W    R1,??DataTable4_9
+    379              uint8 *code_relocate = __section_begin("CodeRelocate");
+   \   0000009A   0x.... 0x....      LDR.W    R2,??DataTable4_10
+    380              uint8 *code_relocate_end = __section_end("CodeRelocate");
+   \   0000009E   0x.... 0x....      LDR.W    R0,??DataTable4_11
+    381          
+    382              /* ´ÓROMÀï¸´ÖÆº¯Êý´úÂëµ½RAMÀï */
+    383              n = code_relocate_end - code_relocate;
+   \   000000A2   0x1A80             SUBS     R0,R0,R2
+   \   000000A4   0xE003             B.N      ??start_7
+    384              while (n--)
+    385                  *code_relocate_ram++ = *code_relocate++;  
+   \                     ??start_8: (+1)
+   \   000000A6   0x7813             LDRB     R3,[R2, #+0]
+   \   000000A8   0x700B             STRB     R3,[R1, #+0]
+   \   000000AA   0x1C52             ADDS     R2,R2,#+1
+   \   000000AC   0x1C49             ADDS     R1,R1,#+1
+   \                     ??start_7: (+1)
+   \   000000AE   0x0003             MOVS     R3,R0
+   \   000000B0   0x1E58             SUBS     R0,R3,#+1
+   \   000000B2   0x2B00             CMP      R3,#+0
+   \   000000B4   0xD1F7             BNE.N    ??start_8
+    386            /* ½«ÖÐ¶ÏÏòÁ¿±íºÍÈ«¾Ö±äÁ¿·ÅÖÃÔÚRAMÀï Íê³É */
+    387          
+    388              
+    389              
+    390              //¿ªÊ¼ÉèÖÃÊ±ÖÓ
+    391              core_clk_mhz = pll_init(CORE_CLK);     //ÉèÖÃÏµÍ³Ê±ÖÓ
+   \   000000B6   0x2007             MOVS     R0,#+7
+   \   000000B8   0x.... 0x....      BL       pll_init
+   \   000000BC   0x.... 0x....      LDR.W    R1,??DataTable4_12
+   \   000000C0   0x6008             STR      R0,[R1, #+0]
+    392              core_clk_khz = core_clk_mhz * 1000;     //°ÑÅäÖÃºÃµÄÊ±ÖÓ¶¼±£´æÔÚÈ«¾Ö±äÁ¿Àï£¬ÒÔ±ãºóÐøÊ¹ÓÃ
+   \   000000C2   0x.... 0x....      LDR.W    R0,??DataTable4_12
+   \   000000C6   0x6800             LDR      R0,[R0, #+0]
+   \   000000C8   0xF44F 0x717A      MOV      R1,#+1000
+   \   000000CC   0x4348             MULS     R0,R1,R0
+   \   000000CE   0x.... 0x....      LDR.W    R1,??DataTable4_13
+   \   000000D2   0x6008             STR      R0,[R1, #+0]
+    393              bus_clk_khz = core_clk_khz / (((SIM_CLKDIV1 & SIM_CLKDIV1_OUTDIV2_MASK) >> 24) + 1);
+   \   000000D4   0x.... 0x....      LDR.W    R0,??DataTable4_13
+   \   000000D8   0x6800             LDR      R0,[R0, #+0]
+   \   000000DA   0x.... 0x....      LDR.W    R1,??DataTable4_14  ;; 0x40048044
+   \   000000DE   0x6809             LDR      R1,[R1, #+0]
+   \   000000E0   0xF3C1 0x6103      UBFX     R1,R1,#+24,#+4
+   \   000000E4   0x1C49             ADDS     R1,R1,#+1
+   \   000000E6   0xFBB0 0xF0F1      UDIV     R0,R0,R1
+   \   000000EA   0x.... 0x....      LDR.W    R1,??DataTable4_15
+   \   000000EE   0x6008             STR      R0,[R1, #+0]
+    394              //Ê±ÖÓÉèÖÃÍê±Ï
+    395              main();             // Ö´ÐÐÓÃ»§Ö÷º¯Êý
+   \   000000F0   0x.... 0x....      BL       main
+    396          
+    397              while(1);           // ËÀÑ­»·
+   \                     ??start_9: (+1)
+   \   000000F4   0xE7FE             B.N      ??start_9
+    398          }
+    399          
+    400          /******************************************************************************
+    401          * default_isr(void)
+    402          *
+    403          * Default ISR definition.
+    404          *
+    405          * In:  n/a
+    406          * Out: n/a
+    407          ******************************************************************************/
+
+   \                                 In section .text, align 2, keep-with-next
+    408          void default_isr(void)
+    409          {
+    410             #define VECTORNUM                     (*(volatile uint8_t*)(0xE000ED04))
+    411             return;
+   \                     default_isr: (+1)
+   \   00000000   0x4770             BX       LR               ;; return
+    412          }
+    413          
+    414          /*!
+    415           *  @brief      Ê±ÖÓ·ÖÆµÉèÖÃº¯Êý
+    416           *  @param      outdiv1    ÄÚºË·ÖÆµÏµÊý£¬       core    clk = MCG / (outdiv1 +1)
+    417           *  @param      outdiv2    bus·ÖÆµÏµÊý£¬        bus     clk = MCG / (outdiv2 +1)
+    418           *  @param      outdiv3    flexbus·ÖÆµÏµÊý£¬    flexbus clk = MCG / (outdiv3 +1)
+    419           *  @param      outdiv4    flash·ÖÆµÏµÊý£¬      flash   clk = MCG / (outdiv4 +1)
+    420           *  @since      v1.0
+    421           *  @author     ·ÉË¼¿¨¶û¹«Ë¾
+    422           *  Sample usage:       set_sys_dividers(0,1, 9,3);     // core clk = MCG ; bus clk = MCG / 2 ; flexbus clk = MCG /10 ; flash clk = MCG / 4;
+    423           */
+
+   \                                 In section .textrw, align 4, keep-with-next
+    424          __ramfunc  void set_sys_dividers(uint32 outdiv1, uint32 outdiv2, uint32 outdiv3, uint32 outdiv4)
+    425          {
+   \                     set_sys_dividers: (+1)
+   \   00000000   0xB470             PUSH     {R4-R6}
+    426              /*
+    427              * This routine must be placed in RAM. It is a workaround for errata e2448.
+    428              * Flash prefetch must be disabled when the flash clock divider is changed.
+    429              * This cannot be performed while executing out of flash.
+    430              * There must be a short delay after the clock dividers are changed before prefetch
+    431              * can be re-enabled.
+    432              */
+    433              uint32 temp_reg;
+    434              uint8 i;
+    435          
+    436              temp_reg = FMC_PFAPR; // store present value of FMC_PFAPR
+   \   00000002   0x4C10             LDR.N    R4,??set_sys_dividers_0  ;; 0x4001f000
+   \   00000004   0x6824             LDR      R4,[R4, #+0]
+    437          
+    438              // set M0PFD through M7PFD to 1 to disable prefetch
+    439              FMC_PFAPR |= FMC_PFAPR_M7PFD_MASK | FMC_PFAPR_M6PFD_MASK | FMC_PFAPR_M5PFD_MASK
+    440                           | FMC_PFAPR_M4PFD_MASK | FMC_PFAPR_M3PFD_MASK | FMC_PFAPR_M2PFD_MASK
+    441                           | FMC_PFAPR_M1PFD_MASK | FMC_PFAPR_M0PFD_MASK;
+   \   00000006   0x4D0F             LDR.N    R5,??set_sys_dividers_0  ;; 0x4001f000
+   \   00000008   0x682D             LDR      R5,[R5, #+0]
+   \   0000000A   0xF455 0x057F      ORRS     R5,R5,#0xFF0000
+   \   0000000E   0x4E0D             LDR.N    R6,??set_sys_dividers_0  ;; 0x4001f000
+   \   00000010   0x6035             STR      R5,[R6, #+0]
+    442          
+    443              // set clock dividers to desired value
+    444              SIM_CLKDIV1 = SIM_CLKDIV1_OUTDIV1(outdiv1) | SIM_CLKDIV1_OUTDIV2(outdiv2)
+    445                            | SIM_CLKDIV1_OUTDIV3(outdiv3) | SIM_CLKDIV1_OUTDIV4(outdiv4);
+   \   00000012   0x0609             LSLS     R1,R1,#+24
+   \   00000014   0xF011 0x6170      ANDS     R1,R1,#0xF000000
+   \   00000018   0xEA51 0x7000      ORRS     R0,R1,R0, LSL #+28
+   \   0000001C   0x0511             LSLS     R1,R2,#+20
+   \   0000001E   0xF411 0x0170      ANDS     R1,R1,#0xF00000
+   \   00000022   0x4308             ORRS     R0,R1,R0
+   \   00000024   0x0419             LSLS     R1,R3,#+16
+   \   00000026   0xF411 0x2170      ANDS     R1,R1,#0xF0000
+   \   0000002A   0x4308             ORRS     R0,R1,R0
+   \   0000002C   0x4906             LDR.N    R1,??set_sys_dividers_0+0x4  ;; 0x40048044
+   \   0000002E   0x6008             STR      R0,[R1, #+0]
+    446          
+    447              // wait for dividers to change
+    448              for (i = 0 ; i < outdiv4 ; i++)
+   \   00000030   0x2000             MOVS     R0,#+0
+   \   00000032   0xE000             B.N      ??set_sys_dividers_1
+   \                     ??set_sys_dividers_2: (+1)
+   \   00000034   0x1C40             ADDS     R0,R0,#+1
+   \                     ??set_sys_dividers_1: (+1)
+   \   00000036   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \   00000038   0x4298             CMP      R0,R3
+   \   0000003A   0xD3FB             BCC.N    ??set_sys_dividers_2
+    449                  {}
+    450          
+    451              FMC_PFAPR = temp_reg; // re-store original value of FMC_PFAPR
+   \   0000003C   0x4801             LDR.N    R0,??set_sys_dividers_0  ;; 0x4001f000
+   \   0000003E   0x6004             STR      R4,[R0, #+0]
+    452          
+    453              return;
+   \   00000040   0xBC70             POP      {R4-R6}
+   \   00000042   0x4770             BX       LR               ;; return
+   \                     ??set_sys_dividers_0:
+   \   00000044   0x4001F000         DC32     0x4001f000
+   \   00000048   0x40048044         DC32     0x40048044
+    454          } // set_sys_dividers
+    455          
+
+   \                                 In section .data, align 4
+    456          mcg_div_t mcg_div = {CORE_DIV, BUS_DIV, FLEX_DIV, FLASH_DIV};
+   \                     mcg_div:
+   \   00000000   0x00 0x01          DC8 0, 1, 9, 8
+   \              0x09 0x08    
+    457          
+    458          
+    459          /*!
+    460           *  @brief      MCG ·ÖÆµÅäÖÃ
+    461           *  @param      PLL_e       ÆµÂÊÉèÖÃ²ÎÊý
+    462           *  @since      v5.0
+    463           */
+
+   \                                 In section .text, align 2, keep-with-next
+    464          void mcg_div_count(PLL_e pll)
+    465          {
+    466              uint16 clk = mcg_cfg[pll].clk;
+   \                     mcg_div_count: (+1)
+   \   00000000   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \   00000002   0x.... 0x....      LDR.W    R1,??DataTable4_16
+   \   00000006   0xF831 0x1020      LDRH     R1,[R1, R0, LSL #+2]
+    467              if( (pll > PLLUSR) && (pll < PLL_MAX) )
+   \   0000000A   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \   0000000C   0x2800             CMP      R0,#+0
+   \   0000000E   0xF000 0x817A      BEQ.W    ??mcg_div_count_0
+   \   00000012   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \   00000014   0x2816             CMP      R0,#+22
+   \   00000016   0xF280 0x8176      BGE.W    ??mcg_div_count_0
+    468              {
+    469                  //ÉèÖÃ·ÖÆµ
+    470                  mcg_div.core_div    = 0;                                        // core = MCG
+   \   0000001A   0x.... 0x....      LDR.W    R0,??DataTable4_17
+   \   0000001E   0x2200             MOVS     R2,#+0
+   \   00000020   0x7002             STRB     R2,[R0, #+0]
+    471          
+    472                  if     (clk <= 1 * MAX_BUS_CLK)   mcg_div.bus_div = 0;          // bus  = MCG
+   \   00000022   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   00000024   0x294C             CMP      R1,#+76
+   \   00000026   0xDA04             BGE.N    ??mcg_div_count_1
+   \   00000028   0x.... 0x....      LDR.W    R0,??DataTable4_17
+   \   0000002C   0x2200             MOVS     R2,#+0
+   \   0000002E   0x7042             STRB     R2,[R0, #+1]
+   \   00000030   0xE084             B.N      ??mcg_div_count_2
+    473                  else if(clk <= 2 * MAX_BUS_CLK)   mcg_div.bus_div = 1;          // bus  = MCG/2
+   \                     ??mcg_div_count_1: (+1)
+   \   00000032   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   00000034   0x2997             CMP      R1,#+151
+   \   00000036   0xDA04             BGE.N    ??mcg_div_count_3
+   \   00000038   0x.... 0x....      LDR.W    R0,??DataTable4_17
+   \   0000003C   0x2201             MOVS     R2,#+1
+   \   0000003E   0x7042             STRB     R2,[R0, #+1]
+   \   00000040   0xE07C             B.N      ??mcg_div_count_2
+    474                  else if(clk <= 3 * MAX_BUS_CLK)   mcg_div.bus_div = 2;          // bus  = MCG/3
+   \                     ??mcg_div_count_3: (+1)
+   \   00000042   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   00000044   0x29E2             CMP      R1,#+226
+   \   00000046   0xDA04             BGE.N    ??mcg_div_count_4
+   \   00000048   0x.... 0x....      LDR.W    R0,??DataTable4_17
+   \   0000004C   0x2202             MOVS     R2,#+2
+   \   0000004E   0x7042             STRB     R2,[R0, #+1]
+   \   00000050   0xE074             B.N      ??mcg_div_count_2
+    475                  else if(clk <= 4 * MAX_BUS_CLK)   mcg_div.bus_div = 3;          // bus  = MCG/4
+   \                     ??mcg_div_count_4: (+1)
+   \   00000052   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   00000054   0xF5B1 0x7F96      CMP      R1,#+300
+   \   00000058   0xDC04             BGT.N    ??mcg_div_count_5
+   \   0000005A   0x.... 0x....      LDR.W    R0,??DataTable4_17
+   \   0000005E   0x2203             MOVS     R2,#+3
+   \   00000060   0x7042             STRB     R2,[R0, #+1]
+   \   00000062   0xE06B             B.N      ??mcg_div_count_2
+    476                  else if(clk <= 5 * MAX_BUS_CLK)   mcg_div.bus_div = 4;          // bus  = MCG/5
+   \                     ??mcg_div_count_5: (+1)
+   \   00000064   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   00000066   0xF5B1 0x7FBC      CMP      R1,#+376
+   \   0000006A   0xDA04             BGE.N    ??mcg_div_count_6
+   \   0000006C   0x.... 0x....      LDR.W    R0,??DataTable4_17
+   \   00000070   0x2204             MOVS     R2,#+4
+   \   00000072   0x7042             STRB     R2,[R0, #+1]
+   \   00000074   0xE062             B.N      ??mcg_div_count_2
+    477                  else if(clk <= 6 * MAX_BUS_CLK)   mcg_div.bus_div = 5;          // bus  = MCG/6
+   \                     ??mcg_div_count_6: (+1)
+   \   00000076   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   00000078   0xF5B1 0x7FE1      CMP      R1,#+450
+   \   0000007C   0xDC04             BGT.N    ??mcg_div_count_7
+   \   0000007E   0x.... 0x....      LDR.W    R0,??DataTable4_17
+   \   00000082   0x2205             MOVS     R2,#+5
+   \   00000084   0x7042             STRB     R2,[R0, #+1]
+   \   00000086   0xE059             B.N      ??mcg_div_count_2
+    478                  else if(clk <= 7 * MAX_BUS_CLK)   mcg_div.bus_div = 6;          // bus  = MCG/7
+   \                     ??mcg_div_count_7: (+1)
+   \   00000088   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   0000008A   0xF240 0x200E      MOVW     R0,#+526
+   \   0000008E   0x4281             CMP      R1,R0
+   \   00000090   0xDA04             BGE.N    ??mcg_div_count_8
+   \   00000092   0x.... 0x....      LDR.W    R0,??DataTable4_17
+   \   00000096   0x2206             MOVS     R2,#+6
+   \   00000098   0x7042             STRB     R2,[R0, #+1]
+   \   0000009A   0xE04F             B.N      ??mcg_div_count_2
+    479                  else if(clk <= 8 * MAX_BUS_CLK)   mcg_div.bus_div = 7;          // bus  = MCG/8
+   \                     ??mcg_div_count_8: (+1)
+   \   0000009C   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   0000009E   0xF5B1 0x7F16      CMP      R1,#+600
+   \   000000A2   0xDC04             BGT.N    ??mcg_div_count_9
+   \   000000A4   0x.... 0x....      LDR.W    R0,??DataTable4_17
+   \   000000A8   0x2207             MOVS     R2,#+7
+   \   000000AA   0x7042             STRB     R2,[R0, #+1]
+   \   000000AC   0xE046             B.N      ??mcg_div_count_2
+    480                  else if(clk <= 9 * MAX_BUS_CLK)   mcg_div.bus_div = 8;          // bus  = MCG/9
+   \                     ??mcg_div_count_9: (+1)
+   \   000000AE   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   000000B0   0xF5B1 0x7F29      CMP      R1,#+676
+   \   000000B4   0xDA04             BGE.N    ??mcg_div_count_10
+   \   000000B6   0x.... 0x....      LDR.W    R0,??DataTable4_17
+   \   000000BA   0x2208             MOVS     R2,#+8
+   \   000000BC   0x7042             STRB     R2,[R0, #+1]
+   \   000000BE   0xE03D             B.N      ??mcg_div_count_2
+    481                  else if(clk <= 10 * MAX_BUS_CLK)   mcg_div.bus_div = 9;         // bus  = MCG/10
+   \                     ??mcg_div_count_10: (+1)
+   \   000000C0   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   000000C2   0xF240 0x20EF      MOVW     R0,#+751
+   \   000000C6   0x4281             CMP      R1,R0
+   \   000000C8   0xDA04             BGE.N    ??mcg_div_count_11
+   \   000000CA   0x.... 0x....      LDR.W    R0,??DataTable4_17
+   \   000000CE   0x2209             MOVS     R2,#+9
+   \   000000D0   0x7042             STRB     R2,[R0, #+1]
+   \   000000D2   0xE033             B.N      ??mcg_div_count_2
+    482                  else if(clk <= 11 * MAX_BUS_CLK)   mcg_div.bus_div = 10;        // bus  = MCG/11
+   \                     ??mcg_div_count_11: (+1)
+   \   000000D4   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   000000D6   0xF240 0x303A      MOVW     R0,#+826
+   \   000000DA   0x4281             CMP      R1,R0
+   \   000000DC   0xDA04             BGE.N    ??mcg_div_count_12
+   \   000000DE   0x.... 0x....      LDR.W    R0,??DataTable4_17
+   \   000000E2   0x220A             MOVS     R2,#+10
+   \   000000E4   0x7042             STRB     R2,[R0, #+1]
+   \   000000E6   0xE029             B.N      ??mcg_div_count_2
+    483                  else if(clk <= 12 * MAX_BUS_CLK)   mcg_div.bus_div = 11;        // bus  = MCG/12
+   \                     ??mcg_div_count_12: (+1)
+   \   000000E8   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   000000EA   0xF5B1 0x7F61      CMP      R1,#+900
+   \   000000EE   0xDC04             BGT.N    ??mcg_div_count_13
+   \   000000F0   0x.... 0x....      LDR.W    R0,??DataTable4_17
+   \   000000F4   0x220B             MOVS     R2,#+11
+   \   000000F6   0x7042             STRB     R2,[R0, #+1]
+   \   000000F8   0xE020             B.N      ??mcg_div_count_2
+    484                  else if(clk <= 13 * MAX_BUS_CLK)   mcg_div.bus_div = 12;        // bus  = MCG/13
+   \                     ??mcg_div_count_13: (+1)
+   \   000000FA   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   000000FC   0xF5B1 0x7F74      CMP      R1,#+976
+   \   00000100   0xDA04             BGE.N    ??mcg_div_count_14
+   \   00000102   0x.... 0x....      LDR.W    R0,??DataTable4_17
+   \   00000106   0x220C             MOVS     R2,#+12
+   \   00000108   0x7042             STRB     R2,[R0, #+1]
+   \   0000010A   0xE017             B.N      ??mcg_div_count_2
+    485                  else if(clk <= 14 * MAX_BUS_CLK)   mcg_div.bus_div = 13;        // bus  = MCG/14
+   \                     ??mcg_div_count_14: (+1)
+   \   0000010C   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   0000010E   0xF240 0x401B      MOVW     R0,#+1051
+   \   00000112   0x4281             CMP      R1,R0
+   \   00000114   0xDA04             BGE.N    ??mcg_div_count_15
+   \   00000116   0x.... 0x....      LDR.W    R0,??DataTable4_17
+   \   0000011A   0x220D             MOVS     R2,#+13
+   \   0000011C   0x7042             STRB     R2,[R0, #+1]
+   \   0000011E   0xE00D             B.N      ??mcg_div_count_2
+    486                  else if(clk <= 15 * MAX_BUS_CLK)   mcg_div.bus_div = 14;        // bus  = MCG/15
+   \                     ??mcg_div_count_15: (+1)
+   \   00000120   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   00000122   0xF240 0x4066      MOVW     R0,#+1126
+   \   00000126   0x4281             CMP      R1,R0
+   \   00000128   0xDA04             BGE.N    ??mcg_div_count_16
+   \   0000012A   0x.... 0x....      LDR.W    R0,??DataTable4_17
+   \   0000012E   0x220E             MOVS     R2,#+14
+   \   00000130   0x7042             STRB     R2,[R0, #+1]
+   \   00000132   0xE003             B.N      ??mcg_div_count_2
+    487                  else                              mcg_div.bus_div = 15;         // bus  = MCG/16
+   \                     ??mcg_div_count_16: (+1)
+   \   00000134   0x.... 0x....      LDR.W    R0,??DataTable4_17
+   \   00000138   0x220F             MOVS     R2,#+15
+   \   0000013A   0x7042             STRB     R2,[R0, #+1]
+    488          
+    489                  if     (clk <= 1 * MAX_FLEXBUS_CLK)   mcg_div.flex_div = 0;     // flex bus  = MCG
+   \                     ??mcg_div_count_2: (+1)
+   \   0000013C   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   0000013E   0x291A             CMP      R1,#+26
+   \   00000140   0xDA04             BGE.N    ??mcg_div_count_17
+   \   00000142   0x.... 0x....      LDR.W    R0,??DataTable4_17
+   \   00000146   0x2200             MOVS     R2,#+0
+   \   00000148   0x7082             STRB     R2,[R0, #+2]
+   \   0000014A   0xE06B             B.N      ??mcg_div_count_18
+    490                  else if(clk <= 2 * MAX_FLEXBUS_CLK)   mcg_div.flex_div = 1;     // flex bus  = MCG/2
+   \                     ??mcg_div_count_17: (+1)
+   \   0000014C   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   0000014E   0x2933             CMP      R1,#+51
+   \   00000150   0xDA04             BGE.N    ??mcg_div_count_19
+   \   00000152   0x.... 0x....      LDR.W    R0,??DataTable4_17
+   \   00000156   0x2201             MOVS     R2,#+1
+   \   00000158   0x7082             STRB     R2,[R0, #+2]
+   \   0000015A   0xE063             B.N      ??mcg_div_count_18
+    491                  else if(clk <= 3 * MAX_FLEXBUS_CLK)   mcg_div.flex_div = 2;     // flex bus  = MCG/3
+   \                     ??mcg_div_count_19: (+1)
+   \   0000015C   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   0000015E   0x294C             CMP      R1,#+76
+   \   00000160   0xDA04             BGE.N    ??mcg_div_count_20
+   \   00000162   0x.... 0x....      LDR.W    R0,??DataTable4_17
+   \   00000166   0x2202             MOVS     R2,#+2
+   \   00000168   0x7082             STRB     R2,[R0, #+2]
+   \   0000016A   0xE05B             B.N      ??mcg_div_count_18
+    492                  else if(clk <= 4 * MAX_FLEXBUS_CLK)   mcg_div.flex_div = 3;     // flex bus  = MCG/4
+   \                     ??mcg_div_count_20: (+1)
+   \   0000016C   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   0000016E   0x2965             CMP      R1,#+101
+   \   00000170   0xDA03             BGE.N    ??mcg_div_count_21
+   \   00000172   0x....             LDR.N    R0,??DataTable4_17
+   \   00000174   0x2203             MOVS     R2,#+3
+   \   00000176   0x7082             STRB     R2,[R0, #+2]
+   \   00000178   0xE054             B.N      ??mcg_div_count_18
+    493                  else if(clk <= 5 * MAX_FLEXBUS_CLK)   mcg_div.flex_div = 4;     // flex bus  = MCG/5
+   \                     ??mcg_div_count_21: (+1)
+   \   0000017A   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   0000017C   0x297E             CMP      R1,#+126
+   \   0000017E   0xDA03             BGE.N    ??mcg_div_count_22
+   \   00000180   0x....             LDR.N    R0,??DataTable4_17
+   \   00000182   0x2204             MOVS     R2,#+4
+   \   00000184   0x7082             STRB     R2,[R0, #+2]
+   \   00000186   0xE04D             B.N      ??mcg_div_count_18
+    494                  else if(clk <= 6 * MAX_FLEXBUS_CLK)   mcg_div.flex_div = 5;     // flex bus  = MCG/6
+   \                     ??mcg_div_count_22: (+1)
+   \   00000188   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   0000018A   0x2997             CMP      R1,#+151
+   \   0000018C   0xDA03             BGE.N    ??mcg_div_count_23
+   \   0000018E   0x....             LDR.N    R0,??DataTable4_17
+   \   00000190   0x2205             MOVS     R2,#+5
+   \   00000192   0x7082             STRB     R2,[R0, #+2]
+   \   00000194   0xE046             B.N      ??mcg_div_count_18
+    495                  else if(clk <= 7 * MAX_FLEXBUS_CLK)   mcg_div.flex_div = 6;     // flex bus  = MCG/7
+   \                     ??mcg_div_count_23: (+1)
+   \   00000196   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   00000198   0x29B0             CMP      R1,#+176
+   \   0000019A   0xDA03             BGE.N    ??mcg_div_count_24
+   \   0000019C   0x....             LDR.N    R0,??DataTable4_17
+   \   0000019E   0x2206             MOVS     R2,#+6
+   \   000001A0   0x7082             STRB     R2,[R0, #+2]
+   \   000001A2   0xE03F             B.N      ??mcg_div_count_18
+    496                  else if(clk <= 8 * MAX_FLEXBUS_CLK)   mcg_div.flex_div = 7;     // flex bus  = MCG/8
+   \                     ??mcg_div_count_24: (+1)
+   \   000001A4   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   000001A6   0x29C9             CMP      R1,#+201
+   \   000001A8   0xDA03             BGE.N    ??mcg_div_count_25
+   \   000001AA   0x....             LDR.N    R0,??DataTable4_17
+   \   000001AC   0x2207             MOVS     R2,#+7
+   \   000001AE   0x7082             STRB     R2,[R0, #+2]
+   \   000001B0   0xE038             B.N      ??mcg_div_count_18
+    497                  else if(clk <= 9 * MAX_FLEXBUS_CLK)   mcg_div.flex_div = 8;     // flex bus  = MCG/9
+   \                     ??mcg_div_count_25: (+1)
+   \   000001B2   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   000001B4   0x29E2             CMP      R1,#+226
+   \   000001B6   0xDA03             BGE.N    ??mcg_div_count_26
+   \   000001B8   0x....             LDR.N    R0,??DataTable4_17
+   \   000001BA   0x2208             MOVS     R2,#+8
+   \   000001BC   0x7082             STRB     R2,[R0, #+2]
+   \   000001BE   0xE031             B.N      ??mcg_div_count_18
+    498                  else if(clk <= 10 * MAX_FLEXBUS_CLK)   mcg_div.flex_div = 9;    // flex bus  = MCG/10
+   \                     ??mcg_div_count_26: (+1)
+   \   000001C0   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   000001C2   0x29FB             CMP      R1,#+251
+   \   000001C4   0xDA03             BGE.N    ??mcg_div_count_27
+   \   000001C6   0x....             LDR.N    R0,??DataTable4_17
+   \   000001C8   0x2209             MOVS     R2,#+9
+   \   000001CA   0x7082             STRB     R2,[R0, #+2]
+   \   000001CC   0xE02A             B.N      ??mcg_div_count_18
+    499                  else if(clk <= 11 * MAX_FLEXBUS_CLK)   mcg_div.flex_div = 10;   // flex bus  = MCG/11
+   \                     ??mcg_div_count_27: (+1)
+   \   000001CE   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   000001D0   0xF5B1 0x7F8A      CMP      R1,#+276
+   \   000001D4   0xDA03             BGE.N    ??mcg_div_count_28
+   \   000001D6   0x....             LDR.N    R0,??DataTable4_17
+   \   000001D8   0x220A             MOVS     R2,#+10
+   \   000001DA   0x7082             STRB     R2,[R0, #+2]
+   \   000001DC   0xE022             B.N      ??mcg_div_count_18
+    500                  else if(clk <= 12 * MAX_FLEXBUS_CLK)   mcg_div.flex_div = 11;   // flex bus  = MCG/12
+   \                     ??mcg_div_count_28: (+1)
+   \   000001DE   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   000001E0   0xF5B1 0x7F96      CMP      R1,#+300
+   \   000001E4   0xDC03             BGT.N    ??mcg_div_count_29
+   \   000001E6   0x....             LDR.N    R0,??DataTable4_17
+   \   000001E8   0x220B             MOVS     R2,#+11
+   \   000001EA   0x7082             STRB     R2,[R0, #+2]
+   \   000001EC   0xE01A             B.N      ??mcg_div_count_18
+    501                  else if(clk <= 13 * MAX_FLEXBUS_CLK)   mcg_div.flex_div = 12;   // flex bus  = MCG/13
+   \                     ??mcg_div_count_29: (+1)
+   \   000001EE   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   000001F0   0xF5B1 0x7FA3      CMP      R1,#+326
+   \   000001F4   0xDA03             BGE.N    ??mcg_div_count_30
+   \   000001F6   0x....             LDR.N    R0,??DataTable4_17
+   \   000001F8   0x220C             MOVS     R2,#+12
+   \   000001FA   0x7082             STRB     R2,[R0, #+2]
+   \   000001FC   0xE012             B.N      ??mcg_div_count_18
+    502                  else if(clk <= 14 * MAX_FLEXBUS_CLK)   mcg_div.flex_div = 13;   // flex bus  = MCG/14
+   \                     ??mcg_div_count_30: (+1)
+   \   000001FE   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   00000200   0xF5B1 0x7FAF      CMP      R1,#+350
+   \   00000204   0xDC03             BGT.N    ??mcg_div_count_31
+   \   00000206   0x....             LDR.N    R0,??DataTable4_17
+   \   00000208   0x220D             MOVS     R2,#+13
+   \   0000020A   0x7082             STRB     R2,[R0, #+2]
+   \   0000020C   0xE00A             B.N      ??mcg_div_count_18
+    503                  else if(clk <= 15 * MAX_FLEXBUS_CLK)   mcg_div.flex_div = 14;   // flex bus  = MCG/15
+   \                     ??mcg_div_count_31: (+1)
+   \   0000020E   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   00000210   0xF5B1 0x7FBC      CMP      R1,#+376
+   \   00000214   0xDA03             BGE.N    ??mcg_div_count_32
+   \   00000216   0x....             LDR.N    R0,??DataTable4_17
+   \   00000218   0x220E             MOVS     R2,#+14
+   \   0000021A   0x7082             STRB     R2,[R0, #+2]
+   \   0000021C   0xE002             B.N      ??mcg_div_count_18
+    504                  else                                  mcg_div.flex_div = 15;    // flex bus  = MCG/16
+   \                     ??mcg_div_count_32: (+1)
+   \   0000021E   0x....             LDR.N    R0,??DataTable4_17
+   \   00000220   0x220F             MOVS     R2,#+15
+   \   00000222   0x7082             STRB     R2,[R0, #+2]
+    505          
+    506                  if     (clk <= 1 * MAX_FLASH_CLK)   mcg_div.flash_div = 0;      // flash  = MCG
+   \                     ??mcg_div_count_18: (+1)
+   \   00000224   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   00000226   0x291A             CMP      R1,#+26
+   \   00000228   0xDA03             BGE.N    ??mcg_div_count_33
+   \   0000022A   0x....             LDR.N    R0,??DataTable4_17
+   \   0000022C   0x2100             MOVS     R1,#+0
+   \   0000022E   0x70C1             STRB     R1,[R0, #+3]
+   \   00000230   0xE069             B.N      ??mcg_div_count_0
+    507                  else if(clk <= 2 * MAX_FLASH_CLK)   mcg_div.flash_div = 1;      // flash  = MCG/2
+   \                     ??mcg_div_count_33: (+1)
+   \   00000232   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   00000234   0x2933             CMP      R1,#+51
+   \   00000236   0xDA03             BGE.N    ??mcg_div_count_34
+   \   00000238   0x....             LDR.N    R0,??DataTable4_17
+   \   0000023A   0x2101             MOVS     R1,#+1
+   \   0000023C   0x70C1             STRB     R1,[R0, #+3]
+   \   0000023E   0xE062             B.N      ??mcg_div_count_0
+    508                  else if(clk <= 3 * MAX_FLASH_CLK)   mcg_div.flash_div = 2;      // flash  = MCG/3
+   \                     ??mcg_div_count_34: (+1)
+   \   00000240   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   00000242   0x294C             CMP      R1,#+76
+   \   00000244   0xDA03             BGE.N    ??mcg_div_count_35
+   \   00000246   0x....             LDR.N    R0,??DataTable4_17
+   \   00000248   0x2102             MOVS     R1,#+2
+   \   0000024A   0x70C1             STRB     R1,[R0, #+3]
+   \   0000024C   0xE05B             B.N      ??mcg_div_count_0
+    509                  else if(clk <= 4 * MAX_FLASH_CLK)   mcg_div.flash_div = 3;      // flash  = MCG/4
+   \                     ??mcg_div_count_35: (+1)
+   \   0000024E   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   00000250   0x2965             CMP      R1,#+101
+   \   00000252   0xDA03             BGE.N    ??mcg_div_count_36
+   \   00000254   0x....             LDR.N    R0,??DataTable4_17
+   \   00000256   0x2103             MOVS     R1,#+3
+   \   00000258   0x70C1             STRB     R1,[R0, #+3]
+   \   0000025A   0xE054             B.N      ??mcg_div_count_0
+    510                  else if(clk <= 5 * MAX_FLASH_CLK)   mcg_div.flash_div = 4;      // flash  = MCG/5
+   \                     ??mcg_div_count_36: (+1)
+   \   0000025C   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   0000025E   0x297E             CMP      R1,#+126
+   \   00000260   0xDA03             BGE.N    ??mcg_div_count_37
+   \   00000262   0x....             LDR.N    R0,??DataTable4_17
+   \   00000264   0x2104             MOVS     R1,#+4
+   \   00000266   0x70C1             STRB     R1,[R0, #+3]
+   \   00000268   0xE04D             B.N      ??mcg_div_count_0
+    511                  else if(clk <= 6 * MAX_FLASH_CLK)   mcg_div.flash_div = 5;      // flash  = MCG/6
+   \                     ??mcg_div_count_37: (+1)
+   \   0000026A   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   0000026C   0x2997             CMP      R1,#+151
+   \   0000026E   0xDA03             BGE.N    ??mcg_div_count_38
+   \   00000270   0x....             LDR.N    R0,??DataTable4_17
+   \   00000272   0x2105             MOVS     R1,#+5
+   \   00000274   0x70C1             STRB     R1,[R0, #+3]
+   \   00000276   0xE046             B.N      ??mcg_div_count_0
+    512                  else if(clk <= 7 * MAX_FLASH_CLK)   mcg_div.flash_div = 6;      // flash  = MCG/7
+   \                     ??mcg_div_count_38: (+1)
+   \   00000278   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   0000027A   0x29B0             CMP      R1,#+176
+   \   0000027C   0xDA03             BGE.N    ??mcg_div_count_39
+   \   0000027E   0x....             LDR.N    R0,??DataTable4_17
+   \   00000280   0x2106             MOVS     R1,#+6
+   \   00000282   0x70C1             STRB     R1,[R0, #+3]
+   \   00000284   0xE03F             B.N      ??mcg_div_count_0
+    513                  else if(clk <= 8 * MAX_FLASH_CLK)   mcg_div.flash_div = 7;      // flash  = MCG/8
+   \                     ??mcg_div_count_39: (+1)
+   \   00000286   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   00000288   0x29C9             CMP      R1,#+201
+   \   0000028A   0xDA03             BGE.N    ??mcg_div_count_40
+   \   0000028C   0x....             LDR.N    R0,??DataTable4_17
+   \   0000028E   0x2107             MOVS     R1,#+7
+   \   00000290   0x70C1             STRB     R1,[R0, #+3]
+   \   00000292   0xE038             B.N      ??mcg_div_count_0
+    514                  else if(clk <= 9 * MAX_FLASH_CLK)   mcg_div.flash_div = 8;      // flash  = MCG/9
+   \                     ??mcg_div_count_40: (+1)
+   \   00000294   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   00000296   0x29E2             CMP      R1,#+226
+   \   00000298   0xDA03             BGE.N    ??mcg_div_count_41
+   \   0000029A   0x....             LDR.N    R0,??DataTable4_17
+   \   0000029C   0x2108             MOVS     R1,#+8
+   \   0000029E   0x70C1             STRB     R1,[R0, #+3]
+   \   000002A0   0xE031             B.N      ??mcg_div_count_0
+    515                  else if(clk <= 10 * MAX_FLASH_CLK)   mcg_div.flash_div = 9;     // flash  = MCG/10
+   \                     ??mcg_div_count_41: (+1)
+   \   000002A2   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   000002A4   0x29FB             CMP      R1,#+251
+   \   000002A6   0xDA03             BGE.N    ??mcg_div_count_42
+   \   000002A8   0x....             LDR.N    R0,??DataTable4_17
+   \   000002AA   0x2109             MOVS     R1,#+9
+   \   000002AC   0x70C1             STRB     R1,[R0, #+3]
+   \   000002AE   0xE02A             B.N      ??mcg_div_count_0
+    516                  else if(clk <= 11 * MAX_FLASH_CLK)   mcg_div.flash_div = 10;    // flash  = MCG/11
+   \                     ??mcg_div_count_42: (+1)
+   \   000002B0   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   000002B2   0xF5B1 0x7F8A      CMP      R1,#+276
+   \   000002B6   0xDA03             BGE.N    ??mcg_div_count_43
+   \   000002B8   0x....             LDR.N    R0,??DataTable4_17
+   \   000002BA   0x210A             MOVS     R1,#+10
+   \   000002BC   0x70C1             STRB     R1,[R0, #+3]
+   \   000002BE   0xE022             B.N      ??mcg_div_count_0
+    517                  else if(clk <= 12 * MAX_FLASH_CLK)   mcg_div.flash_div = 11;    // flash  = MCG/12
+   \                     ??mcg_div_count_43: (+1)
+   \   000002C0   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   000002C2   0xF5B1 0x7F96      CMP      R1,#+300
+   \   000002C6   0xDC03             BGT.N    ??mcg_div_count_44
+   \   000002C8   0x....             LDR.N    R0,??DataTable4_17
+   \   000002CA   0x210B             MOVS     R1,#+11
+   \   000002CC   0x70C1             STRB     R1,[R0, #+3]
+   \   000002CE   0xE01A             B.N      ??mcg_div_count_0
+    518                  else if(clk <= 13 * MAX_FLASH_CLK)   mcg_div.flash_div = 12;    // flash  = MCG/13
+   \                     ??mcg_div_count_44: (+1)
+   \   000002D0   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   000002D2   0xF5B1 0x7FA3      CMP      R1,#+326
+   \   000002D6   0xDA03             BGE.N    ??mcg_div_count_45
+   \   000002D8   0x....             LDR.N    R0,??DataTable4_17
+   \   000002DA   0x210C             MOVS     R1,#+12
+   \   000002DC   0x70C1             STRB     R1,[R0, #+3]
+   \   000002DE   0xE012             B.N      ??mcg_div_count_0
+    519                  else if(clk <= 14 * MAX_FLASH_CLK)   mcg_div.flash_div = 13;    // flash  = MCG/14
+   \                     ??mcg_div_count_45: (+1)
+   \   000002E0   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   000002E2   0xF5B1 0x7FAF      CMP      R1,#+350
+   \   000002E6   0xDC03             BGT.N    ??mcg_div_count_46
+   \   000002E8   0x....             LDR.N    R0,??DataTable4_17
+   \   000002EA   0x210D             MOVS     R1,#+13
+   \   000002EC   0x70C1             STRB     R1,[R0, #+3]
+   \   000002EE   0xE00A             B.N      ??mcg_div_count_0
+    520                  else if(clk <= 15 * MAX_FLASH_CLK)   mcg_div.flash_div = 14;    // flash  = MCG/15
+   \                     ??mcg_div_count_46: (+1)
+   \   000002F0   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   000002F2   0xF5B1 0x7FBC      CMP      R1,#+376
+   \   000002F6   0xDA03             BGE.N    ??mcg_div_count_47
+   \   000002F8   0x....             LDR.N    R0,??DataTable4_17
+   \   000002FA   0x210E             MOVS     R1,#+14
+   \   000002FC   0x70C1             STRB     R1,[R0, #+3]
+   \   000002FE   0xE002             B.N      ??mcg_div_count_0
+    521                  else                                mcg_div.flash_div = 15;     // flash  = MCG/16
+   \                     ??mcg_div_count_47: (+1)
+   \   00000300   0x....             LDR.N    R0,??DataTable4_17
+   \   00000302   0x210F             MOVS     R1,#+15
+   \   00000304   0x70C1             STRB     R1,[R0, #+3]
+    522              }
+    523          }
+   \                     ??mcg_div_count_0: (+1)
+   \   00000306   0x4770             BX       LR               ;; return
+    524          
+    525          /*!
+    526           *  @brief      PLL³¬Æµ
+    527           *  @param      PLL_e       ÆµÂÊÉèÖÃ²ÎÊý
+    528           *  @return     ³¬ÆµÆµÂÊ£¨MHz£©
+    529           *  @since      v5.0
+    530           *  @warning    ´Ëº¯ÊýÖ»ÄÜÔÚ ¸´Î»ºóÃ»½øÐÐÈÎºÎÆµÂÊÉèÖÃÇé¿öÏÂµ÷ÓÃ£¬¼´MCGÔÚFEIÄ£Ê½ÏÂ²Å¿Éµ÷ÓÃ
+    531           *  Sample usage:       uint8 clk = pll_init(PLL100);        //³¬Æµ
+    532           */
+
+   \                                 In section .text, align 2, keep-with-next
+    533          uint8 pll_init(PLL_e pll)
+    534          {
+   \                     pll_init: (+1)
+   \   00000000   0xB510             PUSH     {R4,LR}
+   \   00000002   0x0004             MOVS     R4,R0
+    535          
+    536              mcg_div_count( pll);
+   \   00000004   0x0020             MOVS     R0,R4
+   \   00000006   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \   00000008   0x.... 0x....      BL       mcg_div_count
+    537          
+    538              //ÉÏµç¸´Î»ºó£¬µ¥Æ¬»ú»á×Ô¶¯½øÈë FEI Ä£Ê½£¬Ê¹ÓÃ ÄÚ²¿²Î¿¼Ê±ÖÓ
+    539          
+    540              //FEI -> FBE
+    541              MCG_C2 &= ~MCG_C2_LP_MASK;
+   \   0000000C   0x....             LDR.N    R0,??DataTable4_18  ;; 0x40064001
+   \   0000000E   0x7800             LDRB     R0,[R0, #+0]
+   \   00000010   0xF010 0x00FD      ANDS     R0,R0,#0xFD
+   \   00000014   0x....             LDR.N    R1,??DataTable4_18  ;; 0x40064001
+   \   00000016   0x7008             STRB     R0,[R1, #+0]
+    542              MCG_C2 |= MCG_C2_RANGE(1);
+   \   00000018   0x....             LDR.N    R0,??DataTable4_18  ;; 0x40064001
+   \   0000001A   0x7800             LDRB     R0,[R0, #+0]
+   \   0000001C   0xF050 0x0010      ORRS     R0,R0,#0x10
+   \   00000020   0x....             LDR.N    R1,??DataTable4_18  ;; 0x40064001
+   \   00000022   0x7008             STRB     R0,[R1, #+0]
+    543          
+    544              MCG_C1 = MCG_C1_CLKS(2) | MCG_C1_FRDIV(7);
+   \   00000024   0x....             LDR.N    R0,??DataTable4_19  ;; 0x40064000
+   \   00000026   0x21B8             MOVS     R1,#+184
+   \   00000028   0x7001             STRB     R1,[R0, #+0]
+    545          
+    546              while (MCG_S & MCG_S_IREFST_MASK) {};                       //µÈ´ýFLL²Î¿¼Ê±ÖÓ Îª Íâ²¿²Î¿¼Ê±ÖÓ£¨S[IREFST]=0£¬±íÊ¾Ê¹ÓÃÍâ²¿²Î¿¼Ê±ÖÓ£¬£©
+   \                     ??pll_init_0: (+1)
+   \   0000002A   0x....             LDR.N    R0,??DataTable4_20  ;; 0x40064006
+   \   0000002C   0x7800             LDRB     R0,[R0, #+0]
+   \   0000002E   0x06C0             LSLS     R0,R0,#+27
+   \   00000030   0xD4FB             BMI.N    ??pll_init_0
+    547          
+    548              while (((MCG_S & MCG_S_CLKST_MASK) >> MCG_S_CLKST_SHIFT) != 0x2) {}; //µÈ´ýÑ¡ÔñÍâ²¿²Î¿¼Ê±ÖÓ
+   \                     ??pll_init_1: (+1)
+   \   00000032   0x....             LDR.N    R0,??DataTable4_20  ;; 0x40064006
+   \   00000034   0x7800             LDRB     R0,[R0, #+0]
+   \   00000036   0xF3C0 0x0081      UBFX     R0,R0,#+2,#+2
+   \   0000003A   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \   0000003C   0x2802             CMP      R0,#+2
+   \   0000003E   0xD1F8             BNE.N    ??pll_init_1
+    549          
+    550              //ÏÖÔÚÒÑ¾­½øÈëÁË FBEÄ£Ê½
+    551          
+    552              //FBE -> PBE
+    553              set_sys_dividers(mcg_div.core_div, mcg_div.bus_div, mcg_div.flex_div, mcg_div.flash_div); //ÉèÖÃÏµÍ³·ÖÆµÒò×ÓÑ¡Ïî
+   \   00000040   0x....             LDR.N    R0,??DataTable4_17
+   \   00000042   0x78C3             LDRB     R3,[R0, #+3]
+   \   00000044   0x....             LDR.N    R0,??DataTable4_17
+   \   00000046   0x7882             LDRB     R2,[R0, #+2]
+   \   00000048   0x....             LDR.N    R0,??DataTable4_17
+   \   0000004A   0x7841             LDRB     R1,[R0, #+1]
+   \   0000004C   0x....             LDR.N    R0,??DataTable4_17
+   \   0000004E   0x7800             LDRB     R0,[R0, #+0]
+   \   00000050   0x.... 0x....      BL       set_sys_dividers
+    554          
+    555              MCG_C5 = MCG_C5_PRDIV(mcg_cfg[pll].prdiv);                      //·ÖÆµ£¬ EXTAL_IN_MHz/( PRDIV+1)
+   \   00000054   0xB2E4             UXTB     R4,R4            ;; ZeroExt  R4,R4,#+24,#+24
+   \   00000056   0x....             LDR.N    R0,??DataTable4_16
+   \   00000058   0xEB10 0x0084      ADDS     R0,R0,R4, LSL #+2
+   \   0000005C   0x7880             LDRB     R0,[R0, #+2]
+   \   0000005E   0xF010 0x0007      ANDS     R0,R0,#0x7
+   \   00000062   0x....             LDR.N    R1,??DataTable4_21  ;; 0x40064004
+   \   00000064   0x7008             STRB     R0,[R1, #+0]
+    556              MCG_C6 = MCG_C6_PLLS_MASK | MCG_C6_VDIV(mcg_cfg[pll].vdiv) ;    //±¶Æµ£¬ EXTAL_IN_MHz/( PRDIV+1)  * (VDIV+24)
+   \   00000066   0xB2E4             UXTB     R4,R4            ;; ZeroExt  R4,R4,#+24,#+24
+   \   00000068   0x....             LDR.N    R0,??DataTable4_16
+   \   0000006A   0xEB10 0x0084      ADDS     R0,R0,R4, LSL #+2
+   \   0000006E   0x78C0             LDRB     R0,[R0, #+3]
+   \   00000070   0xF010 0x001F      ANDS     R0,R0,#0x1F
+   \   00000074   0xF050 0x0040      ORRS     R0,R0,#0x40
+   \   00000078   0x....             LDR.N    R1,??DataTable4_22  ;; 0x40064005
+   \   0000007A   0x7008             STRB     R0,[R1, #+0]
+    557          
+    558              while (!(MCG_S & MCG_S_PLLST_MASK)) {};                         //µÈ´ýÊ±ÖÓÔ´Ñ¡ÔñPLL
+   \                     ??pll_init_2: (+1)
+   \   0000007C   0x....             LDR.N    R0,??DataTable4_20  ;; 0x40064006
+   \   0000007E   0x7800             LDRB     R0,[R0, #+0]
+   \   00000080   0x0680             LSLS     R0,R0,#+26
+   \   00000082   0xD5FB             BPL.N    ??pll_init_2
+    559          
+    560              while (!(MCG_S & MCG_S_LOCK_MASK)) {};                          //µÈ´ý PLLËøÁË£¨ËøÏà»·£©
+   \                     ??pll_init_3: (+1)
+   \   00000084   0x....             LDR.N    R0,??DataTable4_20  ;; 0x40064006
+   \   00000086   0x7800             LDRB     R0,[R0, #+0]
+   \   00000088   0x0640             LSLS     R0,R0,#+25
+   \   0000008A   0xD5FB             BPL.N    ??pll_init_3
+    561          
+    562              // ÏÖÔÚÒÑ¾­½øÈëÁË PBE Ä£Ê½
+    563          
+    564              // PBE -> PEE
+    565              MCG_C1 &= ~MCG_C1_CLKS_MASK;
+   \   0000008C   0x....             LDR.N    R0,??DataTable4_19  ;; 0x40064000
+   \   0000008E   0x7800             LDRB     R0,[R0, #+0]
+   \   00000090   0xF010 0x003F      ANDS     R0,R0,#0x3F
+   \   00000094   0x....             LDR.N    R1,??DataTable4_19  ;; 0x40064000
+   \   00000096   0x7008             STRB     R0,[R1, #+0]
+    566          
+    567              while (((MCG_S & MCG_S_CLKST_MASK) >> MCG_S_CLKST_SHIFT) != 0x3) {};//µÈ´ýÑ¡ÔñÊä³öPLL
+   \                     ??pll_init_4: (+1)
+   \   00000098   0x....             LDR.N    R0,??DataTable4_20  ;; 0x40064006
+   \   0000009A   0x7800             LDRB     R0,[R0, #+0]
+   \   0000009C   0xF3C0 0x0081      UBFX     R0,R0,#+2,#+2
+   \   000000A0   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \   000000A2   0x2803             CMP      R0,#+3
+   \   000000A4   0xD1F8             BNE.N    ??pll_init_4
+    568          
+    569              // ÏÖÔÚÒÑ¾­½øÈëÁË PEE Ä£Ê½
+    570          
+    571              return mcg_cfg[pll].clk;
+   \   000000A6   0xB2E4             UXTB     R4,R4            ;; ZeroExt  R4,R4,#+24,#+24
+   \   000000A8   0x....             LDR.N    R0,??DataTable4_16
+   \   000000AA   0xF830 0x0024      LDRH     R0,[R0, R4, LSL #+2]
+   \   000000AE   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \   000000B0   0xBD10             POP      {R4,PC}          ;; return
+    572          } //pll_init
+    573          
+    574          /*!
+    575           *  @brief      PITn¶¨Ê±ÖÐ¶Ï
+    576           *  @param      PITn        Ä£¿éºÅ£¨PIT0~PIT3£©
+    577           *  @param      cnt         ¶¨Ê±ÖÐ¶ÏÊ±¼ä(µ¥Î»ÎªbusÊ±ÖÓÖÜÆÚ)
+    578           *  @since      v5.0
+    579           *  Sample usage:
+    580                              pit_init(PIT0, 1000);                          //¶¨Ê± 1000 ¸öbusÊ±ÖÓ ºóÖÐ¶Ï
+    581                              set_vector_handler(PIT0_VECTORn,pit_hander);   // ÉèÖÃÖÐ¶Ï¸´Î»º¯Êýµ½ÖÐ¶ÏÏòÁ¿±íÀï
+    582                              enable_irq(PIT0_IRQn);                         // Ê¹ÄÜLPTMRÖÐ¶Ï
+    583           */
+
+   \                                 In section .text, align 2, keep-with-next
+    584          void pit_init(PITn pitn, uint32 cnt)
+    585          {
+    586              //PIT ÓÃµÄÊÇ Bus Clock ×ÜÏßÆµÂÊ
+    587              //Òç³ö¼ÆÊý = ×ÜÏßÆµÂÊ * Ê±¼ä
+    588              SIM_SCGC6       |= SIM_SCGC6_PIT_MASK;          //Ê¹ÄÜPITÊ±ÖÓ
+   \                     pit_init: (+1)
+   \   00000000   0x....             LDR.N    R2,??DataTable4_23  ;; 0x4004803c
+   \   00000002   0x6812             LDR      R2,[R2, #+0]
+   \   00000004   0xF452 0x0200      ORRS     R2,R2,#0x800000
+   \   00000008   0x....             LDR.N    R3,??DataTable4_23  ;; 0x4004803c
+   \   0000000A   0x601A             STR      R2,[R3, #+0]
+    589          
+    590              PIT_MCR         = (0
+    591                                 //| PIT_MCR_MDIS_MASK       //½ûÓÃPIT¶¨Ê±Æ÷Ê±ÖÓÑ¡Ôñ£¨0±íÊ¾Ê¹ÄÜPIT£¬1±íÊ¾½ûÖ¹PIT£©
+    592                                 //| PIT_MCR_FRZ_MASK        //µ÷ÊÔÄ£Ê½ÏÂÍ£Ö¹ÔËÐÐ£¨0±íÊ¾¼ÌÐøÔËÐÐ£¬1±íÊ¾Í£Ö¹ÔËÐÐ£©
+    593                                );
+   \   0000000C   0x....             LDR.N    R2,??DataTable4_24  ;; 0x40037000
+   \   0000000E   0x2300             MOVS     R3,#+0
+   \   00000010   0x6013             STR      R3,[R2, #+0]
+    594          
+    595              PIT_LDVAL(pitn)  = cnt - 1 ;                    //ÉèÖÃÒç³öÖÐ¶ÏÊ±¼ä
+   \   00000012   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \   00000014   0x0102             LSLS     R2,R0,#+4
+   \   00000016   0x....             LDR.N    R3,??DataTable4_25  ;; 0x40037100
+   \   00000018   0x1E49             SUBS     R1,R1,#+1
+   \   0000001A   0x50D1             STR      R1,[R2, R3]
+    596          
+    597              PIT_Flag_Clear(pitn);                           //ÇåÖÐ¶Ï±êÖ¾Î»
+   \   0000001C   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \   0000001E   0x....             LDR.N    R1,??DataTable4_25  ;; 0x40037100
+   \   00000020   0xEB11 0x1100      ADDS     R1,R1,R0, LSL #+4
+   \   00000024   0x68C9             LDR      R1,[R1, #+12]
+   \   00000026   0xF051 0x0101      ORRS     R1,R1,#0x1
+   \   0000002A   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \   0000002C   0x....             LDR.N    R2,??DataTable4_25  ;; 0x40037100
+   \   0000002E   0xEB12 0x1200      ADDS     R2,R2,R0, LSL #+4
+   \   00000032   0x60D1             STR      R1,[R2, #+12]
+    598          
+    599              PIT_TCTRL(pitn) &= ~ PIT_TCTRL_TEN_MASK;        //½ûÖ¹PITn¶¨Ê±Æ÷£¨ÓÃÓÚÇå¿Õ¼ÆÊýÖµ£©
+   \   00000034   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \   00000036   0x....             LDR.N    R1,??DataTable4_25  ;; 0x40037100
+   \   00000038   0xEB11 0x1100      ADDS     R1,R1,R0, LSL #+4
+   \   0000003C   0x6889             LDR      R1,[R1, #+8]
+   \   0000003E   0x0849             LSRS     R1,R1,#+1
+   \   00000040   0x0049             LSLS     R1,R1,#+1
+   \   00000042   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \   00000044   0x....             LDR.N    R2,??DataTable4_25  ;; 0x40037100
+   \   00000046   0xEB12 0x1200      ADDS     R2,R2,R0, LSL #+4
+   \   0000004A   0x6091             STR      R1,[R2, #+8]
+    600              PIT_TCTRL(pitn)  = ( 0
+    601                                   | PIT_TCTRL_TEN_MASK        //Ê¹ÄÜ PITn¶¨Ê±Æ÷
+    602                                   | PIT_TCTRL_TIE_MASK        //¿ªPITnÖÐ¶Ï
+    603                                 );
+   \   0000004C   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \   0000004E   0x....             LDR.N    R1,??DataTable4_25  ;; 0x40037100
+   \   00000050   0xEB11 0x1000      ADDS     R0,R1,R0, LSL #+4
+   \   00000054   0x2103             MOVS     R1,#+3
+   \   00000056   0x6081             STR      R1,[R0, #+8]
+    604          
+    605              //enable_irq((int)pitn + PIT0_IRQn);            //¿ªÖÐ¶Ï
+    606          }
+   \   00000058   0x4770             BX       LR               ;; return
+    607          
+    608          /*!
+    609           *  @brief      ÉèÖÃÖÐ¶ÏÏòÁ¿±íÀïµÄÖÐ¶Ï¸´Î»º¯Êý
+    610           *  @since      v5.0
+    611           *  @warning    Ö»ÓÐÖÐ¶ÏÏòÁ¿±íÎ»ÓÚicfÖ¸¶¨µÄRAMÇøÓòÊ±£¬´Ëº¯Êý²ÅÓÐÐ§
+    612           *  Sample usage:       set_vector_handler(UART3_RX_TX_VECTORn , uart3_handler);    //°Ñ uart3_handler º¯ÊýÌí¼Óµ½ÖÐ¶ÏÏòÁ¿±í
+    613           */
+
+   \                                 In section .text, align 2, keep-with-next
+    614          void set_vector_handler(VECTORn_t vector , void pfunc_handler(void))
+    615          {
+    616              extern uint32 __VECTOR_RAM[];
+    617              
+    618              __VECTOR_RAM[vector] = (uint32)pfunc_handler;
+   \                     set_vector_handler: (+1)
+   \   00000000   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \   00000002   0x....             LDR.N    R2,??DataTable4_2
+   \   00000004   0xF842 0x1020      STR      R1,[R2, R0, LSL #+2]
+    619          }
+   \   00000008   0x4770             BX       LR               ;; return
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4:
+   \   00000000   0x4005200E         DC32     0x4005200e
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_1:
+   \   00000000   0x40052000         DC32     0x40052000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_2:
+   \   00000000   0x........         DC32     __VECTOR_RAM
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_3:
+   \   00000000   0x........         DC32     __VECTOR_TABLE
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_4:
+   \   00000000   0x........         DC32     SFB(`.data`)
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_5:
+   \   00000000   0x........         DC32     SFB(`.data_init`)
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_6:
+   \   00000000   0x........         DC32     SFE(`.data_init`)
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_7:
+   \   00000000   0x........         DC32     SFB(`.bss`)
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_8:
+   \   00000000   0x........         DC32     SFE(`.bss`)
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_9:
+   \   00000000   0x........         DC32     SFB(CodeRelocateRam)
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_10:
+   \   00000000   0x........         DC32     SFB(CodeRelocate)
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_11:
+   \   00000000   0x........         DC32     SFE(CodeRelocate)
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_12:
+   \   00000000   0x........         DC32     core_clk_mhz
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_13:
+   \   00000000   0x........         DC32     core_clk_khz
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_14:
+   \   00000000   0x40048044         DC32     0x40048044
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_15:
+   \   00000000   0x........         DC32     bus_clk_khz
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_16:
+   \   00000000   0x........         DC32     mcg_cfg
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_17:
+   \   00000000   0x........         DC32     mcg_div
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_18:
+   \   00000000   0x40064001         DC32     0x40064001
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_19:
+   \   00000000   0x40064000         DC32     0x40064000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_20:
+   \   00000000   0x40064006         DC32     0x40064006
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_21:
+   \   00000000   0x40064004         DC32     0x40064004
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_22:
+   \   00000000   0x40064005         DC32     0x40064005
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_23:
+   \   00000000   0x4004803C         DC32     0x4004803c
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_24:
+   \   00000000   0x40037000         DC32     0x40037000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_25:
+   \   00000000   0x40037100         DC32     0x40037100
+    620          
+    621          /*
+    622          
+    623              // DMA²âÊÔ´úÂë
+    624              EnableInterrupts; // Ê¹ÄÜ×ÜÖÐ¶Ï
+    625          
+    626              SIM_SCGC5 |= SIM_SCGC5_PORTC_MASK;
+    627              PORTC_BASE_PTR->PCR[8] = PORT_PCR_MUX(1);          // DMAÔÚÉÏÉýÑØ£¬GPIO
+    628              
+    629              PORTC_BASE_PTR->PCR[0] = PORT_PCR_MUX(1);          // GPIO
+    630              PORTC_BASE_PTR->PCR[1] = PORT_PCR_MUX(1);          // GPIO
+    631              PORTC_BASE_PTR->PCR[2] = PORT_PCR_MUX(1);          // GPIO
+    632              PORTC_BASE_PTR->PCR[3] = PORT_PCR_MUX(1);          // GPIO
+    633              PORTC_BASE_PTR->PCR[4] = PORT_PCR_MUX(1);          // GPIO
+    634              PORTC_BASE_PTR->PCR[5] = PORT_PCR_MUX(1);          // GPIO
+    635              PORTC_BASE_PTR->PCR[6] = PORT_PCR_MUX(1);          // GPIO
+    636              PORTC_BASE_PTR->PCR[7] = PORT_PCR_MUX(1);          // GPIO
+    637              
+    638              PTC_BASE_PTR->PDDR = 0x0000001FF;
+    639              
+    640              PORTC_BASE_PTR->PCR[9] = PORT_PCR_MUX(1)|PORT_PCR_IRQC(1);          // GPIO ÊäÈë
+    641              
+    642              SIM_SCGC7 |= SIM_SCGC7_DMA_MASK; // DMAÊ±ÖÓ¿ªÆô
+    643              SIM_SCGC6 |= SIM_SCGC6_DMAMUX0_MASK; // DMA¿ªÆôMUX0
+    644              
+    645              DMAMUX0_BASE_PTR ->CHCFG[0] = 0;
+    646              DMAMUX0_BASE_PTR ->CHCFG[0] = DMAMUX_CHCFG_ENBL_MASK | DMAMUX_CHCFG_SOURCE(51); // Ñ¡ÔñÍ¨µÀ
+    647          
+    648               DMA_BASE_PTR->CR = DMA_CSR_DREQ_MASK;//ACTIVE ±ØÐëÎª 0²ÅÄÜÐ´Èë
+    649              //DMA_BASE_PTR->DCHPRI0;
+    650              //DMA_BASE_PTR->EEI;
+    651              
+    652              PTC_BASE_PTR->PDOR = 0x43;
+    653              DMA_BASE_PTR ->TCD[0].SADDR = (uint32)(void*)&PTC_BASE_PTR->PDOR;
+    654              //DMA_BASE_PTR ->TCD[0].SADDR = (uint32)(void*)&time; // Ñ¡ÔñÏñËØÎªÊäÈë
+    655              DMA_BASE_PTR ->TCD[0].SOFF  = 0; // Ô´µØÖ·Æ«ÒÆÇé¿ö
+    656              DMA_BASE_PTR ->TCD[0].DADDR = (uint32)(void*)TargetNum; // Ñ¡ÔñÊä³öÎ»ÖÃ
+    657              DMA_BASE_PTR ->TCD[0].DOFF  = 1; // Æ«ÒÆ one byte
+    658              //
+    659              DMA_BASE_PTR ->TCD[0].NBYTES_MLNO = 2; // Ð´ÊýÉÏÏÞ
+    660              
+    661              DMA_BASE_PTR ->TCD[0].ATTR  = DMA_ATTR_SSIZE(0) | DMA_ATTR_DSIZE(0); // ´«ÊäÉùÃ÷
+    662              
+    663              DMA_BASE_PTR->ERQ |= DMA_ERQ_ERQ0_MASK;
+    664              //DMA_BASE_PTR->INT |= DMA_INT_INT0_MASK;
+    665              //DMA_BASE_PTR->TCD[0].CSR = 1;//Èí¼þ´¥·¢ÓÃ
+    666              //DMA_BASE_PTR->TCD[0].CSR = 1;
+    667              //DMA_BASE_PTR->TCD[0].CSR = 1;
+    668              
+    669              PTC_BASE_PTR->PDOR &=~ (1<<8);
+    670              PTC_BASE_PTR->PDOR |= (1<<8);
+    671              PTC_BASE_PTR->PDOR &=~ (1<<8);
+    672              PTC_BASE_PTR->PDOR |= (1<<8);
+    673              PTC_BASE_PTR->PDOR &=~ (1<<8);
+    674              PTC_BASE_PTR->PDOR |= (1<<8);
+    675          */
+    676              
+    677          //    float i = 100.0;
+    678          //    error_occur = SquareRootFloat(i);
+    679          //    error_occur_1 = sqrt(i);
+    680              /*
+    681              SIM_SCGC5 |= SIM_SCGC5_PORTC_MASK;
+    682              PORTC_BASE_PTR->PCR[8] = PORT_PCR_MUX(1);          // DMAÔÚÉÏÉýÑØ£¬GPIO
+    683              
+    684              PORTC_BASE_PTR->PCR[0] = PORT_PCR_MUX(1);          // GPIO
+    685              PORTC_BASE_PTR->PCR[1] = PORT_PCR_MUX(1);          // GPIO
+    686              PORTC_BASE_PTR->PCR[2] = PORT_PCR_MUX(1);          // GPIO
+    687              PORTC_BASE_PTR->PCR[3] = PORT_PCR_MUX(1);          // GPIO
+    688              PORTC_BASE_PTR->PCR[4] = PORT_PCR_MUX(1);          // GPIO
+    689              PORTC_BASE_PTR->PCR[5] = PORT_PCR_MUX(1);          // GPIO
+    690              PORTC_BASE_PTR->PCR[6] = PORT_PCR_MUX(1);          // GPIO
+    691              PORTC_BASE_PTR->PCR[7] = PORT_PCR_MUX(1);          // GPIO
+    692              
+    693              PTC_BASE_PTR->PDDR = 0x0000001FF;
+    694              
+    695              PORTC_BASE_PTR->PCR[9] = PORT_PCR_MUX(1)|PORT_PCR_IRQC(1);          // GPIO ÊäÈë
+    696              
+    697              SIM_SCGC7 |= SIM_SCGC7_DMA_MASK; // DMAÊ±ÖÓ¿ªÆô
+    698              SIM_SCGC6 |= SIM_SCGC6_DMAMUX0_MASK; // DMA¿ªÆôMUX0
+    699              
+    700              DMAMUX0_BASE_PTR ->CHCFG[0] = 0;
+    701              DMAMUX0_BASE_PTR ->CHCFG[0] = DMAMUX_CHCFG_ENBL_MASK | DMAMUX_CHCFG_SOURCE(51); // Ñ¡ÔñÍ¨µÀ
+    702          
+    703               DMA_BASE_PTR->CR = DMA_CSR_DREQ_MASK;//ACTIVE ±ØÐëÎª 0²ÅÄÜÐ´Èë
+    704              //DMA_BASE_PTR->DCHPRI0;
+    705              //DMA_BASE_PTR->EEI;
+    706              
+    707              PTC_BASE_PTR->PDOR = 0x43;
+    708              DMA_BASE_PTR ->TCD[0].SADDR = (uint32)(void*)&PTC_BASE_PTR->PDOR;
+    709              //DMA_BASE_PTR ->TCD[0].SADDR = (uint32)(void*)&time; // Ñ¡ÔñÏñËØÎªÊäÈë
+    710              DMA_BASE_PTR ->TCD[0].SOFF  = 0; // Ô´µØÖ·Æ«ÒÆÇé¿ö
+    711              DMA_BASE_PTR ->TCD[0].DADDR = (uint32)(void*)TargetNum; // Ñ¡ÔñÊä³öÎ»ÖÃ
+    712              DMA_BASE_PTR ->TCD[0].DOFF  = 1; // Æ«ÒÆ one byte
+    713              //
+    714              DMA_BASE_PTR ->TCD[0].NBYTES_MLNO = 1; // Ð´ÊýÉÏÏÞ
+    715              
+    716              DMA_BASE_PTR ->TCD[0].ATTR  = DMA_ATTR_SSIZE(0) | DMA_ATTR_DSIZE(0); // ´«ÊäÉùÃ÷
+    717              
+    718              DMA_BASE_PTR->ERQ |= DMA_ERQ_ERQ0_MASK;
+    719              //DMA_BASE_PTR->INT |= DMA_INT_INT0_MASK;
+    720              //DMA_BASE_PTR->TCD[0].CSR = 1;//Èí¼þ´¥·¢ÓÃ
+    721              //DMA_BASE_PTR->TCD[0].CSR = 1;
+    722              //DMA_BASE_PTR->TCD[0].CSR = 1;
+    723              
+    724              //SIM_SCGC5 |= (SIM_SCGC5_PORTA_MASK);
+    725              //PORTA_PCR24  |= 0x00000100u;
+    726              //PORTA_PCR25  |= 0x00000100u;
+    727              
+    728              //PTA_BASE_PTR->PDDR |= (1<<24);
+    729              //PTA_BASE_PTR->PDDR |= (1<<25);
+    730              
+    731              //PTA_BASE_PTR->PDOR &=~(1<<24);
+    732              //PTA_BASE_PTR->PDOR &=~(1<<25);
+    733              */
+    734              /*
+    735              v_OLED_Init();
+    736              v_OLED_6x8Str(0,0,"Beholder ele test!");
+    737              if('T' == b_Beholder_Init())
+    738              {
+    739                  v_OLED_6x8Str(0,1,"Beholder is OK!");
+    740              }
+    741              else
+    742              {
+    743                  v_OLED_6x8Str(0,2,"Beholder Wrong!");
+    744              }
+    745              b_Beholder_InteruptInit();
+    746              */
+    747              //v_Servo_Init();
+    748              //b_motor_Init();
+    749          
+    750              //SIM_SCGC5 |= (SIM_SCGC5_PORTC_MASK);
+    751              //PORTC_PCR2  |= 0x00000100u;
+    752              //GPIOC_PDDR  |= (1<<2);
+    753              //PORTC_PCR3  |= 0x00000100u;
+    754              //GPIOC_PDDR  |= (1<<3);
+    755              
+    756              //pit_init_ms(PIT0,1); // Éè¶¨PITÖÐ¶ÏÖÜÆÚ
+    757              //set_vector_handler(PIT0_VECTORn,PIT0_IRQHandler); // Éè¶¨PITÖÐ¶Ïº¯ÊýÖ¸Õë
+    758              //enable_irq(PIT0_IRQn);//Ê¹ÄÜPITÖÐ¶Ï
+    759              
+    760              //error_occur = 12;
+    761           //   while(1)
+    762           //   {
+    763                  //if('T' == b_GetMotor_electric(ADC1_BASE_PTR,&test_ele_num))
+    764                  //{
+    765                  //    b_OLED_6x8Num(2,2,10,test_ele_num);
+    766                  //}
+    767                  //v_Servo_Out(0);
+    768                  //for(uint32 loop = 0;loop < 0x7FFFFFF;loop++);
+    769                  //v_Servo_Out(100);
+    770                  //for(uint32 loop = 0;loop < 0x7FFFFFF;loop++);
+    771                  //v_Servo_Out(200);
+    772                  //for(uint32 loop = 0;loop < 0x7FFFFFF;loop++);
+    773                  //test_ele_num = n_GetMotor_speed(FTM1_BASE_PTR);
+    774                  //b_OLED_6x8Num(3,3,7,test_ele_num);
+    775                  //GPIOC_PDOR  |= (1<<2);
+    776                  //GPIOC_PDOR  &=~ (1<<2);
+    777                  //b_OLED_6x8Num(3,3,5,test_ele_num);
+    778             // }
+    779              
+    780              //motionUnit mpu;
+    781              //error_occur = u8_mpu6050_RegInit(&mpu);//b_Accel_Init();
+    782              //if('T' == error_occur)
+    783              //{
+    784              //    v_OLED_6x8Str(1,1,"Accel OK!");
+    785              //}
+    786              //else
+    787              //{
+    788              //    v_OLED_6x8Str(1,1,"Accel Wrong!");
+    789              //}
+    790              //v_OLED_6x8Num(2,2,we_can_See);
+    791              //v_OLED_6x8Num(3,3,we_can_See1);
+    792              //error_occur = u8_mpu6050_RegInit(&mpu);
+    793              //while(1)
+    794              //{
+    795                  //u8_IIC_ReadReg(I2C0_BASE_PTR ,0x68 ,&error_occur ,117);
+    796              //}
+    797              //__v_Uart_Init_(115200); // UART³õÊ¼»¯
+    798              //pit_init_ms(PIT0,1000); // Éè¶¨PITÖÐ¶ÏÖÜÆÚ
+    799              //set_vector_handler(PIT0_VECTORn,PIT0_IRQHandler); // Éè¶¨PITÖÐ¶Ïº¯ÊýÖ¸Õë PORTB_VECTORn
+    800              //enable_irq(PIT0_IRQn);//Ê¹ÄÜPITÖÐ¶Ï
+    801          
+    802          
+    803          //*/
+    804          
+    805          /*
+    806          
+    807          uint8 b_Flash_RxByte(uint8 * returnNum)
+    808          {
+    809              uint8 time = 255;
+    810              while( !((Flash_SPI_PTR->SR) & SPI_SR_RFDF_MASK) )
+    811              {
+    812                 if(!(time--)){return 'F';}  
+    813              }
+    814              *returnNum = (uint8)Flash_SPI_PTR->POPR;
+    815              Flash_SPI_PTR->SR |= SPI_SR_RFDF_MASK;
+    816              return 'T';
+    817          }
+    818          
+    819          uint8 b_Flash_TxByte(uint8 returnNum,uint8 coun)
+    820          {
+    821              uint8 time = 255;
+    822              do
+    823              {
+    824                  Flash_SPI_PTR->SR  = SPI_SR_EOQF_MASK | SPI_SR_TFUF_MASK | SPI_SR_TFFF_MASK
+    825                                      | SPI_SR_RFOF_MASK | SPI_SR_RFDF_MASK;
+    826                  Flash_SPI_PTR->MCR |= SPI_MCR_CLR_TXF_MASK | SPI_MCR_CLR_RXF_MASK;
+    827                  if(!(time--)){return 'F';} 
+    828              } while( (Flash_SPI_PTR->SR) & SPI_SR_RFDF_MASK );
+    829              // ·¢ËÍÊý¾Ý
+    830              Flash_SPI_PTR->PUSHR = ( 0
+    831                                           | SPI_PUSHR_CTAS(0)                 //Ñ¡ÔñCTAR0¼Ä´æÆ÷
+    832                                           | SPI_PUSHR_PCS(1 << 1)
+    833                                           | (coun << SPI_PUSHR_CONT_SHIFT)                //1Îª ´«ÊäSPI×îºóµÄÊý¾Ý
+    834                                           | SPI_PUSHR_TXDATA( returnNum )
+    835                                          // | SPI_PUSHR_EOQ_MASK
+    836                                           );
+    837              time = 255;
+    838              while( Flash_SPI_PTR->SR & SPI_SR_TCF_MASK )
+    839              {
+    840                  time ++;
+    841                  if(!(time--)){return 'F';} 
+    842              }
+    843              return 'T';
+    844          }
+    845          */
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       0   default_isr
+       0   mcg_div_count
+       0   pit_init
+       8   pll_init
+         8   -> mcg_div_count
+         8   -> set_sys_dividers
+      12   set_sys_dividers
+       0   set_vector_handler
+       8   start
+         8   -> main
+         8   -> pll_init
+         8   -> write_vtor
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable4
+       4  ??DataTable4_1
+       4  ??DataTable4_10
+       4  ??DataTable4_11
+       4  ??DataTable4_12
+       4  ??DataTable4_13
+       4  ??DataTable4_14
+       4  ??DataTable4_15
+       4  ??DataTable4_16
+       4  ??DataTable4_17
+       4  ??DataTable4_18
+       4  ??DataTable4_19
+       4  ??DataTable4_2
+       4  ??DataTable4_20
+       4  ??DataTable4_21
+       4  ??DataTable4_22
+       4  ??DataTable4_23
+       4  ??DataTable4_24
+       4  ??DataTable4_25
+       4  ??DataTable4_3
+       4  ??DataTable4_4
+       4  ??DataTable4_5
+       4  ??DataTable4_6
+       4  ??DataTable4_7
+       4  ??DataTable4_8
+       4  ??DataTable4_9
+    1040  __vector_table
+       4  bus_clk_khz
+       4  core_clk_khz
+       4  core_clk_mhz
+       2  default_isr
+      88  mcg_cfg
+       4  mcg_div
+     776  mcg_div_count
+      90  pit_init
+     178  pll_init
+      76  set_sys_dividers
+      10  set_vector_handler
+     246  start
+
+ 
+    12 bytes in section .bss
+    92 bytes in section .data
+ 1 040 bytes in section .intvec
+ 1 406 bytes in section .text
+    76 bytes in section .textrw
+ 
+ 1 482 bytes of CODE  memory
+ 1 040 bytes of CONST memory
+   104 bytes of DATA  memory
+
+Errors: none
+Warnings: none

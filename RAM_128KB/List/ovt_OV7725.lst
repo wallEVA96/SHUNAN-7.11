@@ -1,0 +1,43 @@
+###############################################################################
+#                                                                             #
+# IAR ANSI C/C++ Compiler V6.60.1.5097/W32 for ARM      05/Oct/2014  20:38:26 #
+# Copyright 1999-2013 IAR Systems AB.                                         #
+#                                                                             #
+#    Cpu mode     =  thumb                                                    #
+#    Endian       =  little                                                   #
+#    Source file  =  D:\创作室\飞思卡尔智能小车\智能固件\MK60FX512VLQ15\ShunA #
+#                    n_Panel\ovt_OV7725.c                                     #
+#    Command line =  D:\创作室\飞思卡尔智能小车\智能固件\MK60FX512VLQ15\ShunA #
+#                    n_Panel\ovt_OV7725.c -D IAR -D TWR_K60F120M -lCN         #
+#                    D:\创作室\飞思卡尔智能小车\智能固件\MK60FX512VLQ15\RAM_1 #
+#                    28KB\List\ -lB D:\创作室\飞思卡尔智能小车\智能固件\MK60F #
+#                    X512VLQ15\RAM_128KB\List\ -o                             #
+#                    D:\创作室\飞思卡尔智能小车\智能固件\MK60FX512VLQ15\RAM_1 #
+#                    28KB\Obj\ --no_cse --no_unroll --no_inline               #
+#                    --no_code_motion --no_tbaa --no_clustering               #
+#                    --no_scheduling --debug --endian=little --cpu=Cortex-M4  #
+#                    -e --fpu=None --dlib_config "C:\Program Files (x86)\IAR  #
+#                    Systems\Embedded Workbench 6.5\arm\INC\c\DLib_Config_Nor #
+#                    mal.h" -I D:\创作室\飞思卡尔智能小车\智能固件\MK60FX512V #
+#                    LQ15\ -I D:\创作室\飞思卡尔智能小车\智能固件\MK60FX512VL #
+#                    Q15\Library\ -I D:\创作室\飞思卡尔智能小车\智能固件\MK60 #
+#                    FX512VLQ15\Library\BlessedAlien\ -I                      #
+#                    D:\创作室\飞思卡尔智能小车\智能固件\MK60FX512VLQ15\ShunA #
+#                    n_Panel\ -Ol --use_c++_inline                            #
+#    List file    =  D:\创作室\飞思卡尔智能小车\智能固件\MK60FX512VLQ15\RAM_1 #
+#                    28KB\List\ovt_OV7725.lst                                 #
+#    Object file  =  D:\创作室\飞思卡尔智能小车\智能固件\MK60FX512VLQ15\RAM_1 #
+#                    28KB\Obj\ovt_OV7725.o                                    #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+
+
+ 
+
+ 
+
+
+Errors: none
+Warnings: none

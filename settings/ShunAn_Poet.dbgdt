@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<Project>
+  <Desktop>
+    <Static>
+      <Debug-Log>
+        
+        
+      <ColumnWidth0>20</ColumnWidth0><ColumnWidth1>1307</ColumnWidth1></Debug-Log>
+      <Build>
+        
+        
+        
+        
+      <ColumnWidth0>20</ColumnWidth0><ColumnWidth1>980</ColumnWidth1><ColumnWidth2>261</ColumnWidth2><ColumnWidth3>65</ColumnWidth3></Build>
+      <Workspace>
+        <ColumnWidths>
+          
+          
+          
+          
+        <Column0>140</Column0><Column1>27</Column1><Column2>27</Column2><Column3>27</Column3></ColumnWidths>
+      </Workspace>
+      <Disassembly>
+        <col-names>
+          
+          
+        <item>Disassembly</item><item>_I0</item></col-names>
+        <col-widths>
+          
+          
+        <item>500</item><item>20</item></col-widths>
+        <DisasmHistory/>
+        
+        
+      <PreferedWindows><Position>2</Position><ScreenPosX>0</ScreenPosX><ScreenPosY>0</ScreenPosY><Windows/></PreferedWindows><ShowCodeCoverage>1</ShowCodeCoverage><ShowInstrProfiling>1</ShowInstrProfiling></Disassembly>
+      <StaticWatch>
+        <expressions>
+          
+          
+        <item>FrameVaild_flag</item><item>selfjudge_SendMessage</item><item>m_ImageAbstract</item><item>m_Control</item><item>TestState</item><item>m_system</item><item>Var_Show</item><item>m_ImageAbstract</item><item>m_Control</item><item>returnNum</item><item>LonlyLine_ShutDown_X</item><item>LonlyLine_ShutDown_Y</item><item>viewer_car</item><item/></expressions>
+        <col-names>
+          
+          
+          
+          
+        <item>Expression</item><item>Location</item><item>Type</item><item>Value</item></col-names>
+        <col-widths>
+          
+          
+          
+          
+        <item>170</item><item>150</item><item>100</item><item>193</item></col-widths>
+      <PreferedWindows><Position>2</Position><ScreenPosX>0</ScreenPosX><ScreenPosY>0</ScreenPosY><Windows/></PreferedWindows></StaticWatch>
+    <Register><PreferedWindows><Position>2</Position><ScreenPosX>0</ScreenPosX><ScreenPosY>0</ScreenPosY><Windows/></PreferedWindows></Register><WATCH_1><expressions><item>perLine_JumpNumVaild</item><item>perLine_JumpNumNonVaild</item><item>JumpVar</item><item>LineEnd.counter</item><item>LineEnd</item><item>TestState</item><item>JumpNumNonVaild</item><item>JumpNumVaild</item><item>JumpNumVaild</item><item>perLine_JumpNumVaild</item><item>perLine_JumpNumNonVaild</item><item>absn_jumpVar</item><item>ratio</item><item>hazardStartLine</item><item>hazardStartLine</item><item></item></expressions><col-names><item>Expression</item><item>Location</item><item>Type</item><item>Value</item></col-names><col-widths><item>130</item><item>150</item><item>100</item><item>100</item></col-widths><PreferedWindows><Position>2</Position><ScreenPosX>0</ScreenPosX><ScreenPosY>0</ScreenPosY><Windows/></PreferedWindows></WATCH_1><Find-All-Declarations><ColumnWidth0>470</ColumnWidth0><ColumnWidth1>67</ColumnWidth1><ColumnWidth2>806</ColumnWidth2></Find-All-Declarations><Select-Ambiguous-Definitions><ColumnWidth0>470</ColumnWidth0><ColumnWidth1>67</ColumnWidth1><ColumnWidth2>806</ColumnWidth2></Select-Ambiguous-Definitions><QuickWatch><col-names><item>Expression</item><item>Location</item><item>Type</item><item>Value</item></col-names><col-widths><item>100</item><item>150</item><item>100</item><item>100</item></col-widths><QWatchHistory><item>JumpNumNonVaild</item><item>JumpNumVaild</item><item>abs_JumpVar</item><item>result</item></QWatchHistory><PreferedWindows><Position>2</Position><ScreenPosX>0</ScreenPosX><ScreenPosY>0</ScreenPosY><Windows/></PreferedWindows></QuickWatch></Static>
+    <Windows>
+      
+      
+      
+      
+    <Wnd1>
+        <Tabs>
+          <Tab>
+            <Identity>TabID-20156-20150</Identity>
+            <TabName>Debug Log</TabName>
+            <Factory>Debug-Log</Factory>
+            <Session/>
+          </Tab>
+          
+        <Tab><Identity>TabID-5342-3433</Identity><TabName>Declarations</TabName><Factory>Find-All-Declarations</Factory><Session/></Tab><Tab><Identity>TabID-23482-32610</Identity><TabName>Ambiguous Definitions</TabName><Factory>Select-Ambiguous-Definitions</Factory><Session/></Tab></Tabs>
+        
+      <SelectedTab>0</SelectedTab></Wnd1><Wnd4>
+        <Tabs>
+          <Tab>
+            <Identity>TabID-30905-20153</Identity>
+            <TabName>Workspace</TabName>
+            <Factory>Workspace</Factory>
+            <Session>
+              
+            <NodeDict><ExpandedNode>ShunAn_Poet</ExpandedNode><ExpandedNode>ShunAn_Poet/Adam</ExpandedNode><ExpandedNode>ShunAn_Poet/CapitaineNemo</ExpandedNode><ExpandedNode>ShunAn_Poet/DisplayPanel</ExpandedNode><ExpandedNode>ShunAn_Poet/InertialNavigation</ExpandedNode><ExpandedNode>ShunAn_Poet/Lib</ExpandedNode><ExpandedNode>ShunAn_Poet/Lib/ShuAn_Lib</ExpandedNode><ExpandedNode>ShunAn_Poet/Lib/defined</ExpandedNode><ExpandedNode>ShunAn_Poet/ShunAn_Panel</ExpandedNode><ExpandedNode>ShunAn_Poet/ShunAn_Panel/DisplayScope</ExpandedNode><ExpandedNode>ShunAn_Poet/ShunAn_Panel/Register</ExpandedNode><ExpandedNode>ShunAn_Poet/ShunAn_Panel/interface</ExpandedNode><ExpandedNode>ShunAn_Poet/ShunAn_Poet</ExpandedNode><ExpandedNode>ShunAn_Poet/Sin_of_Adam</ExpandedNode><ExpandedNode>ShunAn_Poet/System</ExpandedNode></NodeDict></Session>
+          </Tab>
+        </Tabs>
+        
+      <SelectedTab>0</SelectedTab></Wnd4><Wnd5><Tabs><Tab>
+            <Identity>TabID-19633-20160</Identity>
+            <TabName>Build</TabName>
+            <Factory>Build</Factory>
+            <Session/>
+          </Tab></Tabs><SelectedTab>0</SelectedTab></Wnd5><Wnd7><Tabs><Tab><Identity>TabID-30881-17983</Identity><TabName>Watch 1</TabName><Factory>WATCH_1</Factory></Tab></Tabs><SelectedTab>0</SelectedTab></Wnd7></Windows>
+    <Editor>
+      
+      
+      
+      
+    <Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\ShunAn_Panel\Poet_Buzzer.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>0</YPos2><SelStart2>283</SelStart2><SelEnd2>283</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\ShunAn_Panel\Poet_Servo.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>0</YPos2><SelStart2>0</SelStart2><SelEnd2>0</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\ShunAn_Panel\Poet_Revelation.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>385</YPos2><SelStart2>15423</SelStart2><SelEnd2>15423</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\ShunAn_Panel\Poet_InputInterface.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>103</YPos2><SelStart2>0</SelStart2><SelEnd2>0</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\ShunAn_Panel\start_ShunAn.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>320</YPos2><SelStart2>0</SelStart2><SelEnd2>0</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\ShunAn_Panel\Poet_ImageBeholder.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>0</YPos2><SelStart2>0</SelStart2><SelEnd2>0</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\ShunAn_Panel\Poet_InputInterface.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>21</YPos2><SelStart2>1529</SelStart2><SelEnd2>1529</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\ShunAn_Panel\start_ShunAn.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>0</YPos2><SelStart2>0</SelStart2><SelEnd2>0</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\ShunAn_Panel\Poet_Revelation.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>71</YPos2><SelStart2>3528</SelStart2><SelEnd2>3528</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\ShunAn_Panel\Poet_Navigation.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>6</YPos2><SelStart2>0</SelStart2><SelEnd2>0</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\Library\BlessedAlien\BlessedAlien.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>0</YPos2><SelStart2>0</SelStart2><SelEnd2>0</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\ShunAn_Panel\startup_ShunAn_K60FX512VLQ15.s</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>0</YPos2><SelStart2>0</SelStart2><SelEnd2>0</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\ShunAn_Panel\Poet_Motor.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>0</YPos2><SelStart2>0</SelStart2><SelEnd2>0</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\ShunAn_Panel\Poet_Servo.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>136</YPos2><SelStart2>7062</SelStart2><SelEnd2>7062</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\ShunAn_Panel\Poet_Buzzer.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>55</YPos2><SelStart2>1781</SelStart2><SelEnd2>1781</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\ShunAn_Panel\ThePoet_ThePendulum.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>223</YPos2><SelStart2>10179</SelStart2><SelEnd2>10203</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\ShunAn_Panel\Poet_Motor.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>314</YPos2><SelStart2>14163</SelStart2><SelEnd2>14163</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\ShunAn_Panel\Pendulum_EndlessFormsMostBeautiful.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>0</YPos2><SelStart2>149</SelStart2><SelEnd2>149</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\ShunAn_Panel\Poet_Scourage.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>0</YPos2><SelStart2>0</SelStart2><SelEnd2>0</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\ShunAn_Panel\Poet_Bluetooth.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>253</YPos2><SelStart2>7634</SelStart2><SelEnd2>7634</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\ShunAn_Panel\main.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>89</YPos2><SelStart2>3588</SelStart2><SelEnd2>3588</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\ShunAn_Panel\ThePoet_ThePendulum.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>1488</YPos2><SelStart2>55755</SelStart2><SelEnd2>55755</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\ShunAn_Panel\Pendulum_EndlessFormsMostBeautiful.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>468</YPos2><SelStart2>19676</SelStart2><SelEnd2>19676</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\ShunAn_Panel\Poet_ImageBeholder.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>277</YPos2><SelStart2>11976</SelStart2><SelEnd2>11976</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\&#x987A;&#x6697;&#x4e09;&#x53F7;-&#x8D77;&#x6e90;-&#x7B2C;&#x4e00;&#x4ee3;&#x677F;\ShunAn_Panel\startup_ShunAn_K60FX512VLQ15.s</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>2</YPos2><SelStart2>598</SelStart2><SelEnd2>598</SelEnd2></Tab><ActiveTab>24</ActiveTab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
+    <Positions>
+      
+      
+      
+      
+      
+    <Top><Row0><Sizes><Toolbar-0125ad20><key>iaridepm.enu1</key></Toolbar-0125ad20></Sizes></Row0><Row1><Sizes><Toolbar-16f4f860><key>debuggergui.enu1</key></Toolbar-16f4f860></Sizes></Row1><Row2><Sizes><Toolbar-2f7c85b8><key>armjlink.enu1</key></Toolbar-2f7c85b8></Sizes></Row2></Top><Left><Row0><Sizes><Wnd4><Rect><Top>-2</Top><Left>-2</Left><Bottom>503</Bottom><Right>231</Right><x>-2</x><y>-2</y><xscreen>21</xscreen><yscreen>0</yscreen><sizeHorzCX>15373</sizeHorzCX><sizeHorzCY>0</sizeHorzCY><sizeVertCX>170571</sizeVertCX><sizeVertCY>736152</sizeVertCY></Rect></Wnd4></Sizes></Row0></Left><Right><Row0><Sizes><Wnd7><Rect><Top>-2</Top><Left>-2</Left><Bottom>503</Bottom><Right>198</Right><x>-2</x><y>-2</y><xscreen>200</xscreen><yscreen>200</yscreen><sizeHorzCX>146413</sizeHorzCX><sizeHorzCY>291545</sizeHorzCY><sizeVertCX>146413</sizeVertCX><sizeVertCY>736152</sizeVertCY></Rect></Wnd7></Sizes></Row0></Right><Bottom><Row0><Sizes><Wnd5><Rect><Top>-2</Top><Left>-2</Left><Bottom>90</Bottom><Right>675</Right><x>-2</x><y>-2</y><xscreen>677</xscreen><yscreen>92</yscreen><sizeHorzCX>495608</sizeHorzCX><sizeHorzCY>134111</sizeHorzCY><sizeVertCX>146413</sizeVertCX><sizeVertCY>291545</sizeVertCY></Rect></Wnd5><Wnd1><Rect><Top>0</Top><Left>0</Left><Bottom>7471136</Bottom><Right>7536737</Right><x>673</x><y>-2</y><xscreen>695</xscreen><yscreen>92</yscreen><sizeHorzCX>508785</sizeHorzCX><sizeHorzCY>134111</sizeHorzCY><sizeVertCX>15373</sizeVertCX><sizeVertCY>0</sizeVertCY></Rect></Wnd1></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
+  </Desktop>
+</Project>
+
+

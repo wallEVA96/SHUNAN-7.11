@@ -1,0 +1,286 @@
+###############################################################################
+#                                                                             #
+# IAR ANSI C/C++ Compiler V6.60.1.5097/W32 for ARM      20/Jul/2015  04:53:23 #
+# Copyright 1999-2013 IAR Systems AB.                                         #
+#                                                                             #
+#    Cpu mode     =  thumb                                                    #
+#    Endian       =  little                                                   #
+#    Source file  =  D:\创作室\飞思卡尔智能小车\顺暗三号\代码\顺暗三号-华南赛 #
+#                    最后七天-7.11\ShunAn_Panel\Poet_Buzzer.c                 #
+#    Command line =  D:\创作室\飞思卡尔智能小车\顺暗三号\代码\顺暗三号-华南赛 #
+#                    最后七天-7.11\ShunAn_Panel\Poet_Buzzer.c -D IAR -D       #
+#                    TWR_K60F120M -lCN D:\创作室\飞思卡尔智能小车\顺暗三号\代 #
+#                    码\顺暗三号-华南赛最后七天-7.11\FLASH_1MB\List\ -lB      #
+#                    D:\创作室\飞思卡尔智能小车\顺暗三号\代码\顺暗三号-华南赛 #
+#                    最后七天-7.11\FLASH_1MB\List\ -o                         #
+#                    D:\创作室\飞思卡尔智能小车\顺暗三号\代码\顺暗三号-华南赛 #
+#                    最后七天-7.11\FLASH_1MB\Obj\ --no_cse --no_unroll        #
+#                    --no_inline --no_code_motion --no_tbaa --no_clustering   #
+#                    --no_scheduling --debug --endian=little --cpu=Cortex-M4  #
+#                    -e --fpu=VFPv4_sp --dlib_config "C:\Program Files        #
+#                    (x86)\IAR Systems\Embedded Workbench                     #
+#                    6.5\arm\INC\c\DLib_Config_Normal.h" -I                   #
+#                    D:\创作室\飞思卡尔智能小车\顺暗三号\代码\顺暗三号-华南赛 #
+#                    最后七天-7.11\ -I D:\创作室\飞思卡尔智能小车\顺暗三号\代 #
+#                    码\顺暗三号-华南赛最后七天-7.11\Library\ -I              #
+#                    D:\创作室\飞思卡尔智能小车\顺暗三号\代码\顺暗三号-华南赛 #
+#                    最后七天-7.11\Library\BlessedAlien\ -I                   #
+#                    D:\创作室\飞思卡尔智能小车\顺暗三号\代码\顺暗三号-华南赛 #
+#                    最后七天-7.11\ShunAn_Panel\ -Ol --use_c++_inline         #
+#    List file    =  D:\创作室\飞思卡尔智能小车\顺暗三号\代码\顺暗三号-华南赛 #
+#                    最后七天-7.11\FLASH_1MB\List\Poet_Buzzer.lst             #
+#    Object file  =  D:\创作室\飞思卡尔智能小车\顺暗三号\代码\顺暗三号-华南赛 #
+#                    最后七天-7.11\FLASH_1MB\Obj\Poet_Buzzer.o                #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+D:\创作室\飞思卡尔智能小车\顺暗三号\代码\顺暗三号-华南赛最后七天-7.11\ShunAn_Panel\Poet_Buzzer.c
+      1          #include "arm_cm4.h"
+      2          #include "MK60F15.h"
+      3          #include "ShunAn_Lib.h"
+      4          #include "start_ShunAn.h"
+      5          
+      6          #include "Poet_Buzzer.h"
+      7          #include "Poet_InputInterface.h"
+      8          
+
+   \                                 In section .text, align 2, keep-with-next
+      9          void v_Buzzer_Init()//蜂鸣器初始化
+     10          {
+     11              SIM_SCGC6 |= SIM_SCGC6_FTM0_MASK;//使能FTM3时钟
+   \                     v_Buzzer_Init: (+1)
+   \   00000000   0x....             LDR.N    R0,??DataTable4  ;; 0x4004803c
+   \   00000002   0x6800             LDR      R0,[R0, #+0]
+   \   00000004   0xF050 0x7080      ORRS     R0,R0,#0x1000000
+   \   00000008   0x....             LDR.N    R1,??DataTable4  ;; 0x4004803c
+   \   0000000A   0x6008             STR      R0,[R1, #+0]
+     12              SIM_SCGC5 |= SIM_SCGC5_PORTA_MASK;//使能PORTE时钟 
+   \   0000000C   0x....             LDR.N    R0,??DataTable4_1  ;; 0x40048038
+   \   0000000E   0x6800             LDR      R0,[R0, #+0]
+   \   00000010   0xF450 0x7000      ORRS     R0,R0,#0x200
+   \   00000014   0x....             LDR.N    R1,??DataTable4_1  ;; 0x40048038
+   \   00000016   0x6008             STR      R0,[R1, #+0]
+     13              PORTA_PCR7 = 0x00000100u;//引脚复用选择ALT1()
+   \   00000018   0x....             LDR.N    R0,??DataTable4_2  ;; 0x4004901c
+   \   0000001A   0xF44F 0x7180      MOV      R1,#+256
+   \   0000001E   0x6001             STR      R1,[R0, #+0]
+     14              PTA_BASE_PTR->PDDR |= (1 << 7);
+   \   00000020   0x....             LDR.N    R0,??DataTable4_3  ;; 0x400ff014
+   \   00000022   0x6800             LDR      R0,[R0, #+0]
+   \   00000024   0xF050 0x0080      ORRS     R0,R0,#0x80
+   \   00000028   0x....             LDR.N    R1,??DataTable4_3  ;; 0x400ff014
+   \   0000002A   0x6008             STR      R0,[R1, #+0]
+     15              PTA_BASE_PTR->PDOR |= (1 << 7);
+   \   0000002C   0x....             LDR.N    R0,??DataTable4_4  ;; 0x400ff000
+   \   0000002E   0x6800             LDR      R0,[R0, #+0]
+   \   00000030   0xF050 0x0080      ORRS     R0,R0,#0x80
+   \   00000034   0x....             LDR.N    R1,??DataTable4_4  ;; 0x400ff000
+   \   00000036   0x6008             STR      R0,[R1, #+0]
+     16              /*
+     17              FTM0_C4SC &= ~FTM_CnSC_ELSA_MASK;                  // MSnB:MSnA = 1x       边沿对齐PWM
+     18              FTM0_C4SC = FTM_CnSC_MSB_MASK | FTM_CnSC_ELSB_MASK;// ELSnB:ELSnA = 10     先高后低
+     19                                                                   // ELSnB:ELSnA = 11     先低后高
+     20              // 设定为 100Hz
+     21              FTM0_SC = 0 | FTM_SC_PS(5) | FTM_SC_CLKS(1);                //上升沿计数模式、分频系数为2^3(300Hz)2^5(75Hz)、时钟选择为bus 时钟、禁止中断
+     22              // 75 / 16 = 4687500 Hz
+     23              FTM0_MOD = 46874;//模数, EPWM的周期为 ：MOD - CNTIN + 0x0001 // 46875
+     24              FTM0_CNTIN = 0;//脉冲宽度：(CnV - CNTIN)
+     25              FTM0_C4V = 46874;//脉冲宽度：(CnV - CNTIN)
+     26              FTM0_CNT = 0;//计数器。只有低16位可用（写任何值到此寄存器，都会加载 CNTIN 的值）
+     27              */
+     28          }
+   \   00000038   0x4770             BX       LR               ;; return
+     29          
+     30          
+
+   \                                 In section .text, align 2, keep-with-next
+     31          void v_Buzzer_OutPut(uint8 dir)//蜂鸣器输出
+     32          {
+     33              if(1 == dir)
+   \                     v_Buzzer_OutPut: (+1)
+   \   00000000   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \   00000002   0x2801             CMP      R0,#+1
+   \   00000004   0xD106             BNE.N    ??v_Buzzer_OutPut_0
+     34              {
+     35                  PTA_BASE_PTR->PDOR &=~(1 << 7);
+   \   00000006   0x....             LDR.N    R0,??DataTable4_4  ;; 0x400ff000
+   \   00000008   0x6800             LDR      R0,[R0, #+0]
+   \   0000000A   0xF030 0x0080      BICS     R0,R0,#0x80
+   \   0000000E   0x....             LDR.N    R1,??DataTable4_4  ;; 0x400ff000
+   \   00000010   0x6008             STR      R0,[R1, #+0]
+   \   00000012   0xE005             B.N      ??v_Buzzer_OutPut_1
+     36                  //FTM0_C4V = 0;
+     37              }
+     38              else
+     39              {
+     40                  PTA_BASE_PTR->PDOR |= (1 << 7);
+   \                     ??v_Buzzer_OutPut_0: (+1)
+   \   00000014   0x....             LDR.N    R0,??DataTable4_4  ;; 0x400ff000
+   \   00000016   0x6800             LDR      R0,[R0, #+0]
+   \   00000018   0xF050 0x0080      ORRS     R0,R0,#0x80
+   \   0000001C   0x....             LDR.N    R1,??DataTable4_4  ;; 0x400ff000
+   \   0000001E   0x6008             STR      R0,[R1, #+0]
+     41                  //FTM0_C4V = 46874;
+     42              }
+     43          }
+   \                     ??v_Buzzer_OutPut_1: (+1)
+   \   00000020   0x4770             BX       LR               ;; return
+     44          
+     45          
+
+   \                                 In section .text, align 2, keep-with-next
+     46          void v_BuzzerBeepSet(unsigned long int lastingTime)
+     47          {
+   \                     v_BuzzerBeepSet: (+1)
+   \   00000000   0xB510             PUSH     {R4,LR}
+   \   00000002   0x0004             MOVS     R4,R0
+     48              if(1 == switch_2)
+   \   00000004   0x.... 0x....      BL       u8_ExInterface7_get
+   \   00000008   0x2801             CMP      R0,#+1
+   \   0000000A   0xD105             BNE.N    ??v_BuzzerBeepSet_0
+     49              {
+     50                  m_system.BuzzerBeep_time = m_system.timer;//将当前时间赋值给蜂鸣器时间
+   \   0000000C   0x....             LDR.N    R0,??DataTable4_5
+   \   0000000E   0x....             LDR.N    R1,??DataTable4_5
+   \   00000010   0x6809             LDR      R1,[R1, #+0]
+   \   00000012   0x6081             STR      R1,[R0, #+8]
+     51                  m_system.BuzzerBeep_LastingTime = lastingTime;
+   \   00000014   0x....             LDR.N    R0,??DataTable4_5
+   \   00000016   0x60C4             STR      R4,[R0, #+12]
+     52              }
+     53          }
+   \                     ??v_BuzzerBeepSet_0: (+1)
+   \   00000018   0xBD10             POP      {R4,PC}          ;; return
+     54          
+     55          
+
+   \                                 In section .text, align 2, keep-with-next
+     56          PUBLIC void v_LightingChaser_Init()
+     57          {
+     58              //E8
+     59              SIM_SCGC5 |= SIM_SCGC5_PORTE_MASK;//使能PORTA、B时钟
+   \                     v_LightingChaser_Init: (+1)
+   \   00000000   0x....             LDR.N    R0,??DataTable4_1  ;; 0x40048038
+   \   00000002   0x6800             LDR      R0,[R0, #+0]
+   \   00000004   0xF450 0x5000      ORRS     R0,R0,#0x2000
+   \   00000008   0x....             LDR.N    R1,??DataTable4_1  ;; 0x40048038
+   \   0000000A   0x6008             STR      R0,[R1, #+0]
+     60              PORTE_PCR7 = PORT_PCR_MUX(1) | PORT_PCR_IRQC(11);//引脚复用选择普通IO()
+   \   0000000C   0x....             LDR.N    R0,??DataTable4_6  ;; 0x4004d01c
+   \   0000000E   0x....             LDR.N    R1,??DataTable4_7  ;; 0xb0100
+   \   00000010   0x6001             STR      R1,[R0, #+0]
+     61              
+     62              //GPIOE_PDDR &= ~(1<<7);
+     63              GPIOE_PDDR &= ~(1<<7);//引脚选择输入方向()
+   \   00000012   0x....             LDR.N    R0,??DataTable4_8  ;; 0x400ff114
+   \   00000014   0x6800             LDR      R0,[R0, #+0]
+   \   00000016   0xF030 0x0080      BICS     R0,R0,#0x80
+   \   0000001A   0x....             LDR.N    R1,??DataTable4_8  ;; 0x400ff114
+   \   0000001C   0x6008             STR      R0,[R1, #+0]
+     64              //GPIOE_PDDR &= ~(1<<9);
+     65          }
+   \   0000001E   0x4770             BX       LR               ;; return
+     66          
+
+   \                                 In section .text, align 2, keep-with-next
+     67          PUBLIC uint8 b_GetLightChaserStatus()
+     68          {
+     69              if(0 != (PORTE_PCR7 & PORT_PCR_ISF_MASK))//检测到脉冲出现
+   \                     b_GetLightChaserStatus: (+1)
+   \   00000000   0x....             LDR.N    R0,??DataTable4_6  ;; 0x4004d01c
+   \   00000002   0x6800             LDR      R0,[R0, #+0]
+   \   00000004   0x01C0             LSLS     R0,R0,#+7
+   \   00000006   0xD507             BPL.N    ??b_GetLightChaserStatus_0
+     70              {
+     71                  PORTE_PCR7 |= PORT_PCR_ISF_MASK;//清除
+   \   00000008   0x....             LDR.N    R0,??DataTable4_6  ;; 0x4004d01c
+   \   0000000A   0x6800             LDR      R0,[R0, #+0]
+   \   0000000C   0xF050 0x7080      ORRS     R0,R0,#0x1000000
+   \   00000010   0x....             LDR.N    R1,??DataTable4_6  ;; 0x4004d01c
+   \   00000012   0x6008             STR      R0,[R1, #+0]
+     72                  return 1;
+   \   00000014   0x2001             MOVS     R0,#+1
+   \   00000016   0xE000             B.N      ??b_GetLightChaserStatus_1
+     73              }
+     74              return 0;
+   \                     ??b_GetLightChaserStatus_0: (+1)
+   \   00000018   0x2000             MOVS     R0,#+0
+   \                     ??b_GetLightChaserStatus_1: (+1)
+   \   0000001A   0x4770             BX       LR               ;; return
+     75          }
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4:
+   \   00000000   0x4004803C         DC32     0x4004803c
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_1:
+   \   00000000   0x40048038         DC32     0x40048038
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_2:
+   \   00000000   0x4004901C         DC32     0x4004901c
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_3:
+   \   00000000   0x400FF014         DC32     0x400ff014
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_4:
+   \   00000000   0x400FF000         DC32     0x400ff000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_5:
+   \   00000000   0x........         DC32     m_system
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_6:
+   \   00000000   0x4004D01C         DC32     0x4004d01c
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_7:
+   \   00000000   0x000B0100         DC32     0xb0100
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_8:
+   \   00000000   0x400FF114         DC32     0x400ff114
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       0   b_GetLightChaserStatus
+       8   v_BuzzerBeepSet
+         8   -> u8_ExInterface7_get
+       0   v_Buzzer_Init
+       0   v_Buzzer_OutPut
+       0   v_LightingChaser_Init
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable4
+       4  ??DataTable4_1
+       4  ??DataTable4_2
+       4  ??DataTable4_3
+       4  ??DataTable4_4
+       4  ??DataTable4_5
+       4  ??DataTable4_6
+       4  ??DataTable4_7
+       4  ??DataTable4_8
+      28  b_GetLightChaserStatus
+      26  v_BuzzerBeepSet
+      58  v_Buzzer_Init
+      34  v_Buzzer_OutPut
+      32  v_LightingChaser_Init
+
+ 
+ 214 bytes in section .text
+ 
+ 214 bytes of CODE memory
+
+Errors: none
+Warnings: none

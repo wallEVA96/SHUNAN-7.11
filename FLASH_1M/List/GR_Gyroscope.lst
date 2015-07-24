@@ -1,0 +1,176 @@
+###############################################################################
+#                                                                             #
+# IAR ANSI C/C++ Compiler V6.60.1.5097/W32 for ARM      16/Aug/2014  22:11:13 #
+# Copyright 1999-2013 IAR Systems AB.                                         #
+#                                                                             #
+#    Cpu mode     =  thumb                                                    #
+#    Endian       =  little                                                   #
+#    Source file  =  C:\Users\pc\Desktop\¼ÌÐø×öµÄÊÂÇé\ËÄÐýÒí·ÉÐÐÆ÷ -          #
+#                    TM4123G\´úÂë\Ò£¿ØÆ÷\ShunAn2\GR_Gyroscope.c               #
+#    Command line =  "C:\Users\pc\Desktop\¼ÌÐø×öµÄÊÂÇé\ËÄÐýÒí·ÉÐÐÆ÷ -         #
+#                    TM4123G\´úÂë\Ò£¿ØÆ÷\ShunAn2\GR_Gyroscope.c" -D IAR -D    #
+#                    ShunAn2 -lCN "C:\Users\pc\Desktop\¼ÌÐø×öµÄÊÂÇé\ËÄÐýÒí·ÉÐ #
+#                    ÐÆ÷ - TM4123G\´úÂë\Ò£¿ØÆ÷\FLASH_1M\List\" -lB            #
+#                    "C:\Users\pc\Desktop\¼ÌÐø×öµÄÊÂÇé\ËÄÐýÒí·ÉÐÐÆ÷ -         #
+#                    TM4123G\´úÂë\Ò£¿ØÆ÷\FLASH_1M\List\" -o                   #
+#                    "C:\Users\pc\Desktop\¼ÌÐø×öµÄÊÂÇé\ËÄÐýÒí·ÉÐÐÆ÷ -         #
+#                    TM4123G\´úÂë\Ò£¿ØÆ÷\FLASH_1M\Obj\" --no_cse --no_unroll  #
+#                    --no_inline --no_code_motion --no_tbaa --no_clustering   #
+#                    --no_scheduling --debug --endian=little --cpu=Cortex-M4  #
+#                    -e --fpu=None --dlib_config "C:\Program Files (x86)\IAR  #
+#                    Systems\Embedded Workbench 6.5\arm\INC\c\DLib_Config_Nor #
+#                    mal.h" -I "C:\Users\pc\Desktop\¼ÌÐø×öµÄÊÂÇé\ËÄÐýÒí·ÉÐÐÆ÷ #
+#                     - TM4123G\´úÂë\Ò£¿ØÆ÷\ShunAn2\" -I                      #
+#                    "C:\Users\pc\Desktop\¼ÌÐø×öµÄÊÂÇé\ËÄÐýÒí·ÉÐÐÆ÷ -         #
+#                    TM4123G\´úÂë\Ò£¿ØÆ÷\Library\" -I                         #
+#                    "C:\Users\pc\Desktop\¼ÌÐø×öµÄÊÂÇé\ËÄÐýÒí·ÉÐÐÆ÷ -         #
+#                    TM4123G\´úÂë\Ò£¿ØÆ÷\Library\BlessedAlien\" -Ol           #
+#                    --use_c++_inline                                         #
+#    List file    =  C:\Users\pc\Desktop\¼ÌÐø×öµÄÊÂÇé\ËÄÐýÒí·ÉÐÐÆ÷ -          #
+#                    TM4123G\´úÂë\Ò£¿ØÆ÷\FLASH_1M\List\GR_Gyroscope.lst       #
+#    Object file  =  C:\Users\pc\Desktop\¼ÌÐø×öµÄÊÂÇé\ËÄÐýÒí·ÉÐÐÆ÷ -          #
+#                    TM4123G\´úÂë\Ò£¿ØÆ÷\FLASH_1M\Obj\GR_Gyroscope.o          #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Users\pc\Desktop\¼ÌÐø×öµÄÊÂÇé\ËÄÐýÒí·ÉÐÐÆ÷ - TM4123G\´úÂë\Ò£¿ØÆ÷\ShunAn2\GR_Gyroscope.c
+      1          #include "GR_Gyroscope.h"
+      2          #include "MK60F15.h"
+      3          
+      4          //ÍÓÂÝÒÇAD¿Ú³õÊ¼»¯
+
+   \                                 In section .text, align 2, keep-with-next
+      5          void GR_GyroscopeInit(void)
+      6          {
+      7            SIM_SCGC3 |= 0x08000000u;//Ê¹ÄÜADC1Ä£¿éÊ±ÖÓ 
+   \                     GR_GyroscopeInit: (+1)
+   \   00000000   0x....             LDR.N    R0,??DataTable1  ;; 0x40048030
+   \   00000002   0x6800             LDR      R0,[R0, #+0]
+   \   00000004   0xF050 0x6000      ORRS     R0,R0,#0x8000000
+   \   00000008   0x....             LDR.N    R1,??DataTable1  ;; 0x40048030
+   \   0000000A   0x6008             STR      R0,[R1, #+0]
+      8            SIM_SCGC5 |= 0x00000400u;//Ê¹ÄÜPORTBÊ±ÖÓ 
+   \   0000000C   0x....             LDR.N    R0,??DataTable1_1  ;; 0x40048038
+   \   0000000E   0x6800             LDR      R0,[R0, #+0]
+   \   00000010   0xF450 0x6080      ORRS     R0,R0,#0x400
+   \   00000014   0x....             LDR.N    R1,??DataTable1_1  ;; 0x40048038
+   \   00000016   0x6008             STR      R0,[R1, #+0]
+      9            //------------------------------ÍÓÂÝÒÇ---------------------------------
+     10            PORTB_PCR4 |= 0x0u;//Òý½Å¸´ÓÃÑ¡ÔñÄ£ÄâÊäÈë
+   \   00000018   0x....             LDR.N    R0,??DataTable1_2  ;; 0x4004a010
+   \   0000001A   0x....             LDR.N    R1,??DataTable1_2  ;; 0x4004a010
+   \   0000001C   0x6809             LDR      R1,[R1, #+0]
+   \   0000001E   0x6001             STR      R1,[R0, #+0]
+     11            //------------------------------¼ÓËÙ¶È¼Æ---------------------------------
+     12          
+     13          
+     14          }
+   \   00000020   0x4770             BX       LR               ;; return
+     15          
+     16          //¼ÓËÙ¶È¼ÆAD¿Ú³õÊ¼»¯
+
+   \                                 In section .text, align 2, keep-with-next
+     17          void GR_AccelerometerInit(void)
+     18          {
+     19            
+     20          }
+   \                     GR_AccelerometerInit: (+1)
+   \   00000000   0x4770             BX       LR               ;; return
+     21          
+
+   \                                 In section .text, align 2, keep-with-next
+     22          unsigned char SampleOncePTB4(void)
+     23          {
+     24            unsigned char result = 0;
+   \                     SampleOncePTB4: (+1)
+   \   00000000   0x2000             MOVS     R0,#+0
+     25            ADC1_CFG1 |= 0x00000030u;//ADC1ÉèÖÃÎª×ÜÏßÊ±ÖÓÆµÂÊ/2£¬³¤²ÉÑùÊ±¼ä£¬8Î»²ÉÑù
+   \   00000002   0x....             LDR.N    R1,??DataTable1_3  ;; 0x400bb008
+   \   00000004   0x6809             LDR      R1,[R1, #+0]
+   \   00000006   0xF051 0x0130      ORRS     R1,R1,#0x30
+   \   0000000A   0x....             LDR.N    R2,??DataTable1_3  ;; 0x400bb008
+   \   0000000C   0x6011             STR      R1,[R2, #+0]
+     26            ADC1_CFG2 |= 0x00000004u;//ADC1ÉèÖÃÎªaÍ¨µÀ£¬½ûÖ¹Òì²½Ê±ÖÓ£¬¸ßËÙÐòÁÐ×ª»»£¬×î³¤²ÉÑùÊ±¼ä
+   \   0000000E   0x....             LDR.N    R1,??DataTable1_4  ;; 0x400bb00c
+   \   00000010   0x6809             LDR      R1,[R1, #+0]
+   \   00000012   0xF051 0x0104      ORRS     R1,R1,#0x4
+   \   00000016   0x....             LDR.N    R2,??DataTable1_4  ;; 0x400bb00c
+   \   00000018   0x6011             STR      R1,[R2, #+0]
+     27            ADC1_SC1A = 0x0000000Au;//ADC1ÉèÖÃÎª½ûÖ¹ÖÐ¶Ï£¬µ¥¶Ë²ÉÑù£¬Í¨µÀ10²ÉÑù£¬Õâ¸ö¼Ä´æÆ÷Ð´Èëºó¾Í»á¿ªÊ¼×ª»»
+   \   0000001A   0x....             LDR.N    R1,??DataTable1_5  ;; 0x400bb000
+   \   0000001C   0x220A             MOVS     R2,#+10
+   \   0000001E   0x600A             STR      R2,[R1, #+0]
+     28            while ((ADC1_SC1A & ADC_SC1_COCO_MASK ) != ADC_SC1_COCO_MASK);//µÈ´ýµ¥´Î×ª»»Íê³É   
+   \                     ??SampleOncePTB4_0: (+1)
+   \   00000020   0x....             LDR.N    R0,??DataTable1_5  ;; 0x400bb000
+   \   00000022   0x6800             LDR      R0,[R0, #+0]
+   \   00000024   0x0600             LSLS     R0,R0,#+24
+   \   00000026   0xD5FB             BPL.N    ??SampleOncePTB4_0
+     29            result = ADC1_RA;
+   \   00000028   0x....             LDR.N    R0,??DataTable1_6  ;; 0x400bb010
+   \   0000002A   0x6800             LDR      R0,[R0, #+0]
+     30            return result;
+   \   0000002C   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \   0000002E   0x4770             BX       LR               ;; return
+     31          }
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1:
+   \   00000000   0x40048030         DC32     0x40048030
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_1:
+   \   00000000   0x40048038         DC32     0x40048038
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_2:
+   \   00000000   0x4004A010         DC32     0x4004a010
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_3:
+   \   00000000   0x400BB008         DC32     0x400bb008
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_4:
+   \   00000000   0x400BB00C         DC32     0x400bb00c
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_5:
+   \   00000000   0x400BB000         DC32     0x400bb000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_6:
+   \   00000000   0x400BB010         DC32     0x400bb010
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       0   GR_AccelerometerInit
+       0   GR_GyroscopeInit
+       0   SampleOncePTB4
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable1
+       4  ??DataTable1_1
+       4  ??DataTable1_2
+       4  ??DataTable1_3
+       4  ??DataTable1_4
+       4  ??DataTable1_5
+       4  ??DataTable1_6
+       2  GR_AccelerometerInit
+      34  GR_GyroscopeInit
+      48  SampleOncePTB4
+
+ 
+ 112 bytes in section .text
+ 
+ 112 bytes of CODE memory
+
+Errors: none
+Warnings: none

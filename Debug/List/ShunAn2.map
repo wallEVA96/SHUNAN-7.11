@@ -1,0 +1,543 @@
+###############################################################################
+#                                                                             #
+# IAR ELF Linker V6.60.1.5097/W32 for ARM               23/Jun/2014  19:08:26 #
+# Copyright 2007-2013 IAR Systems AB.                                         #
+#                                                                             #
+#    Output file  =  C:\Users\pc\Desktop\À≥∞µ2∫≈_≤ªÀ¿ƒÒ_6_22_EEPROM\Debug\Exe #
+#                    \ShunAn2.out                                             #
+#    Map file     =  C:\Users\pc\Desktop\À≥∞µ2∫≈_≤ªÀ¿ƒÒ_6_22_EEPROM\Debug\Lis #
+#                    t\ShunAn2.map                                            #
+#    Command line =  C:\Users\pc\Desktop\À≥∞µ2∫≈_≤ªÀ¿ƒÒ_6_22_EEPROM\Debug\Obj #
+#                    \arm_cm4.o C:\Users\pc\Desktop\À≥∞µ2∫≈_≤ªÀ¿ƒÒ_6_22_EEPRO #
+#                    M\Debug\Obj\GodRecognitionx11_12.o                       #
+#                    C:\Users\pc\Desktop\À≥∞µ2∫≈_≤ªÀ¿ƒÒ_6_22_EEPROM\Debug\Obj #
+#                    \GR_Bluetoothx11_12.o C:\Users\pc\Desktop\À≥∞µ2∫≈_≤ªÀ¿ƒÒ #
+#                    _6_22_EEPROM\Debug\Obj\GR_Buttonx11_12.o                 #
+#                    C:\Users\pc\Desktop\À≥∞µ2∫≈_≤ªÀ¿ƒÒ_6_22_EEPROM\Debug\Obj #
+#                    \GR_Buzzerx19.o C:\Users\pc\Desktop\À≥∞µ2∫≈_≤ªÀ¿ƒÒ_6_22_ #
+#                    EEPROM\Debug\Obj\GR_CCDx11_12.o                          #
+#                    C:\Users\pc\Desktop\À≥∞µ2∫≈_≤ªÀ¿ƒÒ_6_22_EEPROM\Debug\Obj #
+#                    \GR_Gyroscope.o C:\Users\pc\Desktop\À≥∞µ2∫≈_≤ªÀ¿ƒÒ_6_22_ #
+#                    EEPROM\Debug\Obj\GR_heartMemory.o                        #
+#                    C:\Users\pc\Desktop\À≥∞µ2∫≈_≤ªÀ¿ƒÒ_6_22_EEPROM\Debug\Obj #
+#                    \GR_Infraredx11_12.o C:\Users\pc\Desktop\À≥∞µ2∫≈_≤ªÀ¿ƒÒ_ #
+#                    6_22_EEPROM\Debug\Obj\GR_LPTMRx11_12.o                   #
+#                    C:\Users\pc\Desktop\À≥∞µ2∫≈_≤ªÀ¿ƒÒ_6_22_EEPROM\Debug\Obj #
+#                    \GR_Motorx11_12.o C:\Users\pc\Desktop\À≥∞µ2∫≈_≤ªÀ¿ƒÒ_6_2 #
+#                    2_EEPROM\Debug\Obj\GR_OLEDx11_12.o                       #
+#                    C:\Users\pc\Desktop\À≥∞µ2∫≈_≤ªÀ¿ƒÒ_6_22_EEPROM\Debug\Obj #
+#                    \GR_Serverx11_12.o C:\Users\pc\Desktop\À≥∞µ2∫≈_≤ªÀ¿ƒÒ_6_ #
+#                    22_EEPROM\Debug\Obj\main.o C:\Users\pc\Desktop\À≥∞µ2∫≈_≤ #
+#                    ªÀ¿ƒÒ_6_22_EEPROM\Debug\Obj\start_ShunAn.o               #
+#                    C:\Users\pc\Desktop\À≥∞µ2∫≈_≤ªÀ¿ƒÒ_6_22_EEPROM\Debug\Obj #
+#                    \startup_ShunAn_K60FX512VLQ15.o -o                       #
+#                    C:\Users\pc\Desktop\À≥∞µ2∫≈_≤ªÀ¿ƒÒ_6_22_EEPROM\Debug\Exe #
+#                    \ShunAn2.out --map C:\Users\pc\Desktop\À≥∞µ2∫≈_≤ªÀ¿ƒÒ_6_ #
+#                    22_EEPROM\Debug\List\ShunAn2.map --config                #
+#                    C:\Users\pc\Desktop\À≥∞µ2∫≈_≤ªÀ¿ƒÒ_6_22_EEPROM\configfil #
+#                    es\512KB_Pflash_512KB_Dflash.icf --semihosting --entry   #
+#                    __iar_program_start --vfe                                #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A1":  place at 0x00000000 { ro section .intvec };
+"A2":  place at 0x00000410 { ro section .noinit };
+"P1":  place in [from         0x00000000
+                 to           0x00080000
+                 repeat       2
+                 displacement 0x10000000] { ro, block CodeRelocate };
+"P2":  place in [from 0x1fff0410 to 0x1fffffff] |
+                [from 0x20000000 to 0x20010000] {
+          rw, block CodeRelocateRam, block CSTACK, block HEAP };
+
+  Section              Kind        Address     Size  Object
+  -------              ----        -------     ----  ------
+"A1":                                         0x410
+  .intvec              const    0x00000000    0x410  start_ShunAn.o [1]
+                              - 0x00000410    0x410
+
+"P1", part 1 of 2:                              0x0
+  .rodata              const    0x00000410      0x0  zero_init3.o [5]
+
+"A2":                                          0x3c
+  .noinit              ro code  0x00000410     0x3c  startup_ShunAn_K60FX512VLQ15.o [1]
+                              - 0x0000044c     0x3c
+
+"P1", part 2 of 2:                          0x119c4
+  .text                ro code  0x0000044c   0x31dc  GodRecognitionx11_12.o [1]
+  .text                ro code  0x00003628     0x32  I32ToFlt.o [4]
+  .text                ro code  0x0000365a     0x22  zero_init3.o [5]
+  .text                ro code  0x0000367c     0x4e  FltToDbl.o [4]
+  .text                ro code  0x000036cc    0x1a2  DblMul.o [4]
+  .text                ro code  0x00003870     0x4c  DblToI32.o [4]
+  .text                ro code  0x000038bc     0x30  I32ToDbl.o [4]
+  .text                ro code  0x000038ec     0x2e  DblCmpGe.o [4]
+  .text                ro code  0x0000391c     0x24  FltCmpGe.o [4]
+  .text                ro code  0x00003940     0xfc  FltDiv.o [4]
+  .text                ro code  0x00003a3c     0xe6  FltSub.o [4]
+  .text                ro code  0x00003b24     0xd8  FltMul.o [4]
+  .text                ro code  0x00003bfc     0x84  FltAdd.o [4]
+  .text                ro code  0x00003c80     0x44  FltToS32.o [4]
+  .text                ro code  0x00003cc4     0x2e  DblCmpLe.o [4]
+  .text                ro code  0x00003cf4     0xe8  DblAdd.o [4]
+  .text                ro code  0x00003ddc     0x90  DblToFlt.o [4]
+  .text                ro code  0x00003e6c     0x24  FltCmpLe.o [4]
+  .text                ro code  0x00003e90    0x16c  DblSub.o [4]
+  .text                ro code  0x00003ffc   0x291c  GR_OLEDx11_12.o [1]
+  .text                ro code  0x00006918      0x6  ABImemclr4.o [5]
+  .text                ro code  0x00006920     0x1c  FltCmpEq.o [4]
+  .text                ro code  0x0000693c     0x24  FltToU32.o [4]
+  .text                ro code  0x00006960     0x32  ABImemset48.o [5]
+  .text                ro code  0x00006994    0xc30  GR_Buttonx11_12.o [1]
+  Veneer               ro code  0x000075c4      0x8  - Linker created -
+  .text                ro code  0x000075cc    0x570  start_ShunAn.o [1]
+  .text                ro code  0x00007b3c     0xd4  arm_cm4.o [1]
+  .text                ro code  0x00007c10    0x26c  main.o [1]
+  .text                ro code  0x00007e7c    0x260  GR_CCDx11_12.o [1]
+  .text                ro code  0x000080dc     0xd4  GR_Serverx11_12.o [1]
+  .text                ro code  0x000081b0    0x134  GR_Motorx11_12.o [1]
+  .text                ro code  0x000082e4     0x7c  GR_Buzzerx19.o [1]
+  .text                ro code  0x00008360     0x90  GR_LPTMRx11_12.o [1]
+  .text                ro code  0x000083f0     0x68  GR_Infraredx11_12.o [1]
+  .text                ro code  0x00008458     0x70  GR_Gyroscope.o [1]
+  .text                ro code  0x000084c8     0xe8  GR_Bluetoothx11_12.o [1]
+  .rodata              const    0x000085b0    0x400  GR_OLEDx11_12.o [1]
+  .rodata              const    0x000089b0    0x400  GR_OLEDx11_12.o [1]
+  .rodata              const    0x00008db0    0x400  GR_OLEDx11_12.o [1]
+  .rodata              const    0x000091b0    0x400  GR_OLEDx11_12.o [1]
+  .rodata              const    0x000095b0    0x400  GR_OLEDx11_12.o [1]
+  .rodata              const    0x000099b0    0x400  GR_OLEDx11_12.o [1]
+  .rodata              const    0x00009db0    0x400  GR_OLEDx11_12.o [1]
+  .rodata              const    0x0000a1b0    0x400  GR_OLEDx11_12.o [1]
+  .rodata              const    0x0000a5b0    0x400  GR_OLEDx11_12.o [1]
+  .rodata              const    0x0000a9b0    0x400  GR_OLEDx11_12.o [1]
+  .rodata              const    0x0000adb0    0x400  GR_OLEDx11_12.o [1]
+  .rodata              const    0x0000b1b0    0x400  GR_OLEDx11_12.o [1]
+  .rodata              const    0x0000b5b0    0x400  GR_OLEDx11_12.o [1]
+  .rodata              const    0x0000b9b0    0x400  GR_OLEDx11_12.o [1]
+  .rodata              const    0x0000bdb0    0x400  GR_OLEDx11_12.o [1]
+  .rodata              const    0x0000c1b0    0x400  GR_OLEDx11_12.o [1]
+  .rodata              const    0x0000c5b0    0x400  GR_OLEDx11_12.o [1]
+  .rodata              const    0x0000c9b0    0x400  GR_OLEDx11_12.o [1]
+  .rodata              const    0x0000cdb0    0x400  GR_OLEDx11_12.o [1]
+  .rodata              const    0x0000d1b0    0x400  GR_OLEDx11_12.o [1]
+  .rodata              const    0x0000d5b0    0x400  GR_OLEDx11_12.o [1]
+  .rodata              const    0x0000d9b0    0x400  GR_OLEDx11_12.o [1]
+  .rodata              const    0x0000ddb0    0x400  GR_OLEDx11_12.o [1]
+  .rodata              const    0x0000e1b0    0x400  GR_OLEDx11_12.o [1]
+  .rodata              const    0x0000e5b0    0x400  GR_OLEDx11_12.o [1]
+  .rodata              const    0x0000e9b0    0x400  GR_OLEDx11_12.o [1]
+  .rodata              const    0x0000edb0    0x400  GR_OLEDx11_12.o [1]
+  .rodata              const    0x0000f1b0    0x400  GR_OLEDx11_12.o [1]
+  .rodata              const    0x0000f5b0    0x400  GR_OLEDx11_12.o [1]
+  .rodata              const    0x0000f9b0    0x400  GR_OLEDx11_12.o [1]
+  .rodata              const    0x0000fdb0    0x400  GR_OLEDx11_12.o [1]
+  .rodata              const    0x000101b0    0x400  GR_OLEDx11_12.o [1]
+  .rodata              const    0x000105b0    0x400  GR_OLEDx11_12.o [1]
+  .rodata              const    0x000109b0    0x400  GR_OLEDx11_12.o [1]
+  .rodata              const    0x00010db0    0x400  GR_OLEDx11_12.o [1]
+  .rodata              const    0x000111b0    0x324  GodRecognitionx11_12.o [1]
+  .rodata              const    0x000114d4    0x324  GodRecognitionx11_12.o [1]
+  .rodata              const    0x000117f8    0x228  GR_OLEDx11_12.o [1]
+  .rodata              const    0x00011a20     0xcc  GodRecognitionx11_12.o [1]
+  .rodata              const    0x00011aec     0xcc  GodRecognitionx11_12.o [1]
+  .data_init                    0x00011bb8     0x5c  <Block>
+    Initializer bytes  ro data  0x00011bb8     0x5c  <for .data-1>
+  CodeRelocate                  0x00011c14     0x4c  <Block>
+    Initializer bytes  ro data  0x00011c14     0x4c  <for CodeRelocateRam-1>
+  .text                ro code  0x00011c60     0x28  data_init.o [5]
+  .iar.init_table      const    0x00011c88     0x10  - Linker created -
+  .text                ro code  0x00011c98     0x1a  cmain.o [5]
+  .text                ro code  0x00011cb2      0x4  low_level_init.o [3]
+  .text                ro code  0x00011cb6      0x4  exit.o [3]
+  .text                ro code  0x00011cbc      0xa  cexit.o [5]
+  .text                ro code  0x00011cc8     0x14  exit.o [6]
+  .text                ro code  0x00011cdc      0xc  cstartup_M.o [5]
+  .rodata              const    0x00011ce8      0x8  GR_OLEDx11_12.o [1]
+  .rodata              const    0x00011cf0      0x8  GR_OLEDx11_12.o [1]
+  .rodata              const    0x00011cf8      0x8  GR_OLEDx11_12.o [1]
+  .rodata              const    0x00011d00      0x8  GR_OLEDx11_12.o [1]
+  .rodata              const    0x00011d08      0x8  GR_OLEDx11_12.o [1]
+  .rodata              const    0x00011d10      0x8  GR_OLEDx11_12.o [1]
+  .rodata              const    0x00011d18      0x8  GR_OLEDx11_12.o [1]
+  .rodata              const    0x00011d20      0x8  GR_OLEDx11_12.o [1]
+  .rodata              const    0x00011d28      0x8  GR_OLEDx11_12.o [1]
+  .rodata              const    0x00011d30      0x8  GR_OLEDx11_12.o [1]
+  .rodata              const    0x00011d38      0x8  GR_OLEDx11_12.o [1]
+  .rodata              const    0x00011d40      0x8  GR_OLEDx11_12.o [1]
+  .rodata              const    0x00011d48      0x8  GR_OLEDx11_12.o [1]
+  .rodata              const    0x00011d50      0x8  GR_OLEDx11_12.o [1]
+  .rodata              const    0x00011d58      0x8  GR_OLEDx11_12.o [1]
+  .rodata              const    0x00011d60      0x8  GR_OLEDx11_12.o [1]
+  .rodata              const    0x00011d68      0x8  GR_OLEDx11_12.o [1]
+  .rodata              const    0x00011d70      0x8  GR_OLEDx11_12.o [1]
+  .rodata              const    0x00011d78      0x8  GR_OLEDx11_12.o [1]
+  .rodata              const    0x00011d80      0x8  GR_OLEDx11_12.o [1]
+  .rodata              const    0x00011d88      0x8  GR_OLEDx11_12.o [1]
+  .rodata              const    0x00011d90      0x8  GR_OLEDx11_12.o [1]
+  .rodata              const    0x00011d98      0x8  GR_OLEDx11_12.o [1]
+  .rodata              const    0x00011da0      0x8  GR_OLEDx11_12.o [1]
+  .rodata              const    0x00011da8      0x8  GR_OLEDx11_12.o [1]
+  .rodata              const    0x00011db0      0x8  GR_OLEDx11_12.o [1]
+  .rodata              const    0x00011db8      0x8  GR_OLEDx11_12.o [1]
+  .rodata              const    0x00011dc0      0x8  GR_OLEDx11_12.o [1]
+  .rodata              const    0x00011dc8      0x8  GR_OLEDx11_12.o [1]
+  .rodata              const    0x00011dd0      0x8  GR_OLEDx11_12.o [1]
+  .rodata              const    0x00011dd8      0x8  GR_OLEDx11_12.o [1]
+  .rodata              const    0x00011de0      0x8  GR_OLEDx11_12.o [1]
+  .rodata              const    0x00011de8      0x8  GR_OLEDx11_12.o [1]
+  .rodata              const    0x00011df0      0x8  GR_OLEDx11_12.o [1]
+  .rodata              const    0x00011df8      0x8  GR_OLEDx11_12.o [1]
+  .rodata              const    0x00011e00      0x8  GR_OLEDx11_12.o [1]
+  .rodata              const    0x00011e08      0x8  GR_OLEDx11_12.o [1]
+                              - 0x00011e10  0x119c4
+
+"P2", part 1 of 2:                             0xa8
+  .data                         0x1fff0410     0x5c  <Block>
+    .data-1                     0x1fff0410     0x5c  <Init block>
+      .data            inited   0x1fff0410     0x58  start_ShunAn.o [1]
+      .data            inited   0x1fff0468      0x4  start_ShunAn.o [1]
+  CodeRelocateRam               0x1fff046c     0x4c  <Block>
+    CodeRelocateRam-1           0x1fff046c     0x4c  <Init block>
+      .textrw          inited   0x1fff046c     0x4c  start_ShunAn.o [1]
+                              - 0x1fff04b8     0xa8
+
+"P2", part 2 of 2:                            0xd7c
+  .bss                          0x1fff04b8    0xd7c  <Block>
+    .bss               zero     0x1fff04b8    0x194  GodRecognitionx11_12.o [1]
+    .bss               zero     0x1fff064c    0x194  GodRecognitionx11_12.o [1]
+    .bss               zero     0x1fff07e0    0x194  GodRecognitionx11_12.o [1]
+    .bss               zero     0x1fff0974     0x88  GodRecognitionx11_12.o [1]
+    .bss               zero     0x1fff09fc     0x88  GodRecognitionx11_12.o [1]
+    .bss               zero     0x1fff0a84    0x6f4  GodRecognitionx11_12.o [1]
+    .bss               zero     0x1fff1178     0x40  GodRecognitionx11_12.o [1]
+    .bss               zero     0x1fff11b8     0x44  GodRecognitionx11_12.o [1]
+    .bss               zero     0x1fff11fc     0x24  GR_Buttonx11_12.o [1]
+    .bss               zero     0x1fff1220      0x8  GR_OLEDx11_12.o [1]
+    .bss               zero     0x1fff1228      0x4  start_ShunAn.o [1]
+    .bss               zero     0x1fff122c      0x4  start_ShunAn.o [1]
+    .bss               zero     0x1fff1230      0x4  start_ShunAn.o [1]
+                              - 0x1fff1234    0xd7c
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address     Size
+          -------     ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0xd7c:
+          0x1fff04b8  0xd7c
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                          ro code  rw code  ro data  rw data
+    ------                          -------  -------  -------  -------
+C:\Users\pc\Desktop\À≥∞µ2∫≈_≤ªÀ¿ƒÒ_6_22_EEPROM\Debug\Obj: [1]
+    GR_Bluetoothx11_12.o                232
+    GR_Buttonx11_12.o                 3 120                         36
+    GR_Buzzerx19.o                      124
+    GR_CCDx11_12.o                      608
+    GR_Gyroscope.o                      112
+    GR_Infraredx11_12.o                 104
+    GR_LPTMRx11_12.o                    144
+    GR_Motorx11_12.o                    308
+    GR_OLEDx11_12.o                  10 524            36 688        8
+    GR_Serverx11_12.o                   212
+    GodRecognitionx11_12.o           12 764             2 016    3 396
+    arm_cm4.o                           212
+    main.o                              620
+    start_ShunAn.o                    1 392       76    1 208      104
+    startup_ShunAn_K60FX512VLQ15.o       60
+    ------------------------------------------------------------------
+    Total:                           30 536       76   39 912    3 544
+
+command line: [2]
+    ------------------------------------------------------------------
+    Total:
+
+dl7M_tln.a: [3]
+    exit.o                                4
+    low_level_init.o                      4
+    ------------------------------------------------------------------
+    Total:                                8
+
+m7M_tl.a: [4]
+    DblAdd.o                            232
+    DblCmpGe.o                           46
+    DblCmpLe.o                           46
+    DblMul.o                            418
+    DblSub.o                            364
+    DblToFlt.o                          144
+    DblToI32.o                           76
+    FltAdd.o                            132
+    FltCmpEq.o                           28
+    FltCmpGe.o                           36
+    FltCmpLe.o                           36
+    FltDiv.o                            252
+    FltMul.o                            216
+    FltSub.o                            230
+    FltToDbl.o                           78
+    FltToS32.o                           68
+    FltToU32.o                           36
+    I32ToDbl.o                           48
+    I32ToFlt.o                           50
+    ------------------------------------------------------------------
+    Total:                            2 536
+
+rt7M_tl.a: [5]
+    ABImemclr4.o                          6
+    ABImemset48.o                        50
+    cexit.o                              10
+    cmain.o                              26
+    cstartup_M.o                         12
+    data_init.o                          40
+    zero_init3.o                         34
+    ------------------------------------------------------------------
+    Total:                              178
+
+shb_l.a: [6]
+    exit.o                               20
+    ------------------------------------------------------------------
+    Total:                               20
+
+    Gaps                                 18
+    Linker created                        8                16
+----------------------------------------------------------------------
+    Grand Total:                     33 304       76   39 928    3 544
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address    Size  Type      Object
+-----                      -------    ----  ----      ------
+.bss$$Base              0x1fff04b8           --   Gb  - Linker created -
+.bss$$Limit             0x1fff1234           --   Gb  - Linker created -
+.data$$Base             0x1fff0410           --   Gb  - Linker created -
+.data$$Limit            0x1fff046c           --   Gb  - Linker created -
+.data_init$$Base        0x00011bb8           --   Gb  - Linker created -
+.data_init$$Limit       0x00011c14           --   Gb  - Linker created -
+?main                   0x00011c99          Code  Gb  cmain.o [5]
+Button1get              0x00006baf     0xe  Code  Gb  GR_Buttonx11_12.o [1]
+Button2get              0x00006bbd     0xc  Code  Gb  GR_Buttonx11_12.o [1]
+Button3get              0x00006bc9     0xe  Code  Gb  GR_Buttonx11_12.o [1]
+Button4get              0x00006bd7     0xe  Code  Gb  GR_Buttonx11_12.o [1]
+Button5get              0x00006be5     0xe  Code  Gb  GR_Buttonx11_12.o [1]
+Button6get              0x00006bf3     0xe  Code  Gb  GR_Buttonx11_12.o [1]
+Button7get              0x00006c01     0xe  Code  Gb  GR_Buttonx11_12.o [1]
+Button8get              0x00006c0f     0xe  Code  Gb  GR_Buttonx11_12.o [1]
+Buttons                 0x1fff11fc    0x24  Data  Gb  GR_Buttonx11_12.o [1]
+CCD1                    0x1fff0974    0x88  Data  Gb  GodRecognitionx11_12.o [1]
+CCD1ImageAbstract       0x0000051b    0xb2  Code  Gb  GodRecognitionx11_12.o [1]
+CCD1get                 0x00007f67    0x9e  Code  Gb  GR_CCDx11_12.o [1]
+CCD2                    0x1fff09fc    0x88  Data  Gb  GodRecognitionx11_12.o [1]
+CCD2ImageAbstract       0x000005cd    0xb0  Code  Gb  GodRecognitionx11_12.o [1]
+CCD2get                 0x00008005    0x9e  Code  Gb  GR_CCDx11_12.o [1]
+CodeRelocate$$Base      0x00011c14           --   Gb  - Linker created -
+CodeRelocate$$Limit     0x00011c60           --   Gb  - Linker created -
+CodeRelocateRam$$Base   0x1fff046c           --   Gb  - Linker created -
+CodeRelocateRam$$Limit  0x1fff04b8           --   Gb  - Linker created -
+Con                     0x1fff11b8    0x44  Data  Gb  GodRecognitionx11_12.o [1]
+DirSpeedGive            0x000028c5   0x862  Code  Gb  GodRecognitionx11_12.o [1]
+Enable                  0x000085b0   0x400  Data  Gb  GR_OLEDx11_12.o [1]
+Encoder                 0x1fff04b8   0x194  Data  Gb  GodRecognitionx11_12.o [1]
+F6x8                    0x000117f8   0x228  Data  Gb  GR_OLEDx11_12.o [1]
+FindCentralLine         0x000006a1   0xde6  Code  Gb  GodRecognitionx11_12.o [1]
+GR_ButtonSet            0x00006c1d   0x7f4  Code  Gb  GR_Buttonx11_12.o [1]
+GR_Buzzer               0x0000832d    0x18  Code  Gb  GR_Buzzerx19.o [1]
+GR_BuzzerInit           0x000082e5    0x48  Code  Gb  GR_Buzzerx19.o [1]
+GR_GyroscopeInit        0x00008459    0x22  Code  Gb  GR_Gyroscope.o [1]
+GR_MotorInit            0x000081b1    0x78  Code  Gb  GR_Motorx11_12.o [1]
+GR_MotorPWMOut          0x00008229    0x80  Code  Gb  GR_Motorx11_12.o [1]
+GR_OLEDMenuDisplay      0x00005bd9   0xc02  Code  Gb  GR_OLEDx11_12.o [1]
+GR_ServerInit           0x000080dd    0x56  Code  Gb  GR_Serverx11_12.o [1]
+GR_ServerPWM1           0x00011a20    0xcc  Data  Gb  GodRecognitionx11_12.o [1]
+GR_ServerPWM2           0x00011aec    0xcc  Data  Gb  GodRecognitionx11_12.o [1]
+GR_ServerPWMOut         0x00008133    0x4c  Code  Gb  GR_Serverx11_12.o [1]
+GR_SpeedGive1           0x000111b0   0x324  Data  Gb  GodRecognitionx11_12.o [1]
+GR_SpeedGive2           0x000114d4   0x324  Data  Gb  GodRecognitionx11_12.o [1]
+GR_SwitchSet            0x0000741d    0xe8  Code  Gb  GR_Buttonx11_12.o [1]
+Give                    0x1fff1178    0x40  Data  Gb  GodRecognitionx11_12.o [1]
+GodRecognitionInit      0x0000044d    0xce  Code  Gb  GodRecognitionx11_12.o [1]
+Gyroscope               0x1fff07e0   0x194  Data  Gb  GodRecognitionx11_12.o [1]
+Infrared                0x1fff064c   0x194  Data  Gb  GodRecognitionx11_12.o [1]
+Infrared1get            0x0000842f     0xa  Code  Gb  GR_Infraredx11_12.o [1]
+Infrared2get            0x00008439     0xc  Code  Gb  GR_Infraredx11_12.o [1]
+Infrared_Init           0x000083f1    0x3e  Code  Gb  GR_Infraredx11_12.o [1]
+InitButton              0x00006995   0x1e2  Code  Gb  GR_Buttonx11_12.o [1]
+InitCCD                 0x00007e7d    0x8a  Code  Gb  GR_CCDx11_12.o [1]
+Menu0_SpeedCoef         0x00008db0   0x400  Data  Gb  GR_OLEDx11_12.o [1]
+Menu10_ExposureTime     0x0000b5b0   0x400  Data  Gb  GR_OLEDx11_12.o [1]
+Menu11_BlueTooth        0x0000b9b0   0x400  Data  Gb  GR_OLEDx11_12.o [1]
+Menu12_Battery          0x0000bdb0   0x400  Data  Gb  GR_OLEDx11_12.o [1]
+Menu1_renzi             0x000091b0   0x400  Data  Gb  GR_OLEDx11_12.o [1]
+Menu2_zhangai           0x000095b0   0x400  Data  Gb  GR_OLEDx11_12.o [1]
+Menu3_StartLine         0x000099b0   0x400  Data  Gb  GR_OLEDx11_12.o [1]
+Menu4_PoDao             0x00009db0   0x400  Data  Gb  GR_OLEDx11_12.o [1]
+Menu5_AllDark           0x0000a1b0   0x400  Data  Gb  GR_OLEDx11_12.o [1]
+Menu6_TestRun           0x0000a5b0   0x400  Data  Gb  GR_OLEDx11_12.o [1]
+Menu7_MotorEnable       0x0000a9b0   0x400  Data  Gb  GR_OLEDx11_12.o [1]
+Menu8_ServerEnable      0x0000adb0   0x400  Data  Gb  GR_OLEDx11_12.o [1]
+Menu9_ServerTest        0x0000b1b0   0x400  Data  Gb  GR_OLEDx11_12.o [1]
+OLED                    0x1fff1220     0x8  Data  Gb  GR_OLEDx11_12.o [1]
+OLED2_CLS               0x000050ad    0x38  Code  Gb  GR_OLEDx11_12.o [1]
+OLED2_Draw_BMP          0x0000520d    0x76  Code  Gb  GR_OLEDx11_12.o [1]
+OLED2_Fill              0x00005071    0x3c  Code  Gb  GR_OLEDx11_12.o [1]
+OLED2_Init              0x00004ec5   0x1a8  Code  Gb  GR_OLEDx11_12.o [1]
+OLED2_P6x8Str           0x00005159    0x7a  Code  Gb  GR_OLEDx11_12.o [1]
+OLED2_PutPagePixel      0x00005127    0x32  Code  Gb  GR_OLEDx11_12.o [1]
+OLED2_PutPixel          0x000050e5    0x42  Code  Gb  GR_OLEDx11_12.o [1]
+OLED2_Set_Pos           0x00004e99    0x2c  Code  Gb  GR_OLEDx11_12.o [1]
+OLED2_ShowNumber        0x0000537d   0x7f8  Code  Gb  GR_OLEDx11_12.o [1]
+OLED2_WrCmd             0x00004e21    0x78  Code  Gb  GR_OLEDx11_12.o [1]
+OLED2_WrDat             0x00004da9    0x78  Code  Gb  GR_OLEDx11_12.o [1]
+OLED2_showCCD           0x00005283    0xea  Code  Gb  GR_OLEDx11_12.o [1]
+OLED_CLS                0x00004155    0x38  Code  Gb  GR_OLEDx11_12.o [1]
+OLED_Draw_BMP           0x00004423    0x76  Code  Gb  GR_OLEDx11_12.o [1]
+OLED_Fill               0x00004119    0x3c  Code  Gb  GR_OLEDx11_12.o [1]
+OLED_Init               0x0000418d   0x1a8  Code  Gb  GR_OLEDx11_12.o [1]
+OLED_P6x8Str            0x000043a9    0x7a  Code  Gb  GR_OLEDx11_12.o [1]
+OLED_PutPagePixel       0x00004377    0x32  Code  Gb  GR_OLEDx11_12.o [1]
+OLED_PutPixel           0x00004335    0x42  Code  Gb  GR_OLEDx11_12.o [1]
+OLED_Set_Pos            0x000040ed    0x2c  Code  Gb  GR_OLEDx11_12.o [1]
+OLED_ShowNumber         0x000045a1   0x804  Code  Gb  GR_OLEDx11_12.o [1]
+OLED_WrCmd              0x00004075    0x78  Code  Gb  GR_OLEDx11_12.o [1]
+OLED_WrDat              0x00003ffd    0x78  Code  Gb  GR_OLEDx11_12.o [1]
+OLED_showCCD            0x00004499    0xea  Code  Gb  GR_OLEDx11_12.o [1]
+PIT0_IRQHandler         0x00007cf1   0x15e  Code  Gb  main.o [1]
+Region$$Table$$Base     0x00011c88           --   Gb  - Linker created -
+Region$$Table$$Limit    0x00011c98           --   Gb  - Linker created -
+Reset_Handler           0x00000411          Code  Gb  startup_ShunAn_K60FX512VLQ15.o [1]
+SampleOncePTB4          0x0000847b    0x30  Code  Gb  GR_Gyroscope.o [1]
+SampleOncePTE0          0x00007f37    0x30  Code  Gb  GR_CCDx11_12.o [1]
+SampleOncePTE3          0x00007f07    0x30  Code  Gb  GR_CCDx11_12.o [1]
+SpecialStatus           0x000014b5  0x1400  Code  Gb  GodRecognitionx11_12.o [1]
+SpeedContral            0x00003131   0x49e  Code  Gb  GodRecognitionx11_12.o [1]
+Status0                 0x0000c1b0   0x400  Data  Gb  GR_OLEDx11_12.o [1]
+Status1                 0x0000c5b0   0x400  Data  Gb  GR_OLEDx11_12.o [1]
+Status11                0x0000d5b0   0x400  Data  Gb  GR_OLEDx11_12.o [1]
+Status12                0x0000d9b0   0x400  Data  Gb  GR_OLEDx11_12.o [1]
+Status13                0x0000ddb0   0x400  Data  Gb  GR_OLEDx11_12.o [1]
+Status14                0x0000e1b0   0x400  Data  Gb  GR_OLEDx11_12.o [1]
+Status2                 0x0000c9b0   0x400  Data  Gb  GR_OLEDx11_12.o [1]
+Status21                0x0000e5b0   0x400  Data  Gb  GR_OLEDx11_12.o [1]
+Status22                0x0000e9b0   0x400  Data  Gb  GR_OLEDx11_12.o [1]
+Status3                 0x0000cdb0   0x400  Data  Gb  GR_OLEDx11_12.o [1]
+Status31                0x0000edb0   0x400  Data  Gb  GR_OLEDx11_12.o [1]
+Status32                0x0000f1b0   0x400  Data  Gb  GR_OLEDx11_12.o [1]
+Status4                 0x0000d1b0   0x400  Data  Gb  GR_OLEDx11_12.o [1]
+Status41                0x0000f5b0   0x400  Data  Gb  GR_OLEDx11_12.o [1]
+Status42                0x0000f9b0   0x400  Data  Gb  GR_OLEDx11_12.o [1]
+Status51                0x0000fdb0   0x400  Data  Gb  GR_OLEDx11_12.o [1]
+Status52                0x000101b0   0x400  Data  Gb  GR_OLEDx11_12.o [1]
+Status61                0x000105b0   0x400  Data  Gb  GR_OLEDx11_12.o [1]
+Status71                0x000109b0   0x400  Data  Gb  GR_OLEDx11_12.o [1]
+Status81                0x00010db0   0x400  Data  Gb  GR_OLEDx11_12.o [1]
+Switch1get              0x00006b77     0xe  Code  Gb  GR_Buttonx11_12.o [1]
+Switch2get              0x00006b85     0xe  Code  Gb  GR_Buttonx11_12.o [1]
+Switch3get              0x00006b93     0xe  Code  Gb  GR_Buttonx11_12.o [1]
+Switch4get              0x00006ba1     0xe  Code  Gb  GR_Buttonx11_12.o [1]
+Trk                     0x1fff0a84   0x6f4  Data  Gb  GodRecognitionx11_12.o [1]
+Unable                  0x000089b0   0x400  Data  Gb  GR_OLEDx11_12.o [1]
+__BOOT_STACK_ADDRESS {Abs}
+                        0x2000fff8           --   Gb  command line/config [2]
+__VECTOR_RAM {Abs}      0x1fff0000           --   Gb  command line/config [2]
+__VECTOR_TABLE {Abs}    0x00000000           --   Gb  command line/config [2]
+__aeabi_cdcmple         0x00003cc5          Code  Gb  DblCmpLe.o [4]
+__aeabi_cdrcmple        0x000038ed          Code  Gb  DblCmpGe.o [4]
+__aeabi_cfcmpeq         0x00006921          Code  Gb  FltCmpEq.o [4]
+__aeabi_cfcmple         0x00003e6d          Code  Gb  FltCmpLe.o [4]
+__aeabi_cfrcmple        0x0000391d          Code  Gb  FltCmpGe.o [4]
+__aeabi_d2f             0x00003ddd          Code  Gb  DblToFlt.o [4]
+__aeabi_d2iz            0x00003871          Code  Gb  DblToI32.o [4]
+__aeabi_dadd            0x00003cf5          Code  Gb  DblAdd.o [4]
+__aeabi_dmul            0x000036cd          Code  Gb  DblMul.o [4]
+__aeabi_f2d             0x0000367d          Code  Gb  FltToDbl.o [4]
+__aeabi_f2iz            0x00003c81          Code  Gb  FltToS32.o [4]
+__aeabi_f2uiz           0x0000693d          Code  Gb  FltToU32.o [4]
+__aeabi_fadd            0x00003bfd          Code  Gb  FltAdd.o [4]
+__aeabi_fdiv            0x00003941          Code  Gb  FltDiv.o [4]
+__aeabi_fmul            0x00003b25          Code  Gb  FltMul.o [4]
+__aeabi_fsub            0x00003a3d          Code  Gb  FltSub.o [4]
+__aeabi_i2d             0x000038bd          Code  Gb  I32ToDbl.o [4]
+__aeabi_i2f             0x00003629          Code  Gb  I32ToFlt.o [4]
+__aeabi_memclr4         0x00006919          Code  Gb  ABImemclr4.o [5]
+__aeabi_ui2d            0x000038d1          Code  Gb  I32ToDbl.o [4]
+__aeabi_ui2f            0x0000363d          Code  Gb  I32ToFlt.o [4]
+__cmain                 0x00011c99          Code  Gb  cmain.o [5]
+__exit                  0x00011cc9    0x14  Code  Gb  exit.o [6]
+__iar_Memset4_word      0x00006961          Code  Gb  ABImemset48.o [5]
+__iar_Memset8_word      0x00006961          Code  Gb  ABImemset48.o [5]
+__iar_d2uiz             0x0000389d          Code  Gb  DblToI32.o [4]
+__iar_dadd              0x00003d09          Code  Gb  DblAdd.o [4]
+__iar_data_init3        0x00011c61    0x28  Code  Gb  data_init.o [5]
+__iar_dsub              0x00003e91          Code  Gb  DblSub.o [4]
+__iar_dsubStart         0x00003ea3          Code  Gb  DblSub.o [4]
+__iar_fadd              0x00003c0d          Code  Gb  FltAdd.o [4]
+__iar_fsub              0x00003a4d          Code  Gb  FltSub.o [4]
+__iar_fsubStart         0x00003a5d          Code  Gb  FltSub.o [4]
+__iar_program_start     0x00011cdd          Code  Gb  cstartup_M.o [5]
+__iar_ui2d              0x000038d5          Code  Gb  I32ToDbl.o [4]
+__iar_ui2f              0x00003641          Code  Gb  I32ToFlt.o [4]
+__iar_zero_init3        0x0000365b    0x22  Code  Gb  zero_init3.o [5]
+__low_level_init        0x00011cb3     0x4  Code  Gb  low_level_init.o [3]
+__v_Uart_Init_          0x000084c9    0xbc  Code  Gb  GR_Bluetoothx11_12.o [1]
+__vector_table          0x00000000   0x410  Data  Gb  start_ShunAn.o [1]
+_call_main              0x00011ca5          Code  Gb  cmain.o [5]
+_exit                   0x00011cbd          Code  Gb  cexit.o [5]
+_main                   0x00011caf          Code  Gb  cmain.o [5]
+bus_clk_khz             0x1fff1230     0x4  Data  Gb  start_ShunAn.o [1]
+core_clk_khz            0x1fff1228     0x4  Data  Gb  start_ShunAn.o [1]
+core_clk_mhz            0x1fff122c     0x4  Data  Gb  start_ShunAn.o [1]
+default_isr             0x000076c3     0x2  Code  Gb  start_ShunAn.o [1]
+enable_irq              0x00007b43    0xb2  Code  Gb  arm_cm4.o [1]
+exit                    0x00011cb7     0x4  Code  Gb  exit.o [3]
+lptmr_clean             0x000083bb    0x1a  Code  Gb  GR_LPTMRx11_12.o [1]
+lptmr_get               0x000083ad     0xe  Code  Gb  GR_LPTMRx11_12.o [1]
+lptmr_init              0x00008361    0x4c  Code  Gb  GR_LPTMRx11_12.o [1]
+main                    0x00007c11    0xe0  Code  Gb  main.o [1]
+mcg_cfg                 0x1fff0410    0x58  Data  Gb  start_ShunAn.o [1]
+mcg_div                 0x1fff0468     0x4  Data  Gb  start_ShunAn.o [1]
+mcg_div_count           0x000076c5   0x2f8  Code  Gb  start_ShunAn.o [1]
+pit_init                0x00007a6f    0x5a  Code  Gb  start_ShunAn.o [1]
+pll_init                0x000079bd    0xb2  Code  Gb  start_ShunAn.o [1]
+set_sys_dividers        0x1fff046d    0x4c  Code  Gb  start_ShunAn.o [1]
+set_vector_handler      0x00007ac9     0xa  Code  Gb  start_ShunAn.o [1]
+start                   0x000075cd    0xf6  Code  Gb  start_ShunAn.o [1]
+write_vtor              0x00007b3d     0x6  Code  Gb  arm_cm4.o [1]
+
+
+[1] = C:\Users\pc\Desktop\À≥∞µ2∫≈_≤ªÀ¿ƒÒ_6_22_EEPROM\Debug\Obj
+[2] = command line
+[3] = dl7M_tln.a
+[4] = m7M_tl.a
+[5] = rt7M_tl.a
+[6] = shb_l.a
+
+  33 304 bytes of readonly  code memory
+      76 bytes of readwrite code memory
+  39 928 bytes of readonly  data memory
+   3 544 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

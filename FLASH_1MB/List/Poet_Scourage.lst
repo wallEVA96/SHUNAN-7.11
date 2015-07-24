@@ -1,0 +1,1164 @@
+###############################################################################
+#                                                                             #
+# IAR ANSI C/C++ Compiler V6.60.1.5097/W32 for ARM      04/Jul/2015  06:49:24 #
+# Copyright 1999-2013 IAR Systems AB.                                         #
+#                                                                             #
+#    Cpu mode     =  thumb                                                    #
+#    Endian       =  little                                                   #
+#    Source file  =  D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\Ë³°µÈýºÅ\´úÂë\Ë³°µÈýºÅ-ÆðÔ´-µ #
+#                    ÚÒ»´ú°å\ShunAn_Panel\Poet_Scourage.c                     #
+#    Command line =  D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\Ë³°µÈýºÅ\´úÂë\Ë³°µÈýºÅ-ÆðÔ´-µ #
+#                    ÚÒ»´ú°å\ShunAn_Panel\Poet_Scourage.c -D IAR -D           #
+#                    TWR_K60F120M -lCN D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\Ë³°µÈýºÅ\´ú #
+#                    Âë\Ë³°µÈýºÅ-ÆðÔ´-µÚÒ»´ú°å\FLASH_1MB\List\ -lB            #
+#                    D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\Ë³°µÈýºÅ\´úÂë\Ë³°µÈýºÅ-ÆðÔ´-µ #
+#                    ÚÒ»´ú°å\FLASH_1MB\List\ -o D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\Ë³ #
+#                    °µÈýºÅ\´úÂë\Ë³°µÈýºÅ-ÆðÔ´-µÚÒ»´ú°å\FLASH_1MB\Obj\        #
+#                    --no_cse --no_unroll --no_inline --no_code_motion        #
+#                    --no_tbaa --no_clustering --no_scheduling --debug        #
+#                    --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp        #
+#                    --dlib_config "C:\Program Files (x86)\IAR                #
+#                    Systems\Embedded Workbench 6.5\arm\INC\c\DLib_Config_Nor #
+#                    mal.h" -I D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\Ë³°µÈýºÅ\´úÂë\Ë³°µÈ #
+#                    ýºÅ-ÆðÔ´-µÚÒ»´ú°å\ -I D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\Ë³°µÈýº #
+#                    Å\´úÂë\Ë³°µÈýºÅ-ÆðÔ´-µÚÒ»´ú°å\Library\ -I                #
+#                    D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\Ë³°µÈýºÅ\´úÂë\Ë³°µÈýºÅ-ÆðÔ´-µ #
+#                    ÚÒ»´ú°å\Library\BlessedAlien\ -I                         #
+#                    D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\Ë³°µÈýºÅ\´úÂë\Ë³°µÈýºÅ-ÆðÔ´-µ #
+#                    ÚÒ»´ú°å\ShunAn_Panel\ -Ol --use_c++_inline               #
+#    List file    =  D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\Ë³°µÈýºÅ\´úÂë\Ë³°µÈýºÅ-ÆðÔ´-µ #
+#                    ÚÒ»´ú°å\FLASH_1MB\List\Poet_Scourage.lst                 #
+#    Object file  =  D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\Ë³°µÈýºÅ\´úÂë\Ë³°µÈýºÅ-ÆðÔ´-µ #
+#                    ÚÒ»´ú°å\FLASH_1MB\Obj\Poet_Scourage.o                    #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\Ë³°µÈýºÅ\´úÂë\Ë³°µÈýºÅ-ÆðÔ´-µÚÒ»´ú°å\ShunAn_Panel\Poet_Scourage.c
+      1          #include "MK60F15.h"
+      2          #include "ShunAn_Lib.h"
+      3          #include "start_ShunAn.h"
+      4          #include "BlessedAlien.h"
+      5          
+      6          #include "Poet_Scourage.h"
+      7          // µ¥¸ö½â¾ö¡¢ÄÜ·ñÁ¬Ðø¶ÁÈ¡£¿
+      8          // ========================================================================== //
+      9          #define Flash_SPI_PTR           SPI0_BASE_PTR
+     10          // CS           B20
+     11          // DO           B22
+     12          // WP           B19 --
+     13          // HOLD         B18 --
+     14          // CLK          B21
+     15          // DI           B23
+     16          
+     17          //#define v_DSPI_SetFrameSize(FrameSize)          do{Flash_SPI_PTR->CTAR[0] |= SPI_CTAR_FMSZ(FrameSize-1);}while(0)  
+     18          //#define v_DSPI_HaltTx()                         do{Flash_SPI_PTR->MCR |= SPI_MCR_HALT_MASK;}while(0)
+     19          //#define v_DSPI_GoonTx()                         do{Flash_SPI_PTR->MCR &=~SPI_MCR_HALT_MASK;}while(0)
+     20          
+
+   \                                 In section .text, align 2, keep-with-next
+     21          uint8 b_DSPI_Init()
+     22          {
+     23              // ====================================================================== //
+     24              /* Òý½ÅÅäÖÃ */
+     25              SIM_SCGC6 |= SIM_SCGC6_DSPI0_MASK; //
+   \                     b_DSPI_Init: (+1)
+   \   00000000   0x.... 0x....      LDR.W    R0,??DataTable7  ;; 0x4004803c
+   \   00000004   0x6800             LDR      R0,[R0, #+0]
+   \   00000006   0xF450 0x5080      ORRS     R0,R0,#0x1000
+   \   0000000A   0x.... 0x....      LDR.W    R1,??DataTable7  ;; 0x4004803c
+   \   0000000E   0x6008             STR      R0,[R1, #+0]
+     26              SIM_SCGC5 |= SIM_SCGC5_PORTE_MASK;
+   \   00000010   0x.... 0x....      LDR.W    R0,??DataTable7_1  ;; 0x40048038
+   \   00000014   0x6800             LDR      R0,[R0, #+0]
+   \   00000016   0xF450 0x5000      ORRS     R0,R0,#0x2000
+   \   0000001A   0x.... 0x....      LDR.W    R1,??DataTable7_1  ;; 0x40048038
+   \   0000001E   0x6008             STR      R0,[R1, #+0]
+     27              PORTE_BASE_PTR->PCR[0] = 0x00000200u; // 
+   \   00000020   0x.... 0x....      LDR.W    R0,??DataTable7_2  ;; 0x4004d000
+   \   00000024   0xF44F 0x7100      MOV      R1,#+512
+   \   00000028   0x6001             STR      R1,[R0, #+0]
+     28              PORTE_BASE_PTR->PCR[1] = 0x00000200u; // 
+   \   0000002A   0x.... 0x....      LDR.W    R0,??DataTable7_3  ;; 0x4004d004
+   \   0000002E   0xF44F 0x7100      MOV      R1,#+512
+   \   00000032   0x6001             STR      R1,[R0, #+0]
+     29              PORTE_BASE_PTR->PCR[2] = 0x00000200u; // 
+   \   00000034   0x.... 0x....      LDR.W    R0,??DataTable7_4  ;; 0x4004d008
+   \   00000038   0xF44F 0x7100      MOV      R1,#+512
+   \   0000003C   0x6001             STR      R1,[R0, #+0]
+     30              PORTE_BASE_PTR->PCR[3] = 0x00000200u; // 
+   \   0000003E   0x.... 0x....      LDR.W    R0,??DataTable7_5  ;; 0x4004d00c
+   \   00000042   0xF44F 0x7100      MOV      R1,#+512
+   \   00000046   0x6001             STR      R1,[R0, #+0]
+     31              
+     32              PORTE_BASE_PTR->PCR[10] = 0x00000100u; // 
+   \   00000048   0x.... 0x....      LDR.W    R0,??DataTable7_6  ;; 0x4004d028
+   \   0000004C   0xF44F 0x7180      MOV      R1,#+256
+   \   00000050   0x6001             STR      R1,[R0, #+0]
+     33              PORTE_BASE_PTR->PCR[11] = 0x00000100u; //
+   \   00000052   0x.... 0x....      LDR.W    R0,??DataTable7_7  ;; 0x4004d02c
+   \   00000056   0xF44F 0x7180      MOV      R1,#+256
+   \   0000005A   0x6001             STR      R1,[R0, #+0]
+     34              
+     35              GPIOE_PDDR |= (1<<10);//Òý½ÅÑ¡ÔñÊä³ö·½Ïò()
+   \   0000005C   0x.... 0x....      LDR.W    R0,??DataTable7_8  ;; 0x400ff114
+   \   00000060   0x6800             LDR      R0,[R0, #+0]
+   \   00000062   0xF450 0x6080      ORRS     R0,R0,#0x400
+   \   00000066   0x.... 0x....      LDR.W    R1,??DataTable7_8  ;; 0x400ff114
+   \   0000006A   0x6008             STR      R0,[R1, #+0]
+     36              GPIOE_PDDR |= (1<<11);//Òý½ÅÑ¡ÔñÊä³ö·½Ïò()
+   \   0000006C   0x.... 0x....      LDR.W    R0,??DataTable7_8  ;; 0x400ff114
+   \   00000070   0x6800             LDR      R0,[R0, #+0]
+   \   00000072   0xF450 0x6000      ORRS     R0,R0,#0x800
+   \   00000076   0x.... 0x....      LDR.W    R1,??DataTable7_8  ;; 0x400ff114
+   \   0000007A   0x6008             STR      R0,[R1, #+0]
+     37              
+     38              GPIOE_PDOR |= (1<<10);//Òý½ÅÑ¡ÔñÊä³ö·½Ïò()
+   \   0000007C   0x.... 0x....      LDR.W    R0,??DataTable7_9  ;; 0x400ff100
+   \   00000080   0x6800             LDR      R0,[R0, #+0]
+   \   00000082   0xF450 0x6080      ORRS     R0,R0,#0x400
+   \   00000086   0x.... 0x....      LDR.W    R1,??DataTable7_9  ;; 0x400ff100
+   \   0000008A   0x6008             STR      R0,[R1, #+0]
+     39              GPIOE_PDOR |= (1<<11);//Òý½ÅÑ¡ÔñÊä³ö·½Ïò()
+   \   0000008C   0x.... 0x....      LDR.W    R0,??DataTable7_9  ;; 0x400ff100
+   \   00000090   0x6800             LDR      R0,[R0, #+0]
+   \   00000092   0xF450 0x6000      ORRS     R0,R0,#0x800
+   \   00000096   0x.... 0x....      LDR.W    R1,??DataTable7_9  ;; 0x400ff100
+   \   0000009A   0x6008             STR      R0,[R1, #+0]
+     40              // ====================================================================== //
+     41              /* Í£Ö¹´«Êä */
+     42              Flash_SPI_PTR->MCR |= SPI_MCR_HALT_MASK; // Í£Ö¹´«Êä
+   \   0000009C   0x.... 0x....      LDR.W    R0,??DataTable7_10  ;; 0x4002c000
+   \   000000A0   0x6800             LDR      R0,[R0, #+0]
+   \   000000A2   0xF050 0x0001      ORRS     R0,R0,#0x1
+   \   000000A6   0x.... 0x....      LDR.W    R1,??DataTable7_10  ;; 0x4002c000
+   \   000000AA   0x6008             STR      R0,[R1, #+0]
+     43              /* Çå³ýÐÅÏ¢ */
+     44              Flash_SPI_PTR->MCR |= SPI_MCR_CLR_RXF_MASK | SPI_MCR_CLR_TXF_MASK; // Çå¿ÕFIFO
+   \   000000AC   0x.... 0x....      LDR.W    R0,??DataTable7_10  ;; 0x4002c000
+   \   000000B0   0x6800             LDR      R0,[R0, #+0]
+   \   000000B2   0xF450 0x6040      ORRS     R0,R0,#0xC00
+   \   000000B6   0x.... 0x....      LDR.W    R1,??DataTable7_10  ;; 0x4002c000
+   \   000000BA   0x6008             STR      R0,[R1, #+0]
+     45              Flash_SPI_PTR->SR  = SPI_SR_EOQF_MASK 
+     46                                 | SPI_SR_TFUF_MASK 
+     47                                 | SPI_SR_TFFF_MASK
+     48                                 | SPI_SR_RFOF_MASK 
+     49                                 | SPI_SR_RFDF_MASK
+     50                                // | SPI_SR_TXRXS_MASK
+     51                                // | SPI_SR_TCF_MASK        // Çå¿Õ·¢ËÍ
+     52                                 ; 
+   \   000000BC   0x.... 0x....      LDR.W    R0,??DataTable7_11  ;; 0x4002c02c
+   \   000000C0   0x.... 0x....      LDR.W    R1,??DataTable7_12  ;; 0x1a0a0000
+   \   000000C4   0x6001             STR      R1,[R0, #+0]
+     53              /* ÅäÖÃ»ù´¡ÐÅÏ¢ */
+     54              Flash_SPI_PTR->MCR =  SPI_MCR_MSTR_MASK
+     55                                  | SPI_MCR_CONT_SCKE_MASK
+     56                                  | SPI_MCR_PCSIS_MASK
+     57                                  | SPI_MCR_PCSSE_MASK
+     58                                 //==================//
+     59                                  | SPI_MCR_ROOE_MASK
+     60                                  | SPI_MCR_MTFE_MASK
+     61                                 // | SPI_MCR_PCSIS_MASK
+     62                                 // | SPI_MCR_DIS_TXF_MASK  // ¹Ø±ÕFIFO
+     63                                 // | SPI_MCR_DIS_RXF_MASK  // ¹Ø±ÕFIFO
+     64                                 // | SPI_MCR_SMPL_PT(2)    // one system clock 
+     65                                  ;
+   \   000000C6   0x.... 0x....      LDR.W    R0,??DataTable7_10  ;; 0x4002c000
+   \   000000CA   0x.... 0x....      LDR.W    R1,??DataTable7_13  ;; 0xc73f0000
+   \   000000CE   0x6001             STR      R1,[R0, #+0]
+     66                                   //Ö÷»ú//½ÓÊÕÇå¿Õ//´«ÊäÇå¿Õ//Æ¬Ñ¡Î»ÖÃ
+     67              // ====================================================================== //
+     68              // Ê±¼ä·ÖÆµ // ÊäÈëBus Clock => ×î´óÖµÏÞÖÆÎª75MHz £¨Êý¾ÝÎ´¸ü¸Ä£©
+     69              Flash_SPI_PTR->CTAR[0] = SPI_CTAR_FMSZ(7)           // °ËÎ»Ä£Ê½
+     70                                     // =============================================== //
+     71                                     | SPI_CTAR_PBR(3)//1
+     72                                     | SPI_CTAR_BR(2)//0//1
+     73                                    // | SPI_CTAR_DBR_MASK //
+     74                                     // =============================================== //
+     75                                     // Ó¦×îÐ¡±£Ö¤ 5ns
+     76                                     | SPI_CTAR_PCSSCK(1)         // PCS to SCK Delay Prescaler
+     77                                     | SPI_CTAR_CSSCK(0)          // PCS to SCK Delay Scaler
+     78                                     // =============================================== //
+     79                                     // Ó¦×îÐ¡±£Ö¤ 5ns
+     80                                     | SPI_CTAR_PASC(1)
+     81                                     | SPI_CTAR_ASC(0)
+     82                                     // =============================================== //
+     83                                     // Ó¦×îÐ¡±£Ö¤ 50ns
+     84                                     | SPI_CTAR_PDT(1)
+     85                                     | SPI_CTAR_DT(4)  
+     86                                     // =============================================== // 
+     87                                     | SPI_CTAR_CPHA_MASK 
+     88                                     | SPI_CTAR_CPOL_MASK
+     89                                     | SPI_CTAR_DBR_MASK
+     90                                     ;
+   \   000000D0   0x.... 0x....      LDR.W    R0,??DataTable7_14  ;; 0x4002c00c
+   \   000000D4   0x.... 0x....      LDR.W    R1,??DataTable7_15  ;; 0xbe570042
+   \   000000D8   0x6001             STR      R1,[R0, #+0]
+     91              Flash_SPI_PTR->CTAR[1] = SPI_CTAR_FMSZ(15)           // Ê®ÁùÎ»Ä£Ê½
+     92                                     // =============================================== //
+     93                                     | SPI_CTAR_PBR(3)//1
+     94                                     | SPI_CTAR_BR(2)//0//1
+     95                                    // | SPI_CTAR_DBR_MASK //
+     96                                     // =============================================== //
+     97                                     // Ó¦×îÐ¡±£Ö¤ 5ns
+     98                                     | SPI_CTAR_PCSSCK(1)         // PCS to SCK Delay Prescaler
+     99                                     | SPI_CTAR_CSSCK(0)          // PCS to SCK Delay Scaler
+    100                                     // =============================================== //
+    101                                     // Ó¦×îÐ¡±£Ö¤ 5ns
+    102                                     | SPI_CTAR_PASC(1)
+    103                                     | SPI_CTAR_ASC(0)
+    104                                     // =============================================== //
+    105                                     // Ó¦×îÐ¡±£Ö¤ 50ns
+    106                                     | SPI_CTAR_PDT(1)
+    107                                     | SPI_CTAR_DT(4)  
+    108                                     // =============================================== // 
+    109                                     | SPI_CTAR_CPHA_MASK 
+    110                                     | SPI_CTAR_CPOL_MASK
+    111                                     | SPI_CTAR_DBR_MASK
+    112                                     ;
+   \   000000DA   0x.... 0x....      LDR.W    R0,??DataTable7_16  ;; 0x4002c010
+   \   000000DE   0x.... 0x....      LDR.W    R1,??DataTable7_17  ;; 0xfe570042
+   \   000000E2   0x6001             STR      R1,[R0, #+0]
+    113              // ====================================================================== //
+    114              Flash_SPI_PTR->MCR &=~SPI_MCR_HALT_MASK; // Ê¹ÄÜ´«Êä
+   \   000000E4   0x.... 0x....      LDR.W    R0,??DataTable7_10  ;; 0x4002c000
+   \   000000E8   0x6800             LDR      R0,[R0, #+0]
+   \   000000EA   0x0840             LSRS     R0,R0,#+1
+   \   000000EC   0x0040             LSLS     R0,R0,#+1
+   \   000000EE   0x.... 0x....      LDR.W    R1,??DataTable7_10  ;; 0x4002c000
+   \   000000F2   0x6008             STR      R0,[R1, #+0]
+    115              return 'T';
+   \   000000F4   0x2054             MOVS     R0,#+84
+   \   000000F6   0x4770             BX       LR               ;; return
+    116          }
+    117          
+    118          
+    119          // ========================================================================== //
+    120          // 
+
+   \                                 In section .text, align 2, keep-with-next
+    121          void v_DSPI_PushTx(uint16 pushNum,uint8 isClkCoun,uint8 isClrCounter,uint8 isEndQueue,uint8 CTARn)
+    122          {
+   \                     v_DSPI_PushTx: (+1)
+   \   00000000   0xB410             PUSH     {R4}
+    123              // ====================================================================== //
+    124              // Êý¾ÝÈëÕ»
+    125              Flash_SPI_PTR->PUSHR = ( 0
+    126                                           | SPI_PUSHR_CTAS(CTARn)                 //Ñ¡ÔñCTAR0¼Ä´æÆ÷
+    127                                           | SPI_PUSHR_PCS(1 << 1)
+    128                                           | (isClrCounter << SPI_PUSHR_CTCNT_SHIFT )
+    129                                           | (isClkCoun << SPI_PUSHR_CONT_SHIFT)                //1Îª ´«ÊäSPI×îºóµÄÊý¾Ý
+    130                                           | SPI_PUSHR_TXDATA( pushNum )
+    131                                           | (isEndQueue << SPI_PUSHR_EOQ_SHIFT)
+    132                                           );
+   \   00000002   0x9C01             LDR      R4,[SP, #+4]
+   \   00000004   0x0724             LSLS     R4,R4,#+28
+   \   00000006   0xF014 0x44E0      ANDS     R4,R4,#0x70000000
+   \   0000000A   0xB2D2             UXTB     R2,R2            ;; ZeroExt  R2,R2,#+24,#+24
+   \   0000000C   0xEA54 0x6282      ORRS     R2,R4,R2, LSL #+26
+   \   00000010   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \   00000012   0xEA52 0x71C1      ORRS     R1,R2,R1, LSL #+31
+   \   00000016   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
+   \   00000018   0x4308             ORRS     R0,R0,R1
+   \   0000001A   0xB2DB             UXTB     R3,R3            ;; ZeroExt  R3,R3,#+24,#+24
+   \   0000001C   0xEA50 0x60C3      ORRS     R0,R0,R3, LSL #+27
+   \   00000020   0xF450 0x3000      ORRS     R0,R0,#0x20000
+   \   00000024   0x....             LDR.N    R1,??DataTable7_18  ;; 0x4002c034
+   \   00000026   0x6008             STR      R0,[R1, #+0]
+    133          }
+   \   00000028   0xBC10             POP      {R4}
+   \   0000002A   0x4770             BX       LR               ;; return
+    134          
+    135          
+    136          // ========================================================================== //
+
+   \                                 In section .text, align 2, keep-with-next
+    137          uint8 b_DSPI_PoP_PoP(void * popArray,uint8 popArrayCounter,uint8 * popCounter,uint8 CTARn)
+    138          {
+   \                     b_DSPI_PoP_PoP: (+1)
+   \   00000000   0xB470             PUSH     {R4-R6}
+    139              // ½ÓÊÕÎÊÌâ //
+    140              uint8 readCounter = 0;//¶ÁÈ¡¼ÆÊý
+   \   00000002   0x2500             MOVS     R5,#+0
+    141              readCounter = Flash_SPI_PTR->SR;
+   \   00000004   0x....             LDR.N    R4,??DataTable7_11  ;; 0x4002c02c
+   \   00000006   0x6824             LDR      R4,[R4, #+0]
+   \   00000008   0x0025             MOVS     R5,R4
+    142              readCounter = (readCounter & SPI_SR_RXCTR_MASK) >> SPI_SR_RXCTR_SHIFT;
+   \   0000000A   0xB2ED             UXTB     R5,R5            ;; ZeroExt  R5,R5,#+24,#+24
+   \   0000000C   0x092D             LSRS     R5,R5,#+4
+    143              if(readCounter > popArrayCounter){return 'F';}//ÏÞ·ù
+   \   0000000E   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \   00000010   0xB2ED             UXTB     R5,R5            ;; ZeroExt  R5,R5,#+24,#+24
+   \   00000012   0x42A9             CMP      R1,R5
+   \   00000014   0xD201             BCS.N    ??b_DSPI_PoP_PoP_0
+   \   00000016   0x2046             MOVS     R0,#+70
+   \   00000018   0xE026             B.N      ??b_DSPI_PoP_PoP_1
+    144              //popArrayCounter--;//ÒòÎªÊý×éÐÞ¼ôpopArrayCounter
+    145              uint16 time = 60000;
+   \                     ??b_DSPI_PoP_PoP_0: (+1)
+   \   0000001A   0xF64E 0x2460      MOVW     R4,#+60000
+    146              time = 0;//ÎªÁË½ÓÊÜ½øÐÐÐÞ¼ô
+   \   0000001E   0x2100             MOVS     R1,#+0
+   \   00000020   0x000C             MOVS     R4,R1
+    147              popArrayCounter = 0;//³£ÏµÊýÐÞ¼ô
+   \   00000022   0x2100             MOVS     R1,#+0
+    148              do
+    149              {
+    150                  time++;
+   \                     ??b_DSPI_PoP_PoP_2: (+1)
+   \   00000024   0x1C64             ADDS     R4,R4,#+1
+    151                  if(CTARn)
+   \   00000026   0xB2DB             UXTB     R3,R3            ;; ZeroExt  R3,R3,#+24,#+24
+   \   00000028   0x2B00             CMP      R3,#+0
+   \   0000002A   0xD005             BEQ.N    ??b_DSPI_PoP_PoP_3
+    152                  {//1
+    153                      ((uint16*)(popArray))[popArrayCounter] = Flash_SPI_PTR->POPR;
+   \   0000002C   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \   0000002E   0x....             LDR.N    R5,??DataTable7_19  ;; 0x4002c038
+   \   00000030   0x682D             LDR      R5,[R5, #+0]
+   \   00000032   0xF820 0x5011      STRH     R5,[R0, R1, LSL #+1]
+   \   00000036   0xE003             B.N      ??b_DSPI_PoP_PoP_4
+    154                  }
+    155                  else
+    156                  {//0 
+    157                      ((uint8*)(popArray))[popArrayCounter] = Flash_SPI_PTR->POPR;
+   \                     ??b_DSPI_PoP_PoP_3: (+1)
+   \   00000038   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \   0000003A   0x....             LDR.N    R5,??DataTable7_19  ;; 0x4002c038
+   \   0000003C   0x682D             LDR      R5,[R5, #+0]
+   \   0000003E   0x540D             STRB     R5,[R1, R0]
+    158                  }
+    159                  popArrayCounter++;
+   \                     ??b_DSPI_PoP_PoP_4: (+1)
+   \   00000040   0x1C49             ADDS     R1,R1,#+1
+    160                  readCounter = ((Flash_SPI_PTR->SR & SPI_SR_RXCTR_MASK) >> SPI_SR_RXCTR_SHIFT);
+   \   00000042   0x....             LDR.N    R5,??DataTable7_11  ;; 0x4002c02c
+   \   00000044   0x682D             LDR      R5,[R5, #+0]
+   \   00000046   0xF3C5 0x1503      UBFX     R5,R5,#+4,#+4
+    161                  if(0 == readCounter){Flash_SPI_PTR->SR |= SPI_SR_RFDF_MASK;}
+   \   0000004A   0xB2ED             UXTB     R5,R5            ;; ZeroExt  R5,R5,#+24,#+24
+   \   0000004C   0x2D00             CMP      R5,#+0
+   \   0000004E   0xD105             BNE.N    ??b_DSPI_PoP_PoP_5
+   \   00000050   0x....             LDR.N    R5,??DataTable7_11  ;; 0x4002c02c
+   \   00000052   0x682D             LDR      R5,[R5, #+0]
+   \   00000054   0xF455 0x3500      ORRS     R5,R5,#0x20000
+   \   00000058   0x....             LDR.N    R6,??DataTable7_11  ;; 0x4002c02c
+   \   0000005A   0x6035             STR      R5,[R6, #+0]
+    162              }
+    163              while(Flash_SPI_PTR->SR & SPI_SR_RFDF_MASK);
+   \                     ??b_DSPI_PoP_PoP_5: (+1)
+   \   0000005C   0x....             LDR.N    R5,??DataTable7_11  ;; 0x4002c02c
+   \   0000005E   0x682D             LDR      R5,[R5, #+0]
+   \   00000060   0x03AD             LSLS     R5,R5,#+14
+   \   00000062   0xD4DF             BMI.N    ??b_DSPI_PoP_PoP_2
+    164              (*popCounter) = time;//·µ»Øµ¯³ö¸öÊý
+   \   00000064   0x7014             STRB     R4,[R2, #+0]
+    165              return 'T';
+   \   00000066   0x2054             MOVS     R0,#+84
+   \                     ??b_DSPI_PoP_PoP_1: (+1)
+   \   00000068   0xBC70             POP      {R4-R6}
+   \   0000006A   0x4770             BX       LR               ;; return
+    166          }
+    167          // 
+
+   \                                 In section .text, align 2, keep-with-next
+    168          uint8 b_DSPI_PoP(void * popArray,uint8 popArrayCounter,uint8 * popCounter,uint8 CTARn)
+    169          {
+   \                     b_DSPI_PoP: (+1)
+   \   00000000   0xB470             PUSH     {R4-R6}
+    170              // ½ÓÊÕÎÊÌâ //
+    171              uint16 time = 60000;
+   \   00000002   0xF64E 0x2460      MOVW     R4,#+60000
+    172              while(Flash_SPI_PTR->SR & SPI_SR_TXRXS_MASK)
+   \                     ??b_DSPI_PoP_0: (+1)
+   \   00000006   0x....             LDR.N    R5,??DataTable7_11  ;; 0x4002c02c
+   \   00000008   0x682D             LDR      R5,[R5, #+0]
+   \   0000000A   0x006D             LSLS     R5,R5,#+1
+   \   0000000C   0xD506             BPL.N    ??b_DSPI_PoP_1
+    173              {
+    174                  if(!(time--)){return 'F';}
+   \   0000000E   0x0025             MOVS     R5,R4
+   \   00000010   0x1E6C             SUBS     R4,R5,#+1
+   \   00000012   0xB2AD             UXTH     R5,R5            ;; ZeroExt  R5,R5,#+16,#+16
+   \   00000014   0x2D00             CMP      R5,#+0
+   \   00000016   0xD1F6             BNE.N    ??b_DSPI_PoP_0
+   \   00000018   0x2046             MOVS     R0,#+70
+   \   0000001A   0xE02F             B.N      ??b_DSPI_PoP_2
+    175              }
+    176              uint8 readCounter = 0;//¶ÁÈ¡¼ÆÊý
+   \                     ??b_DSPI_PoP_1: (+1)
+   \   0000001C   0x2500             MOVS     R5,#+0
+    177              readCounter = Flash_SPI_PTR->SR;
+   \   0000001E   0x....             LDR.N    R4,??DataTable7_11  ;; 0x4002c02c
+   \   00000020   0x6824             LDR      R4,[R4, #+0]
+   \   00000022   0x0025             MOVS     R5,R4
+    178              readCounter = (readCounter & SPI_SR_RXCTR_MASK) >> SPI_SR_RXCTR_SHIFT;
+   \   00000024   0xB2ED             UXTB     R5,R5            ;; ZeroExt  R5,R5,#+24,#+24
+   \   00000026   0x092D             LSRS     R5,R5,#+4
+    179              if(readCounter > popArrayCounter){return 'F';}//ÏÞ·ù
+   \   00000028   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \   0000002A   0xB2ED             UXTB     R5,R5            ;; ZeroExt  R5,R5,#+24,#+24
+   \   0000002C   0x42A9             CMP      R1,R5
+   \   0000002E   0xD201             BCS.N    ??b_DSPI_PoP_3
+   \   00000030   0x2046             MOVS     R0,#+70
+   \   00000032   0xE023             B.N      ??b_DSPI_PoP_2
+    180              //popArrayCounter--;//ÒòÎªÊý×éÐÞ¼ôpopArrayCounter
+    181              time = 0;//ÎªÁË½ÓÊÜ½øÐÐÐÞ¼ô
+   \                     ??b_DSPI_PoP_3: (+1)
+   \   00000034   0x2400             MOVS     R4,#+0
+    182              popArrayCounter = 0;//³£ÏµÊýÐÞ¼ô
+   \   00000036   0x2100             MOVS     R1,#+0
+    183              do
+    184              {
+    185                  time++;
+   \                     ??b_DSPI_PoP_4: (+1)
+   \   00000038   0x1C64             ADDS     R4,R4,#+1
+    186                  if(CTARn)
+   \   0000003A   0xB2DB             UXTB     R3,R3            ;; ZeroExt  R3,R3,#+24,#+24
+   \   0000003C   0x2B00             CMP      R3,#+0
+   \   0000003E   0xD005             BEQ.N    ??b_DSPI_PoP_5
+    187                  {//1
+    188                      ((uint16*)(popArray))[popArrayCounter] = Flash_SPI_PTR->POPR;
+   \   00000040   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \   00000042   0x....             LDR.N    R5,??DataTable7_19  ;; 0x4002c038
+   \   00000044   0x682D             LDR      R5,[R5, #+0]
+   \   00000046   0xF820 0x5011      STRH     R5,[R0, R1, LSL #+1]
+   \   0000004A   0xE003             B.N      ??b_DSPI_PoP_6
+    189                  }
+    190                  else
+    191                  {//0 
+    192                      ((uint8*)(popArray))[popArrayCounter] = Flash_SPI_PTR->POPR;
+   \                     ??b_DSPI_PoP_5: (+1)
+   \   0000004C   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \   0000004E   0x....             LDR.N    R5,??DataTable7_19  ;; 0x4002c038
+   \   00000050   0x682D             LDR      R5,[R5, #+0]
+   \   00000052   0x540D             STRB     R5,[R1, R0]
+    193                  }
+    194                  popArrayCounter++;
+   \                     ??b_DSPI_PoP_6: (+1)
+   \   00000054   0x1C49             ADDS     R1,R1,#+1
+    195                  readCounter = ((Flash_SPI_PTR->SR & SPI_SR_RXCTR_MASK) >> SPI_SR_RXCTR_SHIFT);
+   \   00000056   0x....             LDR.N    R5,??DataTable7_11  ;; 0x4002c02c
+   \   00000058   0x682D             LDR      R5,[R5, #+0]
+   \   0000005A   0xF3C5 0x1503      UBFX     R5,R5,#+4,#+4
+    196                  if(0 == readCounter){Flash_SPI_PTR->SR |= SPI_SR_RFDF_MASK;}
+   \   0000005E   0xB2ED             UXTB     R5,R5            ;; ZeroExt  R5,R5,#+24,#+24
+   \   00000060   0x2D00             CMP      R5,#+0
+   \   00000062   0xD105             BNE.N    ??b_DSPI_PoP_7
+   \   00000064   0x....             LDR.N    R5,??DataTable7_11  ;; 0x4002c02c
+   \   00000066   0x682D             LDR      R5,[R5, #+0]
+   \   00000068   0xF455 0x3500      ORRS     R5,R5,#0x20000
+   \   0000006C   0x....             LDR.N    R6,??DataTable7_11  ;; 0x4002c02c
+   \   0000006E   0x6035             STR      R5,[R6, #+0]
+    197              }
+    198              while(Flash_SPI_PTR->SR & SPI_SR_RFDF_MASK);
+   \                     ??b_DSPI_PoP_7: (+1)
+   \   00000070   0x....             LDR.N    R5,??DataTable7_11  ;; 0x4002c02c
+   \   00000072   0x682D             LDR      R5,[R5, #+0]
+   \   00000074   0x03AD             LSLS     R5,R5,#+14
+   \   00000076   0xD4DF             BMI.N    ??b_DSPI_PoP_4
+    199              (*popCounter) = time;//·µ»Øµ¯³ö¸öÊý
+   \   00000078   0x7014             STRB     R4,[R2, #+0]
+    200              return 'T';
+   \   0000007A   0x2054             MOVS     R0,#+84
+   \                     ??b_DSPI_PoP_2: (+1)
+   \   0000007C   0xBC70             POP      {R4-R6}
+   \   0000007E   0x4770             BX       LR               ;; return
+    201          }
+    202          
+    203          
+
+   \                                 In section .text, align 2, keep-with-next
+    204          uint8 b_DSPI_ClrRx()
+    205          {
+    206              uint16 time = 60000;
+   \                     b_DSPI_ClrRx: (+1)
+   \   00000000   0xF64E 0x2060      MOVW     R0,#+60000
+    207              while(Flash_SPI_PTR->SR & SPI_SR_TXRXS_MASK)
+   \                     ??b_DSPI_ClrRx_0: (+1)
+   \   00000004   0x....             LDR.N    R1,??DataTable7_11  ;; 0x4002c02c
+   \   00000006   0x6809             LDR      R1,[R1, #+0]
+   \   00000008   0x0049             LSLS     R1,R1,#+1
+   \   0000000A   0xD506             BPL.N    ??b_DSPI_ClrRx_1
+    208              {
+    209                  if(!(time--)){return 'F';}
+   \   0000000C   0x0001             MOVS     R1,R0
+   \   0000000E   0x1E48             SUBS     R0,R1,#+1
+   \   00000010   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   00000012   0x2900             CMP      R1,#+0
+   \   00000014   0xD1F6             BNE.N    ??b_DSPI_ClrRx_0
+   \   00000016   0x2046             MOVS     R0,#+70
+   \   00000018   0xE00C             B.N      ??b_DSPI_ClrRx_2
+    210              }
+    211              Flash_SPI_PTR->SR |= SPI_SR_RFDF_MASK;
+   \                     ??b_DSPI_ClrRx_1: (+1)
+   \   0000001A   0x....             LDR.N    R0,??DataTable7_11  ;; 0x4002c02c
+   \   0000001C   0x6800             LDR      R0,[R0, #+0]
+   \   0000001E   0xF450 0x3000      ORRS     R0,R0,#0x20000
+   \   00000022   0x....             LDR.N    R1,??DataTable7_11  ;; 0x4002c02c
+   \   00000024   0x6008             STR      R0,[R1, #+0]
+    212              Flash_SPI_PTR->MCR |= (SPI_MCR_CLR_RXF_MASK);
+   \   00000026   0x....             LDR.N    R0,??DataTable7_10  ;; 0x4002c000
+   \   00000028   0x6800             LDR      R0,[R0, #+0]
+   \   0000002A   0xF450 0x6080      ORRS     R0,R0,#0x400
+   \   0000002E   0x....             LDR.N    R1,??DataTable7_10  ;; 0x4002c000
+   \   00000030   0x6008             STR      R0,[R1, #+0]
+    213              return 'T';
+   \   00000032   0x2054             MOVS     R0,#+84
+   \                     ??b_DSPI_ClrRx_2: (+1)
+   \   00000034   0x4770             BX       LR               ;; return
+    214          }
+    215          // ========================================================================== //
+    216          // Flash³õÊ¼»¯
+    217          // Ð´Ê¹ÄÜ
+
+   \                                 In section .data, align 4
+    218          uint16 g_Tx[] = {0xFF,0xFF,0xFe,0xFe,0xFF,0xFF,0xFF,0xFF};
+   \                     g_Tx:
+   \   00000000   0x00FF 0x00FF      DC16 255, 255, 254, 254, 255, 255, 255, 255
+   \              0x00FE 0x00FE
+   \              0x00FF 0x00FF
+   \              0x00FF 0x00FF
+
+   \                                 In section .data, align 4
+    219          uint16 g_Tx_Tx[] = {0xFF,0xFF,0xFe,0xFe,0xFF,0xFF,0xFF,0xFF};
+   \                     g_Tx_Tx:
+   \   00000000   0x00FF 0x00FF      DC16 255, 255, 254, 254, 255, 255, 255, 255
+   \              0x00FE 0x00FE
+   \              0x00FF 0x00FF
+   \              0x00FF 0x00FF
+
+   \                                 In section .bss, align 1
+    220          uint8 g_RxCounter = 0;
+   \                     g_RxCounter:
+   \   00000000                      DS8 1
+    221          
+
+   \                                 In section .bss, align 2
+    222          uint16 g16_1 = 0;
+   \                     g16_1:
+   \   00000000                      DS8 2
+
+   \                                 In section .bss, align 2
+    223          uint16 g16_2 = 0;
+   \                     g16_2:
+   \   00000000                      DS8 2
+
+   \                                 In section .bss, align 2
+    224          uint16 g16_3 = 0;
+   \                     g16_3:
+   \   00000000                      DS8 2
+
+   \                                 In section .bss, align 2
+    225          uint16 g16_4 = 0;
+   \                     g16_4:
+   \   00000000                      DS8 2
+
+   \                                 In section .bss, align 2
+    226          uint16 g16_5 = 0;
+   \                     g16_5:
+   \   00000000                      DS8 2
+
+   \                                 In section .bss, align 2
+    227          uint16 g16_6 = 0;
+   \                     g16_6:
+   \   00000000                      DS8 2
+
+   \                                 In section .bss, align 2
+    228          uint16 g16_7 = 0;
+   \                     g16_7:
+   \   00000000                      DS8 2
+
+   \                                 In section .bss, align 2
+    229          uint16 g16_8 = 0;
+   \                     g16_8:
+   \   00000000                      DS8 2
+
+   \                                 In section .text, align 2, keep-with-next
+    230          uint8 b_Flash_Init()
+    231          {
+   \                     b_Flash_Init: (+1)
+   \   00000000   0xB5E0             PUSH     {R5-R7,LR}
+    232              if('F' == b_DSPI_Init()){return 'F';}
+   \   00000002   0x.... 0x....      BL       b_DSPI_Init
+   \   00000006   0x2846             CMP      R0,#+70
+   \   00000008   0xD101             BNE.N    ??b_Flash_Init_0
+   \   0000000A   0x2046             MOVS     R0,#+70
+   \   0000000C   0xE051             B.N      ??b_Flash_Init_1
+    233              // ==================== //
+    234              //uint8 error_occur = 0;//´íÎó¼ÆÊý
+    235              do /* È·ÈÏÐ¾Æ¬ÐÍºÅ */
+    236              {
+    237                  //v_DSPI_SetFrameSize(8);
+    238                  uint8 Tx[] = {0x9F,0xFF,0xFF,0xFF};
+   \                     ??b_Flash_Init_0: (+1)
+   \   0000000E   0xA802             ADD      R0,SP,#+8
+   \   00000010   0x....             LDR.N    R1,??DataTable7_20
+   \   00000012   0x680A             LDR      R2,[R1, #0]
+   \   00000014   0x6002             STR      R2,[R0, #+0]
+    239                  uint8 RxCounter = 0;
+   \   00000016   0x2000             MOVS     R0,#+0
+   \   00000018   0xF88D 0x0004      STRB     R0,[SP, #+4]
+    240                  v_DSPI_PushTx(Tx[0],1,1,0,CATR0);
+   \   0000001C   0x2000             MOVS     R0,#+0
+   \   0000001E   0x9000             STR      R0,[SP, #+0]
+   \   00000020   0x2300             MOVS     R3,#+0
+   \   00000022   0x2201             MOVS     R2,#+1
+   \   00000024   0x2101             MOVS     R1,#+1
+   \   00000026   0xF89D 0x0008      LDRB     R0,[SP, #+8]
+   \   0000002A   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
+   \   0000002C   0x.... 0x....      BL       v_DSPI_PushTx
+    241                  v_DSPI_PushTx(Tx[1],1,0,0,CATR0);
+   \   00000030   0x2000             MOVS     R0,#+0
+   \   00000032   0x9000             STR      R0,[SP, #+0]
+   \   00000034   0x2300             MOVS     R3,#+0
+   \   00000036   0x2200             MOVS     R2,#+0
+   \   00000038   0x2101             MOVS     R1,#+1
+   \   0000003A   0xF89D 0x0009      LDRB     R0,[SP, #+9]
+   \   0000003E   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
+   \   00000040   0x.... 0x....      BL       v_DSPI_PushTx
+    242                  v_DSPI_PushTx(Tx[2],1,0,0,CATR0);
+   \   00000044   0x2000             MOVS     R0,#+0
+   \   00000046   0x9000             STR      R0,[SP, #+0]
+   \   00000048   0x2300             MOVS     R3,#+0
+   \   0000004A   0x2200             MOVS     R2,#+0
+   \   0000004C   0x2101             MOVS     R1,#+1
+   \   0000004E   0xF89D 0x000A      LDRB     R0,[SP, #+10]
+   \   00000052   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
+   \   00000054   0x.... 0x....      BL       v_DSPI_PushTx
+    243                  v_DSPI_PushTx(Tx[3],0,0,1,CATR0);//´«ËÍ¿ªÊ¼
+   \   00000058   0x2000             MOVS     R0,#+0
+   \   0000005A   0x9000             STR      R0,[SP, #+0]
+   \   0000005C   0x2301             MOVS     R3,#+1
+   \   0000005E   0x2200             MOVS     R2,#+0
+   \   00000060   0x2100             MOVS     R1,#+0
+   \   00000062   0xF89D 0x000B      LDRB     R0,[SP, #+11]
+   \   00000066   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
+   \   00000068   0x.... 0x....      BL       v_DSPI_PushTx
+    244                  if('F' == b_DSPI_PopRx(Tx,&RxCounter,Rec_u8)){return 'F';}
+   \   0000006C   0x2300             MOVS     R3,#+0
+   \   0000006E   0xAA01             ADD      R2,SP,#+4
+   \   00000070   0x2104             MOVS     R1,#+4
+   \   00000072   0xA802             ADD      R0,SP,#+8
+   \   00000074   0x.... 0x....      BL       b_DSPI_PoP
+   \   00000078   0x2846             CMP      R0,#+70
+   \   0000007A   0xD101             BNE.N    ??b_Flash_Init_2
+   \   0000007C   0x2046             MOVS     R0,#+70
+   \   0000007E   0xE018             B.N      ??b_Flash_Init_1
+    245                  if( (sizeof(Tx)/sizeof(Tx[0])) != RxCounter){/*error_occur = 1;*/return 'F';}
+   \                     ??b_Flash_Init_2: (+1)
+   \   00000080   0xF89D 0x0004      LDRB     R0,[SP, #+4]
+   \   00000084   0x2804             CMP      R0,#+4
+   \   00000086   0xD001             BEQ.N    ??b_Flash_Init_3
+   \   00000088   0x2046             MOVS     R0,#+70
+   \   0000008A   0xE012             B.N      ??b_Flash_Init_1
+    246                  if(0xEF != Tx[1]){return 'F';}
+   \                     ??b_Flash_Init_3: (+1)
+   \   0000008C   0xF89D 0x0009      LDRB     R0,[SP, #+9]
+   \   00000090   0x28EF             CMP      R0,#+239
+   \   00000092   0xD001             BEQ.N    ??b_Flash_Init_4
+   \   00000094   0x2046             MOVS     R0,#+70
+   \   00000096   0xE00C             B.N      ??b_Flash_Init_1
+    247                  if(0x40 != Tx[2]){return 'F';}
+   \                     ??b_Flash_Init_4: (+1)
+   \   00000098   0xF89D 0x000A      LDRB     R0,[SP, #+10]
+   \   0000009C   0x2840             CMP      R0,#+64
+   \   0000009E   0xD001             BEQ.N    ??b_Flash_Init_5
+   \   000000A0   0x2046             MOVS     R0,#+70
+   \   000000A2   0xE006             B.N      ??b_Flash_Init_1
+    248                  if(0x17 != Tx[3]){return 'F';}
+   \                     ??b_Flash_Init_5: (+1)
+   \   000000A4   0xF89D 0x000B      LDRB     R0,[SP, #+11]
+   \   000000A8   0x2817             CMP      R0,#+23
+   \   000000AA   0xD001             BEQ.N    ??b_Flash_Init_6
+   \   000000AC   0x2046             MOVS     R0,#+70
+   \   000000AE   0xE000             B.N      ??b_Flash_Init_1
+    249                  return 'T';
+   \                     ??b_Flash_Init_6: (+1)
+   \   000000B0   0x2054             MOVS     R0,#+84
+   \                     ??b_Flash_Init_1: (+1)
+   \   000000B2   0xBD0E             POP      {R1-R3,PC}       ;; return
+    250              }
+    251              while(0);
+    252              do // == ×´Ì¬Î»¿ØÖÆ == //
+    253              {
+    254                  break;
+    255                  v_DSPI_PushTx(0x06,0,1,1,CATR0); // Ð´¼Ä´æÆ÷Ê¹ÄÜ
+    256                  uint8 Tx[] = {0xFF,0xFF};
+    257                  uint8 RxCounter = 0;
+    258                  if('F' == b_DSPI_ClrRx()){return 'F';}
+    259                  // ¼Ä´æÆ÷ 1
+    260                  v_DSPI_PushTx(0x35,1,1,0,CATR0); // ¶Á¼Ä´æÆ÷
+    261                  v_DSPI_PushTx(0xFF,0,0,1,CATR0);
+    262                  if('F' == b_DSPI_PopRx(Tx,&RxCounter,Rec_u8)){return 'F';}
+    263                  if(2 != RxCounter){return 'F';}
+    264                  if(Tx[1]){return 'F';}
+    265                  // ¼Ä´æÆ÷ 2
+    266                  v_DSPI_PushTx(0x05,1,1,0,CATR0); // ¶Á¼Ä´æÆ÷
+    267                  v_DSPI_PushTx(0xFF,0,0,1,CATR0);
+    268                  if('F' == b_DSPI_PopRx(Tx,&RxCounter,Rec_u8)){return 'F';}
+    269                  if(2 != RxCounter){return 'F';}
+    270                  if(!(Tx[1] & 0x02)){return 'F';}
+    271                  v_DSPI_PushTx(0x04,0,1,1,CATR0); // Ð´¼Ä´æÆ÷ÎÞÐ§
+    272                  if('F' == b_DSPI_ClrRx()){return 'F';}
+    273              }
+    274              while(0);
+    275              do /* ²âÊÔ²É¼¯³ÌÐò */
+    276              {
+    277                  //break;
+    278                 // uint16 Tx[] = {0xFF,0xFF,0xFF,0xFF};
+    279                 // uint8 RxCounter = 0;
+    280               //   if('F' == b_Flash_EnsureWillWrite()){return 'F';} // È·ÈÏÇå³ý
+    281               //   v_DSPI_PushTx(0x4400,1,1,0,CATR1);
+    282               //   v_DSPI_PushTx(0x3000,0,0,1,CATR1);
+    283               //   if('F' == b_DSPI_ClrRx()){return 'F';}
+    284               //   if('F' == b_Flash_EnsureRest()){return 'F';} // È·ÈÏ¿ÕÏÐ
+    285                //  if('F' == b_Flash_EnsureWillWrite()){return 'F';} // È·ÈÏÇå³ý
+    286              /*
+    287                if('F' == b_Flash_EnsureWillWrite()){return 'F';} // È·ÈÏÇå³ý
+    288                 
+    289                  v_DSPI_PushTx(0x4200,1,1,0,CATR1);
+    290                  v_DSPI_PushTx(0x3001,1,0,0,CATR1);
+    291                  v_DSPI_PushTx(0x1234,1,0,0,CATR1);
+    292                  v_DSPI_PushTx(0x4321,1,0,1,CATR1);
+    293                  //while( ((Flash_SPI_PTR->SR) & SPI_SR_TXRXS_MASK) );
+    294                  v_DSPI_PushTx(0x4200,1,0,0,CATR1);
+    295                  v_DSPI_PushTx(0x3001,1,0,0,CATR1);
+    296                  v_DSPI_PushTx(0x1234,1,0,0,CATR1);
+    297                  v_DSPI_PushTx(0x5678,0,0,1,CATR1);
+    298                 // if('F' == b_DSPI_ClrRx()){return 'F';}
+    299                  if('F' == b_Flash_EnsureRest()){return 'F';} // È·ÈÏ¿ÕÏÐ
+    300                  if('F' == b_Flash_EnsureWillWrite()){return 'F';} // È·ÈÏÇå³ý
+    301                  */
+    302                  v_DSPI_PushTx(0x4800,1,0,0,CATR1);     
+    303                  v_DSPI_PushTx(0x3000,1,0,0,CATR1);
+    304                  v_DSPI_PushTx(0xF111,1,0,0,CATR1);
+    305                  v_DSPI_PushTx(0xF111,1,0,1,CATR1);
+    306                  while( ((Flash_SPI_PTR->SR) & SPI_SR_TXRXS_MASK) );
+    307                  Flash_SPI_PTR->SR |= SPI_SR_EOQF_MASK;
+    308                  g16_1 = Flash_SPI_PTR->POPR;
+    309                  g16_2 = Flash_SPI_PTR->POPR;
+    310                  g16_3 = Flash_SPI_PTR->POPR;
+    311                  g16_4 = Flash_SPI_PTR->POPR;
+    312                  
+    313                  
+    314                  v_DSPI_PushTx(0xF111,1,0,0,CATR1);
+    315                  v_DSPI_PushTx(0xF111,1,0,0,CATR1);
+    316                  v_DSPI_PushTx(0xF111,1,0,0,CATR1);
+    317                  v_DSPI_PushTx(0xF111,0,0,1,CATR1);
+    318                  while( ((Flash_SPI_PTR->SR) & SPI_SR_TXRXS_MASK) );
+    319                  Flash_SPI_PTR->SR |= SPI_SR_EOQF_MASK;
+    320                  g16_5 = Flash_SPI_PTR->POPR;
+    321                  g16_6 = Flash_SPI_PTR->POPR;
+    322                  g16_7 = Flash_SPI_PTR->POPR;
+    323                  g16_8 = Flash_SPI_PTR->POPR;
+    324                 // if('F' == b_DSPI_PoP_PoP_Rx(g_Tx_Tx,&g_RxCounter,Rec_u16)){return 'F';}
+    325                  
+    326                 // if('F' == b_Flash_EnsureRest()){return 'F';} // È·ÈÏ¿ÕÏÐ
+    327                 // if('F' == b_Flash_EnsureWillWrite()){return 'F';} // È·ÈÏÇå³ý
+    328                  
+    329                  //v_DSPI_SetFrameSize(8);
+    330              }
+    331              while(0);
+    332              //if('F' == b_Flash_Write(0,0,0)){return 'F';}
+    333              return 'T';
+    334          }
+    335          
+    336          /*
+    337          Status Bits
+    338          15      suspend status
+    339          14      complement protect
+    340          13      security register lock bits
+    341          12      
+    342          11      
+    343          10      
+    344          9       quad enable
+    345          8       status regisrer protect 1
+    346          7       status register protect 0
+    347          6       sector protect
+    348          5       top/bottom protect
+    349          4       block protect bits
+    350          3
+    351          2
+    352          1       write enable latch
+    353          0       erase or write in progress
+    354          */
+    355          
+    356          // ========================================================================== //
+    357          // µØÖ·ÊäÈë£º000000h ¨C 7F FFFF h
+    358          // 1 Block => 64K // 128 Blocks => 8M
+    359          // 25MHz => 40ns*8*2080 => 665600ns => 665.6 us => 0.6656 ms => 256 bytes
+    360          // ========================================================================== //
+    361          // È·ÈÏ½«Òª¿ÉÒÔ¶ÁÈ¡
+    362          // ¹¦ÄÜ´úÂë
+
+   \                                 In section .text, align 2, keep-with-next
+    363          uint8 b_Flash_EnsureWillWrite()
+    364          {
+   \                     b_Flash_EnsureWillWrite: (+1)
+   \   00000000   0xB530             PUSH     {R4,R5,LR}
+   \   00000002   0xB083             SUB      SP,SP,#+12
+    365              uint16 time = 60000;
+   \   00000004   0xF64E 0x2460      MOVW     R4,#+60000
+    366              uint8 Tx[] = {0,0xFF};
+   \   00000008   0x....             LDR.N    R0,??DataTable7_21
+   \   0000000A   0x8800             LDRH     R0,[R0, #+0]
+   \   0000000C   0xF8AD 0x0006      STRH     R0,[SP, #+6]
+    367              uint8 RxCounter = 0;
+   \   00000010   0x2000             MOVS     R0,#+0
+   \   00000012   0xF88D 0x0004      STRB     R0,[SP, #+4]
+    368              uint8 Bit_Much = (Flash_SPI_PTR->CTAR[0] & SPI_CTAR_FMSZ_MASK)>>SPI_CTAR_FMSZ_SHIFT;
+   \   00000016   0x....             LDR.N    R0,??DataTable7_14  ;; 0x4002c00c
+   \   00000018   0x6800             LDR      R0,[R0, #+0]
+   \   0000001A   0x0EC0             LSRS     R0,R0,#+27
+   \   0000001C   0xF010 0x050F      ANDS     R5,R0,#0xF
+    369              do
+    370              {
+    371                  
+    372                  v_DSPI_PushTx(0x06,0,1,1,CTAR0); // Ð´¼Ä´æÆ÷Ê¹ÄÜ
+   \                     ??b_Flash_EnsureWillWrite_0: (+1)
+   \   00000020   0x2000             MOVS     R0,#+0
+   \   00000022   0x9000             STR      R0,[SP, #+0]
+   \   00000024   0x2301             MOVS     R3,#+1
+   \   00000026   0x2201             MOVS     R2,#+1
+   \   00000028   0x2100             MOVS     R1,#+0
+   \   0000002A   0x2006             MOVS     R0,#+6
+   \   0000002C   0x.... 0x....      BL       v_DSPI_PushTx
+    373                  if('F' == b_DSPI_ClrRx()){return 'F';}
+   \   00000030   0x.... 0x....      BL       b_DSPI_ClrRx
+   \   00000034   0x2846             CMP      R0,#+70
+   \   00000036   0xD101             BNE.N    ??b_Flash_EnsureWillWrite_1
+   \   00000038   0x2046             MOVS     R0,#+70
+   \   0000003A   0xE02F             B.N      ??b_Flash_EnsureWillWrite_2
+    374                  v_DSPI_PushTx(0x05,1,1,0,CTAR0); // 
+   \                     ??b_Flash_EnsureWillWrite_1: (+1)
+   \   0000003C   0x2000             MOVS     R0,#+0
+   \   0000003E   0x9000             STR      R0,[SP, #+0]
+   \   00000040   0x2300             MOVS     R3,#+0
+   \   00000042   0x2201             MOVS     R2,#+1
+   \   00000044   0x2101             MOVS     R1,#+1
+   \   00000046   0x2005             MOVS     R0,#+5
+   \   00000048   0x.... 0x....      BL       v_DSPI_PushTx
+    375                  v_DSPI_PushTx(0xFF,0,0,1,CTAR0); // 
+   \   0000004C   0x2000             MOVS     R0,#+0
+   \   0000004E   0x9000             STR      R0,[SP, #+0]
+   \   00000050   0x2301             MOVS     R3,#+1
+   \   00000052   0x2200             MOVS     R2,#+0
+   \   00000054   0x2100             MOVS     R1,#+0
+   \   00000056   0x20FF             MOVS     R0,#+255
+   \   00000058   0x.... 0x....      BL       v_DSPI_PushTx
+    376                  if('F' == b_DSPI_PopRx(Tx,&RxCounter,Rec_u8)){return 'F';}
+   \   0000005C   0x2300             MOVS     R3,#+0
+   \   0000005E   0xAA01             ADD      R2,SP,#+4
+   \   00000060   0x2102             MOVS     R1,#+2
+   \   00000062   0xF10D 0x0006      ADD      R0,SP,#+6
+   \   00000066   0x.... 0x....      BL       b_DSPI_PoP
+   \   0000006A   0x2846             CMP      R0,#+70
+   \   0000006C   0xD101             BNE.N    ??b_Flash_EnsureWillWrite_3
+   \   0000006E   0x2046             MOVS     R0,#+70
+   \   00000070   0xE014             B.N      ??b_Flash_EnsureWillWrite_2
+    377                  if(!(time--)){return 'F';}
+   \                     ??b_Flash_EnsureWillWrite_3: (+1)
+   \   00000072   0x0020             MOVS     R0,R4
+   \   00000074   0x1E44             SUBS     R4,R0,#+1
+   \   00000076   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
+   \   00000078   0x2800             CMP      R0,#+0
+   \   0000007A   0xD101             BNE.N    ??b_Flash_EnsureWillWrite_4
+   \   0000007C   0x2046             MOVS     R0,#+70
+   \   0000007E   0xE00D             B.N      ??b_Flash_EnsureWillWrite_2
+    378               }
+    379               while(!(Tx[1] & 0x02)); // 1Ôò¿ÉÒÔÍË³ö
+   \                     ??b_Flash_EnsureWillWrite_4: (+1)
+   \   00000080   0xF89D 0x0007      LDRB     R0,[SP, #+7]
+   \   00000084   0x0780             LSLS     R0,R0,#+30
+   \   00000086   0xD5CB             BPL.N    ??b_Flash_EnsureWillWrite_0
+    380               Flash_SPI_PTR->CTAR[0] |= SPI_CTAR_FMSZ(Bit_Much);
+   \   00000088   0x....             LDR.N    R0,??DataTable7_14  ;; 0x4002c00c
+   \   0000008A   0x6800             LDR      R0,[R0, #+0]
+   \   0000008C   0xB2ED             UXTB     R5,R5            ;; ZeroExt  R5,R5,#+24,#+24
+   \   0000008E   0x06E9             LSLS     R1,R5,#+27
+   \   00000090   0xF011 0x41F0      ANDS     R1,R1,#0x78000000
+   \   00000094   0x4308             ORRS     R0,R1,R0
+   \   00000096   0x....             LDR.N    R1,??DataTable7_14  ;; 0x4002c00c
+   \   00000098   0x6008             STR      R0,[R1, #+0]
+    381               return 'T';
+   \   0000009A   0x2054             MOVS     R0,#+84
+   \                     ??b_Flash_EnsureWillWrite_2: (+1)
+   \   0000009C   0xBD3E             POP      {R1-R5,PC}       ;; return
+    382          }
+    383          
+    384          
+    385          // ========================================================================== //
+    386          //
+    387          // ¹¦ÄÜ´úÂë
+
+   \                                 In section .text, align 2, keep-with-next
+    388          uint8 b_Flash_EnsureRest()
+    389          {    
+   \                     b_Flash_EnsureRest: (+1)
+   \   00000000   0xB530             PUSH     {R4,R5,LR}
+   \   00000002   0xB083             SUB      SP,SP,#+12
+    390              uint16 time = 60000;
+   \   00000004   0xF64E 0x2460      MOVW     R4,#+60000
+    391              uint8 Tx[] = {0,0};            
+   \   00000008   0x2000             MOVS     R0,#+0
+   \   0000000A   0xF8AD 0x0006      STRH     R0,[SP, #+6]
+    392              uint8 RxCounter = 0;
+   \   0000000E   0x2000             MOVS     R0,#+0
+   \   00000010   0xF88D 0x0004      STRB     R0,[SP, #+4]
+    393              Flash_SPI_PTR->MCR |= (SPI_MCR_CLR_TXF_MASK);
+   \   00000014   0x....             LDR.N    R0,??DataTable7_10  ;; 0x4002c000
+   \   00000016   0x6800             LDR      R0,[R0, #+0]
+   \   00000018   0xF450 0x6000      ORRS     R0,R0,#0x800
+   \   0000001C   0x....             LDR.N    R1,??DataTable7_10  ;; 0x4002c000
+   \   0000001E   0x6008             STR      R0,[R1, #+0]
+    394              uint8 Bit_Much = (Flash_SPI_PTR->CTAR[0] & SPI_CTAR_FMSZ_MASK)>>SPI_CTAR_FMSZ_SHIFT;
+   \   00000020   0x....             LDR.N    R0,??DataTable7_14  ;; 0x4002c00c
+   \   00000022   0x6800             LDR      R0,[R0, #+0]
+   \   00000024   0x0EC0             LSRS     R0,R0,#+27
+   \   00000026   0xF010 0x050F      ANDS     R5,R0,#0xF
+    395              do
+    396              {
+    397                  //v_DSPI_SetFrameSize(8);
+    398                  v_DSPI_PushTx(0x05,1,1,0,CTAR0); // 
+   \                     ??b_Flash_EnsureRest_0: (+1)
+   \   0000002A   0x2000             MOVS     R0,#+0
+   \   0000002C   0x9000             STR      R0,[SP, #+0]
+   \   0000002E   0x2300             MOVS     R3,#+0
+   \   00000030   0x2201             MOVS     R2,#+1
+   \   00000032   0x2101             MOVS     R1,#+1
+   \   00000034   0x2005             MOVS     R0,#+5
+   \   00000036   0x.... 0x....      BL       v_DSPI_PushTx
+    399                  v_DSPI_PushTx(0xFF,0,0,1,CTAR0); // 
+   \   0000003A   0x2000             MOVS     R0,#+0
+   \   0000003C   0x9000             STR      R0,[SP, #+0]
+   \   0000003E   0x2301             MOVS     R3,#+1
+   \   00000040   0x2200             MOVS     R2,#+0
+   \   00000042   0x2100             MOVS     R1,#+0
+   \   00000044   0x20FF             MOVS     R0,#+255
+   \   00000046   0x.... 0x....      BL       v_DSPI_PushTx
+    400                  if('F' == b_DSPI_PopRx(Tx,&RxCounter,Rec_u8)){return 'F';}
+   \   0000004A   0x2300             MOVS     R3,#+0
+   \   0000004C   0xAA01             ADD      R2,SP,#+4
+   \   0000004E   0x2102             MOVS     R1,#+2
+   \   00000050   0xF10D 0x0006      ADD      R0,SP,#+6
+   \   00000054   0x.... 0x....      BL       b_DSPI_PoP
+   \   00000058   0x2846             CMP      R0,#+70
+   \   0000005A   0xD101             BNE.N    ??b_Flash_EnsureRest_1
+   \   0000005C   0x2046             MOVS     R0,#+70
+   \   0000005E   0xE014             B.N      ??b_Flash_EnsureRest_2
+    401                  if(!(time--)){return 'F';}
+   \                     ??b_Flash_EnsureRest_1: (+1)
+   \   00000060   0x0020             MOVS     R0,R4
+   \   00000062   0x1E44             SUBS     R4,R0,#+1
+   \   00000064   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
+   \   00000066   0x2800             CMP      R0,#+0
+   \   00000068   0xD101             BNE.N    ??b_Flash_EnsureRest_3
+   \   0000006A   0x2046             MOVS     R0,#+70
+   \   0000006C   0xE00D             B.N      ??b_Flash_EnsureRest_2
+    402              }
+    403              while(Tx[1] & 0x01);//µ±²»Ã¦Ê±Ìø³öÑ­»·
+   \                     ??b_Flash_EnsureRest_3: (+1)
+   \   0000006E   0xF89D 0x0007      LDRB     R0,[SP, #+7]
+   \   00000072   0x07C0             LSLS     R0,R0,#+31
+   \   00000074   0xD4D9             BMI.N    ??b_Flash_EnsureRest_0
+    404              Flash_SPI_PTR->CTAR[0] |= SPI_CTAR_FMSZ(Bit_Much);
+   \   00000076   0x....             LDR.N    R0,??DataTable7_14  ;; 0x4002c00c
+   \   00000078   0x6800             LDR      R0,[R0, #+0]
+   \   0000007A   0xB2ED             UXTB     R5,R5            ;; ZeroExt  R5,R5,#+24,#+24
+   \   0000007C   0x06E9             LSLS     R1,R5,#+27
+   \   0000007E   0xF011 0x41F0      ANDS     R1,R1,#0x78000000
+   \   00000082   0x4308             ORRS     R0,R1,R0
+   \   00000084   0x....             LDR.N    R1,??DataTable7_14  ;; 0x4002c00c
+   \   00000086   0x6008             STR      R0,[R1, #+0]
+    405              return 'T';
+   \   00000088   0x2054             MOVS     R0,#+84
+   \                     ??b_Flash_EnsureRest_2: (+1)
+   \   0000008A   0xBD3E             POP      {R1-R5,PC}       ;; return
+    406          }
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable7:
+   \   00000000   0x4004803C         DC32     0x4004803c
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable7_1:
+   \   00000000   0x40048038         DC32     0x40048038
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable7_2:
+   \   00000000   0x4004D000         DC32     0x4004d000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable7_3:
+   \   00000000   0x4004D004         DC32     0x4004d004
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable7_4:
+   \   00000000   0x4004D008         DC32     0x4004d008
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable7_5:
+   \   00000000   0x4004D00C         DC32     0x4004d00c
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable7_6:
+   \   00000000   0x4004D028         DC32     0x4004d028
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable7_7:
+   \   00000000   0x4004D02C         DC32     0x4004d02c
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable7_8:
+   \   00000000   0x400FF114         DC32     0x400ff114
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable7_9:
+   \   00000000   0x400FF100         DC32     0x400ff100
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable7_10:
+   \   00000000   0x4002C000         DC32     0x4002c000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable7_11:
+   \   00000000   0x4002C02C         DC32     0x4002c02c
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable7_12:
+   \   00000000   0x1A0A0000         DC32     0x1a0a0000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable7_13:
+   \   00000000   0xC73F0000         DC32     0xc73f0000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable7_14:
+   \   00000000   0x4002C00C         DC32     0x4002c00c
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable7_15:
+   \   00000000   0xBE570042         DC32     0xbe570042
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable7_16:
+   \   00000000   0x4002C010         DC32     0x4002c010
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable7_17:
+   \   00000000   0xFE570042         DC32     0xfe570042
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable7_18:
+   \   00000000   0x4002C034         DC32     0x4002c034
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable7_19:
+   \   00000000   0x4002C038         DC32     0x4002c038
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable7_20:
+   \   00000000   0x........         DC32     `?<Constant {159, 255, 255, 255}>`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable7_21:
+   \   00000000   0x........         DC32     `?<Constant {0, 255}>`
+
+   \                                 In section .rodata, align 4
+   \                     `?<Constant {159, 255, 255, 255}>`:
+   \   00000000   0x9F 0xFF          DC8 159, 255, 255, 255
+   \              0xFF 0xFF    
+
+   \                                 In section .rodata, align 2
+   \                     `?<Constant {0, 255}>`:
+   \   00000000   0x00 0xFF          DC8 0, 255
+
+   \                                 In section .rodata, align 2
+   \   00000000   0x00 0x00          DC8 0, 0
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       0   b_DSPI_ClrRx
+       0   b_DSPI_Init
+      12   b_DSPI_PoP
+      12   b_DSPI_PoP_PoP
+      24   b_Flash_EnsureRest
+        24   -> b_DSPI_PoP
+        24   -> v_DSPI_PushTx
+      24   b_Flash_EnsureWillWrite
+        24   -> b_DSPI_ClrRx
+        24   -> b_DSPI_PoP
+        24   -> v_DSPI_PushTx
+      16   b_Flash_Init
+        16   -> b_DSPI_Init
+        16   -> b_DSPI_PoP
+        16   -> v_DSPI_PushTx
+       4   v_DSPI_PushTx
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       2  ?<Constant {0, 0}>
+       2  ?<Constant {0, 255}>
+       4  ?<Constant {159, 255, 255, 255}>
+       4  ??DataTable7
+       4  ??DataTable7_1
+       4  ??DataTable7_10
+       4  ??DataTable7_11
+       4  ??DataTable7_12
+       4  ??DataTable7_13
+       4  ??DataTable7_14
+       4  ??DataTable7_15
+       4  ??DataTable7_16
+       4  ??DataTable7_17
+       4  ??DataTable7_18
+       4  ??DataTable7_19
+       4  ??DataTable7_2
+       4  ??DataTable7_20
+       4  ??DataTable7_21
+       4  ??DataTable7_3
+       4  ??DataTable7_4
+       4  ??DataTable7_5
+       4  ??DataTable7_6
+       4  ??DataTable7_7
+       4  ??DataTable7_8
+       4  ??DataTable7_9
+      54  b_DSPI_ClrRx
+     248  b_DSPI_Init
+     128  b_DSPI_PoP
+     108  b_DSPI_PoP_PoP
+     140  b_Flash_EnsureRest
+     158  b_Flash_EnsureWillWrite
+     180  b_Flash_Init
+       2  g16_1
+       2  g16_2
+       2  g16_3
+       2  g16_4
+       2  g16_5
+       2  g16_6
+       2  g16_7
+       2  g16_8
+       1  g_RxCounter
+      16  g_Tx
+      16  g_Tx_Tx
+      44  v_DSPI_PushTx
+
+ 
+    17 bytes in section .bss
+    32 bytes in section .data
+     8 bytes in section .rodata
+ 1 148 bytes in section .text
+ 
+ 1 148 bytes of CODE  memory
+     8 bytes of CONST memory
+    49 bytes of DATA  memory
+
+Errors: none
+Warnings: 2

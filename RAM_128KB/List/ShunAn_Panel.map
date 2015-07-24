@@ -1,0 +1,335 @@
+###############################################################################
+#                                                                             #
+# IAR ELF Linker V6.60.1.5097/W32 for ARM               27/Sep/2014  14:54:49 #
+# Copyright 2007-2013 IAR Systems AB.                                         #
+#                                                                             #
+#    Output file  =  D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\µ÷ÊÔ°å\Ò£¿ØÆ÷\RAM_128KB\Exe\S #
+#                    hunAn_Panel.out                                          #
+#    Map file     =  D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\µ÷ÊÔ°å\Ò£¿ØÆ÷\RAM_128KB\List\ #
+#                    ShunAn_Panel.map                                         #
+#    Command line =  D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\µ÷ÊÔ°å\Ò£¿ØÆ÷\RAM_128KB\Obj\a #
+#                    rm_cm4.o D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\µ÷ÊÔ°å\Ò£¿ØÆ÷\RAM_12 #
+#                    8KB\Obj\BIOS.o D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\µ÷ÊÔ°å\Ò£¿ØÆ÷\ #
+#                    RAM_128KB\Obj\BlessedAlien.o                             #
+#                    D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\µ÷ÊÔ°å\Ò£¿ØÆ÷\RAM_128KB\Obj\B #
+#                    luetooth.o D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\µ÷ÊÔ°å\Ò£¿ØÆ÷\RAM_ #
+#                    128KB\Obj\ControlPads.o D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\µ÷ÊÔ° #
+#                    å\Ò£¿ØÆ÷\RAM_128KB\Obj\ExInterface.o                     #
+#                    D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\µ÷ÊÔ°å\Ò£¿ØÆ÷\RAM_128KB\Obj\G #
+#                    UI.o D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\µ÷ÊÔ°å\Ò£¿ØÆ÷\RAM_128KB\ #
+#                    Obj\main.o D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\µ÷ÊÔ°å\Ò£¿ØÆ÷\RAM_ #
+#                    128KB\Obj\memory.o D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\µ÷ÊÔ°å\Ò£¿ #
+#                    ØÆ÷\RAM_128KB\Obj\MK60F15.o                              #
+#                    D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\µ÷ÊÔ°å\Ò£¿ØÆ÷\RAM_128KB\Obj\S #
+#                    hunAn_Lib.o D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\µ÷ÊÔ°å\Ò£¿ØÆ÷\RAM #
+#                    _128KB\Obj\start_ShunAn.o D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\µ÷Ê #
+#                    Ô°å\Ò£¿ØÆ÷\RAM_128KB\Obj\startup_ShunAn_K60FX512VLQ15.o  #
+#                    D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\µ÷ÊÔ°å\Ò£¿ØÆ÷\RAM_128KB\Obj\T #
+#                    FT.o --redirect _Printf=_PrintfFull --redirect           #
+#                    _Scanf=_ScanfFull -o D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\µ÷ÊÔ°å\Ò #
+#                    £¿ØÆ÷\RAM_128KB\Exe\ShunAn_Panel.out --map               #
+#                    D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\µ÷ÊÔ°å\Ò£¿ØÆ÷\RAM_128KB\List\ #
+#                    ShunAn_Panel.map --config D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\µ÷Ê #
+#                    Ô°å\Ò£¿ØÆ÷\configfiles\512KB_Pflash_512KB_Dflash.icf     #
+#                    --semihosting --entry __iar_program_start --vfe          #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A1":  place at 0x00000000 { ro section .intvec };
+"A2":  place at 0x00000410 { ro section .noinit };
+"P1":  place in [from         0x00000000
+                 to           0x00080000
+                 repeat       2
+                 displacement 0x10000000] { ro, block CodeRelocate };
+"P2":  place in [from 0x1fff0410 to 0x1fffffff] |
+                [from 0x20000000 to 0x20010000] {
+          rw, block CodeRelocateRam, block CSTACK, block HEAP };
+
+  Section              Kind        Address    Size  Object
+  -------              ----        -------    ----  ------
+"A1":                                        0x410
+  .intvec              const    0x00000000   0x410  start_ShunAn.o [1]
+                              - 0x00000410   0x410
+
+"P1", part 1 of 2:                             0x0
+  .rodata              const    0x00000410     0x0  zero_init3.o [5]
+
+"A2":                                         0x3c
+  .noinit              ro code  0x00000410    0x3c  startup_ShunAn_K60FX512VLQ15.o [1]
+                              - 0x0000044c    0x3c
+
+"P1", part 2 of 2:                          0x1e14
+  .text                ro code  0x0000044c   0x5da  TFT.o [1]
+  .text                ro code  0x00000a26    0x22  zero_init3.o [5]
+  .text                ro code  0x00000a48    0x20  ShunAn_Lib.o [1]
+  Veneer               ro code  0x00000a68     0x8  - Linker created -
+  .text                ro code  0x00000a70   0x580  start_ShunAn.o [1]
+  .text                ro code  0x00000ff0    0xd4  arm_cm4.o [1]
+  .text                ro code  0x000010c4    0x98  main.o [1]
+  .text                ro code  0x0000115c   0x378  Bluetooth.o [1]
+  .text                ro code  0x000014d4   0x2e2  ExInterface.o [1]
+  .text                ro code  0x000017b8   0x2b0  ControlPads.o [1]
+  .text                ro code  0x00001a68    0xa4  BIOS.o [1]
+  .text                ro code  0x00001b0c   0x290  GUI.o [1]
+  .rodata              const    0x00001d9c   0x228  BlessedAlien.o [1]
+  .data_init                    0x00001fc4   0x190  <Block>
+    Initializer bytes  ro data  0x00001fc4   0x190  <for .data-1>
+  CodeRelocate                  0x00002154    0x4c  <Block>
+    Initializer bytes  ro data  0x00002154    0x4c  <for CodeRelocateRam-1>
+  .text                ro code  0x000021a0    0x28  data_init.o [5]
+  .iar.init_table      const    0x000021c8    0x10  - Linker created -
+  .text                ro code  0x000021d8    0x1a  cmain.o [5]
+  .text                ro code  0x000021f2     0x4  low_level_init.o [3]
+  .text                ro code  0x000021f6     0x4  exit.o [3]
+  .text                ro code  0x000021fc     0xa  cexit.o [5]
+  .text                ro code  0x00002208    0x14  exit.o [6]
+  .rodata              const    0x0000221c    0x10  ControlPads.o [1]
+  .rodata              const    0x0000222c     0xc  ControlPads.o [1]
+  .rodata              const    0x00002238     0xc  ControlPads.o [1]
+  .text                ro code  0x00002244     0xc  cstartup_M.o [5]
+  .rodata              const    0x00002250     0x8  ControlPads.o [1]
+  .rodata              const    0x00002258     0x8  ControlPads.o [1]
+                              - 0x00002260  0x1e14
+
+"P2", part 1 of 2:                           0x1dc
+  .data                         0x1fff0410   0x190  <Block>
+    .data-1                     0x1fff0410   0x190  <Init block>
+      .data            inited   0x1fff0410     0xc  ControlPads.o [1]
+      .data            inited   0x1fff041c    0x10  ControlPads.o [1]
+      .data            inited   0x1fff042c    0x28  ControlPads.o [1]
+      .data            inited   0x1fff0454    0x14  ControlPads.o [1]
+      .data            inited   0x1fff0468    0x28  ControlPads.o [1]
+      .data            inited   0x1fff0490    0x14  ControlPads.o [1]
+      .data            inited   0x1fff04a4    0x28  ControlPads.o [1]
+      .data            inited   0x1fff04cc    0x10  ControlPads.o [1]
+      .data            inited   0x1fff04dc    0x28  ControlPads.o [1]
+      .data            inited   0x1fff0504    0x14  ControlPads.o [1]
+      .data            inited   0x1fff0518    0x28  ControlPads.o [1]
+      .data            inited   0x1fff0540     0x4  ControlPads.o [1]
+      .data            inited   0x1fff0544    0x58  start_ShunAn.o [1]
+      .data            inited   0x1fff059c     0x4  start_ShunAn.o [1]
+  CodeRelocateRam               0x1fff05a0    0x4c  <Block>
+    CodeRelocateRam-1           0x1fff05a0    0x4c  <Init block>
+      .textrw          inited   0x1fff05a0    0x4c  start_ShunAn.o [1]
+                              - 0x1fff05ec   0x1dc
+
+"P2", part 2 of 2:                          0x1188
+  .bss                          0x1fff05ec  0x1188  <Block>
+    .bss               zero     0x1fff05ec   0x7ec  Bluetooth.o [1]
+    .bss               zero     0x1fff0dd8   0x964  Bluetooth.o [1]
+    .bss               zero     0x1fff173c     0x4  ControlPads.o [1]
+    .bss               zero     0x1fff1740     0xc  ControlPads.o [1]
+    .bss               zero     0x1fff174c    0x14  ExInterface.o [1]
+    .bss               zero     0x1fff1760     0x4  ExInterface.o [1]
+    .bss               zero     0x1fff1764     0x4  start_ShunAn.o [1]
+    .bss               zero     0x1fff1768     0x4  start_ShunAn.o [1]
+    .bss               zero     0x1fff176c     0x4  start_ShunAn.o [1]
+    .bss               zero     0x1fff1770     0x2  ControlPads.o [1]
+    .bss               zero     0x1fff1772     0x2  ControlPads.o [1]
+                              - 0x1fff1774  0x1188
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address     Size
+          -------     ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x1188:
+          0x1fff05ec  0x1188
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                          ro code  rw code  ro data  rw data
+    ------                          -------  -------  -------  -------
+D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\µ÷ÊÔ°å\Ò£¿ØÆ÷\RAM_128KB\Obj: [1]
+    BIOS.o                              164
+    BlessedAlien.o                                        552
+    Bluetooth.o                         888                      4 432
+    ControlPads.o                       688               364      328
+    ExInterface.o                       738                         24
+    GUI.o                               656
+    ShunAn_Lib.o                         32
+    TFT.o                             1 498
+    arm_cm4.o                           212
+    main.o                              152
+    start_ShunAn.o                    1 408       76    1 208      104
+    startup_ShunAn_K60FX512VLQ15.o       60
+    ------------------------------------------------------------------
+    Total:                            6 496       76    2 124    4 888
+
+command line: [2]
+    ------------------------------------------------------------------
+    Total:
+
+dl7M_tln.a: [3]
+    exit.o                                4
+    low_level_init.o                      4
+    ------------------------------------------------------------------
+    Total:                                8
+
+m7M_tl.a: [4]
+    ------------------------------------------------------------------
+    Total:
+
+rt7M_tl.a: [5]
+    cexit.o                              10
+    cmain.o                              26
+    cstartup_M.o                         12
+    data_init.o                          40
+    zero_init3.o                         34
+    ------------------------------------------------------------------
+    Total:                              122
+
+shb_l.a: [6]
+    exit.o                               20
+    ------------------------------------------------------------------
+    Total:                               20
+
+    Gaps                                  6
+    Linker created                        8                16
+----------------------------------------------------------------------
+    Grand Total:                      6 660       76    2 140    4 888
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address   Size  Type      Object
+-----                      -------   ----  ----      ------
+.bss$$Base              0x1fff05ec          --   Gb  - Linker created -
+.bss$$Limit             0x1fff1774          --   Gb  - Linker created -
+.data$$Base             0x1fff0410          --   Gb  - Linker created -
+.data$$Limit            0x1fff05a0          --   Gb  - Linker created -
+.data_init$$Base        0x00001fc4          --   Gb  - Linker created -
+.data_init$$Limit       0x00002154          --   Gb  - Linker created -
+?main                   0x000021d9         Code  Gb  cmain.o [5]
+C6x8                    0x00001d9c  0x228  Data  Gb  BlessedAlien.o [1]
+CallBack_Back           0x00001d41   0x22  Code  Gb  GUI.o [1]
+CodeRelocate$$Base      0x00002154          --   Gb  - Linker created -
+CodeRelocate$$Limit     0x000021a0          --   Gb  - Linker created -
+CodeRelocateRam$$Base   0x1fff05a0          --   Gb  - Linker created -
+CodeRelocateRam$$Limit  0x1fff05ec          --   Gb  - Linker created -
+DataScope_Create        0x00001d69   0x34  Code  Gb  GUI.o [1]
+Data_UART_rec           0x1fff0dd8  0x964  Data  Gb  Bluetooth.o [1]
+FCN_NULL                0x00001d3d    0x4  Code  Gb  GUI.o [1]
+LCD_Clear               0x000009fb   0x2c  Code  Gb  TFT.o [1]
+LCD_Init                0x000006e1  0x162  Code  Gb  TFT.o [1]
+LCD_PinInit             0x0000044d  0x106  Code  Gb  TFT.o [1]
+LCD_SetCursor           0x000008b1   0x1a  Code  Gb  TFT.o [1]
+LCD_SetLine             0x0000094b   0x24  Code  Gb  TFT.o [1]
+LCD_SetPath             0x000008cb   0x80  Code  Gb  TFT.o [1]
+LCD_SetSquare           0x0000096f   0x8c  Code  Gb  TFT.o [1]
+LCD_readReg             0x0000063b   0xa6  Code  Gb  TFT.o [1]
+LCD_writeData           0x000005b1   0x5e  Code  Gb  TFT.o [1]
+LCD_writeIndex          0x00000553   0x5e  Code  Gb  TFT.o [1]
+LCD_writeReg            0x0000060f   0x2c  Code  Gb  TFT.o [1]
+NULL_Tick               0x000017b9    0x2  Code  Gb  ControlPads.o [1]
+ON_BUTTON               0x00001805  0x150  Code  Gb  ControlPads.o [1]
+ON_NONE                 0x000017cb   0x2a  Code  Gb  ControlPads.o [1]
+ON_SWITCH               0x000017f5   0x10  Code  Gb  ControlPads.o [1]
+ON_UART                 0x00001955   0x16  Code  Gb  ControlPads.o [1]
+PIT0_IRQHandler         0x00001125   0x20  Code  Gb  main.o [1]
+Region$$Table$$Base     0x000021c8          --   Gb  - Linker created -
+Region$$Table$$Limit    0x000021d8          --   Gb  - Linker created -
+Reset_Handler           0x00000411         Code  Gb  startup_ShunAn_K60FX512VLQ15.o [1]
+__BOOT_STACK_ADDRESS {Abs}
+                        0x2000fff8          --   Gb  command line/config [2]
+__VECTOR_RAM {Abs}      0x1fff0000          --   Gb  command line/config [2]
+__VECTOR_TABLE {Abs}    0x00000000          --   Gb  command line/config [2]
+__cmain                 0x000021d9         Code  Gb  cmain.o [5]
+__exit                  0x00002209   0x14  Code  Gb  exit.o [6]
+__iar_data_init3        0x000021a1   0x28  Code  Gb  data_init.o [5]
+__iar_program_start     0x00002245         Code  Gb  cstartup_M.o [5]
+__iar_zero_init3        0x00000a27   0x22  Code  Gb  zero_init3.o [5]
+__low_level_init        0x000021f3    0x4  Code  Gb  low_level_init.o [3]
+__v_Uart_Init_          0x0000115d   0xe0  Code  Gb  Bluetooth.o [1]
+__v_uart_getOnce        0x0000123d   0x20  Code  Gb  Bluetooth.o [1]
+__vector_table          0x00000000  0x410  Data  Gb  start_ShunAn.o [1]
+_call_main              0x000021e5         Code  Gb  cmain.o [5]
+_exit                   0x000021fd         Code  Gb  cexit.o [5]
+_main                   0x000021ef         Code  Gb  cmain.o [5]
+_v_Cmd_Create           0x00001b8d  0x10e  Code  Gb  GUI.o [1]
+_v_Cmd_Idle             0x00001b0d   0x40  Code  Gb  GUI.o [1]
+_v_Cmd_OnPend           0x00001b4d   0x40  Code  Gb  GUI.o [1]
+_v_Window_Create        0x00001ca9   0x6e  Code  Gb  GUI.o [1]
+bus_clk_khz             0x1fff176c    0x4  Data  Gb  start_ShunAn.o [1]
+core_clk_khz            0x1fff1764    0x4  Data  Gb  start_ShunAn.o [1]
+core_clk_mhz            0x1fff1768    0x4  Data  Gb  start_ShunAn.o [1]
+default_isr             0x00000b67    0x2  Code  Gb  start_ShunAn.o [1]
+enable_irq              0x00000ff7   0xb2  Code  Gb  arm_cm4.o [1]
+exit                    0x000021f7    0x4  Code  Gb  exit.o [3]
+g_Buttons               0x1fff174c   0x14  Data  Gb  ExInterface.o [1]
+g_ExInterfaces          0x1fff1760    0x4  Data  Gb  ExInterface.o [1]
+g_Message               0x1fff1740    0xc  Data  Gb  ControlPads.o [1]
+g_RecBuffer             0x1fff05ec  0x7ec  Data  Gb  Bluetooth.o [1]
+g_SysTem                0x1fff0410    0xc  Data  Gb  ControlPads.o [1]
+in                      0x1fff1772    0x2  Data  Gb  ControlPads.o [1]
+main                    0x000010c5   0x60  Code  Gb  main.o [1]
+mcg_cfg                 0x1fff0544   0x58  Data  Gb  start_ShunAn.o [1]
+mcg_div                 0x1fff059c    0x4  Data  Gb  start_ShunAn.o [1]
+mcg_div_count           0x00000b69  0x308  Code  Gb  start_ShunAn.o [1]
+msg_Run                 0x1fff173c    0x4  Data  Gb  ControlPads.o [1]
+msg_operation           0x000017bb   0x10  Code  Gb  ControlPads.o [1]
+pit_init                0x00000f23   0x5a  Code  Gb  start_ShunAn.o [1]
+pll_init                0x00000e71   0xb2  Code  Gb  start_ShunAn.o [1]
+set_sys_dividers        0x1fff05a1   0x4c  Code  Gb  start_ShunAn.o [1]
+set_vector_handler      0x00000f7d    0xa  Code  Gb  start_ShunAn.o [1]
+start                   0x00000a71   0xf6  Code  Gb  start_ShunAn.o [1]
+u8_Button1get           0x00001661    0xc  Code  Gb  ExInterface.o [1]
+u8_Button2get           0x0000166d    0xc  Code  Gb  ExInterface.o [1]
+u8_Button3get           0x00001679    0xc  Code  Gb  ExInterface.o [1]
+u8_Button4get           0x00001685    0xc  Code  Gb  ExInterface.o [1]
+u8_Button_set           0x000016d5   0xe2  Code  Gb  ExInterface.o [1]
+u8_Switch1get           0x00001603    0xc  Code  Gb  ExInterface.o [1]
+u8_Switch2get           0x0000160f    0xc  Code  Gb  ExInterface.o [1]
+u8_Switch3get           0x0000161b    0xc  Code  Gb  ExInterface.o [1]
+u8_Switch4get           0x00001627    0xc  Code  Gb  ExInterface.o [1]
+u8_Switch5get           0x00001633    0xc  Code  Gb  ExInterface.o [1]
+u8_Switch6get           0x0000163f    0xc  Code  Gb  ExInterface.o [1]
+u8_Switch7get           0x0000164b    0xa  Code  Gb  ExInterface.o [1]
+u8_Switch8get           0x00001655    0xc  Code  Gb  ExInterface.o [1]
+u8_uart_getAll          0x0000125d   0xb4  Code  Gb  Bluetooth.o [1]
+vDelayMs                0x00000a49   0x20  Code  Gb  ShunAn_Lib.o [1]
+v_BIOS_6x8str_Ascii     0x00001a69   0xa0  Code  Gb  BIOS.o [1]
+v_Init_ExInterface      0x000014d5  0x12e  Code  Gb  ExInterface.o [1]
+v_OriginalSin           0x0000196b   0xb0  Code  Gb  ControlPads.o [1]
+v_Tooth_GyroAccel       0x00001311  0x174  Code  Gb  Bluetooth.o [1]
+v_allControl_Create     0x00001d17   0x26  Code  Gb  GUI.o [1]
+write_vtor              0x00000ff1    0x6  Code  Gb  arm_cm4.o [1]
+x                       0x1fff1770    0x2  Data  Gb  ControlPads.o [1]
+
+
+[1] = D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\µ÷ÊÔ°å\Ò£¿ØÆ÷\RAM_128KB\Obj
+[2] = command line
+[3] = dl7M_tln.a
+[4] = m7M_tl.a
+[5] = rt7M_tl.a
+[6] = shb_l.a
+
+  6 660 bytes of readonly  code memory
+     76 bytes of readwrite code memory
+  2 140 bytes of readonly  data memory
+  4 888 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

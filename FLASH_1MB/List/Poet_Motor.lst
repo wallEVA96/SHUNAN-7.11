@@ -1,0 +1,2244 @@
+###############################################################################
+#                                                                             #
+# IAR ANSI C/C++ Compiler V6.60.1.5097/W32 for ARM      20/Jul/2015  16:55:45 #
+# Copyright 1999-2013 IAR Systems AB.                                         #
+#                                                                             #
+#    Cpu mode     =  thumb                                                    #
+#    Endian       =  little                                                   #
+#    Source file  =  D:\创作室\飞思卡尔智能小车\顺暗三号\代码\顺暗三号-华南赛 #
+#                    最后七天-7.11\ShunAn_Panel\Poet_Motor.c                  #
+#    Command line =  D:\创作室\飞思卡尔智能小车\顺暗三号\代码\顺暗三号-华南赛 #
+#                    最后七天-7.11\ShunAn_Panel\Poet_Motor.c -D IAR -D        #
+#                    TWR_K60F120M -lCN D:\创作室\飞思卡尔智能小车\顺暗三号\代 #
+#                    码\顺暗三号-华南赛最后七天-7.11\FLASH_1MB\List\ -lB      #
+#                    D:\创作室\飞思卡尔智能小车\顺暗三号\代码\顺暗三号-华南赛 #
+#                    最后七天-7.11\FLASH_1MB\List\ -o                         #
+#                    D:\创作室\飞思卡尔智能小车\顺暗三号\代码\顺暗三号-华南赛 #
+#                    最后七天-7.11\FLASH_1MB\Obj\ --no_cse --no_unroll        #
+#                    --no_inline --no_code_motion --no_tbaa --no_clustering   #
+#                    --no_scheduling --debug --endian=little --cpu=Cortex-M4  #
+#                    -e --fpu=VFPv4_sp --dlib_config "C:\Program Files        #
+#                    (x86)\IAR Systems\Embedded Workbench                     #
+#                    6.5\arm\INC\c\DLib_Config_Normal.h" -I                   #
+#                    D:\创作室\飞思卡尔智能小车\顺暗三号\代码\顺暗三号-华南赛 #
+#                    最后七天-7.11\ -I D:\创作室\飞思卡尔智能小车\顺暗三号\代 #
+#                    码\顺暗三号-华南赛最后七天-7.11\Library\ -I              #
+#                    D:\创作室\飞思卡尔智能小车\顺暗三号\代码\顺暗三号-华南赛 #
+#                    最后七天-7.11\Library\BlessedAlien\ -I                   #
+#                    D:\创作室\飞思卡尔智能小车\顺暗三号\代码\顺暗三号-华南赛 #
+#                    最后七天-7.11\ShunAn_Panel\ -Ol --use_c++_inline         #
+#    List file    =  D:\创作室\飞思卡尔智能小车\顺暗三号\代码\顺暗三号-华南赛 #
+#                    最后七天-7.11\FLASH_1MB\List\Poet_Motor.lst              #
+#    Object file  =  D:\创作室\飞思卡尔智能小车\顺暗三号\代码\顺暗三号-华南赛 #
+#                    最后七天-7.11\FLASH_1MB\Obj\Poet_Motor.o                 #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+D:\创作室\飞思卡尔智能小车\顺暗三号\代码\顺暗三号-华南赛最后七天-7.11\ShunAn_Panel\Poet_Motor.c
+      1          #include "arm_cm4.h"
+      2          #include "MK60F15.h"
+      3          #include "ShunAn_Lib.h"
+      4          #include "start_ShunAn.h"
+      5          
+      6          #include "Poet_Motor.h"
+      7          #include "Pendulum_EndlessFormsMostBeautiful.h"
+      8          #include "Poet_Servo.h"
+      9          //============================================================================//
+     10          // v_motor_Init 电机初始化
+     11          //第一代板子顺序 C16 C8 C9 C17 AD0 AD1 C10 C18 C19 C11
+     12          //              DL  CL  BL AL 36  35  DR  CR   BR  AR
+     13          
+     14          #define MOTOR_def_PWM_com                       FTM3_BASE_PTR
+     15          #define DE_number_pwm_mod                       (37500)//1kHz
+     16          //(3750 * 2)//1.19//4k
+     17          // 3.26k => 稳定
+     18          // 1.119k => 功率高
+     19          //============================================================================//
+
+   \                                 In section .bss, align 4
+     20          self_Motor_Para m_self_Motor_Para;//私有内部文件
+   \                     m_self_Motor_Para:
+   \   00000000                      DS8 24
+
+   \                                 In section .text, align 2, keep-with-next
+     21          void v_motor_Init()
+     22          {
+   \                     v_motor_Init: (+1)
+   \   00000000   0xB580             PUSH     {R7,LR}
+     23              m_self_Motor_Para.L_counter = 0;
+   \   00000002   0x.... 0x....      LDR.W    R0,??DataTable8_1
+   \   00000006   0x2100             MOVS     R1,#+0
+   \   00000008   0x6101             STR      R1,[R0, #+16]
+     24              m_self_Motor_Para.R_counter = 0;
+   \   0000000A   0x.... 0x....      LDR.W    R0,??DataTable8_1
+   \   0000000E   0x2100             MOVS     R1,#+0
+   \   00000010   0x6141             STR      R1,[R0, #+20]
+     25              m_self_Motor_Para.L_e = 0;
+   \   00000012   0x.... 0x....      LDR.W    R0,??DataTable8_1
+   \   00000016   0x2100             MOVS     R1,#+0
+   \   00000018   0x6081             STR      R1,[R0, #+8]
+     26              m_self_Motor_Para.R_e = 0;
+   \   0000001A   0x.... 0x....      LDR.W    R0,??DataTable8_1
+   \   0000001E   0x2100             MOVS     R1,#+0
+   \   00000020   0x60C1             STR      R1,[R0, #+12]
+     27              //ADC1_SE16
+     28              //ADC0_SE16
+     29              //Left
+     30              //D//C16 => IO
+     31              //C//C8  => FTM3 CH4
+     32              //B//C9  => FTM3 CH5
+     33              //A//C17 => IO
+     34              /**************************************************************************/
+     35              // 电流检测初始化 // 需要两个
+     36              SIM_SCGC6 |= SIM_SCGC6_ADC0_MASK;//使能ADC0模块时钟 
+   \   00000022   0x.... 0x....      LDR.W    R0,??DataTable8_2  ;; 0x4004803c
+   \   00000026   0x6800             LDR      R0,[R0, #+0]
+   \   00000028   0xF050 0x6000      ORRS     R0,R0,#0x8000000
+   \   0000002C   0x.... 0x....      LDR.W    R1,??DataTable8_2  ;; 0x4004803c
+   \   00000030   0x6008             STR      R0,[R1, #+0]
+     37              SIM_SCGC3 |= SIM_SCGC3_ADC1_MASK;//使能ADC1模块时钟 
+   \   00000032   0x.... 0x....      LDR.W    R0,??DataTable8_3  ;; 0x40048030
+   \   00000036   0x6800             LDR      R0,[R0, #+0]
+   \   00000038   0xF050 0x6000      ORRS     R0,R0,#0x8000000
+   \   0000003C   0x.... 0x....      LDR.W    R1,??DataTable8_3  ;; 0x40048030
+   \   00000040   0x6008             STR      R0,[R1, #+0]
+     38              //1 => 16
+     39              //0 => 16
+     40              //SIM_SCGC5 |= SIM_SCGC5_PORTC_MASK;//使能PORTC时钟 
+     41              //PORTB_PCR7 |= PORT_PCR_MUX(0);//引脚复用选择模拟输入
+     42              /**************************************************************************/
+     43              // 速度检测初始化  // 使能正交解码 // 需要两个
+     44              
+     45              SIM_SCGC6 |= SIM_SCGC6_FTM1_MASK;
+   \   00000042   0x.... 0x....      LDR.W    R0,??DataTable8_2  ;; 0x4004803c
+   \   00000046   0x6800             LDR      R0,[R0, #+0]
+   \   00000048   0xF050 0x7000      ORRS     R0,R0,#0x2000000
+   \   0000004C   0x.... 0x....      LDR.W    R1,??DataTable8_2  ;; 0x4004803c
+   \   00000050   0x6008             STR      R0,[R1, #+0]
+     46              SIM_SCGC3 |= SIM_SCGC3_FTM2_MASK;//
+   \   00000052   0x.... 0x....      LDR.W    R0,??DataTable8_3  ;; 0x40048030
+   \   00000056   0x6800             LDR      R0,[R0, #+0]
+   \   00000058   0xF050 0x7080      ORRS     R0,R0,#0x1000000
+   \   0000005C   0x.... 0x....      LDR.W    R1,??DataTable8_3  ;; 0x40048030
+   \   00000060   0x6008             STR      R0,[R1, #+0]
+     47              
+     48              SIM_SCGC5 |= SIM_SCGC5_PORTA_MASK;//使能PORTA时钟 
+   \   00000062   0x.... 0x....      LDR.W    R0,??DataTable8_4  ;; 0x40048038
+   \   00000066   0x6800             LDR      R0,[R0, #+0]
+   \   00000068   0xF450 0x7000      ORRS     R0,R0,#0x200
+   \   0000006C   0x.... 0x....      LDR.W    R1,??DataTable8_4  ;; 0x40048038
+   \   00000070   0x6008             STR      R0,[R1, #+0]
+     49              PORTA_BASE_PTR->PCR[8] |= PORT_PCR_MUX(6);//引脚复用选择正交解码
+   \   00000072   0x.... 0x....      LDR.W    R0,??DataTable8_5  ;; 0x40049020
+   \   00000076   0x6800             LDR      R0,[R0, #+0]
+   \   00000078   0xF450 0x60C0      ORRS     R0,R0,#0x600
+   \   0000007C   0x.... 0x....      LDR.W    R1,??DataTable8_5  ;; 0x40049020
+   \   00000080   0x6008             STR      R0,[R1, #+0]
+     50              PORTA_BASE_PTR->PCR[9] |= PORT_PCR_MUX(6);//引脚复用选择正交解码
+   \   00000082   0x.... 0x....      LDR.W    R0,??DataTable8_6  ;; 0x40049024
+   \   00000086   0x6800             LDR      R0,[R0, #+0]
+   \   00000088   0xF450 0x60C0      ORRS     R0,R0,#0x600
+   \   0000008C   0x.... 0x....      LDR.W    R1,??DataTable8_6  ;; 0x40049024
+   \   00000090   0x6008             STR      R0,[R1, #+0]
+     51              PORTA_BASE_PTR->PCR[10] |= PORT_PCR_MUX(6);//引脚复用选择正交解码
+   \   00000092   0x.... 0x....      LDR.W    R0,??DataTable8_7  ;; 0x40049028
+   \   00000096   0x6800             LDR      R0,[R0, #+0]
+   \   00000098   0xF450 0x60C0      ORRS     R0,R0,#0x600
+   \   0000009C   0x.... 0x....      LDR.W    R1,??DataTable8_7  ;; 0x40049028
+   \   000000A0   0x6008             STR      R0,[R1, #+0]
+     52              PORTA_BASE_PTR->PCR[11] |= PORT_PCR_MUX(6);//引脚复用选择正交解码
+   \   000000A2   0x.... 0x....      LDR.W    R0,??DataTable8_8  ;; 0x4004902c
+   \   000000A6   0x6800             LDR      R0,[R0, #+0]
+   \   000000A8   0xF450 0x60C0      ORRS     R0,R0,#0x600
+   \   000000AC   0x.... 0x....      LDR.W    R1,??DataTable8_8  ;; 0x4004902c
+   \   000000B0   0x6008             STR      R0,[R1, #+0]
+     53              
+     54              FTM1_BASE_PTR->MOD = 0xFFFF;//设置上限，其实没啥用
+   \   000000B2   0x.... 0x....      LDR.W    R0,??DataTable8_9  ;; 0x40039008
+   \   000000B6   0xF64F 0x71FF      MOVW     R1,#+65535
+   \   000000BA   0x6001             STR      R1,[R0, #+0]
+     55              FTM1_BASE_PTR->MODE |= FTM_MODE_FTMEN_MASK
+     56                                   | FTM_MODE_WPDIS_MASK;//使能FTM，禁止写
+   \   000000BC   0x.... 0x....      LDR.W    R0,??DataTable8_10  ;; 0x40039054
+   \   000000C0   0x6800             LDR      R0,[R0, #+0]
+   \   000000C2   0xF050 0x0005      ORRS     R0,R0,#0x5
+   \   000000C6   0x.... 0x....      LDR.W    R1,??DataTable8_10  ;; 0x40039054
+   \   000000CA   0x6008             STR      R0,[R1, #+0]
+     57              FTM1_BASE_PTR->QDCTRL |= FTM_QDCTRL_QUADMODE_MASK 
+     58                                     | FTM_QDCTRL_QUADEN_MASK
+     59                                     | FTM_QDCTRL_QUADIR_MASK;//使能正交解码
+   \   000000CC   0x.... 0x....      LDR.W    R0,??DataTable8_11  ;; 0x40039080
+   \   000000D0   0x6800             LDR      R0,[R0, #+0]
+   \   000000D2   0xF050 0x000D      ORRS     R0,R0,#0xD
+   \   000000D6   0x.... 0x....      LDR.W    R1,??DataTable8_11  ;; 0x40039080
+   \   000000DA   0x6008             STR      R0,[R1, #+0]
+     60              FTM1_BASE_PTR->CNTIN = 0;//设置最低位
+   \   000000DC   0x.... 0x....      LDR.W    R0,??DataTable8_12  ;; 0x4003904c
+   \   000000E0   0x2100             MOVS     R1,#+0
+   \   000000E2   0x6001             STR      R1,[R0, #+0]
+     61              FTM1_BASE_PTR->CNT = 0;//初始清零
+   \   000000E4   0x.... 0x....      LDR.W    R0,??DataTable8_13  ;; 0x40039004
+   \   000000E8   0x2100             MOVS     R1,#+0
+   \   000000EA   0x6001             STR      R1,[R0, #+0]
+     62              
+     63              FTM2_BASE_PTR->MOD = 0xFFFF;//设置上限，其实没啥用
+   \   000000EC   0x.... 0x....      LDR.W    R0,??DataTable8_14  ;; 0x400b8008
+   \   000000F0   0xF64F 0x71FF      MOVW     R1,#+65535
+   \   000000F4   0x6001             STR      R1,[R0, #+0]
+     64              FTM2_BASE_PTR->MODE |= FTM_MODE_FTMEN_MASK
+     65                                   | FTM_MODE_WPDIS_MASK;//使能FTM，禁止写
+   \   000000F6   0x.... 0x....      LDR.W    R0,??DataTable8_15  ;; 0x400b8054
+   \   000000FA   0x6800             LDR      R0,[R0, #+0]
+   \   000000FC   0xF050 0x0005      ORRS     R0,R0,#0x5
+   \   00000100   0x.... 0x....      LDR.W    R1,??DataTable8_15  ;; 0x400b8054
+   \   00000104   0x6008             STR      R0,[R1, #+0]
+     66              FTM2_BASE_PTR->QDCTRL |= FTM_QDCTRL_QUADMODE_MASK 
+     67                                     | FTM_QDCTRL_QUADEN_MASK
+     68                                     | FTM_QDCTRL_QUADIR_MASK;//使能正交解码
+   \   00000106   0x.... 0x....      LDR.W    R0,??DataTable9  ;; 0x400b8080
+   \   0000010A   0x6800             LDR      R0,[R0, #+0]
+   \   0000010C   0xF050 0x000D      ORRS     R0,R0,#0xD
+   \   00000110   0x.... 0x....      LDR.W    R1,??DataTable9  ;; 0x400b8080
+   \   00000114   0x6008             STR      R0,[R1, #+0]
+     69              FTM2_BASE_PTR->CNTIN = 0;//设置最低位
+   \   00000116   0x.... 0x....      LDR.W    R0,??DataTable9_1  ;; 0x400b804c
+   \   0000011A   0x2100             MOVS     R1,#+0
+   \   0000011C   0x6001             STR      R1,[R0, #+0]
+     70              FTM2_BASE_PTR->CNT = 0;//初始清零
+   \   0000011E   0x.... 0x....      LDR.W    R0,??DataTable9_2  ;; 0x400b8004
+   \   00000122   0x2100             MOVS     R1,#+0
+   \   00000124   0x6001             STR      R1,[R0, #+0]
+     71              
+     72              /**************************************************************************/
+     73              // 左电机输出初始化
+     74              SIM_SCGC3 |= SIM_SCGC3_FTM3_MASK;//使能FTM0时钟
+   \   00000126   0x.... 0x....      LDR.W    R0,??DataTable8_3  ;; 0x40048030
+   \   0000012A   0x6800             LDR      R0,[R0, #+0]
+   \   0000012C   0xF050 0x7000      ORRS     R0,R0,#0x2000000
+   \   00000130   0x.... 0x....      LDR.W    R1,??DataTable8_3  ;; 0x40048030
+   \   00000134   0x6008             STR      R0,[R1, #+0]
+     75              SIM_SCGC5 |= SIM_SCGC5_PORTC_MASK;//使能PORTC时钟 
+   \   00000136   0x.... 0x....      LDR.W    R0,??DataTable8_4  ;; 0x40048038
+   \   0000013A   0x6800             LDR      R0,[R0, #+0]
+   \   0000013C   0xF450 0x6000      ORRS     R0,R0,#0x800
+   \   00000140   0x.... 0x....      LDR.W    R1,??DataTable8_4  ;; 0x40048038
+   \   00000144   0x6008             STR      R0,[R1, #+0]
+     76              // FTM 输出端口
+     77              PORTC_BASE_PTR->PCR[8] |= PORT_PCR_MUX(3);//引脚复用选择ALT3(FTM)
+   \   00000146   0x.... 0x....      LDR.W    R0,??DataTable9_4  ;; 0x4004b020
+   \   0000014A   0x6800             LDR      R0,[R0, #+0]
+   \   0000014C   0xF450 0x7040      ORRS     R0,R0,#0x300
+   \   00000150   0x.... 0x....      LDR.W    R1,??DataTable9_4  ;; 0x4004b020
+   \   00000154   0x6008             STR      R0,[R1, #+0]
+     78              PORTC_BASE_PTR->PCR[9] |= PORT_PCR_MUX(3);//引脚复用选择ALT3(FTM)
+   \   00000156   0x.... 0x....      LDR.W    R0,??DataTable9_5  ;; 0x4004b024
+   \   0000015A   0x6800             LDR      R0,[R0, #+0]
+   \   0000015C   0xF450 0x7040      ORRS     R0,R0,#0x300
+   \   00000160   0x.... 0x....      LDR.W    R1,??DataTable9_5  ;; 0x4004b024
+   \   00000164   0x6008             STR      R0,[R1, #+0]
+     79              PORTC_BASE_PTR->PCR[10] |= PORT_PCR_MUX(3);//引脚复用选择ALT3(FTM)
+   \   00000166   0x.... 0x....      LDR.W    R0,??DataTable9_6  ;; 0x4004b028
+   \   0000016A   0x6800             LDR      R0,[R0, #+0]
+   \   0000016C   0xF450 0x7040      ORRS     R0,R0,#0x300
+   \   00000170   0x.... 0x....      LDR.W    R1,??DataTable9_6  ;; 0x4004b028
+   \   00000174   0x6008             STR      R0,[R1, #+0]
+     80              PORTC_BASE_PTR->PCR[11] |= PORT_PCR_MUX(3);//引脚复用选择ALT3(FTM)
+   \   00000176   0x.... 0x....      LDR.W    R0,??DataTable9_7  ;; 0x4004b02c
+   \   0000017A   0x6800             LDR      R0,[R0, #+0]
+   \   0000017C   0xF450 0x7040      ORRS     R0,R0,#0x300
+   \   00000180   0x.... 0x....      LDR.W    R1,??DataTable9_7  ;; 0x4004b02c
+   \   00000184   0x6008             STR      R0,[R1, #+0]
+     81              
+     82              PORTC_BASE_PTR->PCR[16] |= PORT_PCR_MUX(1);//引脚复用选择ALT3()
+   \   00000186   0x.... 0x....      LDR.W    R0,??DataTable9_8  ;; 0x4004b040
+   \   0000018A   0x6800             LDR      R0,[R0, #+0]
+   \   0000018C   0xF450 0x7080      ORRS     R0,R0,#0x100
+   \   00000190   0x.... 0x....      LDR.W    R1,??DataTable9_8  ;; 0x4004b040
+   \   00000194   0x6008             STR      R0,[R1, #+0]
+     83              PORTC_BASE_PTR->PCR[17] |= PORT_PCR_MUX(1);//引脚复用选择ALT3()
+   \   00000196   0x.... 0x....      LDR.W    R0,??DataTable9_9  ;; 0x4004b044
+   \   0000019A   0x6800             LDR      R0,[R0, #+0]
+   \   0000019C   0xF450 0x7080      ORRS     R0,R0,#0x100
+   \   000001A0   0x.... 0x....      LDR.W    R1,??DataTable9_9  ;; 0x4004b044
+   \   000001A4   0x6008             STR      R0,[R1, #+0]
+     84              PORTC_BASE_PTR->PCR[18] |= PORT_PCR_MUX(1);//引脚复用选择ALT3()
+   \   000001A6   0x.... 0x....      LDR.W    R0,??DataTable9_10  ;; 0x4004b048
+   \   000001AA   0x6800             LDR      R0,[R0, #+0]
+   \   000001AC   0xF450 0x7080      ORRS     R0,R0,#0x100
+   \   000001B0   0x.... 0x....      LDR.W    R1,??DataTable9_10  ;; 0x4004b048
+   \   000001B4   0x6008             STR      R0,[R1, #+0]
+     85              PORTC_BASE_PTR->PCR[19] |= PORT_PCR_MUX(1);//引脚复用选择ALT3()
+   \   000001B6   0x.... 0x....      LDR.W    R0,??DataTable9_11  ;; 0x4004b04c
+   \   000001BA   0x6800             LDR      R0,[R0, #+0]
+   \   000001BC   0xF450 0x7080      ORRS     R0,R0,#0x100
+   \   000001C0   0x.... 0x....      LDR.W    R1,??DataTable9_11  ;; 0x4004b04c
+   \   000001C4   0x6008             STR      R0,[R1, #+0]
+     86              
+     87              PTC_BASE_PTR->PDDR |= (1 << 16);
+   \   000001C6   0x.... 0x....      LDR.W    R0,??DataTable9_12  ;; 0x400ff094
+   \   000001CA   0x6800             LDR      R0,[R0, #+0]
+   \   000001CC   0xF450 0x3080      ORRS     R0,R0,#0x10000
+   \   000001D0   0x.... 0x....      LDR.W    R1,??DataTable9_12  ;; 0x400ff094
+   \   000001D4   0x6008             STR      R0,[R1, #+0]
+     88              PTC_BASE_PTR->PDDR |= (1 << 17);
+   \   000001D6   0x.... 0x....      LDR.W    R0,??DataTable9_12  ;; 0x400ff094
+   \   000001DA   0x6800             LDR      R0,[R0, #+0]
+   \   000001DC   0xF450 0x3000      ORRS     R0,R0,#0x20000
+   \   000001E0   0x.... 0x....      LDR.W    R1,??DataTable9_12  ;; 0x400ff094
+   \   000001E4   0x6008             STR      R0,[R1, #+0]
+     89              PTC_BASE_PTR->PDDR |= (1 << 18);
+   \   000001E6   0x.... 0x....      LDR.W    R0,??DataTable9_12  ;; 0x400ff094
+   \   000001EA   0x6800             LDR      R0,[R0, #+0]
+   \   000001EC   0xF450 0x2080      ORRS     R0,R0,#0x40000
+   \   000001F0   0x.... 0x....      LDR.W    R1,??DataTable9_12  ;; 0x400ff094
+   \   000001F4   0x6008             STR      R0,[R1, #+0]
+     90              PTC_BASE_PTR->PDDR |= (1 << 19);
+   \   000001F6   0x.... 0x....      LDR.W    R0,??DataTable9_12  ;; 0x400ff094
+   \   000001FA   0x6800             LDR      R0,[R0, #+0]
+   \   000001FC   0xF450 0x2000      ORRS     R0,R0,#0x80000
+   \   00000200   0x.... 0x....      LDR.W    R1,??DataTable9_12  ;; 0x400ff094
+   \   00000204   0x6008             STR      R0,[R1, #+0]
+     91              
+     92              PTC_BASE_PTR->PDOR &=~(1 << 16);
+   \   00000206   0x.... 0x....      LDR.W    R0,??DataTable9_13  ;; 0x400ff080
+   \   0000020A   0x6800             LDR      R0,[R0, #+0]
+   \   0000020C   0xF430 0x3080      BICS     R0,R0,#0x10000
+   \   00000210   0x.... 0x....      LDR.W    R1,??DataTable9_13  ;; 0x400ff080
+   \   00000214   0x6008             STR      R0,[R1, #+0]
+     93              PTC_BASE_PTR->PDOR &=~(1 << 17);
+   \   00000216   0x.... 0x....      LDR.W    R0,??DataTable9_13  ;; 0x400ff080
+   \   0000021A   0x6800             LDR      R0,[R0, #+0]
+   \   0000021C   0xF430 0x3000      BICS     R0,R0,#0x20000
+   \   00000220   0x.... 0x....      LDR.W    R1,??DataTable9_13  ;; 0x400ff080
+   \   00000224   0x6008             STR      R0,[R1, #+0]
+     94              PTC_BASE_PTR->PDOR &=~(1 << 18);
+   \   00000226   0x.... 0x....      LDR.W    R0,??DataTable9_13  ;; 0x400ff080
+   \   0000022A   0x6800             LDR      R0,[R0, #+0]
+   \   0000022C   0xF430 0x2080      BICS     R0,R0,#0x40000
+   \   00000230   0x.... 0x....      LDR.W    R1,??DataTable9_13  ;; 0x400ff080
+   \   00000234   0x6008             STR      R0,[R1, #+0]
+     95              PTC_BASE_PTR->PDOR &=~(1 << 19);
+   \   00000236   0x.... 0x....      LDR.W    R0,??DataTable9_13  ;; 0x400ff080
+   \   0000023A   0x6800             LDR      R0,[R0, #+0]
+   \   0000023C   0xF430 0x2000      BICS     R0,R0,#0x80000
+   \   00000240   0x.... 0x....      LDR.W    R1,??DataTable9_13  ;; 0x400ff080
+   \   00000244   0x6008             STR      R0,[R1, #+0]
+     96              /**************************************************************************/
+     97              // 特性设定
+     98              MOTOR_def_PWM_com->CONTROLS[4].CnSC &=~FTM_CnSC_ELSA_MASK;  // MSnB:MSnA = 1x       边沿对齐PWM
+   \   00000246   0x.... 0x....      LDR.W    R0,??DataTable9_14  ;; 0x400b902c
+   \   0000024A   0x6800             LDR      R0,[R0, #+0]
+   \   0000024C   0xF030 0x0004      BICS     R0,R0,#0x4
+   \   00000250   0x.... 0x....      LDR.W    R1,??DataTable9_14  ;; 0x400b902c
+   \   00000254   0x6008             STR      R0,[R1, #+0]
+     99              MOTOR_def_PWM_com->CONTROLS[4].CnSC = FTM_CnSC_MSB_MASK     // ELSnB:ELSnA = 10     先高后低
+    100                                                  | FTM_CnSC_ELSB_MASK;   // ELSnB:ELSnA = 11     先低后高
+   \   00000256   0x.... 0x....      LDR.W    R0,??DataTable9_14  ;; 0x400b902c
+   \   0000025A   0x2128             MOVS     R1,#+40
+   \   0000025C   0x6001             STR      R1,[R0, #+0]
+    101              MOTOR_def_PWM_com->CONTROLS[5].CnSC &=~FTM_CnSC_ELSA_MASK;  // MSnB:MSnA = 1x       边沿对齐PWM
+   \   0000025E   0x.... 0x....      LDR.W    R0,??DataTable9_15  ;; 0x400b9034
+   \   00000262   0x6800             LDR      R0,[R0, #+0]
+   \   00000264   0xF030 0x0004      BICS     R0,R0,#0x4
+   \   00000268   0x.... 0x....      LDR.W    R1,??DataTable9_15  ;; 0x400b9034
+   \   0000026C   0x6008             STR      R0,[R1, #+0]
+    102              MOTOR_def_PWM_com->CONTROLS[5].CnSC = FTM_CnSC_MSB_MASK     // ELSnB:ELSnA = 10     先高后低
+    103                                                  | FTM_CnSC_ELSB_MASK;   // ELSnB:ELSnA = 11     先低后高
+   \   0000026E   0x.... 0x....      LDR.W    R0,??DataTable9_15  ;; 0x400b9034
+   \   00000272   0x2128             MOVS     R1,#+40
+   \   00000274   0x6001             STR      R1,[R0, #+0]
+    104              MOTOR_def_PWM_com->CONTROLS[6].CnSC &=~FTM_CnSC_ELSA_MASK;  // MSnB:MSnA = 1x       边沿对齐PWM
+   \   00000276   0x.... 0x....      LDR.W    R0,??DataTable9_16  ;; 0x400b903c
+   \   0000027A   0x6800             LDR      R0,[R0, #+0]
+   \   0000027C   0xF030 0x0004      BICS     R0,R0,#0x4
+   \   00000280   0x.... 0x....      LDR.W    R1,??DataTable9_16  ;; 0x400b903c
+   \   00000284   0x6008             STR      R0,[R1, #+0]
+    105              MOTOR_def_PWM_com->CONTROLS[6].CnSC = FTM_CnSC_MSB_MASK     // ELSnB:ELSnA = 10     先高后低
+    106                                                  | FTM_CnSC_ELSB_MASK;   // ELSnB:ELSnA = 11     先低后高
+   \   00000286   0x.... 0x....      LDR.W    R0,??DataTable9_16  ;; 0x400b903c
+   \   0000028A   0x2128             MOVS     R1,#+40
+   \   0000028C   0x6001             STR      R1,[R0, #+0]
+    107              MOTOR_def_PWM_com->CONTROLS[7].CnSC &=~FTM_CnSC_ELSA_MASK;  // MSnB:MSnA = 1x       边沿对齐PWM
+   \   0000028E   0x.... 0x....      LDR.W    R0,??DataTable9_17  ;; 0x400b9044
+   \   00000292   0x6800             LDR      R0,[R0, #+0]
+   \   00000294   0xF030 0x0004      BICS     R0,R0,#0x4
+   \   00000298   0x.... 0x....      LDR.W    R1,??DataTable9_17  ;; 0x400b9044
+   \   0000029C   0x6008             STR      R0,[R1, #+0]
+    108              MOTOR_def_PWM_com->CONTROLS[7].CnSC = FTM_CnSC_MSB_MASK     // ELSnB:ELSnA = 10     先高后低
+    109                                                  | FTM_CnSC_ELSB_MASK;   // ELSnB:ELSnA = 11     先低后高    
+   \   0000029E   0x.... 0x....      LDR.W    R0,??DataTable9_17  ;; 0x400b9044
+   \   000002A2   0x2128             MOVS     R1,#+40
+   \   000002A4   0x6001             STR      R1,[R0, #+0]
+    110              /**************************************************************************/
+    111              MOTOR_def_PWM_com->SC = 0 | FTM_SC_PS(1) | FTM_SC_CLKS(1);                //上升沿计数模式、分频系数为2^3(300Hz)2^5(75Hz)、时钟选择为bus 时钟、禁止中断
+   \   000002A6   0x.... 0x....      LDR.W    R0,??DataTable9_18  ;; 0x400b9000
+   \   000002AA   0x2109             MOVS     R1,#+9
+   \   000002AC   0x6001             STR      R1,[R0, #+0]
+    112              MOTOR_def_PWM_com->MOD = DE_number_pwm_mod;//模数, EPWM的周期为 ：MOD - CNTIN + 0x0001 // 46875
+   \   000002AE   0x.... 0x....      LDR.W    R0,??DataTable9_19  ;; 0x400b9008
+   \   000002B2   0xF249 0x217C      MOVW     R1,#+37500
+   \   000002B6   0x6001             STR      R1,[R0, #+0]
+    113              MOTOR_def_PWM_com->CONTROLS[4].CnV = 0;//脉冲宽度：(CnV - CNTIN)
+   \   000002B8   0x.... 0x....      LDR.W    R0,??DataTable9_20  ;; 0x400b9030
+   \   000002BC   0x2100             MOVS     R1,#+0
+   \   000002BE   0x6001             STR      R1,[R0, #+0]
+    114              MOTOR_def_PWM_com->CONTROLS[5].CnV = 0;//脉冲宽度：(CnV - CNTIN)
+   \   000002C0   0x.... 0x....      LDR.W    R0,??DataTable9_21  ;; 0x400b9038
+   \   000002C4   0x2100             MOVS     R1,#+0
+   \   000002C6   0x6001             STR      R1,[R0, #+0]
+    115              MOTOR_def_PWM_com->CONTROLS[6].CnV = 0;//脉冲宽度：(CnV - CNTIN)
+   \   000002C8   0x.... 0x....      LDR.W    R0,??DataTable9_22  ;; 0x400b9040
+   \   000002CC   0x2100             MOVS     R1,#+0
+   \   000002CE   0x6001             STR      R1,[R0, #+0]
+    116              MOTOR_def_PWM_com->CONTROLS[7].CnV = 0;//脉冲宽度：(CnV - CNTIN)
+   \   000002D0   0x.... 0x....      LDR.W    R0,??DataTable9_23  ;; 0x400b9048
+   \   000002D4   0x2100             MOVS     R1,#+0
+   \   000002D6   0x6001             STR      R1,[R0, #+0]
+    117              MOTOR_def_PWM_com->CNT = 0;//计数器。只有低16位可用（写任何值到此寄存器，都会加载 CNTIN 的值）
+   \   000002D8   0x.... 0x....      LDR.W    R0,??DataTable9_24  ;; 0x400b9004
+   \   000002DC   0x2100             MOVS     R1,#+0
+   \   000002DE   0x6001             STR      R1,[R0, #+0]
+    118              //========================================================================//
+    119              v_leftMotor_pwmOut(0,3);//能耗制动
+   \   000002E0   0x2103             MOVS     R1,#+3
+   \   000002E2   0x2000             MOVS     R0,#+0
+   \   000002E4   0x.... 0x....      BL       v_leftMotor_pwmOut
+    120              v_rightMotor_pwmOut(0,3);//能耗制动
+   \   000002E8   0x2103             MOVS     R1,#+3
+   \   000002EA   0x2000             MOVS     R0,#+0
+   \   000002EC   0x.... 0x....      BL       v_rightMotor_pwmOut
+    121              return;
+   \   000002F0   0xBD01             POP      {R0,PC}          ;; return
+    122          }
+    123          
+    124          //============================================================================//
+    125          // b_GetMotor_electric 获取电流
+
+   \                                 In section .text, align 2, keep-with-next
+    126          uint8 b_GetMotor_electric(ADC_MemMapPtr ADCx_PTR ,uint8 PinNumber ,uint16 * result)
+    127          {
+    128              //75MHz / 2 => 37.5MHz => 4.6875MHz
+    129              ADCx_PTR->CFG1 |= ADC_CFG1_ADIV(3)|ADC_CFG1_MODE(3)|ADC_CFG1_ADICLK(1)|ADC_CFG1_ADLSMP_MASK;////ADC1设置为总线时钟频率/2，长采样时间，8 / 12 / 10 / 16
+   \                     b_GetMotor_electric: (+1)
+   \   00000000   0x6883             LDR      R3,[R0, #+8]
+   \   00000002   0xF053 0x037D      ORRS     R3,R3,#0x7D
+   \   00000006   0x6083             STR      R3,[R0, #+8]
+    130              ADCx_PTR->CFG2 |= 0x00000004u;//ADC1设置为a通道，禁止异步时钟，高速序列转换，最长采样时间
+   \   00000008   0x68C3             LDR      R3,[R0, #+12]
+   \   0000000A   0xF053 0x0304      ORRS     R3,R3,#0x4
+   \   0000000E   0x60C3             STR      R3,[R0, #+12]
+    131              
+    132              ADCx_PTR->SC3 = ADC_SC3_AVGS(3) | ADC_SC3_AVGE_MASK;
+   \   00000010   0x2307             MOVS     R3,#+7
+   \   00000012   0x6243             STR      R3,[R0, #+36]
+    133              ADCx_PTR->SC1[0] = PinNumber;//ADC1设置为禁止中断，单端采样，通道4a采样，这个寄存器写入后就会开始转换
+   \   00000014   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \   00000016   0x6001             STR      R1,[R0, #+0]
+    134              uint32 delay = 120000;//用于安全
+   \   00000018   0x.... 0x....      LDR.W    R1,??DataTable9_25  ;; 0x1d4c0
+    135              while (((ADCx_PTR->SC1[0] & ADC_SC1_COCO_MASK ) != ADC_SC1_COCO_MASK)&&(--delay)){};//等待单次转换完成   
+   \                     ??b_GetMotor_electric_0: (+1)
+   \   0000001C   0x6803             LDR      R3,[R0, #+0]
+   \   0000001E   0x061B             LSLS     R3,R3,#+24
+   \   00000020   0xD402             BMI.N    ??b_GetMotor_electric_1
+   \   00000022   0x1E49             SUBS     R1,R1,#+1
+   \   00000024   0x2900             CMP      R1,#+0
+   \   00000026   0xD1F9             BNE.N    ??b_GetMotor_electric_0
+    136              if(0 == delay){return 'F';}//安全处理
+   \                     ??b_GetMotor_electric_1: (+1)
+   \   00000028   0x2900             CMP      R1,#+0
+   \   0000002A   0xD101             BNE.N    ??b_GetMotor_electric_2
+   \   0000002C   0x2046             MOVS     R0,#+70
+   \   0000002E   0xE002             B.N      ??b_GetMotor_electric_3
+    137              (*result) = ADCx_PTR->R[0];
+   \                     ??b_GetMotor_electric_2: (+1)
+   \   00000030   0x6900             LDR      R0,[R0, #+16]
+   \   00000032   0x8010             STRH     R0,[R2, #+0]
+    138              return 'T';
+   \   00000034   0x2054             MOVS     R0,#+84
+   \                     ??b_GetMotor_electric_3: (+1)
+   \   00000036   0x4770             BX       LR               ;; return
+    139          }
+
+   \                                 In section .text, align 2, keep-with-next
+    140          void v_SetCurrentStart()
+    141          {
+    142              MOTOR_def_Left_I_AD_com->CFG1 |= ADC_CFG1_ADIV(3)|ADC_CFG1_MODE(3)|ADC_CFG1_ADICLK(1)|ADC_CFG1_ADLSMP_MASK;////ADC1设置为总线时钟频率/2，长采样时间，8 / 12 / 10 / 16
+   \                     v_SetCurrentStart: (+1)
+   \   00000000   0x.... 0x....      LDR.W    R0,??DataTable9_26  ;; 0x400bb008
+   \   00000004   0x6800             LDR      R0,[R0, #+0]
+   \   00000006   0xF050 0x007D      ORRS     R0,R0,#0x7D
+   \   0000000A   0x.... 0x....      LDR.W    R1,??DataTable9_26  ;; 0x400bb008
+   \   0000000E   0x6008             STR      R0,[R1, #+0]
+    143              MOTOR_def_Left_I_AD_com->CFG2 |= 0x00000004u;//ADC1设置为a通道，禁止异步时钟，高速序列转换，最长采样时间
+   \   00000010   0x.... 0x....      LDR.W    R0,??DataTable9_27  ;; 0x400bb00c
+   \   00000014   0x6800             LDR      R0,[R0, #+0]
+   \   00000016   0xF050 0x0004      ORRS     R0,R0,#0x4
+   \   0000001A   0x.... 0x....      LDR.W    R1,??DataTable9_27  ;; 0x400bb00c
+   \   0000001E   0x6008             STR      R0,[R1, #+0]
+    144              MOTOR_def_Left_I_AD_com->SC3 = ADC_SC3_AVGS(3) | ADC_SC3_AVGE_MASK;
+   \   00000020   0x.... 0x....      LDR.W    R0,??DataTable9_28  ;; 0x400bb024
+   \   00000024   0x2107             MOVS     R1,#+7
+   \   00000026   0x6001             STR      R1,[R0, #+0]
+    145              MOTOR_def_Right_I_AD_com->CFG1 |= ADC_CFG1_ADIV(3)|ADC_CFG1_MODE(3)|ADC_CFG1_ADICLK(1)|ADC_CFG1_ADLSMP_MASK;////ADC1设置为总线时钟频率/2，长采样时间，8 / 12 / 10 / 16
+   \   00000028   0x.... 0x....      LDR.W    R0,??DataTable9_29  ;; 0x4003b008
+   \   0000002C   0x6800             LDR      R0,[R0, #+0]
+   \   0000002E   0xF050 0x007D      ORRS     R0,R0,#0x7D
+   \   00000032   0x.... 0x....      LDR.W    R1,??DataTable9_29  ;; 0x4003b008
+   \   00000036   0x6008             STR      R0,[R1, #+0]
+    146              MOTOR_def_Right_I_AD_com->CFG2 |= 0x00000004u;//ADC1设置为a通道，禁止异步时钟，高速序列转换，最长采样时间
+   \   00000038   0x.... 0x....      LDR.W    R0,??DataTable9_30  ;; 0x4003b00c
+   \   0000003C   0x6800             LDR      R0,[R0, #+0]
+   \   0000003E   0xF050 0x0004      ORRS     R0,R0,#0x4
+   \   00000042   0x.... 0x....      LDR.W    R1,??DataTable9_30  ;; 0x4003b00c
+   \   00000046   0x6008             STR      R0,[R1, #+0]
+    147              MOTOR_def_Right_I_AD_com->SC3 = ADC_SC3_AVGS(3) | ADC_SC3_AVGE_MASK;
+   \   00000048   0x.... 0x....      LDR.W    R0,??DataTable9_31  ;; 0x4003b024
+   \   0000004C   0x2107             MOVS     R1,#+7
+   \   0000004E   0x6001             STR      R1,[R0, #+0]
+    148              
+    149              MOTOR_def_Left_I_AD_com->SC1[0] = 16;//ADC1设置为禁止中断，单端采样，通道4a采样，这个寄存器写入后就会开始转换
+   \   00000050   0x.... 0x....      LDR.W    R0,??DataTable9_32  ;; 0x400bb000
+   \   00000054   0x2110             MOVS     R1,#+16
+   \   00000056   0x6001             STR      R1,[R0, #+0]
+    150              MOTOR_def_Right_I_AD_com->SC1[0] = 16;//ADC1设置为禁止中断，单端采样，通道4a采样，这个寄存器写入后就会开始转换
+   \   00000058   0x.... 0x....      LDR.W    R0,??DataTable9_33  ;; 0x4003b000
+   \   0000005C   0x2110             MOVS     R1,#+16
+   \   0000005E   0x6001             STR      R1,[R0, #+0]
+    151          }
+   \   00000060   0x4770             BX       LR               ;; return
+
+   \                                 In section .text, align 2, keep-with-next
+    152          uint8 b_GetCurrent(uint16 * left,uint16 * right)
+    153          {
+    154              uint32 delay = 120000;//用于安全
+   \                     b_GetCurrent: (+1)
+   \   00000000   0x.... 0x....      LDR.W    R2,??DataTable9_25  ;; 0x1d4c0
+    155              while (((MOTOR_def_Left_I_AD_com->SC1[0] & ADC_SC1_COCO_MASK ) != ADC_SC1_COCO_MASK)&&(--delay)){};//等待单次转换完成   
+   \                     ??b_GetCurrent_0: (+1)
+   \   00000004   0x.... 0x....      LDR.W    R3,??DataTable9_32  ;; 0x400bb000
+   \   00000008   0x681B             LDR      R3,[R3, #+0]
+   \   0000000A   0x061B             LSLS     R3,R3,#+24
+   \   0000000C   0xD402             BMI.N    ??b_GetCurrent_1
+   \   0000000E   0x1E52             SUBS     R2,R2,#+1
+   \   00000010   0x2A00             CMP      R2,#+0
+   \   00000012   0xD1F7             BNE.N    ??b_GetCurrent_0
+    156              if(0 == delay){return 'F';}//安全处理
+   \                     ??b_GetCurrent_1: (+1)
+   \   00000014   0x2A00             CMP      R2,#+0
+   \   00000016   0xD101             BNE.N    ??b_GetCurrent_2
+   \   00000018   0x2046             MOVS     R0,#+70
+   \   0000001A   0xE016             B.N      ??b_GetCurrent_3
+    157              (*left) = MOTOR_def_Left_I_AD_com->R[0];//左边
+   \                     ??b_GetCurrent_2: (+1)
+   \   0000001C   0x.... 0x....      LDR.W    R2,??DataTable9_34  ;; 0x400bb010
+   \   00000020   0x6812             LDR      R2,[R2, #+0]
+   \   00000022   0x8002             STRH     R2,[R0, #+0]
+    158              
+    159              delay = 120000;//用于安全
+   \   00000024   0x.... 0x....      LDR.W    R2,??DataTable9_25  ;; 0x1d4c0
+    160              while (((MOTOR_def_Right_I_AD_com->SC1[0] & ADC_SC1_COCO_MASK ) != ADC_SC1_COCO_MASK)&&(--delay)){};//等待单次转换完成   
+   \                     ??b_GetCurrent_4: (+1)
+   \   00000028   0x.... 0x....      LDR.W    R0,??DataTable9_33  ;; 0x4003b000
+   \   0000002C   0x6800             LDR      R0,[R0, #+0]
+   \   0000002E   0x0600             LSLS     R0,R0,#+24
+   \   00000030   0xD402             BMI.N    ??b_GetCurrent_5
+   \   00000032   0x1E52             SUBS     R2,R2,#+1
+   \   00000034   0x2A00             CMP      R2,#+0
+   \   00000036   0xD1F7             BNE.N    ??b_GetCurrent_4
+    161              if(0 == delay){return 'F';}//安全处理
+   \                     ??b_GetCurrent_5: (+1)
+   \   00000038   0x2A00             CMP      R2,#+0
+   \   0000003A   0xD101             BNE.N    ??b_GetCurrent_6
+   \   0000003C   0x2046             MOVS     R0,#+70
+   \   0000003E   0xE004             B.N      ??b_GetCurrent_3
+    162              (*right) = MOTOR_def_Right_I_AD_com->R[0];//右边
+   \                     ??b_GetCurrent_6: (+1)
+   \   00000040   0x.... 0x....      LDR.W    R0,??DataTable9_35  ;; 0x4003b010
+   \   00000044   0x6800             LDR      R0,[R0, #+0]
+   \   00000046   0x8008             STRH     R0,[R1, #+0]
+    163              
+    164              return 'T';
+   \   00000048   0x2054             MOVS     R0,#+84
+   \                     ??b_GetCurrent_3: (+1)
+   \   0000004A   0x4770             BX       LR               ;; return
+    165          }
+    166          /*
+    167          电流环因为采样不及时放弃使用
+    168          */
+    169          
+    170          //============================================================================//
+    171          // n_GetMotor_speed 获取转速
+
+   \                                 In section .text, align 2, keep-with-next
+    172          sint16 n_GetMotor_speed(FTM_MemMapPtr FTMx_PTR)
+    173          {
+    174              sint16 result;
+    175              result = FTMx_PTR->CNT;
+   \                     n_GetMotor_speed: (+1)
+   \   00000000   0x6841             LDR      R1,[R0, #+4]
+    176              FTMx_PTR->CNT = 0;
+   \   00000002   0x2200             MOVS     R2,#+0
+   \   00000004   0x6042             STR      R2,[R0, #+4]
+    177              return result;
+   \   00000006   0x0008             MOVS     R0,R1
+   \   00000008   0xB200             SXTH     R0,R0            ;; SignExt  R0,R0,#+16,#+16
+   \   0000000A   0x4770             BX       LR               ;; return
+    178          }
+    179          
+    180          
+
+   \                                 In section .text, align 4, keep-with-next
+    181          void v_leftMotor_pwmOut(uint16 left_pwm_duty,uint16 left_dir)//电机输出
+    182          {
+   \                     v_leftMotor_pwmOut: (+1)
+   \   00000000   0xB510             PUSH     {R4,LR}
+   \   00000002   0x000C             MOVS     R4,R1
+    183              //第一代板子顺序 C16 C8 C9 C17 AD0 AD1 C10 C18 C19 C11
+    184              //              DL  CL  BL AL 36  35  DR  CR   BR  AR
+    185              //============================//
+    186              PTC_BASE_PTR->PDOR &=~(1 << 16);
+   \   00000004   0x.... 0x....      LDR.W    R1,??DataTable9_13  ;; 0x400ff080
+   \   00000008   0x6809             LDR      R1,[R1, #+0]
+   \   0000000A   0xF431 0x3180      BICS     R1,R1,#0x10000
+   \   0000000E   0x.... 0x....      LDR.W    R2,??DataTable9_13  ;; 0x400ff080
+   \   00000012   0x6011             STR      R1,[R2, #+0]
+    187              PTC_BASE_PTR->PDOR &=~(1 << 17);
+   \   00000014   0x.... 0x....      LDR.W    R1,??DataTable9_13  ;; 0x400ff080
+   \   00000018   0x6809             LDR      R1,[R1, #+0]
+   \   0000001A   0xF431 0x3100      BICS     R1,R1,#0x20000
+   \   0000001E   0x.... 0x....      LDR.W    R2,??DataTable9_13  ;; 0x400ff080
+   \   00000022   0x6011             STR      R1,[R2, #+0]
+    188              //============================//
+    189              unsigned short int PWMtemp = 0;//3750为满占空比
+   \   00000024   0x2100             MOVS     R1,#+0
+    190              float float_temp = 0.0f;
+   \   00000026   0xED9F 0x....      VLDR.W   S0,??DataTable5  ;; 0x0
+    191              if(left_pwm_duty > 1000){left_pwm_duty = 1000;}//限幅防止错误
+   \   0000002A   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
+   \   0000002C   0xF5B0 0x7F7A      CMP      R0,#+1000
+   \   00000030   0xDD01             BLE.N    ??v_leftMotor_pwmOut_0
+   \   00000032   0xF44F 0x707A      MOV      R0,#+1000
+    192              float_temp = (float)left_pwm_duty;
+   \                     ??v_leftMotor_pwmOut_0: (+1)
+   \   00000036   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
+   \   00000038   0xEE00 0x0A10      VMOV     S0,R0
+   \   0000003C   0xEEB8 0x0A40      VCVT.F32.U32 S0,S0
+    193              float_temp = float_temp * (float)DE_number_pwm_mod / 1000.0;//获取合适PWM
+   \   00000040   0xEDDF 0x....      VLDR.W   S1,??DataTable5_1  ;; 0x47127c00
+   \   00000044   0xEE20 0x0A20      VMUL.F32 S0,S0,S1
+   \   00000048   0xEE10 0x0A10      VMOV     R0,S0
+   \   0000004C   0x.... 0x....      BL       __aeabi_f2d
+   \   00000050   0x2200             MOVS     R2,#+0
+   \   00000052   0x.... 0x....      LDR.W    R3,??DataTable9_36  ;; 0x408f4000
+   \   00000056   0x.... 0x....      BL       __aeabi_ddiv
+   \   0000005A   0x.... 0x....      BL       __aeabi_d2f
+   \   0000005E   0xEE00 0x0A10      VMOV     S0,R0
+    194              PWMtemp = (unsigned short int)float_temp;
+   \   00000062   0xEEBD 0x0AC0      VCVT.S32.F32 S0,S0
+   \   00000066   0xEE10 0x1A10      VMOV     R1,S0
+    195              //============================//
+    196              switch(left_dir)
+   \   0000006A   0xB2A4             UXTH     R4,R4            ;; ZeroExt  R4,R4,#+16,#+16
+   \   0000006C   0x2C00             CMP      R4,#+0
+   \   0000006E   0xD005             BEQ.N    ??v_leftMotor_pwmOut_1
+   \   00000070   0x2C02             CMP      R4,#+2
+   \   00000072   0xD00C             BEQ.N    ??v_leftMotor_pwmOut_2
+   \   00000074   0xD324             BCC.N    ??v_leftMotor_pwmOut_3
+   \   00000076   0x2C03             CMP      R4,#+3
+   \   00000078   0xD03B             BEQ.N    ??v_leftMotor_pwmOut_4
+   \   0000007A   0xE052             B.N      ??v_leftMotor_pwmOut_5
+    197              {
+    198              case 0://管子全关闭
+    199                  //PTC_BASE_PTR->PDOR &=~(1 << 16);
+    200                  //PTC_BASE_PTR->PDOR &=~(1 << 17);
+    201                  MOTOR_def_PWM_com->CONTROLS[4].CnV = 0;//
+   \                     ??v_leftMotor_pwmOut_1: (+1)
+   \   0000007C   0x.... 0x....      LDR.W    R0,??DataTable9_20  ;; 0x400b9030
+   \   00000080   0x2100             MOVS     R1,#+0
+   \   00000082   0x6001             STR      R1,[R0, #+0]
+    202                  MOTOR_def_PWM_com->CONTROLS[5].CnV = 0;//
+   \   00000084   0x.... 0x....      LDR.W    R0,??DataTable9_21  ;; 0x400b9038
+   \   00000088   0x2100             MOVS     R1,#+0
+   \   0000008A   0x6001             STR      R1,[R0, #+0]
+    203                  break;
+   \   0000008C   0xE049             B.N      ??v_leftMotor_pwmOut_5
+    204              case 2:
+    205                  MOTOR_def_PWM_com->CONTROLS[4].CnV = PWMtemp;//CL C8
+   \                     ??v_leftMotor_pwmOut_2: (+1)
+   \   0000008E   0x.... 0x....      LDR.W    R0,??DataTable9_20  ;; 0x400b9030
+   \   00000092   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   00000094   0x6001             STR      R1,[R0, #+0]
+    206                  MOTOR_def_PWM_com->CONTROLS[5].CnV = 0;//BL
+   \   00000096   0x.... 0x....      LDR.W    R0,??DataTable9_21  ;; 0x400b9038
+   \   0000009A   0x2100             MOVS     R1,#+0
+   \   0000009C   0x6001             STR      R1,[R0, #+0]
+    207                  PTC_BASE_PTR->PDOR &=~(1 << 16);//DL
+   \   0000009E   0x.... 0x....      LDR.W    R0,??DataTable9_13  ;; 0x400ff080
+   \   000000A2   0x6800             LDR      R0,[R0, #+0]
+   \   000000A4   0xF430 0x3080      BICS     R0,R0,#0x10000
+   \   000000A8   0x.... 0x....      LDR.W    R1,??DataTable9_13  ;; 0x400ff080
+   \   000000AC   0x6008             STR      R0,[R1, #+0]
+    208                  PTC_BASE_PTR->PDOR |= (1 << 17);//AL
+   \   000000AE   0x.... 0x....      LDR.W    R0,??DataTable9_13  ;; 0x400ff080
+   \   000000B2   0x6800             LDR      R0,[R0, #+0]
+   \   000000B4   0xF450 0x3000      ORRS     R0,R0,#0x20000
+   \   000000B8   0x.... 0x....      LDR.W    R1,??DataTable9_13  ;; 0x400ff080
+   \   000000BC   0x6008             STR      R0,[R1, #+0]
+    209                  break;
+   \   000000BE   0xE030             B.N      ??v_leftMotor_pwmOut_5
+    210              case 1:
+    211                  MOTOR_def_PWM_com->CONTROLS[4].CnV = 0;//
+   \                     ??v_leftMotor_pwmOut_3: (+1)
+   \   000000C0   0x.... 0x....      LDR.W    R0,??DataTable9_20  ;; 0x400b9030
+   \   000000C4   0x2200             MOVS     R2,#+0
+   \   000000C6   0x6002             STR      R2,[R0, #+0]
+    212                  MOTOR_def_PWM_com->CONTROLS[5].CnV = PWMtemp;//BL C9
+   \   000000C8   0x.... 0x....      LDR.W    R0,??DataTable9_21  ;; 0x400b9038
+   \   000000CC   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   000000CE   0x6001             STR      R1,[R0, #+0]
+    213                  PTC_BASE_PTR->PDOR |= (1 << 16);//DL
+   \   000000D0   0x.... 0x....      LDR.W    R0,??DataTable9_13  ;; 0x400ff080
+   \   000000D4   0x6800             LDR      R0,[R0, #+0]
+   \   000000D6   0xF450 0x3080      ORRS     R0,R0,#0x10000
+   \   000000DA   0x.... 0x....      LDR.W    R1,??DataTable9_13  ;; 0x400ff080
+   \   000000DE   0x6008             STR      R0,[R1, #+0]
+    214                  PTC_BASE_PTR->PDOR &=~(1 << 17);//AL
+   \   000000E0   0x.... 0x....      LDR.W    R0,??DataTable9_13  ;; 0x400ff080
+   \   000000E4   0x6800             LDR      R0,[R0, #+0]
+   \   000000E6   0xF430 0x3000      BICS     R0,R0,#0x20000
+   \   000000EA   0x.... 0x....      LDR.W    R1,??DataTable9_13  ;; 0x400ff080
+   \   000000EE   0x6008             STR      R0,[R1, #+0]
+    215                  break;
+   \   000000F0   0xE017             B.N      ??v_leftMotor_pwmOut_5
+    216              case 3://能耗制动
+    217                  MOTOR_def_PWM_com->CONTROLS[4].CnV = 0;//
+   \                     ??v_leftMotor_pwmOut_4: (+1)
+   \   000000F2   0x.... 0x....      LDR.W    R0,??DataTable9_20  ;; 0x400b9030
+   \   000000F6   0x2100             MOVS     R1,#+0
+   \   000000F8   0x6001             STR      R1,[R0, #+0]
+    218                  MOTOR_def_PWM_com->CONTROLS[5].CnV = 0;//
+   \   000000FA   0x.... 0x....      LDR.W    R0,??DataTable9_21  ;; 0x400b9038
+   \   000000FE   0x2100             MOVS     R1,#+0
+   \   00000100   0x6001             STR      R1,[R0, #+0]
+    219                  PTC_BASE_PTR->PDOR |= (1 << 16);
+   \   00000102   0x.... 0x....      LDR.W    R0,??DataTable9_13  ;; 0x400ff080
+   \   00000106   0x6800             LDR      R0,[R0, #+0]
+   \   00000108   0xF450 0x3080      ORRS     R0,R0,#0x10000
+   \   0000010C   0x.... 0x....      LDR.W    R1,??DataTable9_13  ;; 0x400ff080
+   \   00000110   0x6008             STR      R0,[R1, #+0]
+    220                  PTC_BASE_PTR->PDOR |= (1 << 17);
+   \   00000112   0x.... 0x....      LDR.W    R0,??DataTable9_13  ;; 0x400ff080
+   \   00000116   0x6800             LDR      R0,[R0, #+0]
+   \   00000118   0xF450 0x3000      ORRS     R0,R0,#0x20000
+   \   0000011C   0x.... 0x....      LDR.W    R1,??DataTable9_13  ;; 0x400ff080
+   \   00000120   0x6008             STR      R0,[R1, #+0]
+    221                  break;
+    222              }
+    223              return;
+   \                     ??v_leftMotor_pwmOut_5: (+1)
+   \   00000122   0xBD10             POP      {R4,PC}          ;; return
+    224          }
+    225          
+    226          
+    227          //============================================================================//
+    228          // v_motor_pwm_out 获取转速// 输入参数：左pwm占空比（千精度），左导通方向，右pwm占空比（千精度），右导通方向
+
+   \                                 In section .text, align 4, keep-with-next
+    229          void v_rightMotor_pwmOut(uint16 left_pwm_duty,uint16 left_dir)//电机输出
+    230          {
+   \                     v_rightMotor_pwmOut: (+1)
+   \   00000000   0xB510             PUSH     {R4,LR}
+   \   00000002   0x000C             MOVS     R4,R1
+    231              //第一代板子顺序 C16 C8 C9 C17 AD0 AD1 C10 C18 C19 C11
+    232              //              DL  CL  BL AL 36  35  DR  CR   BR  AR
+    233              //============================//
+    234              PTC_BASE_PTR->PDOR &=~(1 << 18);
+   \   00000004   0x.... 0x....      LDR.W    R1,??DataTable9_13  ;; 0x400ff080
+   \   00000008   0x6809             LDR      R1,[R1, #+0]
+   \   0000000A   0xF431 0x2180      BICS     R1,R1,#0x40000
+   \   0000000E   0x.... 0x....      LDR.W    R2,??DataTable9_13  ;; 0x400ff080
+   \   00000012   0x6011             STR      R1,[R2, #+0]
+    235              PTC_BASE_PTR->PDOR &=~(1 << 19);
+   \   00000014   0x.... 0x....      LDR.W    R1,??DataTable9_13  ;; 0x400ff080
+   \   00000018   0x6809             LDR      R1,[R1, #+0]
+   \   0000001A   0xF431 0x2100      BICS     R1,R1,#0x80000
+   \   0000001E   0x.... 0x....      LDR.W    R2,??DataTable9_13  ;; 0x400ff080
+   \   00000022   0x6011             STR      R1,[R2, #+0]
+    236              //============================//
+    237              unsigned short int PWMtemp = 0;//3750为满占空比
+   \   00000024   0x2100             MOVS     R1,#+0
+    238              float float_temp = 0.0f;
+   \   00000026   0xED9F 0x....      VLDR.W   S0,??DataTable5  ;; 0x0
+    239              if(left_pwm_duty > 1000){left_pwm_duty = 1000;}//限幅防止错误
+   \   0000002A   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
+   \   0000002C   0xF5B0 0x7F7A      CMP      R0,#+1000
+   \   00000030   0xDD01             BLE.N    ??v_rightMotor_pwmOut_0
+   \   00000032   0xF44F 0x707A      MOV      R0,#+1000
+    240              float_temp = (float)left_pwm_duty;
+   \                     ??v_rightMotor_pwmOut_0: (+1)
+   \   00000036   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
+   \   00000038   0xEE00 0x0A10      VMOV     S0,R0
+   \   0000003C   0xEEB8 0x0A40      VCVT.F32.U32 S0,S0
+    241              float_temp = float_temp * (float)DE_number_pwm_mod / 1000.0;//获取合适PWM
+   \   00000040   0xEDDF 0x....      VLDR.W   S1,??DataTable5_1  ;; 0x47127c00
+   \   00000044   0xEE20 0x0A20      VMUL.F32 S0,S0,S1
+   \   00000048   0xEE10 0x0A10      VMOV     R0,S0
+   \   0000004C   0x.... 0x....      BL       __aeabi_f2d
+   \   00000050   0x2200             MOVS     R2,#+0
+   \   00000052   0x.... 0x....      LDR.W    R3,??DataTable9_36  ;; 0x408f4000
+   \   00000056   0x.... 0x....      BL       __aeabi_ddiv
+   \   0000005A   0x.... 0x....      BL       __aeabi_d2f
+   \   0000005E   0xEE00 0x0A10      VMOV     S0,R0
+    242              PWMtemp = (unsigned short int)float_temp;
+   \   00000062   0xEEBD 0x0AC0      VCVT.S32.F32 S0,S0
+   \   00000066   0xEE10 0x1A10      VMOV     R1,S0
+    243              //============================//
+    244              switch(left_dir)
+   \   0000006A   0xB2A4             UXTH     R4,R4            ;; ZeroExt  R4,R4,#+16,#+16
+   \   0000006C   0x2C00             CMP      R4,#+0
+   \   0000006E   0xD005             BEQ.N    ??v_rightMotor_pwmOut_1
+   \   00000070   0x2C02             CMP      R4,#+2
+   \   00000072   0xD00C             BEQ.N    ??v_rightMotor_pwmOut_2
+   \   00000074   0xD324             BCC.N    ??v_rightMotor_pwmOut_3
+   \   00000076   0x2C03             CMP      R4,#+3
+   \   00000078   0xD03B             BEQ.N    ??v_rightMotor_pwmOut_4
+   \   0000007A   0xE052             B.N      ??v_rightMotor_pwmOut_5
+    245              {
+    246              case 0://管子全关闭
+    247                  MOTOR_def_PWM_com->CONTROLS[6].CnV = 0;//
+   \                     ??v_rightMotor_pwmOut_1: (+1)
+   \   0000007C   0x.... 0x....      LDR.W    R0,??DataTable9_22  ;; 0x400b9040
+   \   00000080   0x2100             MOVS     R1,#+0
+   \   00000082   0x6001             STR      R1,[R0, #+0]
+    248                  MOTOR_def_PWM_com->CONTROLS[7].CnV = 0;//
+   \   00000084   0x.... 0x....      LDR.W    R0,??DataTable9_23  ;; 0x400b9048
+   \   00000088   0x2100             MOVS     R1,#+0
+   \   0000008A   0x6001             STR      R1,[R0, #+0]
+    249                  break;
+   \   0000008C   0xE049             B.N      ??v_rightMotor_pwmOut_5
+    250              case 2:
+    251                  MOTOR_def_PWM_com->CONTROLS[6].CnV = PWMtemp;//DR C10
+   \                     ??v_rightMotor_pwmOut_2: (+1)
+   \   0000008E   0x.... 0x....      LDR.W    R0,??DataTable9_22  ;; 0x400b9040
+   \   00000092   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   00000094   0x6001             STR      R1,[R0, #+0]
+    252                  MOTOR_def_PWM_com->CONTROLS[7].CnV = 0;//AR C19
+   \   00000096   0x.... 0x....      LDR.W    R0,??DataTable9_23  ;; 0x400b9048
+   \   0000009A   0x2100             MOVS     R1,#+0
+   \   0000009C   0x6001             STR      R1,[R0, #+0]
+    253                  PTC_BASE_PTR->PDOR &=~(1 << 18);//CR
+   \   0000009E   0x.... 0x....      LDR.W    R0,??DataTable9_13  ;; 0x400ff080
+   \   000000A2   0x6800             LDR      R0,[R0, #+0]
+   \   000000A4   0xF430 0x2080      BICS     R0,R0,#0x40000
+   \   000000A8   0x.... 0x....      LDR.W    R1,??DataTable9_13  ;; 0x400ff080
+   \   000000AC   0x6008             STR      R0,[R1, #+0]
+    254                  PTC_BASE_PTR->PDOR |= (1 << 19);//BR
+   \   000000AE   0x.... 0x....      LDR.W    R0,??DataTable9_13  ;; 0x400ff080
+   \   000000B2   0x6800             LDR      R0,[R0, #+0]
+   \   000000B4   0xF450 0x2000      ORRS     R0,R0,#0x80000
+   \   000000B8   0x.... 0x....      LDR.W    R1,??DataTable9_13  ;; 0x400ff080
+   \   000000BC   0x6008             STR      R0,[R1, #+0]
+    255                  break;
+   \   000000BE   0xE030             B.N      ??v_rightMotor_pwmOut_5
+    256              case 1:
+    257                  MOTOR_def_PWM_com->CONTROLS[6].CnV = 0;//
+   \                     ??v_rightMotor_pwmOut_3: (+1)
+   \   000000C0   0x.... 0x....      LDR.W    R0,??DataTable9_22  ;; 0x400b9040
+   \   000000C4   0x2200             MOVS     R2,#+0
+   \   000000C6   0x6002             STR      R2,[R0, #+0]
+    258                  MOTOR_def_PWM_com->CONTROLS[7].CnV = PWMtemp;//AR C19
+   \   000000C8   0x.... 0x....      LDR.W    R0,??DataTable9_23  ;; 0x400b9048
+   \   000000CC   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \   000000CE   0x6001             STR      R1,[R0, #+0]
+    259                  PTC_BASE_PTR->PDOR |= (1 << 18);//CR
+   \   000000D0   0x.... 0x....      LDR.W    R0,??DataTable9_13  ;; 0x400ff080
+   \   000000D4   0x6800             LDR      R0,[R0, #+0]
+   \   000000D6   0xF450 0x2080      ORRS     R0,R0,#0x40000
+   \   000000DA   0x.... 0x....      LDR.W    R1,??DataTable9_13  ;; 0x400ff080
+   \   000000DE   0x6008             STR      R0,[R1, #+0]
+    260                  PTC_BASE_PTR->PDOR &=~(1 << 19);//BR
+   \   000000E0   0x.... 0x....      LDR.W    R0,??DataTable9_13  ;; 0x400ff080
+   \   000000E4   0x6800             LDR      R0,[R0, #+0]
+   \   000000E6   0xF430 0x2000      BICS     R0,R0,#0x80000
+   \   000000EA   0x.... 0x....      LDR.W    R1,??DataTable9_13  ;; 0x400ff080
+   \   000000EE   0x6008             STR      R0,[R1, #+0]
+    261                  break;
+   \   000000F0   0xE017             B.N      ??v_rightMotor_pwmOut_5
+    262              case 3://能耗制动
+    263                  MOTOR_def_PWM_com->CONTROLS[6].CnV = 0;//
+   \                     ??v_rightMotor_pwmOut_4: (+1)
+   \   000000F2   0x.... 0x....      LDR.W    R0,??DataTable9_22  ;; 0x400b9040
+   \   000000F6   0x2100             MOVS     R1,#+0
+   \   000000F8   0x6001             STR      R1,[R0, #+0]
+    264                  MOTOR_def_PWM_com->CONTROLS[7].CnV = 0;//
+   \   000000FA   0x.... 0x....      LDR.W    R0,??DataTable9_23  ;; 0x400b9048
+   \   000000FE   0x2100             MOVS     R1,#+0
+   \   00000100   0x6001             STR      R1,[R0, #+0]
+    265                  PTC_BASE_PTR->PDOR |= (1 << 18);
+   \   00000102   0x.... 0x....      LDR.W    R0,??DataTable9_13  ;; 0x400ff080
+   \   00000106   0x6800             LDR      R0,[R0, #+0]
+   \   00000108   0xF450 0x2080      ORRS     R0,R0,#0x40000
+   \   0000010C   0x.... 0x....      LDR.W    R1,??DataTable9_13  ;; 0x400ff080
+   \   00000110   0x6008             STR      R0,[R1, #+0]
+    266                  PTC_BASE_PTR->PDOR |= (1 << 19);
+   \   00000112   0x.... 0x....      LDR.W    R0,??DataTable9_13  ;; 0x400ff080
+   \   00000116   0x6800             LDR      R0,[R0, #+0]
+   \   00000118   0xF450 0x2000      ORRS     R0,R0,#0x80000
+   \   0000011C   0x.... 0x....      LDR.W    R1,??DataTable9_13  ;; 0x400ff080
+   \   00000120   0x6008             STR      R0,[R1, #+0]
+    267                  break;
+    268              }
+    269              return;
+   \                     ??v_rightMotor_pwmOut_5: (+1)
+   \   00000122   0xBD10             POP      {R4,PC}          ;; return
+    270          }
+    271          
+    272          /*
+    273          void v_DAC_Init ( DAC_MemMapPtr dacN )
+    274          {
+    275              if(DAC0_BASE_PTR == dacN){SIM_SCGC2 |= SIM_SCGC2_DAC0_MASK;}
+    276              else if(DAC1_BASE_PTR == dacN){SIM_SCGC2 |= SIM_SCGC2_DAC1_MASK;}
+    277              
+    278              dacN -> C0 = ( 0 
+    279                                  | DAC_C0_DACEN_MASK             // 开启DAC模块
+    280                                  | 0x40                     // Reference Source Select
+    281                                  | DAC_C0_DACTRGSEL_MASK         // 软件触发启用
+    282                                  );
+    283              
+    284              dacN -> C1 = 0;
+    285          }
+    286          
+    287          void v_DAC_SetVar( DAC_MemMapPtr dacN , uint16 DACvar )
+    288          {
+    289              dacN-> DAT[0].DATL =  DACvar & 0x00FF;
+    290              dacN-> DAT[0].DATH = (DACvar & 0x0F00) >> 8;
+    291          }
+    292          */
+    293          /*
+    294          vL - vR => 这个是速度差
+    295          第一次             0  0   => 0
+    296          第二次可能         10 20  => 10
+    297                             5+  -5
+    298                            20 10 => -10
+    299                          如若速度差变化较大，那么~
+    300          */
+
+   \                                 In section .text, align 4, keep-with-next
+    301          void v_speed_set2pwm(sint16 leftSpeed,sint16 rightSpeed,uint8 speedMode)
+    302          {//1 => 右//10 => 左//3 => 双
+   \                     v_speed_set2pwm: (+1)
+   \   00000000   0xB510             PUSH     {R4,LR}
+    303              float speed_P = (float)m_Control.Motor_ControlPara_P_Number;//124.f;//最后参数6.5f//122
+   \   00000002   0x.... 0x....      LDR.W    R2,??DataTable9_37
+   \   00000006   0xED92 0x0A25      VLDR     S0,[R2, #+148]
+    304              float speed_I = (float)m_Control.Motor_ControlPara_I_Number;//5.f;
+   \   0000000A   0x.... 0x....      LDR.W    R2,??DataTable9_37
+   \   0000000E   0xEDD2 0x0A26      VLDR     S1,[R2, #+152]
+    305              float speed_D = (float)m_Control.Motor_ControlPara_D_Number;//30.f;//60
+   \   00000012   0x.... 0x....      LDR.W    R2,??DataTable9_37
+   \   00000016   0xED92 0x1A27      VLDR     S2,[R2, #+156]
+    306                      //1.3f时刻，直道很稳定，但是过弯却会有一定的振荡
+    307                      
+    308              float Left_OutPWM = 0.f;
+   \   0000001A   0xEDDF 0x....      VLDR.W   S3,??DataTable7  ;; 0x0
+    309              float Right_OutPWM = 0.f;
+   \   0000001E   0xED9F 0x....      VLDR.W   S4,??DataTable7  ;; 0x0
+    310                      
+    311              sint16 v_e_L = leftSpeed - m_Control.LeftMotorSpeed;
+   \   00000022   0x.... 0x....      LDR.W    R2,??DataTable9_37
+   \   00000026   0x8E12             LDRH     R2,[R2, #+48]
+   \   00000028   0x1A80             SUBS     R0,R0,R2
+    312              sint16 v_e_R = rightSpeed - m_Control.RightMotorSpeed;
+   \   0000002A   0x.... 0x....      LDR.W    R2,??DataTable9_37
+   \   0000002E   0x8E52             LDRH     R2,[R2, #+50]
+   \   00000030   0x1A89             SUBS     R1,R1,R2
+    313              
+    314              static sint32 v_e_Counter_L = 0;
+    315              static sint32 v_e_Counter_R = 0;
+    316                      
+    317              sint32 v_e_Counter_MayBeNotChange = (v_e_Counter_L + v_e_L + v_e_Counter_R + v_e_R)/2;
+   \   00000032   0x.... 0x....      LDR.W    R2,??DataTable9_38
+   \   00000036   0x6812             LDR      R2,[R2, #+0]
+   \   00000038   0xFA02 0xF280      SXTAH    R2,R2,R0
+   \   0000003C   0x.... 0x....      LDR.W    R3,??DataTable9_39
+   \   00000040   0x681B             LDR      R3,[R3, #+0]
+   \   00000042   0x189A             ADDS     R2,R3,R2
+   \   00000044   0xFA02 0xF281      SXTAH    R2,R2,R1
+   \   00000048   0x2302             MOVS     R3,#+2
+   \   0000004A   0xFB92 0xF2F3      SDIV     R2,R2,R3
+   \   0000004E   0xEE02 0x2A90      VMOV     S5,R2
+    318                      
+    319              sint16 v_e = (v_e_L + v_e_R)/2;
+   \   00000052   0xB209             SXTH     R1,R1            ;; SignExt  R1,R1,#+16,#+16
+   \   00000054   0xFA01 0xF280      SXTAH    R2,R1,R0
+   \   00000058   0x2302             MOVS     R3,#+2
+   \   0000005A   0xFB92 0xF2F3      SDIV     R2,R2,R3
+    320              
+    321              float I_endless = (float)v_e_Counter_MayBeNotChange * speed_I;
+   \   0000005E   0xEEF8 0x2AE2      VCVT.F32.S32 S5,S5
+   \   00000062   0xEE22 0x3AA0      VMUL.F32 S6,S5,S1
+    322              if((I_endless > 960)&&(v_e > 0)){v_e_Counter_MayBeNotChange = (v_e_Counter_L  + v_e_Counter_R)/2;}
+   \   00000066   0xEDDF 0x....      VLDR.W   S5,??DataTable7_1  ;; 0x44700001
+   \   0000006A   0xEEB4 0x3A62      VCMP.F32 S6,S5
+   \   0000006E   0xEEF1 0xFA10      FMSTAT   
+   \   00000072   0xDB0F             BLT.N    ??v_speed_set2pwm_0
+   \   00000074   0xB212             SXTH     R2,R2            ;; SignExt  R2,R2,#+16,#+16
+   \   00000076   0x2A01             CMP      R2,#+1
+   \   00000078   0xDB0C             BLT.N    ??v_speed_set2pwm_0
+   \   0000007A   0x.... 0x....      LDR.W    R3,??DataTable9_38
+   \   0000007E   0x681B             LDR      R3,[R3, #+0]
+   \   00000080   0x.... 0x....      LDR.W    R4,??DataTable9_39
+   \   00000084   0x6824             LDR      R4,[R4, #+0]
+   \   00000086   0x18E3             ADDS     R3,R4,R3
+   \   00000088   0x2402             MOVS     R4,#+2
+   \   0000008A   0xFB93 0xF3F4      SDIV     R3,R3,R4
+   \   0000008E   0xEE02 0x3A90      VMOV     S5,R3
+   \   00000092   0xE00F             B.N      ??v_speed_set2pwm_1
+    323              else{v_e_Counter_L = v_e_Counter_L + v_e_L;v_e_Counter_R = v_e_Counter_R + v_e_R;}
+   \                     ??v_speed_set2pwm_0: (+1)
+   \   00000094   0x.... 0x....      LDR.W    R3,??DataTable9_38
+   \   00000098   0x681B             LDR      R3,[R3, #+0]
+   \   0000009A   0xFA03 0xF380      SXTAH    R3,R3,R0
+   \   0000009E   0x.... 0x....      LDR.W    R4,??DataTable9_38
+   \   000000A2   0x6023             STR      R3,[R4, #+0]
+   \   000000A4   0x.... 0x....      LDR.W    R3,??DataTable9_39
+   \   000000A8   0x681B             LDR      R3,[R3, #+0]
+   \   000000AA   0xFA03 0xF381      SXTAH    R3,R3,R1
+   \   000000AE   0x.... 0x....      LDR.W    R4,??DataTable9_39
+   \   000000B2   0x6023             STR      R3,[R4, #+0]
+    324              if((I_endless < -960)&&(v_e < 0)){v_e_Counter_MayBeNotChange = (v_e_Counter_L + v_e_Counter_R)/2;}
+   \                     ??v_speed_set2pwm_1: (+1)
+   \   000000B4   0xED9F 0x....      VLDR.W   S2,??DataTable7_2  ;; 0xc4700000
+   \   000000B8   0xEEB4 0x3A41      VCMP.F32 S6,S2
+   \   000000BC   0xEEF1 0xFA10      FMSTAT   
+   \   000000C0   0xD50F             BPL.N    ??v_speed_set2pwm_2
+   \   000000C2   0xB212             SXTH     R2,R2            ;; SignExt  R2,R2,#+16,#+16
+   \   000000C4   0x2A00             CMP      R2,#+0
+   \   000000C6   0xD50C             BPL.N    ??v_speed_set2pwm_2
+   \   000000C8   0x.... 0x....      LDR.W    R0,??DataTable9_38
+   \   000000CC   0x6800             LDR      R0,[R0, #+0]
+   \   000000CE   0x.... 0x....      LDR.W    R1,??DataTable9_39
+   \   000000D2   0x6809             LDR      R1,[R1, #+0]
+   \   000000D4   0x1808             ADDS     R0,R1,R0
+   \   000000D6   0x2102             MOVS     R1,#+2
+   \   000000D8   0xFB90 0xF0F1      SDIV     R0,R0,R1
+   \   000000DC   0xEE02 0x0A90      VMOV     S5,R0
+   \   000000E0   0xE00F             B.N      ??v_speed_set2pwm_3
+    325              else{v_e_Counter_L = v_e_Counter_L + v_e_L;v_e_Counter_R = v_e_Counter_R + v_e_R;}
+   \                     ??v_speed_set2pwm_2: (+1)
+   \   000000E2   0x.... 0x....      LDR.W    R3,??DataTable9_38
+   \   000000E6   0x681B             LDR      R3,[R3, #+0]
+   \   000000E8   0xFA03 0xF080      SXTAH    R0,R3,R0
+   \   000000EC   0x.... 0x....      LDR.W    R3,??DataTable9_38
+   \   000000F0   0x6018             STR      R0,[R3, #+0]
+   \   000000F2   0x.... 0x....      LDR.W    R0,??DataTable9_39
+   \   000000F6   0x6800             LDR      R0,[R0, #+0]
+   \   000000F8   0xFA00 0xF081      SXTAH    R0,R0,R1
+   \   000000FC   0x.... 0x....      LDR.W    R1,??DataTable9_39
+   \   00000100   0x6008             STR      R0,[R1, #+0]
+    326              
+    327              sint32 v_e_counter = (v_e_Counter_L + v_e_Counter_R)/2;
+   \                     ??v_speed_set2pwm_3: (+1)
+   \   00000102   0x.... 0x....      LDR.W    R0,??DataTable9_38
+   \   00000106   0x6800             LDR      R0,[R0, #+0]
+   \   00000108   0x.... 0x....      LDR.W    R1,??DataTable9_39
+   \   0000010C   0x6809             LDR      R1,[R1, #+0]
+   \   0000010E   0x1808             ADDS     R0,R1,R0
+   \   00000110   0x2102             MOVS     R1,#+2
+   \   00000112   0xFB90 0xF0F1      SDIV     R0,R0,R1
+   \   00000116   0xEE01 0x0A10      VMOV     S2,R0
+    328              /*
+    329              if(m_Control.LeftMotorSpeed < m_Control.RightMotorSpeed)
+    330              {
+    331                  if((L_I_endless > 960)&&(0 == add_for_Int_Left)&&(add_for_Int_Right < 0)){add_for_Int_Left = add_for_Int_Right;}
+    332                  if((L_I_endless <-960)&&(0 == add_for_Int_Left)&&(add_for_Int_Right > 0)){add_for_Int_Left = add_for_Int_Right;} 
+    333              }
+    334              if(m_Control.LeftMotorSpeed > m_Control.RightMotorSpeed)
+    335              {
+    336                  if((R_I_endless > 960)&&(0 == add_for_Int_Right)&&(add_for_Int_Left < 0)){add_for_Int_Right = add_for_Int_Left;}
+    337                  if((R_I_endless <-960)&&(0 == add_for_Int_Right)&&(add_for_Int_Left > 0)){add_for_Int_Right = add_for_Int_Left;}
+    338              }
+    339              */
+    340                      
+    341                      float OutPWM = v_e * speed_P + v_e_counter * speed_I;
+   \   0000011A   0xB212             SXTH     R2,R2            ;; SignExt  R2,R2,#+16,#+16
+   \   0000011C   0xEE01 0x2A90      VMOV     S3,R2
+   \   00000120   0xEEF8 0x1AE1      VCVT.F32.S32 S3,S3
+   \   00000124   0xEE61 0x1A80      VMUL.F32 S3,S3,S0
+   \   00000128   0xEEB8 0x0AC1      VCVT.F32.S32 S0,S2
+   \   0000012C   0xEE40 0x1A20      VMLA.F32 S3,S0,S1
+    342                      Left_OutPWM = OutPWM;
+    343                      Right_OutPWM = OutPWM;
+   \   00000130   0xEEB0 0x2A61      VMOV.F32 S4,S3
+    344                      
+    345                      if(Left_OutPWM > 950.f){Left_OutPWM = 950.f;}
+   \   00000134   0xED9F 0x....      VLDR.W   S0,??DataTable7_3  ;; 0x446d8001
+   \   00000138   0xEEF4 0x1A40      VCMP.F32 S3,S0
+   \   0000013C   0xEEF1 0xFA10      FMSTAT   
+   \   00000140   0xDB01             BLT.N    ??v_speed_set2pwm_4
+   \   00000142   0xEDDF 0x....      VLDR.W   S3,??DataTable7_4  ;; 0x446d8000
+    346                      if(Left_OutPWM < -950.f){Left_OutPWM = -950.f;}
+   \                     ??v_speed_set2pwm_4: (+1)
+   \   00000146   0xED9F 0x....      VLDR.W   S0,??DataTable7_5  ;; 0xc46d8000
+   \   0000014A   0xEEF4 0x1A40      VCMP.F32 S3,S0
+   \   0000014E   0xEEF1 0xFA10      FMSTAT   
+   \   00000152   0xD501             BPL.N    ??v_speed_set2pwm_5
+   \   00000154   0xEDDF 0x....      VLDR.W   S3,??DataTable7_5  ;; 0xc46d8000
+    347                      
+    348                      if(Right_OutPWM > 950.f){Right_OutPWM = 950.f;}
+   \                     ??v_speed_set2pwm_5: (+1)
+   \   00000158   0xED9F 0x....      VLDR.W   S0,??DataTable7_3  ;; 0x446d8001
+   \   0000015C   0xEEB4 0x2A40      VCMP.F32 S4,S0
+   \   00000160   0xEEF1 0xFA10      FMSTAT   
+   \   00000164   0xDB01             BLT.N    ??v_speed_set2pwm_6
+   \   00000166   0xED9F 0x....      VLDR.W   S4,??DataTable7_4  ;; 0x446d8000
+    349                      if(Right_OutPWM < -950.f){Right_OutPWM = -950.f;}
+   \                     ??v_speed_set2pwm_6: (+1)
+   \   0000016A   0xED9F 0x....      VLDR.W   S0,??DataTable7_5  ;; 0xc46d8000
+   \   0000016E   0xEEB4 0x2A40      VCMP.F32 S4,S0
+   \   00000172   0xEEF1 0xFA10      FMSTAT   
+   \   00000176   0xD501             BPL.N    ??v_speed_set2pwm_7
+   \   00000178   0xED9F 0x....      VLDR.W   S4,??DataTable7_5  ;; 0xc46d8000
+    350                      
+    351                      m_Control.LeftMotorPWM = (sint16)Left_OutPWM;
+   \                     ??v_speed_set2pwm_7: (+1)
+   \   0000017C   0xEEBD 0x0AE1      VCVT.S32.F32 S0,S3
+   \   00000180   0xEE10 0x0A10      VMOV     R0,S0
+   \   00000184   0x.... 0x....      LDR.W    R1,??DataTable9_37
+   \   00000188   0x8788             STRH     R0,[R1, #+60]
+    352                      m_Control.RightMotorPWM = (sint16)Right_OutPWM;
+   \   0000018A   0xEEBD 0x0AC2      VCVT.S32.F32 S0,S4
+   \   0000018E   0xEE10 0x0A10      VMOV     R0,S0
+   \   00000192   0x.... 0x....      LDR.W    R1,??DataTable9_37
+   \   00000196   0x87C8             STRH     R0,[R1, #+62]
+    353                      
+    354                      float LeftRightRatio = //右转为正
+    355                      (n_GetServoGraduated(m_Control.ServoAngle) -number_ServoGraduated/2)/(float)(number_ServoGraduated/2);//-200~200
+   \   00000198   0x.... 0x....      LDR.W    R0,??DataTable9_37
+   \   0000019C   0x8D00             LDRH     R0,[R0, #+40]
+   \   0000019E   0x.... 0x....      BL       n_GetServoGraduated
+   \   000001A2   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
+   \   000001A4   0x.... 0x....      LDR.W    R1,??DataTable9_40
+   \   000001A8   0x8809             LDRH     R1,[R1, #+0]
+   \   000001AA   0x2202             MOVS     R2,#+2
+   \   000001AC   0xFB91 0xF1F2      SDIV     R1,R1,R2
+   \   000001B0   0x1A40             SUBS     R0,R0,R1
+   \   000001B2   0xEE00 0x0A10      VMOV     S0,R0
+   \   000001B6   0xEEB8 0x0AC0      VCVT.F32.S32 S0,S0
+   \   000001BA   0x.... 0x....      LDR.W    R0,??DataTable9_40
+   \   000001BE   0x8800             LDRH     R0,[R0, #+0]
+   \   000001C0   0x2102             MOVS     R1,#+2
+   \   000001C2   0xFB90 0xF0F1      SDIV     R0,R0,R1
+   \   000001C6   0xEE00 0x0A90      VMOV     S1,R0
+   \   000001CA   0xEEF8 0x0AE0      VCVT.F32.S32 S1,S1
+   \   000001CE   0xEE80 0x0A20      VDIV.F32 S0,S0,S1
+    356                      
+    357                      m_Control.RightMotorPWM -= LeftRightRatio * 400;
+   \   000001D2   0x.... 0x....      LDR.W    R0,??DataTable9_37
+   \   000001D6   0xF9B0 0x003E      LDRSH    R0,[R0, #+62]
+   \   000001DA   0xEE00 0x0A90      VMOV     S1,R0
+   \   000001DE   0xEEF8 0x0AE0      VCVT.F32.S32 S1,S1
+   \   000001E2   0xED9F 0x....      VLDR.W   S2,??DataTable8  ;; 0x43c80000
+   \   000001E6   0xEE40 0x0A41      VMLS.F32 S1,S0,S2
+   \   000001EA   0xEEFD 0x0AE0      VCVT.S32.F32 S1,S1
+   \   000001EE   0xEE10 0x0A90      VMOV     R0,S1
+   \   000001F2   0x.... 0x....      LDR.W    R1,??DataTable9_37
+   \   000001F6   0x87C8             STRH     R0,[R1, #+62]
+    358                      m_Control.LeftMotorPWM += LeftRightRatio * 400;
+   \   000001F8   0x.... 0x....      LDR.W    R0,??DataTable9_37
+   \   000001FC   0xF9B0 0x003C      LDRSH    R0,[R0, #+60]
+   \   00000200   0xEE00 0x0A90      VMOV     S1,R0
+   \   00000204   0xEEF8 0x0AE0      VCVT.F32.S32 S1,S1
+   \   00000208   0xED9F 0x....      VLDR.W   S2,??DataTable8  ;; 0x43c80000
+   \   0000020C   0xEE40 0x0A01      VMLA.F32 S1,S0,S2
+   \   00000210   0xEEBD 0x0AE0      VCVT.S32.F32 S0,S1
+   \   00000214   0xEE10 0x0A10      VMOV     R0,S0
+   \   00000218   0x.... 0x....      LDR.W    R1,??DataTable9_37
+   \   0000021C   0x8788             STRH     R0,[R1, #+60]
+    359              if(m_Control.LeftMotorPWM > 970){m_Control.LeftMotorPWM = 970;}
+   \   0000021E   0x.... 0x....      LDR.W    R0,??DataTable9_37
+   \   00000222   0xF9B0 0x003C      LDRSH    R0,[R0, #+60]
+   \   00000226   0xF240 0x31CB      MOVW     R1,#+971
+   \   0000022A   0x4288             CMP      R0,R1
+   \   0000022C   0xDB04             BLT.N    ??v_speed_set2pwm_8
+   \   0000022E   0x.... 0x....      LDR.W    R0,??DataTable9_37
+   \   00000232   0xF240 0x31CA      MOVW     R1,#+970
+   \   00000236   0x8781             STRH     R1,[R0, #+60]
+    360              if(m_Control.LeftMotorPWM < -970){m_Control.LeftMotorPWM = -970;}
+   \                     ??v_speed_set2pwm_8: (+1)
+   \   00000238   0x.... 0x....      LDR.W    R0,??DataTable9_37
+   \   0000023C   0xF9B0 0x003C      LDRSH    R0,[R0, #+60]
+   \   00000240   0x.... 0x....      LDR.W    R1,??DataTable9_41  ;; 0xfffffc36
+   \   00000244   0x4288             CMP      R0,R1
+   \   00000246   0xDA04             BGE.N    ??v_speed_set2pwm_9
+   \   00000248   0x.... 0x....      LDR.W    R0,??DataTable9_37
+   \   0000024C   0x.... 0x....      LDR.W    R1,??DataTable9_41  ;; 0xfffffc36
+   \   00000250   0x8781             STRH     R1,[R0, #+60]
+    361              if(m_Control.RightMotorPWM > 970){m_Control.RightMotorPWM = 970;}
+   \                     ??v_speed_set2pwm_9: (+1)
+   \   00000252   0x.... 0x....      LDR.W    R0,??DataTable9_37
+   \   00000256   0xF9B0 0x003E      LDRSH    R0,[R0, #+62]
+   \   0000025A   0xF240 0x31CB      MOVW     R1,#+971
+   \   0000025E   0x4288             CMP      R0,R1
+   \   00000260   0xDB04             BLT.N    ??v_speed_set2pwm_10
+   \   00000262   0x.... 0x....      LDR.W    R0,??DataTable9_37
+   \   00000266   0xF240 0x31CA      MOVW     R1,#+970
+   \   0000026A   0x87C1             STRH     R1,[R0, #+62]
+    362              if(m_Control.RightMotorPWM < -970){m_Control.RightMotorPWM = -970;}
+   \                     ??v_speed_set2pwm_10: (+1)
+   \   0000026C   0x.... 0x....      LDR.W    R0,??DataTable9_37
+   \   00000270   0xF9B0 0x003E      LDRSH    R0,[R0, #+62]
+   \   00000274   0x.... 0x....      LDR.W    R1,??DataTable9_41  ;; 0xfffffc36
+   \   00000278   0x4288             CMP      R0,R1
+   \   0000027A   0xDA04             BGE.N    ??v_speed_set2pwm_11
+   \   0000027C   0x.... 0x....      LDR.W    R0,??DataTable9_37
+   \   00000280   0x.... 0x....      LDR.W    R1,??DataTable9_41  ;; 0xfffffc36
+   \   00000284   0x87C1             STRH     R1,[R0, #+62]
+    363              /*
+    364              m_self_Motor_Para.L_e_Last = m_self_Motor_Para.L_e;
+    365              m_self_Motor_Para.R_e_Last = m_self_Motor_Para.R_e;
+    366                      
+    367              m_self_Motor_Para.L_e = (leftSpeed - m_Control.LeftMotorSpeed);
+    368              m_self_Motor_Para.R_e = (rightSpeed -m_Control.RightMotorSpeed);
+    369                
+    370              
+    371              sint16 add_for_Int_Left = m_self_Motor_Para.L_e;//饱和限制
+    372              sint16 add_for_Int_Right = m_self_Motor_Para.R_e;
+    373              
+    374              float L_I_endless = (float)m_self_Motor_Para.L_counter * speed_I;//幅度限制
+    375              float R_I_endless = (float)m_self_Motor_Para.R_counter * speed_I;
+    376              
+    377              
+    378              if((L_I_endless > 960)&&(add_for_Int_Left > 0)){add_for_Int_Left = 0;}
+    379              if((L_I_endless < -960)&&(add_for_Int_Left < 0)){add_for_Int_Left = 0;}
+    380              if((R_I_endless > 960)&&(add_for_Int_Right > 0)){add_for_Int_Right = 0;}
+    381              if((R_I_endless < -960)&&(add_for_Int_Right < 0)){add_for_Int_Right = 0;}
+    382              
+    383                  if(m_Control.LeftMotorSpeed < m_Control.RightMotorSpeed)
+    384                  {
+    385                      if((L_I_endless > 960)&&(0 == add_for_Int_Left)&&(add_for_Int_Right < 0)){add_for_Int_Left = add_for_Int_Right;}
+    386                      if((L_I_endless <-960)&&(0 == add_for_Int_Left)&&(add_for_Int_Right > 0)){add_for_Int_Left = add_for_Int_Right;} 
+    387                  }
+    388                  if(m_Control.LeftMotorSpeed > m_Control.RightMotorSpeed)
+    389                  {
+    390                      if((R_I_endless > 960)&&(0 == add_for_Int_Right)&&(add_for_Int_Left < 0)){add_for_Int_Right = add_for_Int_Left;}
+    391                      if((R_I_endless <-960)&&(0 == add_for_Int_Right)&&(add_for_Int_Left > 0)){add_for_Int_Right = add_for_Int_Left;}
+    392                  }
+    393              
+    394              float add_ratio = 1.f;
+    395              if(__F_ABS(L_I_endless) >= 50.f)
+    396              {
+    397                  add_ratio = 0.4;
+    398              }
+    399              m_self_Motor_Para.L_counter += add_ratio*add_for_Int_Left;
+    400              
+    401              add_ratio = 1.f;
+    402              if(__F_ABS(R_I_endless) >= 50.f)
+    403              {
+    404                  add_ratio = 0.4;
+    405              }
+    406              m_self_Motor_Para.R_counter += add_ratio*add_for_Int_Right;
+    407              
+    408              float Left_OutPWM = 0.f;
+    409              float Right_OutPWM = 0.f;
+    410              
+    411              L_I_endless = (float)m_self_Motor_Para.L_counter * speed_I;//幅度限制
+    412              L_I_endless = (L_I_endless > 999.f)?999.f:L_I_endless;
+    413              L_I_endless = (L_I_endless < -999.f)?-999.f:L_I_endless;
+    414              
+    415              R_I_endless = (float)m_self_Motor_Para.R_counter * speed_I;
+    416              R_I_endless = (R_I_endless > 999.f)?999.f:R_I_endless;
+    417              R_I_endless = (R_I_endless < -999.f)?-999.f:R_I_endless;
+    418              
+    419              
+    420              Left_OutPWM  = ((float)m_self_Motor_Para.L_e * speed_P + L_I_endless + speed_D*(m_self_Motor_Para.L_e - m_self_Motor_Para.L_e_Last));
+    421              Right_OutPWM = ((float)m_self_Motor_Para.R_e * speed_P + R_I_endless + speed_D*(m_self_Motor_Para.R_e - m_self_Motor_Para.R_e_Last));
+    422                      
+    423              if(Left_OutPWM > 999.f){Left_OutPWM = 999.f;}
+    424              if(Left_OutPWM < -999.f){Left_OutPWM = -999.f;}
+    425                      
+    426              if(Right_OutPWM > 999.f){Right_OutPWM = 999.f;}
+    427              if(Right_OutPWM < -999.f){Right_OutPWM = -999.f;}
+    428                      
+    429          
+    430              sint16 s16_Left_OutPWM = 0;
+    431              sint16 s16_Right_OutPWM = 0;
+    432              s16_Left_OutPWM = (sint16)Left_OutPWM;
+    433              s16_Right_OutPWM = (sint16)Right_OutPWM;
+    434              sint16 s16_Left_OutPWM_gaia = s16_Left_OutPWM;
+    435              sint16 s16_Right_OutPWM_gaia = s16_Right_OutPWM;
+    436              if(s16_Left_OutPWM > 970){s16_Left_OutPWM = 970;}
+    437              if(s16_Left_OutPWM < -970){s16_Left_OutPWM = -970;}
+    438              if(s16_Right_OutPWM > 970){s16_Right_OutPWM = 970;}
+    439              if(s16_Right_OutPWM < -970){s16_Right_OutPWM = -970;}
+    440              
+    441              //========================================================================//
+    442              m_Control.LeftMotorPWM = s16_Left_OutPWM;
+    443              m_Control.RightMotorPWM = s16_Right_OutPWM;
+    444              */
+    445              
+    446              if(m_Control.LeftMotorPWM > 0){v_leftMotor_pwmOut(m_Control.LeftMotorPWM,1);}
+   \                     ??v_speed_set2pwm_11: (+1)
+   \   00000286   0x.... 0x....      LDR.W    R0,??DataTable9_37
+   \   0000028A   0xF9B0 0x003C      LDRSH    R0,[R0, #+60]
+   \   0000028E   0x2801             CMP      R0,#+1
+   \   00000290   0xDB07             BLT.N    ??v_speed_set2pwm_12
+   \   00000292   0x2101             MOVS     R1,#+1
+   \   00000294   0x.... 0x....      LDR.W    R0,??DataTable9_37
+   \   00000298   0x8F80             LDRH     R0,[R0, #+60]
+   \   0000029A   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
+   \   0000029C   0x.... 0x....      BL       v_leftMotor_pwmOut
+   \   000002A0   0xE016             B.N      ??v_speed_set2pwm_13
+    447              else if(m_Control.LeftMotorPWM < 0){v_leftMotor_pwmOut(-m_Control.LeftMotorPWM,2);}
+   \                     ??v_speed_set2pwm_12: (+1)
+   \   000002A2   0x.... 0x....      LDR.W    R0,??DataTable9_37
+   \   000002A6   0xF9B0 0x003C      LDRSH    R0,[R0, #+60]
+   \   000002AA   0x2800             CMP      R0,#+0
+   \   000002AC   0xD509             BPL.N    ??v_speed_set2pwm_14
+   \   000002AE   0x2102             MOVS     R1,#+2
+   \   000002B0   0x.... 0x....      LDR.W    R0,??DataTable9_37
+   \   000002B4   0xF9B0 0x003C      LDRSH    R0,[R0, #+60]
+   \   000002B8   0x4240             RSBS     R0,R0,#+0
+   \   000002BA   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
+   \   000002BC   0x.... 0x....      BL       v_leftMotor_pwmOut
+   \   000002C0   0xE006             B.N      ??v_speed_set2pwm_13
+    448              else{v_leftMotor_pwmOut(m_Control.LeftMotorPWM,3);}
+   \                     ??v_speed_set2pwm_14: (+1)
+   \   000002C2   0x2103             MOVS     R1,#+3
+   \   000002C4   0x.... 0x....      LDR.W    R0,??DataTable9_37
+   \   000002C8   0x8F80             LDRH     R0,[R0, #+60]
+   \   000002CA   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
+   \   000002CC   0x.... 0x....      BL       v_leftMotor_pwmOut
+    449              
+    450              
+    451              if(m_Control.RightMotorPWM > 0){v_rightMotor_pwmOut(m_Control.RightMotorPWM,1);}
+   \                     ??v_speed_set2pwm_13: (+1)
+   \   000002D0   0x.... 0x....      LDR.W    R0,??DataTable9_37
+   \   000002D4   0xF9B0 0x003E      LDRSH    R0,[R0, #+62]
+   \   000002D8   0x2801             CMP      R0,#+1
+   \   000002DA   0xDB07             BLT.N    ??v_speed_set2pwm_15
+   \   000002DC   0x2101             MOVS     R1,#+1
+   \   000002DE   0x.... 0x....      LDR.W    R0,??DataTable9_37
+   \   000002E2   0x8FC0             LDRH     R0,[R0, #+62]
+   \   000002E4   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
+   \   000002E6   0x.... 0x....      BL       v_rightMotor_pwmOut
+   \   000002EA   0xE016             B.N      ??v_speed_set2pwm_16
+    452              else if(m_Control.RightMotorPWM < 0){v_rightMotor_pwmOut(-m_Control.RightMotorPWM,2);}
+   \                     ??v_speed_set2pwm_15: (+1)
+   \   000002EC   0x.... 0x....      LDR.W    R0,??DataTable9_37
+   \   000002F0   0xF9B0 0x003E      LDRSH    R0,[R0, #+62]
+   \   000002F4   0x2800             CMP      R0,#+0
+   \   000002F6   0xD509             BPL.N    ??v_speed_set2pwm_17
+   \   000002F8   0x2102             MOVS     R1,#+2
+   \   000002FA   0x.... 0x....      LDR.W    R0,??DataTable9_37
+   \   000002FE   0xF9B0 0x003E      LDRSH    R0,[R0, #+62]
+   \   00000302   0x4240             RSBS     R0,R0,#+0
+   \   00000304   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
+   \   00000306   0x.... 0x....      BL       v_rightMotor_pwmOut
+   \   0000030A   0xE006             B.N      ??v_speed_set2pwm_16
+    453              else{v_rightMotor_pwmOut(m_Control.RightMotorPWM,3);}
+   \                     ??v_speed_set2pwm_17: (+1)
+   \   0000030C   0x2103             MOVS     R1,#+3
+   \   0000030E   0x.... 0x....      LDR.W    R0,??DataTable9_37
+   \   00000312   0x8FC0             LDRH     R0,[R0, #+62]
+   \   00000314   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
+   \   00000316   0x.... 0x....      BL       v_rightMotor_pwmOut
+    454          }
+   \                     ??v_speed_set2pwm_16: (+1)
+   \   0000031A   0xBD10             POP      {R4,PC}          ;; return
+
+   \                                 In section .bss, align 4
+   \                     ??v_e_Counter_L:
+   \   00000000                      DS8 4
+
+   \                                 In section .bss, align 4
+   \                     ??v_e_Counter_R:
+   \   00000000                      DS8 4
+    455          
+    456          
+
+   \                                 In section .text, align 2, keep-with-next
+    457          void v_ele_set2pwm(sint16 leftPWM,sint16 rightPWM)
+    458          {
+    459              
+    460          }
+   \                     v_ele_set2pwm: (+1)
+   \   00000000   0x4770             BX       LR               ;; return
+    461          
+    462          
+
+   \                                 In section .text, align 2, keep-with-next
+    463          void v_speed_Test(sint16 speed)//电机测试
+    464          {
+   \                     v_speed_Test: (+1)
+   \   00000000   0xB580             PUSH     {R7,LR}
+    465              m_Control.LeftGiveSpd = speed;
+   \   00000002   0x.... 0x....      LDR.W    R1,??DataTable9_37
+   \   00000006   0x8548             STRH     R0,[R1, #+42]
+    466              v_speed_set2pwm(speed,speed,10);
+   \   00000008   0x220A             MOVS     R2,#+10
+   \   0000000A   0x0001             MOVS     R1,R0
+   \   0000000C   0xB209             SXTH     R1,R1            ;; SignExt  R1,R1,#+16,#+16
+   \   0000000E   0xB200             SXTH     R0,R0            ;; SignExt  R0,R0,#+16,#+16
+   \   00000010   0x.... 0x....      BL       v_speed_set2pwm
+    467          }
+   \   00000014   0xBD01             POP      {R0,PC}          ;; return
+    468          
+    469          
+
+   \                                 In section .text, align 2, keep-with-next
+    470          void v_speed_Give(sint16 speed)
+    471          {//速度给定代码
+   \                     v_speed_Give: (+1)
+   \   00000000   0xB538             PUSH     {R3-R5,LR}
+   \   00000002   0x0004             MOVS     R4,R0
+    472               //= speed * 2 - 10;//这里重新修正
+    473            
+    474              float LeftRightRatio = //
+    475                   (n_GetServoGraduated(m_Control.ServoAngle) -number_ServoGraduated/2)
+    476                  /(float)(number_ServoGraduated/2);//-1.f~1.f//<0.f左转 .0.f右转
+   \   00000004   0x.... 0x....      LDR.W    R0,??DataTable9_37
+   \   00000008   0x8D00             LDRH     R0,[R0, #+40]
+   \   0000000A   0x.... 0x....      BL       n_GetServoGraduated
+   \   0000000E   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
+   \   00000010   0x.... 0x....      LDR.W    R1,??DataTable9_40
+   \   00000014   0x8809             LDRH     R1,[R1, #+0]
+   \   00000016   0x2202             MOVS     R2,#+2
+   \   00000018   0xFB91 0xF1F2      SDIV     R1,R1,R2
+   \   0000001C   0x1A40             SUBS     R0,R0,R1
+   \   0000001E   0xEE00 0x0A10      VMOV     S0,R0
+   \   00000022   0xEEB8 0x0AC0      VCVT.F32.S32 S0,S0
+   \   00000026   0x.... 0x....      LDR.W    R0,??DataTable9_40
+   \   0000002A   0x8800             LDRH     R0,[R0, #+0]
+   \   0000002C   0x2102             MOVS     R1,#+2
+   \   0000002E   0xFB90 0xF0F1      SDIV     R0,R0,R1
+   \   00000032   0xEE00 0x0A90      VMOV     S1,R0
+   \   00000036   0xEEF8 0x0AE0      VCVT.F32.S32 S1,S1
+   \   0000003A   0xEE80 0x0A20      VDIV.F32 S0,S0,S1
+    477              
+    478              
+    479              m_Control.LimitedSlipDiffSpd = (speed*2 - 10);//*( __F_ABS((float)((float)m_Control.LeftRightRatio - 200.f)/200.f));//*((float)(__F_ABS((float)m_Control.LeftRightRatio - 200.f))/200.f) + 20.f;
+   \   0000003E   0xB224             SXTH     R4,R4            ;; SignExt  R4,R4,#+16,#+16
+   \   00000040   0x0060             LSLS     R0,R4,#+1
+   \   00000042   0x380A             SUBS     R0,R0,#+10
+   \   00000044   0x.... 0x....      LDR.W    R1,??DataTable9_37
+   \   00000048   0x85C8             STRH     R0,[R1, #+46]
+    480                                                          //200   0
+    481                                                          //speed * 2 - 2      
+    482                                                          //speed * 2 - 10
+    483              if(m_Control.LimitedSlipDiffSpd > speed*2){m_Control.LimitedSlipDiffSpd = speed*2;}
+   \   0000004A   0xB224             SXTH     R4,R4            ;; SignExt  R4,R4,#+16,#+16
+   \   0000004C   0x0060             LSLS     R0,R4,#+1
+   \   0000004E   0x.... 0x....      LDR.W    R1,??DataTable9_37
+   \   00000052   0x8DC9             LDRH     R1,[R1, #+46]
+   \   00000054   0x4288             CMP      R0,R1
+   \   00000056   0xDA04             BGE.N    ??v_speed_Give_0
+   \   00000058   0x.... 0x....      LDR.W    R0,??DataTable9_37
+   \   0000005C   0xB2A4             UXTH     R4,R4            ;; ZeroExt  R4,R4,#+16,#+16
+   \   0000005E   0x0061             LSLS     R1,R4,#+1
+   \   00000060   0x85C1             STRH     R1,[R0, #+46]
+    484              if(m_Control.LimitedSlipDiffSpd < 10){m_Control.LimitedSlipDiffSpd = 10;}
+   \                     ??v_speed_Give_0: (+1)
+   \   00000062   0x.... 0x....      LDR.W    R0,??DataTable9_37
+   \   00000066   0x8DC0             LDRH     R0,[R0, #+46]
+   \   00000068   0x280A             CMP      R0,#+10
+   \   0000006A   0xDA03             BGE.N    ??v_speed_Give_1
+   \   0000006C   0x.... 0x....      LDR.W    R0,??DataTable9_37
+   \   00000070   0x210A             MOVS     R1,#+10
+   \   00000072   0x85C1             STRH     R1,[R0, #+46]
+    485              //以下为机械差速
+    486              sint16 speed_average = (m_Control.LeftMotorSpeed + m_Control.RightMotorSpeed) / 2;//实际速度的均值
+   \                     ??v_speed_Give_1: (+1)
+   \   00000074   0x.... 0x....      LDR.W    R0,??DataTable9_37
+   \   00000078   0xF9B0 0x0030      LDRSH    R0,[R0, #+48]
+   \   0000007C   0x.... 0x....      LDR.W    R1,??DataTable9_37
+   \   00000080   0xF9B1 0x1032      LDRSH    R1,[R1, #+50]
+   \   00000084   0x1808             ADDS     R0,R1,R0
+   \   00000086   0x2102             MOVS     R1,#+2
+   \   00000088   0xFB90 0xF0F1      SDIV     R0,R0,R1
+    487              sint16 error_beWith = speed - speed_average;//给定速度与实际速度均值的偏差
+   \   0000008C   0x1A20             SUBS     R0,R4,R0
+    488              
+    489              sint16 Last_LeftGiveSpd = m_Control.LeftGiveSpd;
+   \   0000008E   0x.... 0x....      LDR.W    R1,??DataTable9_37
+   \   00000092   0xF9B1 0x102A      LDRSH    R1,[R1, #+42]
+    490              sint16 Last_RightGiveSpd = m_Control.RightGiveSpd;//记录数值
+   \   00000096   0x.... 0x....      LDR.W    R2,??DataTable9_37
+   \   0000009A   0xF9B2 0x202C      LDRSH    R2,[R2, #+44]
+    491              
+    492              if(m_Control.LeftMotorSpeed < m_Control.RightMotorSpeed)//引入轻微的低通滤波
+   \   0000009E   0x.... 0x....      LDR.W    R3,??DataTable9_37
+   \   000000A2   0xF9B3 0x3030      LDRSH    R3,[R3, #+48]
+   \   000000A6   0x.... 0x....      LDR.W    R5,??DataTable9_37
+   \   000000AA   0xF9B5 0x5032      LDRSH    R5,[R5, #+50]
+   \   000000AE   0x42AB             CMP      R3,R5
+   \   000000B0   0xDA10             BGE.N    ??v_speed_Give_2
+    493              {
+    494                  m_Control.LeftGiveSpd = m_Control.LeftMotorSpeed;
+   \   000000B2   0x.... 0x....      LDR.W    R0,??DataTable9_37
+   \   000000B6   0x.... 0x....      LDR.W    R1,??DataTable9_37
+   \   000000BA   0x8E09             LDRH     R1,[R1, #+48]
+   \   000000BC   0x8541             STRH     R1,[R0, #+42]
+    495                  m_Control.RightGiveSpd = 2 * speed - m_Control.LeftGiveSpd;
+   \   000000BE   0xB224             SXTH     R4,R4            ;; SignExt  R4,R4,#+16,#+16
+   \   000000C0   0x.... 0x....      LDR.W    R0,??DataTable9_37
+   \   000000C4   0xF9B0 0x002A      LDRSH    R0,[R0, #+42]
+   \   000000C8   0xEBD0 0x0044      RSBS     R0,R0,R4, LSL #+1
+   \   000000CC   0x.... 0x....      LDR.W    R1,??DataTable9_37
+   \   000000D0   0x8588             STRH     R0,[R1, #+44]
+   \   000000D2   0xE00F             B.N      ??v_speed_Give_3
+    496              }
+    497              else
+    498              {
+    499                  m_Control.RightGiveSpd = m_Control.RightMotorSpeed;
+   \                     ??v_speed_Give_2: (+1)
+   \   000000D4   0x.... 0x....      LDR.W    R0,??DataTable9_37
+   \   000000D8   0x.... 0x....      LDR.W    R1,??DataTable9_37
+   \   000000DC   0x8E49             LDRH     R1,[R1, #+50]
+   \   000000DE   0x8581             STRH     R1,[R0, #+44]
+    500                  m_Control.LeftGiveSpd = 2 * speed - m_Control.RightGiveSpd;
+   \   000000E0   0xB224             SXTH     R4,R4            ;; SignExt  R4,R4,#+16,#+16
+   \   000000E2   0x.... 0x....      LDR.W    R0,??DataTable9_37
+   \   000000E6   0xF9B0 0x002C      LDRSH    R0,[R0, #+44]
+   \   000000EA   0xEBD0 0x0044      RSBS     R0,R0,R4, LSL #+1
+   \   000000EE   0x.... 0x....      LDR.W    R1,??DataTable9_37
+   \   000000F2   0x8548             STRH     R0,[R1, #+42]
+    501              }
+    502          
+    503              if((__ABS(m_Control.LeftGiveSpd - m_Control.RightGiveSpd) >= m_Control.LimitedSlipDiffSpd)||((m_Control.LeftGiveSpd < 5)||(m_Control.RightGiveSpd < 5)))
+   \                     ??v_speed_Give_3: (+1)
+   \   000000F4   0x.... 0x....      LDR.W    R0,??DataTable9_37
+   \   000000F8   0xF9B0 0x002A      LDRSH    R0,[R0, #+42]
+   \   000000FC   0x.... 0x....      LDR.W    R1,??DataTable9_37
+   \   00000100   0xF9B1 0x102C      LDRSH    R1,[R1, #+44]
+   \   00000104   0x1A40             SUBS     R0,R0,R1
+   \   00000106   0x2800             CMP      R0,#+0
+   \   00000108   0xD508             BPL.N    ??v_speed_Give_4
+   \   0000010A   0x.... 0x....      LDR.W    R0,??DataTable9_37
+   \   0000010E   0xF9B0 0x002C      LDRSH    R0,[R0, #+44]
+   \   00000112   0x....             LDR.N    R1,??DataTable9_37
+   \   00000114   0xF9B1 0x102A      LDRSH    R1,[R1, #+42]
+   \   00000118   0x1A40             SUBS     R0,R0,R1
+   \   0000011A   0xE006             B.N      ??v_speed_Give_5
+   \                     ??v_speed_Give_4: (+1)
+   \   0000011C   0x....             LDR.N    R0,??DataTable9_37
+   \   0000011E   0xF9B0 0x002A      LDRSH    R0,[R0, #+42]
+   \   00000122   0x....             LDR.N    R1,??DataTable9_37
+   \   00000124   0xF9B1 0x102C      LDRSH    R1,[R1, #+44]
+   \   00000128   0x1A40             SUBS     R0,R0,R1
+   \                     ??v_speed_Give_5: (+1)
+   \   0000012A   0x....             LDR.N    R1,??DataTable9_37
+   \   0000012C   0x8DC9             LDRH     R1,[R1, #+46]
+   \   0000012E   0x4288             CMP      R0,R1
+   \   00000130   0xDA09             BGE.N    ??v_speed_Give_6
+   \   00000132   0x....             LDR.N    R0,??DataTable9_37
+   \   00000134   0xF9B0 0x002A      LDRSH    R0,[R0, #+42]
+   \   00000138   0x2805             CMP      R0,#+5
+   \   0000013A   0xDB04             BLT.N    ??v_speed_Give_6
+   \   0000013C   0x....             LDR.N    R0,??DataTable9_37
+   \   0000013E   0xF9B0 0x002C      LDRSH    R0,[R0, #+44]
+   \   00000142   0x2805             CMP      R0,#+5
+   \   00000144   0xDA28             BGE.N    ??v_speed_Give_7
+    504              {//限制幅度
+    505                  if(m_Control.LeftGiveSpd > m_Control.RightGiveSpd)
+   \                     ??v_speed_Give_6: (+1)
+   \   00000146   0x....             LDR.N    R0,??DataTable9_37
+   \   00000148   0xF9B0 0x002C      LDRSH    R0,[R0, #+44]
+   \   0000014C   0x....             LDR.N    R1,??DataTable9_37
+   \   0000014E   0xF9B1 0x102A      LDRSH    R1,[R1, #+42]
+   \   00000152   0x4288             CMP      R0,R1
+   \   00000154   0xDA10             BGE.N    ??v_speed_Give_8
+    506                  {
+    507                      m_Control.LeftGiveSpd = speed + m_Control.LimitedSlipDiffSpd / 2;
+   \   00000156   0x....             LDR.N    R0,??DataTable9_37
+   \   00000158   0x8DC0             LDRH     R0,[R0, #+46]
+   \   0000015A   0x2102             MOVS     R1,#+2
+   \   0000015C   0xFB90 0xF0F1      SDIV     R0,R0,R1
+   \   00000160   0x1900             ADDS     R0,R0,R4
+   \   00000162   0x....             LDR.N    R1,??DataTable9_37
+   \   00000164   0x8548             STRH     R0,[R1, #+42]
+    508                      m_Control.RightGiveSpd = speed - m_Control.LimitedSlipDiffSpd / 2;
+   \   00000166   0x....             LDR.N    R0,??DataTable9_37
+   \   00000168   0x8DC0             LDRH     R0,[R0, #+46]
+   \   0000016A   0x2102             MOVS     R1,#+2
+   \   0000016C   0xFB90 0xF0F1      SDIV     R0,R0,R1
+   \   00000170   0x1A20             SUBS     R0,R4,R0
+   \   00000172   0x....             LDR.N    R1,??DataTable9_37
+   \   00000174   0x8588             STRH     R0,[R1, #+44]
+   \   00000176   0xE00F             B.N      ??v_speed_Give_7
+    509                  }
+    510                  else
+    511                  {
+    512                      m_Control.LeftGiveSpd = speed - m_Control.LimitedSlipDiffSpd / 2;
+   \                     ??v_speed_Give_8: (+1)
+   \   00000178   0x....             LDR.N    R0,??DataTable9_37
+   \   0000017A   0x8DC0             LDRH     R0,[R0, #+46]
+   \   0000017C   0x2102             MOVS     R1,#+2
+   \   0000017E   0xFB90 0xF0F1      SDIV     R0,R0,R1
+   \   00000182   0x1A20             SUBS     R0,R4,R0
+   \   00000184   0x....             LDR.N    R1,??DataTable9_37
+   \   00000186   0x8548             STRH     R0,[R1, #+42]
+    513                      m_Control.RightGiveSpd = speed + m_Control.LimitedSlipDiffSpd / 2;
+   \   00000188   0x....             LDR.N    R0,??DataTable9_37
+   \   0000018A   0x8DC0             LDRH     R0,[R0, #+46]
+   \   0000018C   0x2102             MOVS     R1,#+2
+   \   0000018E   0xFB90 0xF0F1      SDIV     R0,R0,R1
+   \   00000192   0x1900             ADDS     R0,R0,R4
+   \   00000194   0x....             LDR.N    R1,??DataTable9_37
+   \   00000196   0x8588             STRH     R0,[R1, #+44]
+    514                  }
+    515              }
+    516              //增加低通滤波
+    517              
+    518              v_speed_set2pwm(m_Control.LeftGiveSpd,m_Control.RightGiveSpd,3);
+   \                     ??v_speed_Give_7: (+1)
+   \   00000198   0x2203             MOVS     R2,#+3
+   \   0000019A   0x....             LDR.N    R0,??DataTable9_37
+   \   0000019C   0xF9B0 0x102C      LDRSH    R1,[R0, #+44]
+   \   000001A0   0x....             LDR.N    R0,??DataTable9_37
+   \   000001A2   0xF9B0 0x002A      LDRSH    R0,[R0, #+42]
+   \   000001A6   0x.... 0x....      BL       v_speed_set2pwm
+    519          }
+   \   000001AA   0xBD31             POP      {R0,R4,R5,PC}    ;; return
+    520          
+    521          
+
+   \                                 In section .text, align 4, keep-with-next
+    522          void v_speed_Give_UsedsmallChange(sint16 speed)
+    523          {
+   \                     v_speed_Give_UsedsmallChange: (+1)
+   \   00000000   0xB510             PUSH     {R4,LR}
+   \   00000002   0xED2D 0x8B02      VPUSH    {D8}
+   \   00000006   0x0004             MOVS     R4,R0
+    524              m_Control.LimitedSlipDiffSpd = speed * 2 - 10;
+   \   00000008   0xB224             SXTH     R4,R4            ;; SignExt  R4,R4,#+16,#+16
+   \   0000000A   0x0060             LSLS     R0,R4,#+1
+   \   0000000C   0x380A             SUBS     R0,R0,#+10
+   \   0000000E   0x....             LDR.N    R1,??DataTable9_37
+   \   00000010   0x85C8             STRH     R0,[R1, #+46]
+    525            
+    526              float LeftRightRatio = //
+    527                   (n_GetServoGraduated(m_Control.ServoAngle) -number_ServoGraduated/2)
+    528                  /(float)(number_ServoGraduated/2);//-1.f~1.f//<0.f左转 .0.f右转
+   \   00000012   0x....             LDR.N    R0,??DataTable9_37
+   \   00000014   0x8D00             LDRH     R0,[R0, #+40]
+   \   00000016   0x.... 0x....      BL       n_GetServoGraduated
+   \   0000001A   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
+   \   0000001C   0x....             LDR.N    R1,??DataTable9_40
+   \   0000001E   0x8809             LDRH     R1,[R1, #+0]
+   \   00000020   0x2202             MOVS     R2,#+2
+   \   00000022   0xFB91 0xF1F2      SDIV     R1,R1,R2
+   \   00000026   0x1A40             SUBS     R0,R0,R1
+   \   00000028   0xEE00 0x0A10      VMOV     S0,R0
+   \   0000002C   0xEEB8 0x0AC0      VCVT.F32.S32 S0,S0
+   \   00000030   0x....             LDR.N    R0,??DataTable9_40
+   \   00000032   0x8800             LDRH     R0,[R0, #+0]
+   \   00000034   0x2102             MOVS     R1,#+2
+   \   00000036   0xFB90 0xF0F1      SDIV     R0,R0,R1
+   \   0000003A   0xEE00 0x0A90      VMOV     S1,R0
+   \   0000003E   0xEEF8 0x0AE0      VCVT.F32.S32 S1,S1
+   \   00000042   0xEE80 0x8A20      VDIV.F32 S16,S0,S1
+    529              
+    530              m_Control.LeftRightRatio = n_GetServoGraduated(m_Control.ServoAngle);//给定转速率        
+   \   00000046   0x....             LDR.N    R0,??DataTable9_37
+   \   00000048   0x8D00             LDRH     R0,[R0, #+40]
+   \   0000004A   0x.... 0x....      BL       n_GetServoGraduated
+   \   0000004E   0x....             LDR.N    R1,??DataTable9_37
+   \   00000050   0x8188             STRH     R0,[R1, #+12]
+    531              //以下为机械差速
+    532              sint16 speed_average = (m_Control.LeftMotorSpeed + m_Control.RightMotorSpeed) / 2;//实际速度的均值
+   \   00000052   0x....             LDR.N    R0,??DataTable9_37
+   \   00000054   0xF9B0 0x0030      LDRSH    R0,[R0, #+48]
+   \   00000058   0x....             LDR.N    R1,??DataTable9_37
+   \   0000005A   0xF9B1 0x1032      LDRSH    R1,[R1, #+50]
+   \   0000005E   0x1808             ADDS     R0,R1,R0
+   \   00000060   0x2102             MOVS     R1,#+2
+   \   00000062   0xFB90 0xF0F1      SDIV     R0,R0,R1
+    533              sint16 error_beWith = speed - speed_average;//给定速度与实际速度均值的偏差
+   \   00000066   0x1A20             SUBS     R0,R4,R0
+    534              
+    535              float smallChange = //左右轮速度相差=>这里为正反馈//1-左轮速度比右轮大
+    536              (float)(m_Control.LeftMotorSpeed - m_Control.RightMotorSpeed)/(float)(m_Control.LeftMotorSpeed + m_Control.RightMotorSpeed);
+   \   00000068   0x....             LDR.N    R1,??DataTable9_37
+   \   0000006A   0xF9B1 0x1030      LDRSH    R1,[R1, #+48]
+   \   0000006E   0x....             LDR.N    R2,??DataTable9_37
+   \   00000070   0xF9B2 0x2032      LDRSH    R2,[R2, #+50]
+   \   00000074   0x1A89             SUBS     R1,R1,R2
+   \   00000076   0xEE00 0x1A10      VMOV     S0,R1
+   \   0000007A   0xEEB8 0x0AC0      VCVT.F32.S32 S0,S0
+   \   0000007E   0x....             LDR.N    R1,??DataTable9_37
+   \   00000080   0xF9B1 0x1030      LDRSH    R1,[R1, #+48]
+   \   00000084   0x....             LDR.N    R2,??DataTable9_37
+   \   00000086   0xF9B2 0x2032      LDRSH    R2,[R2, #+50]
+   \   0000008A   0x1851             ADDS     R1,R2,R1
+   \   0000008C   0xEE00 0x1A90      VMOV     S1,R1
+   \   00000090   0xEEF8 0x0AE0      VCVT.F32.S32 S1,S1
+   \   00000094   0xEE80 0x0A20      VDIV.F32 S0,S0,S1
+    537              if(smallChange > 1.f){smallChange = 1.f;}
+   \   00000098   0xEDDF 0x....      VLDR.W   S1,??DataTable9_3  ;; 0x3f800001
+   \   0000009C   0xEEB4 0x0A60      VCMP.F32 S0,S1
+   \   000000A0   0xEEF1 0xFA10      FMSTAT   
+   \   000000A4   0xDB01             BLT.N    ??v_speed_Give_UsedsmallChange_0
+   \   000000A6   0xEEB7 0x0A00      VMOV.F32 S0,#1.0
+    538              if(smallChange <-1.f){smallChange =-1.f;}
+   \                     ??v_speed_Give_UsedsmallChange_0: (+1)
+   \   000000AA   0xEEFF 0x0A00      VMOV.F32 S1,#-1.0
+   \   000000AE   0xEEB4 0x0A60      VCMP.F32 S0,S1
+   \   000000B2   0xEEF1 0xFA10      FMSTAT   
+   \   000000B6   0xD501             BPL.N    ??v_speed_Give_UsedsmallChange_1
+   \   000000B8   0xEEBF 0x0A00      VMOV.F32 S0,#-1.0
+    539              smallChange = (smallChange + 1.f)/2.f;//0.f-2.f => 0.5f - 1.f这个区间是左轮快 / 否则就是右轮快
+   \                     ??v_speed_Give_UsedsmallChange_1: (+1)
+   \   000000BC   0xEEF7 0x0A00      VMOV.F32 S1,#1.0
+   \   000000C0   0xEE30 0x0A20      VADD.F32 S0,S0,S1
+   \   000000C4   0xEEF0 0x0A00      VMOV.F32 S1,#2.0
+   \   000000C8   0xEE80 0x0A20      VDIV.F32 S0,S0,S1
+    540              m_Control.LeftGiveSpd  = m_Control.LeftMotorSpeed + smallChange*error_beWith*2.f;
+   \   000000CC   0x....             LDR.N    R1,??DataTable9_37
+   \   000000CE   0xF9B1 0x1030      LDRSH    R1,[R1, #+48]
+   \   000000D2   0xEE00 0x1A90      VMOV     S1,R1
+   \   000000D6   0xEEF8 0x0AE0      VCVT.F32.S32 S1,S1
+   \   000000DA   0xB200             SXTH     R0,R0            ;; SignExt  R0,R0,#+16,#+16
+   \   000000DC   0xEE01 0x0A10      VMOV     S2,R0
+   \   000000E0   0xEEB8 0x1AC1      VCVT.F32.S32 S2,S2
+   \   000000E4   0xEE21 0x1A00      VMUL.F32 S2,S2,S0
+   \   000000E8   0xEEF0 0x1A00      VMOV.F32 S3,#2.0
+   \   000000EC   0xEE41 0x0A21      VMLA.F32 S1,S2,S3
+   \   000000F0   0xEEFD 0x0AE0      VCVT.S32.F32 S1,S1
+   \   000000F4   0xEE10 0x1A90      VMOV     R1,S1
+   \   000000F8   0x....             LDR.N    R2,??DataTable9_37
+   \   000000FA   0x8551             STRH     R1,[R2, #+42]
+    541              m_Control.RightGiveSpd = m_Control.RightMotorSpeed + (1.f-smallChange)*error_beWith*2.f;
+   \   000000FC   0x....             LDR.N    R1,??DataTable9_37
+   \   000000FE   0xF9B1 0x1032      LDRSH    R1,[R1, #+50]
+   \   00000102   0xEE00 0x1A90      VMOV     S1,R1
+   \   00000106   0xEEF8 0x0AE0      VCVT.F32.S32 S1,S1
+   \   0000010A   0xEEB7 0x1A00      VMOV.F32 S2,#1.0
+   \   0000010E   0xEE31 0x0A40      VSUB.F32 S0,S2,S0
+   \   00000112   0xB200             SXTH     R0,R0            ;; SignExt  R0,R0,#+16,#+16
+   \   00000114   0xEE01 0x0A10      VMOV     S2,R0
+   \   00000118   0xEEB8 0x1AC1      VCVT.F32.S32 S2,S2
+   \   0000011C   0xEE20 0x0A01      VMUL.F32 S0,S0,S2
+   \   00000120   0xEEB0 0x1A00      VMOV.F32 S2,#2.0
+   \   00000124   0xEE40 0x0A01      VMLA.F32 S1,S0,S2
+   \   00000128   0xEEBD 0x0AE0      VCVT.S32.F32 S0,S1
+   \   0000012C   0xEE10 0x0A10      VMOV     R0,S0
+   \   00000130   0x....             LDR.N    R1,??DataTable9_37
+   \   00000132   0x8588             STRH     R0,[R1, #+44]
+    542              
+    543              if((__ABS(m_Control.LeftGiveSpd - m_Control.RightGiveSpd) >= m_Control.LimitedSlipDiffSpd)||((m_Control.LeftGiveSpd < 5)||(m_Control.RightGiveSpd < 5)))
+   \   00000134   0x....             LDR.N    R0,??DataTable9_37
+   \   00000136   0xF9B0 0x002A      LDRSH    R0,[R0, #+42]
+   \   0000013A   0x....             LDR.N    R1,??DataTable9_37
+   \   0000013C   0xF9B1 0x102C      LDRSH    R1,[R1, #+44]
+   \   00000140   0x1A40             SUBS     R0,R0,R1
+   \   00000142   0x2800             CMP      R0,#+0
+   \   00000144   0xD507             BPL.N    ??v_speed_Give_UsedsmallChange_2
+   \   00000146   0x....             LDR.N    R0,??DataTable9_37
+   \   00000148   0xF9B0 0x002C      LDRSH    R0,[R0, #+44]
+   \   0000014C   0x....             LDR.N    R1,??DataTable9_37
+   \   0000014E   0xF9B1 0x102A      LDRSH    R1,[R1, #+42]
+   \   00000152   0x1A40             SUBS     R0,R0,R1
+   \   00000154   0xE006             B.N      ??v_speed_Give_UsedsmallChange_3
+   \                     ??v_speed_Give_UsedsmallChange_2: (+1)
+   \   00000156   0x....             LDR.N    R0,??DataTable9_37
+   \   00000158   0xF9B0 0x002A      LDRSH    R0,[R0, #+42]
+   \   0000015C   0x....             LDR.N    R1,??DataTable9_37
+   \   0000015E   0xF9B1 0x102C      LDRSH    R1,[R1, #+44]
+   \   00000162   0x1A40             SUBS     R0,R0,R1
+   \                     ??v_speed_Give_UsedsmallChange_3: (+1)
+   \   00000164   0x....             LDR.N    R1,??DataTable9_37
+   \   00000166   0x8DC9             LDRH     R1,[R1, #+46]
+   \   00000168   0x4288             CMP      R0,R1
+   \   0000016A   0xDA09             BGE.N    ??v_speed_Give_UsedsmallChange_4
+   \   0000016C   0x....             LDR.N    R0,??DataTable9_37
+   \   0000016E   0xF9B0 0x002A      LDRSH    R0,[R0, #+42]
+   \   00000172   0x2805             CMP      R0,#+5
+   \   00000174   0xDB04             BLT.N    ??v_speed_Give_UsedsmallChange_4
+   \   00000176   0x....             LDR.N    R0,??DataTable9_37
+   \   00000178   0xF9B0 0x002C      LDRSH    R0,[R0, #+44]
+   \   0000017C   0x2805             CMP      R0,#+5
+   \   0000017E   0xDA28             BGE.N    ??v_speed_Give_UsedsmallChange_5
+    544              {//限制幅度
+    545                  if(m_Control.LeftGiveSpd > m_Control.RightGiveSpd)
+   \                     ??v_speed_Give_UsedsmallChange_4: (+1)
+   \   00000180   0x....             LDR.N    R0,??DataTable9_37
+   \   00000182   0xF9B0 0x002C      LDRSH    R0,[R0, #+44]
+   \   00000186   0x....             LDR.N    R1,??DataTable9_37
+   \   00000188   0xF9B1 0x102A      LDRSH    R1,[R1, #+42]
+   \   0000018C   0x4288             CMP      R0,R1
+   \   0000018E   0xDA10             BGE.N    ??v_speed_Give_UsedsmallChange_6
+    546                  {
+    547                      m_Control.LeftGiveSpd = speed + m_Control.LimitedSlipDiffSpd / 2;
+   \   00000190   0x....             LDR.N    R0,??DataTable9_37
+   \   00000192   0x8DC0             LDRH     R0,[R0, #+46]
+   \   00000194   0x2102             MOVS     R1,#+2
+   \   00000196   0xFB90 0xF0F1      SDIV     R0,R0,R1
+   \   0000019A   0x1900             ADDS     R0,R0,R4
+   \   0000019C   0x....             LDR.N    R1,??DataTable9_37
+   \   0000019E   0x8548             STRH     R0,[R1, #+42]
+    548                      m_Control.RightGiveSpd = speed - m_Control.LimitedSlipDiffSpd / 2;
+   \   000001A0   0x....             LDR.N    R0,??DataTable9_37
+   \   000001A2   0x8DC0             LDRH     R0,[R0, #+46]
+   \   000001A4   0x2102             MOVS     R1,#+2
+   \   000001A6   0xFB90 0xF0F1      SDIV     R0,R0,R1
+   \   000001AA   0x1A20             SUBS     R0,R4,R0
+   \   000001AC   0x....             LDR.N    R1,??DataTable9_37
+   \   000001AE   0x8588             STRH     R0,[R1, #+44]
+   \   000001B0   0xE00F             B.N      ??v_speed_Give_UsedsmallChange_5
+    549                  }
+    550                  else
+    551                  {
+    552                      m_Control.LeftGiveSpd = speed - m_Control.LimitedSlipDiffSpd / 2;
+   \                     ??v_speed_Give_UsedsmallChange_6: (+1)
+   \   000001B2   0x....             LDR.N    R0,??DataTable9_37
+   \   000001B4   0x8DC0             LDRH     R0,[R0, #+46]
+   \   000001B6   0x2102             MOVS     R1,#+2
+   \   000001B8   0xFB90 0xF0F1      SDIV     R0,R0,R1
+   \   000001BC   0x1A20             SUBS     R0,R4,R0
+   \   000001BE   0x....             LDR.N    R1,??DataTable9_37
+   \   000001C0   0x8548             STRH     R0,[R1, #+42]
+    553                      m_Control.RightGiveSpd = speed + m_Control.LimitedSlipDiffSpd / 2;
+   \   000001C2   0x....             LDR.N    R0,??DataTable9_37
+   \   000001C4   0x8DC0             LDRH     R0,[R0, #+46]
+   \   000001C6   0x2102             MOVS     R1,#+2
+   \   000001C8   0xFB90 0xF0F1      SDIV     R0,R0,R1
+   \   000001CC   0x1900             ADDS     R0,R0,R4
+   \   000001CE   0x....             LDR.N    R1,??DataTable9_37
+   \   000001D0   0x8588             STRH     R0,[R1, #+44]
+    554                  }
+    555              }
+    556              
+    557              v_speed_set2pwm(m_Control.LeftGiveSpd,m_Control.RightGiveSpd,3);
+   \                     ??v_speed_Give_UsedsmallChange_5: (+1)
+   \   000001D2   0x2203             MOVS     R2,#+3
+   \   000001D4   0x....             LDR.N    R0,??DataTable9_37
+   \   000001D6   0xF9B0 0x102C      LDRSH    R1,[R0, #+44]
+   \   000001DA   0x....             LDR.N    R0,??DataTable9_37
+   \   000001DC   0xF9B0 0x002A      LDRSH    R0,[R0, #+42]
+   \   000001E0   0x.... 0x....      BL       v_speed_set2pwm
+    558          }
+   \   000001E4   0xECBD 0x8B02      VPOP     {D8}
+   \   000001E8   0xBD10             POP      {R4,PC}          ;; return
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable5:
+   \   00000000   0x00000000         DC32     0x0
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable5_1:
+   \   00000000   0x47127C00         DC32     0x47127c00
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable7:
+   \   00000000   0x00000000         DC32     0x0
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable7_1:
+   \   00000000   0x44700001         DC32     0x44700001
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable7_2:
+   \   00000000   0xC4700000         DC32     0xc4700000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable7_3:
+   \   00000000   0x446D8001         DC32     0x446d8001
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable7_4:
+   \   00000000   0x446D8000         DC32     0x446d8000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable7_5:
+   \   00000000   0xC46D8000         DC32     0xc46d8000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8:
+   \   00000000   0x43C80000         DC32     0x43c80000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_1:
+   \   00000000   0x........         DC32     m_self_Motor_Para
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_2:
+   \   00000000   0x4004803C         DC32     0x4004803c
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_3:
+   \   00000000   0x40048030         DC32     0x40048030
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_4:
+   \   00000000   0x40048038         DC32     0x40048038
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_5:
+   \   00000000   0x40049020         DC32     0x40049020
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_6:
+   \   00000000   0x40049024         DC32     0x40049024
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_7:
+   \   00000000   0x40049028         DC32     0x40049028
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_8:
+   \   00000000   0x4004902C         DC32     0x4004902c
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_9:
+   \   00000000   0x40039008         DC32     0x40039008
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_10:
+   \   00000000   0x40039054         DC32     0x40039054
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_11:
+   \   00000000   0x40039080         DC32     0x40039080
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_12:
+   \   00000000   0x4003904C         DC32     0x4003904c
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_13:
+   \   00000000   0x40039004         DC32     0x40039004
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_14:
+   \   00000000   0x400B8008         DC32     0x400b8008
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_15:
+   \   00000000   0x400B8054         DC32     0x400b8054
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable9:
+   \   00000000   0x400B8080         DC32     0x400b8080
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable9_1:
+   \   00000000   0x400B804C         DC32     0x400b804c
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable9_2:
+   \   00000000   0x400B8004         DC32     0x400b8004
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable9_3:
+   \   00000000   0x3F800001         DC32     0x3f800001
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable9_4:
+   \   00000000   0x4004B020         DC32     0x4004b020
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable9_5:
+   \   00000000   0x4004B024         DC32     0x4004b024
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable9_6:
+   \   00000000   0x4004B028         DC32     0x4004b028
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable9_7:
+   \   00000000   0x4004B02C         DC32     0x4004b02c
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable9_8:
+   \   00000000   0x4004B040         DC32     0x4004b040
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable9_9:
+   \   00000000   0x4004B044         DC32     0x4004b044
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable9_10:
+   \   00000000   0x4004B048         DC32     0x4004b048
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable9_11:
+   \   00000000   0x4004B04C         DC32     0x4004b04c
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable9_12:
+   \   00000000   0x400FF094         DC32     0x400ff094
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable9_13:
+   \   00000000   0x400FF080         DC32     0x400ff080
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable9_14:
+   \   00000000   0x400B902C         DC32     0x400b902c
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable9_15:
+   \   00000000   0x400B9034         DC32     0x400b9034
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable9_16:
+   \   00000000   0x400B903C         DC32     0x400b903c
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable9_17:
+   \   00000000   0x400B9044         DC32     0x400b9044
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable9_18:
+   \   00000000   0x400B9000         DC32     0x400b9000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable9_19:
+   \   00000000   0x400B9008         DC32     0x400b9008
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable9_20:
+   \   00000000   0x400B9030         DC32     0x400b9030
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable9_21:
+   \   00000000   0x400B9038         DC32     0x400b9038
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable9_22:
+   \   00000000   0x400B9040         DC32     0x400b9040
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable9_23:
+   \   00000000   0x400B9048         DC32     0x400b9048
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable9_24:
+   \   00000000   0x400B9004         DC32     0x400b9004
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable9_25:
+   \   00000000   0x0001D4C0         DC32     0x1d4c0
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable9_26:
+   \   00000000   0x400BB008         DC32     0x400bb008
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable9_27:
+   \   00000000   0x400BB00C         DC32     0x400bb00c
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable9_28:
+   \   00000000   0x400BB024         DC32     0x400bb024
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable9_29:
+   \   00000000   0x4003B008         DC32     0x4003b008
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable9_30:
+   \   00000000   0x4003B00C         DC32     0x4003b00c
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable9_31:
+   \   00000000   0x4003B024         DC32     0x4003b024
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable9_32:
+   \   00000000   0x400BB000         DC32     0x400bb000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable9_33:
+   \   00000000   0x4003B000         DC32     0x4003b000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable9_34:
+   \   00000000   0x400BB010         DC32     0x400bb010
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable9_35:
+   \   00000000   0x4003B010         DC32     0x4003b010
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable9_36:
+   \   00000000   0x408F4000         DC32     0x408f4000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable9_37:
+   \   00000000   0x........         DC32     m_Control
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable9_38:
+   \   00000000   0x........         DC32     ??v_e_Counter_L
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable9_39:
+   \   00000000   0x........         DC32     ??v_e_Counter_R
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable9_40:
+   \   00000000   0x........         DC32     number_ServoGraduated
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable9_41:
+   \   00000000   0xFFFFFC36         DC32     0xfffffc36
+    559          
+    560          
+    561              //m_Control.LeftGiveSpd = (sint16)((float)(m_Control.LeftMotorSpeed) + ((float)error_beWith *(1.f - ratio)*2.f));
+    562              //m_Control.RightGiveSpd = (sint16)((float)(m_Control.RightMotorSpeed) + ((float)error_beWith * ratio * 2.f));
+    563          
+    564              
+    565              /*
+    566              float ratio = (float)(m_Control.LeftMotorSpeed - m_Control.RightMotorSpeed)//差比和
+    567                           /(float)(2 * speed);//=>分母接近于2*speed
+    568              //根据转速差分配转速，将转速分配更多给转速快的轮子上 => 实际上可以不用限滑差速器
+    569          //    float ratio_mark = (__F_ABS(ratio) / ratio);
+    570          //    ratio = ratio_mark * (2*__F_ABS(ratio) - ratio*ratio);//x^3
+    571              //ratio = ratio * ratio; => 会出现为0的情况
+    572              //这里能表征左右轮转速偏差 => 分配速度的差值
+    573              //-1表征转速更倾向于左轮//1表征转速更倾向于右轮
+    574              ratio = (ratio + 1.f)/2.f;//归一化//0 ~ 1
+    575              if(ratio > 1.f){ratio = 1.f;}
+    576              if(ratio < 0.f){ratio = 0.f;}
+    577              //在这个基础上更改差速
+    578              
+    579              sint16 Last_LeftGiveSpd = m_Control.LeftGiveSpd;
+    580              sint16 Last_RightGiveSpd = m_Control.RightGiveSpd;//记录数值
+    581              
+    582              m_Control.LeftGiveSpd = (sint16)((float)(m_Control.LeftMotorSpeed) + ((float)error_beWith *(1.f - ratio)*2.f));
+    583              m_Control.RightGiveSpd = (sint16)((float)(m_Control.RightMotorSpeed) + ((float)error_beWith * ratio * 2.f));
+    584              */
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       0   b_GetCurrent
+       0   b_GetMotor_electric
+       0   n_GetMotor_speed
+       0   v_SetCurrentStart
+       0   v_ele_set2pwm
+       8   v_leftMotor_pwmOut
+         8   -> __aeabi_d2f
+         8   -> __aeabi_ddiv
+         8   -> __aeabi_f2d
+       8   v_motor_Init
+         8   -> v_leftMotor_pwmOut
+         8   -> v_rightMotor_pwmOut
+       8   v_rightMotor_pwmOut
+         8   -> __aeabi_d2f
+         8   -> __aeabi_ddiv
+         8   -> __aeabi_f2d
+      16   v_speed_Give
+        16   -> n_GetServoGraduated
+        16   -> v_speed_set2pwm
+      16   v_speed_Give_UsedsmallChange
+        16   -> n_GetServoGraduated
+        16   -> v_speed_set2pwm
+       8   v_speed_Test
+         8   -> v_speed_set2pwm
+       8   v_speed_set2pwm
+         8   -> n_GetServoGraduated
+         8   -> v_leftMotor_pwmOut
+         8   -> v_rightMotor_pwmOut
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable5
+       4  ??DataTable5_1
+       4  ??DataTable7
+       4  ??DataTable7_1
+       4  ??DataTable7_2
+       4  ??DataTable7_3
+       4  ??DataTable7_4
+       4  ??DataTable7_5
+       4  ??DataTable8
+       4  ??DataTable8_1
+       4  ??DataTable8_10
+       4  ??DataTable8_11
+       4  ??DataTable8_12
+       4  ??DataTable8_13
+       4  ??DataTable8_14
+       4  ??DataTable8_15
+       4  ??DataTable8_2
+       4  ??DataTable8_3
+       4  ??DataTable8_4
+       4  ??DataTable8_5
+       4  ??DataTable8_6
+       4  ??DataTable8_7
+       4  ??DataTable8_8
+       4  ??DataTable8_9
+       4  ??DataTable9
+       4  ??DataTable9_1
+       4  ??DataTable9_10
+       4  ??DataTable9_11
+       4  ??DataTable9_12
+       4  ??DataTable9_13
+       4  ??DataTable9_14
+       4  ??DataTable9_15
+       4  ??DataTable9_16
+       4  ??DataTable9_17
+       4  ??DataTable9_18
+       4  ??DataTable9_19
+       4  ??DataTable9_2
+       4  ??DataTable9_20
+       4  ??DataTable9_21
+       4  ??DataTable9_22
+       4  ??DataTable9_23
+       4  ??DataTable9_24
+       4  ??DataTable9_25
+       4  ??DataTable9_26
+       4  ??DataTable9_27
+       4  ??DataTable9_28
+       4  ??DataTable9_29
+       4  ??DataTable9_3
+       4  ??DataTable9_30
+       4  ??DataTable9_31
+       4  ??DataTable9_32
+       4  ??DataTable9_33
+       4  ??DataTable9_34
+       4  ??DataTable9_35
+       4  ??DataTable9_36
+       4  ??DataTable9_37
+       4  ??DataTable9_38
+       4  ??DataTable9_39
+       4  ??DataTable9_4
+       4  ??DataTable9_40
+       4  ??DataTable9_41
+       4  ??DataTable9_5
+       4  ??DataTable9_6
+       4  ??DataTable9_7
+       4  ??DataTable9_8
+       4  ??DataTable9_9
+      76  b_GetCurrent
+      56  b_GetMotor_electric
+      24  m_self_Motor_Para
+      12  n_GetMotor_speed
+      98  v_SetCurrentStart
+       4  v_e_Counter_L
+       4  v_e_Counter_R
+       2  v_ele_set2pwm
+     292  v_leftMotor_pwmOut
+     754  v_motor_Init
+     292  v_rightMotor_pwmOut
+     428  v_speed_Give
+     490  v_speed_Give_UsedsmallChange
+      22  v_speed_Test
+     796  v_speed_set2pwm
+
+ 
+    32 bytes in section .bss
+ 3 582 bytes in section .text
+ 
+ 3 582 bytes of CODE memory
+    32 bytes of DATA memory
+
+Errors: none
+Warnings: 6

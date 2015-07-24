@@ -1,0 +1,283 @@
+###############################################################################
+#                                                                             #
+# IAR ANSI C/C++ Compiler V6.60.1.5097/W32 for ARM      04/Jul/2015  06:49:27 #
+# Copyright 1999-2013 IAR Systems AB.                                         #
+#                                                                             #
+#    Cpu mode     =  thumb                                                    #
+#    Endian       =  little                                                   #
+#    Source file  =  D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\Ë³°µÈýºÅ\´úÂë\Ë³°µÈýºÅ-ÆðÔ´-µ #
+#                    ÚÒ»´ú°å\Library\BlessedAlien\ShunAn_Lib.c                #
+#    Command line =  D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\Ë³°µÈýºÅ\´úÂë\Ë³°µÈýºÅ-ÆðÔ´-µ #
+#                    ÚÒ»´ú°å\Library\BlessedAlien\ShunAn_Lib.c -D IAR -D      #
+#                    TWR_K60F120M -lCN D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\Ë³°µÈýºÅ\´ú #
+#                    Âë\Ë³°µÈýºÅ-ÆðÔ´-µÚÒ»´ú°å\FLASH_1MB\List\ -lB            #
+#                    D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\Ë³°µÈýºÅ\´úÂë\Ë³°µÈýºÅ-ÆðÔ´-µ #
+#                    ÚÒ»´ú°å\FLASH_1MB\List\ -o D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\Ë³ #
+#                    °µÈýºÅ\´úÂë\Ë³°µÈýºÅ-ÆðÔ´-µÚÒ»´ú°å\FLASH_1MB\Obj\        #
+#                    --no_cse --no_unroll --no_inline --no_code_motion        #
+#                    --no_tbaa --no_clustering --no_scheduling --debug        #
+#                    --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp        #
+#                    --dlib_config "C:\Program Files (x86)\IAR                #
+#                    Systems\Embedded Workbench 6.5\arm\INC\c\DLib_Config_Nor #
+#                    mal.h" -I D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\Ë³°µÈýºÅ\´úÂë\Ë³°µÈ #
+#                    ýºÅ-ÆðÔ´-µÚÒ»´ú°å\ -I D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\Ë³°µÈýº #
+#                    Å\´úÂë\Ë³°µÈýºÅ-ÆðÔ´-µÚÒ»´ú°å\Library\ -I                #
+#                    D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\Ë³°µÈýºÅ\´úÂë\Ë³°µÈýºÅ-ÆðÔ´-µ #
+#                    ÚÒ»´ú°å\Library\BlessedAlien\ -I                         #
+#                    D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\Ë³°µÈýºÅ\´úÂë\Ë³°µÈýºÅ-ÆðÔ´-µ #
+#                    ÚÒ»´ú°å\ShunAn_Panel\ -Ol --use_c++_inline               #
+#    List file    =  D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\Ë³°µÈýºÅ\´úÂë\Ë³°µÈýºÅ-ÆðÔ´-µ #
+#                    ÚÒ»´ú°å\FLASH_1MB\List\ShunAn_Lib.lst                    #
+#    Object file  =  D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\Ë³°µÈýºÅ\´úÂë\Ë³°µÈýºÅ-ÆðÔ´-µ #
+#                    ÚÒ»´ú°å\FLASH_1MB\Obj\ShunAn_Lib.o                       #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+D:\´´×÷ÊÒ\·ÉË¼¿¨¶ûÖÇÄÜÐ¡³µ\Ë³°µÈýºÅ\´úÂë\Ë³°µÈýºÅ-ÆðÔ´-µÚÒ»´ú°å\Library\BlessedAlien\ShunAn_Lib.c
+      1          // µ¥¾«¶È×ª»»ÎªÕûÐÎ
+      2          #include "arm_cm4.h"
+      3          #include "MK60F15.h"
+      4          #include "ShunAn_Lib.h"
+      5          #include "start_ShunAn.h"
+      6          
+
+   \                                 In section .rodata, align 2
+      7          const unsigned short int number_ServoGraduated = 400;
+   \                     number_ServoGraduated:
+   \   00000000   0x0190             DC16 400
+      8          
+
+   \                                 In section .text, align 2, keep-with-next
+      9          signed long int RoundToInt32 (float dval)
+     10          {
+     11              signed long int val = 0;
+   \                     RoundToInt32: (+1)
+   \   00000000   0x2000             MOVS     R0,#+0
+     12              static float magic = 12582912.0;
+     13              dval += magic;
+   \   00000002   0x....             LDR.N    R1,??DataTable4
+   \   00000004   0xEDD1 0x0A00      VLDR     S1,[R1, #0]
+   \   00000008   0xEE30 0x0A20      VADD.F32 S0,S0,S1
+     14              val = *(signed long int*)&dval;
+   \   0000000C   0xEE10 0x1A10      VMOV     R1,S0
+   \   00000010   0x0008             MOVS     R0,R1
+     15              return val;
+   \   00000012   0x4770             BX       LR               ;; return
+     16          }
+
+   \                                 In section .data, align 4
+   \                     ??magic:
+   \   00000000   0x4B400000         DC32 4B400000H
+     17          // Ë«¾«¶È×ª»»ÎªÕûÐÎ
+
+   \                                 In section .text, align 2, keep-with-next
+     18          signed long int RoundToInt64 (double dval)
+     19          {
+   \                     RoundToInt64: (+1)
+   \   00000000   0xB510             PUSH     {R4,LR}
+   \   00000002   0xED2D 0x0B02      VPUSH    {D0}
+     20              signed long int val = 0;
+   \   00000006   0x2400             MOVS     R4,#+0
+     21              static double magic = 6755399441055744.0;
+     22              dval += magic;
+   \   00000008   0xE9DD 0x2300      LDRD     R2,R3,[SP, #+0]
+   \   0000000C   0x....             LDR.N    R0,??DataTable4_1
+   \   0000000E   0x6841             LDR      R1,[R0, #+4]
+   \   00000010   0x6800             LDR      R0,[R0, #+0]
+   \   00000012   0x.... 0x....      BL       __aeabi_dadd
+   \   00000016   0xE9CD 0x0100      STRD     R0,R1,[SP, #+0]
+     23              val = *(signed long int*)&dval;
+   \   0000001A   0x9800             LDR      R0,[SP, #+0]
+   \   0000001C   0x0004             MOVS     R4,R0
+     24              return val;
+   \   0000001E   0x0020             MOVS     R0,R4
+   \   00000020   0xBD16             POP      {R1,R2,R4,PC}    ;; return
+     25          }
+
+   \                                 In section .data, align 8
+   \                     ??magic_1:
+   \   00000000   0x00000000         DC32 0H, 43380000H
+   \              0x43380000   
+     26          // ÑÓ³Ùº¯Êý
+     27          /*
+     28          void vDelayMs( unsigned int MuchMs )
+     29          {
+     30            	unsigned int pool_Much = 0;  
+     31          	unsigned int pool_ms = 0;
+     32          	for(pool_Much=0;pool_Much<MuchMs;pool_Much++)
+     33          	{
+     34                    for(pool_ms=0;pool_ms<19100;pool_ms++);//Ô¼Îª1msÑÓ³Ù
+     35          	}
+     36          }
+     37          */
+     38          // Æ½·½¸ù
+     39          // ²âÊÔÊ±¼ä 0.6 us / 2 => 0.3 us // ¿ªÆô¸¡µã
+     40          // 77ms / 10000 / 2 // ¹Ø±Õ¸¡µã
+     41          // ¾«¶ÈÔ¼ÎªºóÎåÎ»
+     42          // ±ê×¼¿â sqrt 98 ms
+
+   \                                 In section .text, align 2, keep-with-next
+     43          float SquareRootFloat(float number)
+     44          {
+   \                     SquareRootFloat: (+1)
+   \   00000000   0xB081             SUB      SP,SP,#+4
+     45              long i;
+     46              float x, y;
+     47              const float f = 1.5F;
+   \   00000002   0xEEF7 0x1A08      VMOV.F32 S3,#1.5
+     48              x = number * 0.5F;
+   \   00000006   0xEEF6 0x0A00      VMOV.F32 S1,#0.5
+   \   0000000A   0xEE60 0x0A20      VMUL.F32 S1,S0,S1
+     49              y  = number;
+   \   0000000E   0xEEB0 0x1A40      VMOV.F32 S2,S0
+     50              i  = * ( long * ) &y;
+   \   00000012   0xED8D 0x1A00      VSTR     S2,[SP, #+0]
+     51              i  = 0x5f3759df - ( i >> 1 ); // È¡ºÏÀí³õÖµ // 0x5f375a86
+   \   00000016   0x....             LDR.N    R0,??DataTable4_2  ;; 0x5f3759df
+   \   00000018   0x9900             LDR      R1,[SP, #+0]
+   \   0000001A   0xEBB0 0x0061      SUBS     R0,R0,R1, ASR #+1
+   \   0000001E   0x9000             STR      R0,[SP, #+0]
+     52              y  = * ( float * ) &i;
+   \   00000020   0xED9D 0x1A00      VLDR     S2,[SP, #+0]
+     53              y  = y * ( f - ( x * y * y ) ); // ¿ÉÒÔÊÊµ±Ôö¼Ó // y Îª ¸ùºÅÏÂ(number)
+   \   00000024   0xEE20 0x2A81      VMUL.F32 S4,S1,S2
+   \   00000028   0xEEF0 0x2A61      VMOV.F32 S5,S3
+   \   0000002C   0xEE42 0x2A41      VMLS.F32 S5,S4,S2
+   \   00000030   0xEE22 0x1A81      VMUL.F32 S2,S5,S2
+     54              y  = y * ( f - ( x * y * y ) );
+   \   00000034   0xEE20 0x2A81      VMUL.F32 S4,S1,S2
+   \   00000038   0xEEF0 0x2A61      VMOV.F32 S5,S3
+   \   0000003C   0xEE42 0x2A41      VMLS.F32 S5,S4,S2
+   \   00000040   0xEE22 0x1A81      VMUL.F32 S2,S5,S2
+     55              y  = y * ( f - ( x * y * y ) );
+   \   00000044   0xEE60 0x0A81      VMUL.F32 S1,S1,S2
+   \   00000048   0xEE40 0x1AC1      VMLS.F32 S3,S1,S2
+   \   0000004C   0xEE21 0x1A81      VMUL.F32 S2,S3,S2
+     56              return number * y;
+   \   00000050   0xEE20 0x0A01      VMUL.F32 S0,S0,S2
+   \   00000054   0xB001             ADD      SP,SP,#+4
+   \   00000056   0x4770             BX       LR               ;; return
+     57          }
+     58          
+
+   \                                 In section .text, align 2, keep-with-next
+     59          float SquareRootBedivFloat(float number)
+     60          {
+   \                     SquareRootBedivFloat: (+1)
+   \   00000000   0xB081             SUB      SP,SP,#+4
+     61              long i;
+     62              float x, y;
+     63              const float f = 1.5F;
+   \   00000002   0xEEB7 0x1A08      VMOV.F32 S2,#1.5
+     64              x = number * 0.5F;
+   \   00000006   0xEEF6 0x0A00      VMOV.F32 S1,#0.5
+   \   0000000A   0xEE60 0x0A20      VMUL.F32 S1,S0,S1
+     65              y  = number;
+     66              i  = * ( long * ) &y;
+   \   0000000E   0xED8D 0x0A00      VSTR     S0,[SP, #+0]
+     67              i  = 0x5f3759df - ( i >> 1 ); // È¡ºÏÀí³õÖµ // 0x5f375a86
+   \   00000012   0x....             LDR.N    R0,??DataTable4_2  ;; 0x5f3759df
+   \   00000014   0x9900             LDR      R1,[SP, #+0]
+   \   00000016   0xEBB0 0x0061      SUBS     R0,R0,R1, ASR #+1
+   \   0000001A   0x9000             STR      R0,[SP, #+0]
+     68              y  = * ( float * ) &i;
+   \   0000001C   0xED9D 0x0A00      VLDR     S0,[SP, #+0]
+     69              y  = y * ( f - ( x * y * y ) ); // ¿ÉÒÔÊÊµ±Ôö¼Ó // y Îª ¸ùºÅÏÂ(number)
+   \   00000020   0xEE60 0x1A80      VMUL.F32 S3,S1,S0
+   \   00000024   0xEEB0 0x2A41      VMOV.F32 S4,S2
+   \   00000028   0xEE01 0x2AC0      VMLS.F32 S4,S3,S0
+   \   0000002C   0xEE22 0x0A00      VMUL.F32 S0,S4,S0
+     70              y  = y * ( f - ( x * y * y ) );
+   \   00000030   0xEE60 0x1A80      VMUL.F32 S3,S1,S0
+   \   00000034   0xEEB0 0x2A41      VMOV.F32 S4,S2
+   \   00000038   0xEE01 0x2AC0      VMLS.F32 S4,S3,S0
+   \   0000003C   0xEE22 0x0A00      VMUL.F32 S0,S4,S0
+     71              y  = y * ( f - ( x * y * y ) );
+   \   00000040   0xEE60 0x0A80      VMUL.F32 S1,S1,S0
+   \   00000044   0xEE00 0x1AC0      VMLS.F32 S2,S1,S0
+   \   00000048   0xEE21 0x0A00      VMUL.F32 S0,S2,S0
+     72              return y;
+   \   0000004C   0xB001             ADD      SP,SP,#+4
+   \   0000004E   0x4770             BX       LR               ;; return
+     73          }
+     74          
+
+   \                                 In section .text, align 2, keep-with-next
+     75          void v_Disable_ControlProcess()
+     76          {
+     77              m_system.control_isDone = 0;//¹Ø±Õ
+   \                     v_Disable_ControlProcess: (+1)
+   \   00000000   0x....             LDR.N    R0,??DataTable4_3
+   \   00000002   0x2100             MOVS     R1,#+0
+   \   00000004   0x7441             STRB     R1,[R0, #+17]
+     78          }
+   \   00000006   0x4770             BX       LR               ;; return
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4:
+   \   00000000   0x........         DC32     ??magic
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_1:
+   \   00000000   0x........         DC32     ??magic_1
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_2:
+   \   00000000   0x5F3759DF         DC32     0x5f3759df
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_3:
+   \   00000000   0x........         DC32     m_system
+     79          /*
+     80          //#pragma inline
+     81          sint16 _camera_10_to_8( sint16 n)
+     82          {////-n*n/4096 + n/2 => (-n*n + n*2048)/4096
+     83              sint16 result = 0;
+     84              asm("smlal %0, %1, %2, %3" : "=r" (result) : "r" (0), "r" (n), "r" (-n) );
+     85              asm("smlal %0, %1, %2, %3" : "=r" (result) : "r" (0), "r" (n), "r" (2048) );
+     86              asm("sdiv %0, %1, %2" : "=r" (result) : "r" (result), "r" (4096) );
+     87              return(result);
+     88          }
+     89          */
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       0   RoundToInt32
+      16   RoundToInt64
+        16   -> __aeabi_dadd
+       4   SquareRootBedivFloat
+       4   SquareRootFloat
+       0   v_Disable_ControlProcess
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable4
+       4  ??DataTable4_1
+       4  ??DataTable4_2
+       4  ??DataTable4_3
+      20  RoundToInt32
+      34  RoundToInt64
+      80  SquareRootBedivFloat
+      88  SquareRootFloat
+       4  magic
+       8  magic
+       2  number_ServoGraduated
+       8  v_Disable_ControlProcess
+
+ 
+  12 bytes in section .data
+   2 bytes in section .rodata
+ 246 bytes in section .text
+ 
+ 246 bytes of CODE  memory
+   2 bytes of CONST memory
+  12 bytes of DATA  memory
+
+Errors: none
+Warnings: none

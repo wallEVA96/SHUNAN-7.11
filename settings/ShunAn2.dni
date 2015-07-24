@@ -1,0 +1,83 @@
+[InterruptLog]
+LogEnabled=0
+SumEnabled=0
+GraphEnabled=0
+ShowTimeLog=1
+ShowTimeSum=1
+SumSortOrder=0
+[DataLog]
+LogEnabled=0
+SumEnabled=0
+GraphEnabled=0
+ShowTimeLog=1
+ShowTimeSum=1
+[Stack]
+FillEnabled=0
+OverflowWarningsEnabled=1
+WarningThreshold=90
+SpWarningsEnabled=1
+WarnLogOnly=1
+UseTrigger=1
+TriggerName=main
+LimitSize=0
+ByteLimit=50
+[Interrupts]
+Enabled=1
+[MemoryMap]
+Enabled=0
+Base=0
+UseAuto=0
+TypeViolation=1
+UnspecRange=1
+ActionState=1
+[DebugChecksum]
+Checksum=1549735954
+[Exceptions]
+StopOnUncaught=_ 0
+StopOnThrow=_ 0
+[CallStack]
+ShowArgs=0
+[Disassembly]
+MixedMode=1
+[JLinkDriver]
+CStepIntDis=_ 0
+TraceBufferSize=0x00010000
+TraceStallIfFIFOFull=0x00000000
+TracePortSize=0x00000004
+[watch_formats]
+Fmt0={W}0:Trk.left1[Trk.currentLeft1]	3	0
+Fmt1={W}0:i	3	0
+[TermIOLog]
+LoggingEnabled=_ 0
+LogFile=_ ""
+[Trace1]
+Enabled=0
+ShowSource=1
+[CallStackLog]
+Enabled=0
+[DriverProfiling]
+Enabled=0
+Mode=1
+Graph=0
+Symbiont=0
+Exclusions=
+[Log file]
+LoggingEnabled=_ 0
+LogFile=_ ""
+Category=_ 0
+[Disassemble mode]
+mode=0
+[Breakpoints2]
+Count=0
+[Aliases]
+A0=_ "E:\快盘\2014小车\小车程序\顺暗2号_重生工程\顺暗2号_重生(横+竖CCD,主控板第11、12、13代,2014年5月28号)\Library\arm_cm4.c" ""
+A1=_ "E:\快盘\2014小车\小车程序\顺暗2号_重生工程\顺暗2号_重生(横+竖CCD,主控板第11、12、13代,2014年5月28号)\ShunAn2\GR_Bluetoothx11_12.c" ""
+A2=_ "E:\快盘\2014小车\小车程序\顺暗2号_重生工程\顺暗2号_重生(横+竖CCD,主控板第11、12、13代,2014年5月28号)\ShunAn2\GR_Gyroscope.c" ""
+A3=_ "E:\快盘\2014小车\小车程序\顺暗2号_重生工程\顺暗2号_重生(横+竖CCD,主控板第11、12、13代,2014年5月28号)\ShunAn2\GR_Infraredx11_12.c" ""
+A4=_ "E:\快盘\2014小车\小车程序\顺暗2号_重生工程\顺暗2号_重生(横+竖CCD,主控板第11、12、13代,2014年5月28号)\ShunAn2\GR_OLEDx11_12.c" ""
+A5=_ "E:\快盘\2014小车\小车程序\顺暗2号_重生工程\顺暗2号_重生(横+竖CCD,主控板第11、12、13代,2014年5月28号)\ShunAn2\GodRecognitionx11_12.c" ""
+A6=_ "E:\快盘\2014小车\小车程序\顺暗2号_重生工程\顺暗2号_重生(横+竖CCD,主控板第11、12、13代,2014年5月28号)\ShunAn2\main.c" ""
+A7=_ "E:\快盘\2014小车\小车程序\顺暗2号_重生工程\顺暗2号_重生(横+竖CCD,主控板第11、12、13代,2014年5月28号)\ShunAn2\start_ShunAn.c" ""
+A8=_ "E:\快盘\2014小车\小车程序\顺暗2号_重生工程\顺暗2号_重生(横+竖CCD,主控板第11、12、13代,2014年5月28号)\ShunAn2\startup_ShunAn_K60FX512VLQ15.s" ""
+Count=9
+SuppressDialog=0
